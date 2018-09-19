@@ -1,0 +1,48 @@
+{
+  "name": "year/yii2-ui-kit",
+  "description": "ui kit Extension library for Yii2",
+  "type": "yii2-extension",
+  "keywords": [
+    "year",
+    "yii",
+    "yii2",
+    "yii 2",
+    "library",
+    "yii2-ui-kit"
+  ],
+  "homepage": "http://githum.com/year/ui-kit-library",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "yiqing",
+      "email": "yiqing-95@qq.com",
+      "homepage": "http://github.com/yiqing",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/year/ui-kit/issues",
+    "source": "https://github.com/year/ui-kit"
+  },
+  "require": {
+    "yiisoft/yii2": "*",
+    "bower-asset/uikit": "2.18.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "scrutinizer/ocular": "~1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "year\\uikit\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "asset-installer-paths": {
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}

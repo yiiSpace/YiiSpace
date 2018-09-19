@@ -1,0 +1,129 @@
+{
+    "name": "creocoder/yii2-app-ninja",
+    "description": "The ninja application template for the Yii framework",
+    "keywords": [
+        "yii2",
+        "framework",
+        "ninja",
+        "application template"
+    ],
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Alexander Kochetov",
+            "email": "creocoder@gmail.com"
+        }
+    ],
+	 "repositories":[
+        {
+            "type":"vcs",
+            "url":"https://github.com/deesoft/yii2-easyui"
+        },
+         {
+             "type":"vcs",
+             "url":"https://github.com/yiqing/yii2-export"
+         }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "dev-master",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "vlucas/phpdotenv": "~1.0",
+
+        "bower-asset/gumby": "~2.6.3",
+        "bower-asset/uikit": "~2.18.0",
+        "bower-asset/polymer": "~1.2.0",
+        "bower-asset/material-design-lite": "~1.0.6",
+
+        "gregwar/captcha":"~1.0.12",
+
+
+        "sansusan/yii2-easyui": "dev-master",
+
+        "creocoder/yii2-nested-sets": "0.9.*",
+        "kartik-v/yii2-tree-manager": "@dev",
+
+        "kartik-v/yii2-export": "dev-master",
+
+        "2amigos/yii2-semantic-ui": "dev-master",
+        "zelenin/yii2-semantic-ui": "*",
+
+        "filsh/yii2-oauth2-server": "*",
+
+        "bower-asset/twitter-bootstrap-wizard": "*",
+        "metalguardian/yii2-form-builder": "~1.0",
+
+        "wbraganca/yii2-dynamicform": "*",
+
+        "evaengine/eva-oauth": "~1.0",
+
+        "bazilio/yii2-stubs-generator": "*",
+        "kartik-v/yii2-grid": "@dev",
+        "pda/pheanstalk": "^3.0",
+        "webmaxx/yii2-materialize": "^1.0",
+        "dektrium/yii2-user": "0.9.*@dev",
+
+        "bazilio/yii2-async":"*",
+        "myweishanli/yii2-ssdb": "dev-master",
+
+        "yii2mod/yii2-rbac": "*",
+        "dektrium/yii2-rbac": "dev-master",
+        "yiier/yii2-rbac": "*",
+
+        "bluezed/yii2-scroll-top": "^1.0",
+
+        "repejota/nats": "dev-master",
+        "fusesource/stomp-php" : "2.0.*",
+        "php-amqplib/php-amqplib": "2.6.*",
+        "stomp-php/stomp-php": "^4.2",
+        "hightman/xunsearch": "*@beta"
+
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "dev-master",
+
+        "schmunk42/yii2-giiant":"dev-master",
+
+        "c006/yii2-migration-utility": "dev-master",
+
+        "yiisoft/yii2-apidoc": "*",
+
+        "phpdocumentor/phpdocumentor": "*",
+
+        "makroxyz/yii2-wizard": "dev-master",
+
+        "tebazil/yii2-db-seeder": "*",
+        "vova07/yii2-console-runner-extension": "*",
+
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-faker": "*",
+        "codeception/codeception": "2.0.*",
+        "codeception/specify": "*",
+        "codeception/verify": "*",
+        "alecsammon/php-raml-parser": "^2.1",
+        "fzaninotto/faker":"*"
+
+        ,"yiisoft/yii2-elasticsearch": "~2.0.0"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php -r \"chmod('yii', 0755);\"",
+            "yii key/generate"
+        ]
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,206 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 5
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\Module.php
+            [message] => No docblock for element 'my\news\backend\Module'
+        )
+
+    [1] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\Module.php
+            [message] => No docblock for element '$controllerNamespace'
+        )
+
+    [2] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\Module.php
+            [message] => No short description for element '$controllerNamespace'
+        )
+
+    [3] => Array
+        (
+            [line] => 9
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\Module.php
+            [message] => No docblock for element 'init'
+        )
+
+    [4] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\controllers\DefaultController.php
+            [message] => No docblock for element 'my\news\backend\controllers\DefaultController'
+        )
+
+    [5] => Array
+        (
+            [line] => 9
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\backend\controllers\DefaultController.php
+            [message] => No docblock for element 'actionIndex'
+        )
+
+    [6] => Array
+        (
+            [line] => 44
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\common\models\base\News.php
+            [message] => Method tableName has no parent to inherit from in my\news\common\models\base\News.
+        )
+
+    [7] => Array
+        (
+            [line] => 52
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\common\models\base\News.php
+            [message] => Method rules has no parent to inherit from in my\news\common\models\base\News.
+        )
+
+    [8] => Array
+        (
+            [line] => 69
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\common\models\base\News.php
+            [message] => Method attributeLabels has no parent to inherit from in my\news\common\models\base\News.
+        )
+
+    [9] => Array
+        (
+            [line] => 5
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\Module.php
+            [message] => No docblock for element 'my\news\frontend\Module'
+        )
+
+    [10] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\Module.php
+            [message] => No docblock for element '$controllerNamespace'
+        )
+
+    [11] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\Module.php
+            [message] => No short description for element '$controllerNamespace'
+        )
+
+    [12] => Array
+        (
+            [line] => 9
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\Module.php
+            [message] => No docblock for element 'init'
+        )
+
+    [13] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\controllers\DefaultController.php
+            [message] => No docblock for element 'my\news\frontend\controllers\DefaultController'
+        )
+
+    [14] => Array
+        (
+            [line] => 9
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\news\frontend\controllers\DefaultController.php
+            [message] => No docblock for element 'actionIndex'
+        )
+
+    [15] => Array
+        (
+            [line] => 5
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\Module.php
+            [message] => No docblock for element 'my\uitest\frontend\Module'
+        )
+
+    [16] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\Module.php
+            [message] => No docblock for element '$controllerNamespace'
+        )
+
+    [17] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\Module.php
+            [message] => No short description for element '$controllerNamespace'
+        )
+
+    [18] => Array
+        (
+            [line] => 9
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\Module.php
+            [message] => No docblock for element 'init'
+        )
+
+    [19] => Array
+        (
+            [line] => 14
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No docblock for element 'my\uitest\frontend\assets\AppUiKit'
+        )
+
+    [20] => Array
+        (
+            [line] => 16
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No docblock for element '$css'
+        )
+
+    [21] => Array
+        (
+            [line] => 16
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No short description for element '$css'
+        )
+
+    [22] => Array
+        (
+            [line] => 19
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No docblock for element '$js'
+        )
+
+    [23] => Array
+        (
+            [line] => 19
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No short description for element '$js'
+        )
+
+    [24] => Array
+        (
+            [line] => 21
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No docblock for element '$depends'
+        )
+
+    [25] => Array
+        (
+            [line] => 21
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No short description for element '$depends'
+        )
+
+    [26] => Array
+        (
+            [line] => 25
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\assets\AppUiKit.php
+            [message] => No docblock for element 'init'
+        )
+
+    [27] => Array
+        (
+            [line] => 7
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\controllers\DefaultController.php
+            [message] => No docblock for element 'my\uitest\frontend\controllers\DefaultController'
+        )
+
+    [28] => Array
+        (
+            [line] => 12
+            [file] => E:\yiqing-workspace\my-github\YiiSpace\my\uitest\frontend\controllers\DefaultController.php
+            [message] => No short description for element '$layout'
+        )
+
+)

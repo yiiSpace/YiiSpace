@@ -1,0 +1,1326 @@
+2015-08-05 08:55:29 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2-gii\Module.php(130): yii\di\ServiceLocator->__get('assetManager')
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2-gii\Module.php(119): yii\gii\Module->resetGlobalSettings()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(139): yii\gii\Module->beforeAction(Object(yii\base\InlineAction))
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('view', Array)
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('gii/default/vie...', Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#14 {main}
+2015-08-05 08:55:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'module'
+]
+
+$_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\gii\\module'
+    'PATH_INFO' => '/gii/module'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/gii/module'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65344'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/gii/module'
+    'REQUEST_TIME_FLOAT' => 1438764929.6789
+    'REQUEST_TIME' => 1438764929
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:29 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(71): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2-gii\Module.php(130): yii\di\ServiceLocator->__get('assetManager')
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2-gii\Module.php(119): yii\gii\Module->resetGlobalSettings()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(139): yii\gii\Module->beforeAction(Object(yii\base\InlineAction))
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('view', Array)
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('gii/default/vie...', Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#14 {main}
+2015-08-05 08:55:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'module'
+]
+
+$_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\gii\\module'
+    'PATH_INFO' => '/gii/module'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/gii/module'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65344'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/gii/module'
+    'REQUEST_TIME_FLOAT' => 1438764929.6789
+    'REQUEST_TIME' => 1438764929
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:29 [127.0.0.1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'module'
+]
+
+$_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\gii\\module'
+    'PATH_INFO' => '/gii/module'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/gii/module'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65344'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/gii/module'
+    'REQUEST_TIME_FLOAT' => 1438764929.6789
+    'REQUEST_TIME' => 1438764929
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:29 [127.0.0.1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'module'
+]
+
+$_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\gii\\module'
+    'PATH_INFO' => '/gii/module'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/gii/module'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65344'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/gii/module'
+    'REQUEST_TIME_FLOAT' => 1438764929.6789
+    'REQUEST_TIME' => 1438764929
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:34 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\'
+    'PATH_INFO' => '/'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/'
+    'REQUEST_TIME_FLOAT' => 1438764934.9328
+    'REQUEST_TIME' => 1438764934
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:34 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\'
+    'PATH_INFO' => '/'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/'
+    'REQUEST_TIME_FLOAT' => 1438764934.9328
+    'REQUEST_TIME' => 1438764934
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:55:35 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438764935.0188
+    'REQUEST_TIME' => 1438764935
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:55:35 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438764935.0188
+    'REQUEST_TIME' => 1438764935
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438764935.0188
+    'REQUEST_TIME' => 1438764935
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception (Invalid Configuration) 'yii\base\InvalidConfigException' with message 'The directory does not exist: F:/wito-workspace/witofan/storage/web/assets' 
+
+in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\AssetManager.php:166
+
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(362): ReflectionClass->newInstanceArgs(Array)
+#3 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('yii\\web\\AssetMa...', Array, Array)
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\\web\\AssetMa...', Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\di\ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\View.php(223): yii\base\Application->getAssetManager()
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Component.php(130): yii\web\View->getAssetManager()
+#9 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\panels\AssetPanel.php(53): yii\base\Component->__get('assetManager')
+#10 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(55): yii\debug\panels\AssetPanel->save()
+#11 F:\wito-workspace\witofan\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#12 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#13 F:\wito-workspace\witofan\vendor\yiisoft\yii2\log\Logger.php(170): yii\log\Dispatcher->dispatch(Array, true)
+#14 [internal function]: yii\log\Logger->flush(true)
+#15 {main}
+2015-08-05 08:55:35 [127.0.0.1][-][87f7n20f7qbh8qpknvh6k36ff6][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65349'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438764935.0188
+    'REQUEST_TIME' => 1438764935
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:57:16 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:57:16 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65378'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765036.2026
+    'REQUEST_TIME' => 1438765036
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:57:16 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:57:16 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65378'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765036.2026
+    'REQUEST_TIME' => 1438765036
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:57:26 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:57:26 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/site/index'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65385'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765046.4965
+    'REQUEST_TIME' => 1438765046
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:57:26 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: F:\wito-workspace\witofan\storage\views\site\login.php' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\wito-workspa...', Array, Object(backend\controllers\SiteController))
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\SiteController))
+#2 F:\wito-workspace\witofan\backend\controllers\SiteController.php(75): yii\base\Controller->render('login', Array)
+#3 [internal function]: backend\controllers\SiteController->actionLogin()
+#4 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#7 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#8 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#10 {main}
+2015-08-05 08:57:26 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/storage/web/index.php/site/index'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1680'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65385'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765046.4965
+    'REQUEST_TIME' => 1438765046
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:58:30 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: site/login' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#2 {main}
+2015-08-05 08:58:30 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65401'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765110.1805
+    'REQUEST_TIME' => 1438765110
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 08:58:30 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: site/login' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('site/login', Array)
+#2 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#2 {main}
+2015-08-05 08:58:30 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\site\\login'
+    'PATH_INFO' => '/site/login'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/site/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '65401'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/site/login'
+    'REQUEST_TIME_FLOAT' => 1438765110.1805
+    'REQUEST_TIME' => 1438765110
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 09:25:17 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "evathumber".' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php:461
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('evathumber', Array)
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#2 {main}
+2015-08-05 09:25:17 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\evathumber'
+    'PATH_INFO' => '/evathumber'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/evathumber'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50033'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/evathumber'
+    'REQUEST_TIME_FLOAT' => 1438766717.5781
+    'REQUEST_TIME' => 1438766717
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]
+2015-08-05 09:25:17 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "evathumber".' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Module.php:461
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('evathumber', Array)
+#1 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in F:\wito-workspace\witofan\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 F:\wito-workspace\witofan\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\wito-workspace\witofan\storage\web\index.php(31): yii\base\Application->run()
+#2 {main}
+2015-08-05 09:25:17 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    '_csrf' => '8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs:32:\"QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS\";'
+    'PHPSESSID' => '87f7n20f7qbh8qpknvh6k36ff6'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\ProgramData\\Lenovo\\ReadyApps;C:\\Program Files\\TortoiseGit\\bin;C:\\Go\\bin;C:\\Program Files (x86)\\Git\\bin;D:\\Visual-AMP-x64\\Bin\\PHP\\php-5.6.3-nts-Win32-VC11-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Lenovo\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files\\nodejs;C:\\Program Files (x86)\\Bazaar;C:\\Program Files\\TortoiseHg\\;C:\\Program Files\\Mercurial\\;C:\\Program Files\\TortoiseSVN\\bin;E:\\yiqing-go\\bin;D:\\HashiCorp\\Vagrant\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;'
+    'SYSTEMROOT' => 'C:\\windows'
+    'COMSPEC' => 'C:\\windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-5.6.3-nts-Win32-VC11-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '1528'
+    'PATH_TRANSLATED' => 'F:\\wito-workspace\\witofan\\evathumber'
+    'PATH_INFO' => '/evathumber'
+    'SCRIPT_NAME' => '/storage/web/index.php'
+    'REQUEST_URI' => '/storage/web/index.php/evathumber'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50033'
+    'SCRIPT_FILENAME' => 'F:/wito-workspace/witofan/storage/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/wito-workspace/witofan'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '86'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win64) mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => '_csrf=8805df9fa64ff4a705a6995db5adf3cce27bb2d876236032661d077dff7eb91cs%3A32%3A%22QT6Sv38GQaq9JQ47F83lcgKtsHfc92RS%22%3B; PHPSESSID=87f7n20f7qbh8qpknvh6k36ff6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0'
+    'HTTP_HOST' => '127.0.0.1:86'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/storage/web/index.php/evathumber'
+    'REQUEST_TIME_FLOAT' => 1438766717.5781
+    'REQUEST_TIME' => 1438766717
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yiispace'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG'
+]

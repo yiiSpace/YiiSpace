@@ -1,0 +1,1 @@
+- https://github.com/scottcheng/cropit   used for cropping image .
