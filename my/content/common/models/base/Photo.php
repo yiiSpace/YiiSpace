@@ -59,14 +59,7 @@ abstract class Photo extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['owner_id', 'album_id'], 'integer'],
-            [['desc'], 'string'],
-            [['uri'], 'required'],
-            [['title', 'uri', 'ext', 'size'], 'string', 'max' => 255],
-            [['hash'], 'string', 'max' => 32],
-            [['hash'], 'unique']
-        ];
+
     }
 
     /**

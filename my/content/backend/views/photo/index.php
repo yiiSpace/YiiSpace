@@ -34,12 +34,25 @@ $actionColumnTemplateString = '<div class="action-buttons">'.$actionColumnTempla
         ]), ['create','album_id'=>$searchModel->album_id], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?=  ListView::widget([
+    <?php /* ListView::widget([
     'dataProvider' => $dataProvider,
     'itemOptions' => ['class' => 'item'],
     'itemView' => function ($model, $key, $index, $widget) {
     return Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
     },
-    ]); ?>
+    ]); */
+
+    ?>
+
+    <?= \year\bootstrap\TbThumbListView::widget([
+        'col'=>3,
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => '_view'
+        /*
+        function ($model, $key, $index, $widget) {
+        return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+    }*/,
+    ]) ?>
 
 

@@ -42,7 +42,7 @@ use yii\helpers\StringHelper;
 
 
             <!-- attribute owner_id -->
-            <?= $form->field($model, 'owner_id')->textInput() ?>
+            <?php // $form->field($model, 'owner_id')->textInput() ?>
 
             <!-- attribute album_id -->
             <?= $form->field($model, 'album_id')->textInput() ?>
@@ -51,20 +51,21 @@ use yii\helpers\StringHelper;
             <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
 
             <!-- attribute uri -->
-
-            <?PHP echo $form->field($model, 'uri')->fileInput(['maxlength' => true]) ?>
+            <?PHP
+            // 修改时不出现此输入框
+            if($model->getIsNewRecord()) echo $form->field($model, 'uri')->fileInput(['maxlength' => true]) ?>
 
             <!-- attribute title -->
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
             <!-- attribute ext -->
-            <?= $form->field($model, 'ext')->textInput(['maxlength' => true]) ?>
+            <?php // $form->field($model, 'ext')->textInput(['maxlength' => true]) ?>
 
             <!-- attribute size -->
-            <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+            <?php // $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
 
             <!-- attribute hash -->
-            <?= $form->field($model, 'hash')->textInput(['maxlength' => true]) ?>
+            <?php // $form->field($model, 'hash')->textInput(['maxlength' => true]) ?>
         </p>
         <?php $this->endBlock(); ?>
 

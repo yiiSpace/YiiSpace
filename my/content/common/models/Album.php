@@ -12,6 +12,13 @@ use yii\helpers\ArrayHelper;
 class Album extends BaseAlbum
 {
 
+    public function getPhotos()
+    {
+        return $this->hasMany(\my\content\common\models\base\Photo::className(),[
+           'album_id'=>'id'
+        ]);
+    }
+
     public function behaviors()
     {
         return ArrayHelper::merge(
@@ -38,7 +45,12 @@ class Album extends BaseAlbum
             // return \Yii::$app->assetManager->getPublishedUrl('@admin/assets/my').'/images/album-cover.jpg';
             return 'http://temp.im/754x754/ccc' ;
         }
-        return $this->cover_uri ;
+        /**
+         * @var \year\upload\UploadStorageInterface $uploadStorage
+         */
+        $uploadStorage = \Yii::$app->get('uploadStorage');
+        $imgUrl = $uploadStorage->getPublicUrl($this->cover_uri);
+        return $imgUrl ;
     }
 
     /**

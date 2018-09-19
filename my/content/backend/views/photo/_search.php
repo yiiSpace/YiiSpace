@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
     'method' => 'get',
     ]); ?>
 
-    		<?= $form->field($model, 'id') ?>
+    		<?php // $form->field($model, 'id') ?>
 
-		<?= $form->field($model, 'owner_id') ?>
+		<?php // $form->field($model, 'owner_id') ?>
 
-		<?= $form->field($model, 'album_id') ?>
+		<?php // $form->field($model, 'album_id') ?>
     <?= $form->field($model, 'album_id')
         ->dropDownList(['' => '全部相册'] + \my\content\common\models\Album::forPhotoDropDownSelection(), []) ?>
 
