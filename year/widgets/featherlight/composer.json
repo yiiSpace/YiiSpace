@@ -1,0 +1,27 @@
+{
+  "name": "andrew72ru/yii2-featherlight",
+  "description": "noelboss/featherlight for yii-2",
+  "type": "yii2-extension",
+  "keywords": ["yii2","extension","featherlight","lightbox"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "andrew72ru",
+      "email": "andrew72ru@gmail.com"
+    },
+    {
+      "name": "yiqing",
+      "email": "yiqing_95@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "yiisoft/yii2": "*",
+    "bower-asset/featherlight": "1.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "year\\widgets\\featherlight\\": ""
+    }
+  }
+}

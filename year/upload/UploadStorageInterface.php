@@ -49,4 +49,12 @@ interface UploadStorageInterface {
      * @return bool|mixed
      */
     public function deleteFile($fileId='');
+
+    /**
+     * 本地文件|网络文件  的地址
+     *
+     * @param string $fileId
+     * @return string
+     */
+    public function getFilePath($fileId='') ;
 } 

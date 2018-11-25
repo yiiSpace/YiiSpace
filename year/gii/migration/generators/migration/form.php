@@ -51,7 +51,14 @@ echo $form->field($generator, 'tablePrefix');
 echo $form->field($generator, 'generateMigration')->checkbox();
 
 
-echo $form->field($generator, 'db');
+//echo $form->field($generator, 'db');
+/** @var \backend\components\DbMan $dbMan */
+$dbMan = Yii::$app->get('dbMan') ;
+$dbIds = array_map(function($item){
+    return 'db_'.$item ;
+} , $dbMan->getDatabases()) ;
+$dbList = ['db'=>'db','db2'=>'db2'] + array_combine($dbIds,$dbMan->getDatabases());
+echo $form->field($generator, 'db')->dropDownList($dbList,[]);
 
 ?>
 

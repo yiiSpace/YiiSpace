@@ -431,6 +431,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
+     * @TODO  这里做的高级点 允许程序员从界面上选择某个字段对应的 生成器类型！
      *
      * Generates the properties for the specified table.
      * @param \yii\db\TableSchema $table the table schema

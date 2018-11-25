@@ -11,6 +11,7 @@ namespace api\controllers;
 
 use year\db\DynamicActiveRecord;
 use yii\rest\ActiveController;
+use yii\web\HttpException;
 use yii\web\Response;
 
 const  REST_TABLE_NAME = '__rest_table_name__';
@@ -57,7 +58,7 @@ class QuickController extends ActiveController
             DynamicActiveRecord::setTableName($tableName);
 
         } else {
-            DynamicActiveRecord::setTableName('admin_menu');
+            DynamicActiveRecord::setTableName('user');
         }
 
         return parent::beforeAction($action);
@@ -128,12 +129,17 @@ class QuickController extends ActiveController
                 $result =  \Yii::$app->runAction('quick/update',['id'=>$id]) ;
                 break;
 
+            case 'PUT':
+                $result =  \Yii::$app->runAction('quick/update',['id'=>$id]) ;
+                break;
+
             case 'DELETE':
                 $result =  \Yii::$app->runAction('quick/delete',['id'=>$id]) ;
                 break;
 
             default:
-                echo "No number between 1 and 3";
+//                 echo "No number between 1 and 3";
+                throw  new HttpException('can not handle the request by this server at '.__FILE__) ;
         }
           //  return array_keys($result) ;
           return ($result) ;

@@ -21,7 +21,8 @@ use yii\helpers\StringHelper;
     'enableClientValidation' => true,
     'errorSummaryCssClass' => 'error-summary alert alert-danger',
     'fieldConfig' => [
-             'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+             'template' => "{label}\n{beginWrapper}\n{input}\n{error}\n{endWrapper}",
+//             'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
              'horizontalCssClasses' => [
                  'label' => 'col-sm-2',
                  #'offset' => 'col-sm-offset-4',

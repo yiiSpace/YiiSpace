@@ -5698,3 +5698,2767 @@ $_SERVER = [
     'DB_PASSWORD' => ''
     'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
 ]
+2018-11-23 00:39:22 [127.0.0.1][-][-][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email' in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php:1290
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1290): PDOStatement->execute()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT) in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php:664
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'user_unique_email'
+)
+
+2018-11-23 00:39:22 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '63248'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '409'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542933562.1661
+    'REQUEST_TIME' => 1542933562
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 00:39:44 [127.0.0.1][-][-][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email' in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php:1290
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1290): PDOStatement->execute()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT) in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php:664
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'user_unique_email'
+)
+
+2018-11-23 00:39:44 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '63358'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '409'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542933583.9606
+    'REQUEST_TIME' => 1542933583
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 00:40:04 [127.0.0.1][-][-][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email' in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php:1290
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1290): PDOStatement->execute()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT) in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php:664
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'user_unique_email'
+)
+
+2018-11-23 00:40:04 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '63461'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '409'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542933604.5273
+    'REQUEST_TIME' => 1542933604
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 01:14:07 [127.0.0.1][-][-][error][yii\db\IntegrityException] PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email' in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php:1290
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1290): PDOStatement->execute()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+
+Next yii\db\IntegrityException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'user_unique_email'
+The SQL being executed was: INSERT INTO `user` (`id`) VALUES (DEFAULT) in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php:664
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1295): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Command.php(1091): yii\db\Command->internalExecute('INSERT INTO `us...')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\Schema.php(433): yii\db\Command->execute()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(549): yii\db\Schema->insert('user', Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\ActiveRecord.php(515): yii\db\ActiveRecord->insertInternal(NULL)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\db\BaseActiveRecord.php(678): yii\db\ActiveRecord->insert(true, NULL)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(52): yii\db\BaseActiveRecord->save()
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+Additional Information:
+Array
+(
+    [0] => 23000
+    [1] => 1062
+    [2] => Duplicate entry '' for key 'user_unique_email'
+)
+
+2018-11-23 01:14:06 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '57201'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '400'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542935646.4687
+    'REQUEST_TIME' => 1542935646
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 01:29:15 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] yii\base\InvalidConfigException: Invalid validation rule: a rule must specify both attribute names and validator type. in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php:471
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(420): yii\base\Model->createValidators()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(189): yii\base\Model->getValidators()
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(795): yii\base\Model->scenarios()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(739): yii\base\Model->safeAttributes()
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(867): yii\base\Model->setAttributes(Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(51): yii\base\Model->load(Array, '')
+#6 [internal function]: yii\rest\CreateAction->run()
+#7 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#12 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#20 {main}
+2018-11-23 01:29:15 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '62024'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '400'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542936555.4381
+    'REQUEST_TIME' => 1542936555
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 01:47:39 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected ']', expecting '(' in E:\yiqing-workspace\my-github\YiiSpace\year\db\DynamicActiveRecord.php(64) : eval()'d code:1
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(464): year\db\DynamicActiveRecord->rules()
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(420): yii\base\Model->createValidators()
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(189): yii\base\Model->getValidators()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(795): yii\base\Model->scenarios()
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(739): yii\base\Model->safeAttributes()
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Model.php(867): yii\base\Model->setAttributes(Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\CreateAction.php(51): yii\base\Model->load(Array, '')
+#7 [internal function]: yii\rest\CreateAction->run()
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/create', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(124): api\base\Application->runAction('quick/create')
+#13 [internal function]: api\controllers\QuickController->actionTest('user', '')
+#14 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#17 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#18 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#19 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#20 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#21 {main}
+2018-11-23 01:47:39 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '51609'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '400'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542937659.553
+    'REQUEST_TIME' => 1542937659
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:07:01 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 12 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('12')
+#1 [internal function]: yii\rest\ViewAction->run('12')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('quick/view', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#9 {main}
+2018-11-23 02:07:01 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '12'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/quick/view?id=12'
+    'QUERY_STRING' => 'id=12'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=12'
+    'REDIRECT_URL' => '/YiiSpace/api/web/quick/view'
+    'REMOTE_PORT' => '57405'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542938821.0656
+    'REQUEST_TIME' => 1542938821
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:08:09 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 13 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('13')
+#1 [internal function]: yii\rest\ViewAction->run('13')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('quick/view', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#9 {main}
+2018-11-23 02:08:09 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '13'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/quick/view?id=13'
+    'QUERY_STRING' => 'id=13'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=13'
+    'REDIRECT_URL' => '/YiiSpace/api/web/quick/view'
+    'REMOTE_PORT' => '57761'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542938889.4973
+    'REQUEST_TIME' => 1542938889
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:13:48 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "/quick/test/13". in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test/13', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test/13', Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: 页面未找到。 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#2 {main}
+2018-11-23 02:13:48 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test/13'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test/13'
+    'REMOTE_PORT' => '59514'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939228.2548
+    'REQUEST_TIME' => 1542939228
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:14:33 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "/quick/test/13". in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test/13', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test/13', Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: 页面未找到。 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#2 {main}
+2018-11-23 02:14:33 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test/13'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test/13'
+    'REMOTE_PORT' => '59732'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939273.7888
+    'REQUEST_TIME' => 1542939273
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:15:11 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "/quick/test/13". in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test/13', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test/13', Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: 页面未找到。 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#2 {main}
+2018-11-23 02:15:11 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test/13'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test/13'
+    'REMOTE_PORT' => '59954'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939311.0785
+    'REQUEST_TIME' => 1542939311
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:15:48 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "/quick/test/13". in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test/13', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test/13', Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: 页面未找到。 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#2 {main}
+2018-11-23 02:15:48 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test/13'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test/13'
+    'REMOTE_PORT' => '60165'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939348.3375
+    'REQUEST_TIME' => 1542939348
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:21:19 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 13 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('13')
+#1 [internal function]: yii\rest\DeleteAction->run('13')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '13')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 02:21:19 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '13'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2804'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=13'
+    'QUERY_STRING' => 'id=13'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=13'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '61869'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939679.7298
+    'REQUEST_TIME' => 1542939679
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:22:39 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 13 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('13')
+#1 [internal function]: yii\rest\DeleteAction->run('13')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '13')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 02:22:39 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '13'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=13'
+    'QUERY_STRING' => 'id=13'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=13'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '62287'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542939759.8089
+    'REQUEST_TIME' => 1542939759
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:27:06 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 13 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('13')
+#1 [internal function]: yii\rest\DeleteAction->run('13')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '13')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 02:27:06 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '13'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=13'
+    'QUERY_STRING' => 'id=13'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=13'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '63697'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542940026.2565
+    'REQUEST_TIME' => 1542940026
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:34:45 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 02:34:45 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '49734'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542940485.0686
+    'REQUEST_TIME' => 1542940485
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 02:35:23 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 02:35:23 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.2.5-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2800'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '49934'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542940523.8075
+    'REQUEST_TIME' => 1542940523
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:20:47 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:20:46 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '55429'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542975646.6046
+    'REQUEST_TIME' => 1542975646
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:21:03 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:21:03 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '55527'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542975662.8253
+    'REQUEST_TIME' => 1542975662
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:22:28 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\ViewAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(117): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:22:28 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '55964'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542975747.9505
+    'REQUEST_TIME' => 1542975747
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:22:29 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:22:28 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '55974'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542975748.6929
+    'REQUEST_TIME' => 1542975748
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:26:04 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:26:03 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '57092'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542975963.4055
+    'REQUEST_TIME' => 1542975963
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-23 12:27:59 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(132): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-23 12:27:59 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '57664'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1542976079.3858
+    'REQUEST_TIME' => 1542976079
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 02:25:30 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\ViewAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(117): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 02:25:30 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '57721'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543026330.2803
+    'REQUEST_TIME' => 1543026330
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 02:28:00 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\ViewAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(117): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 02:28:00 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '58494'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543026479.9415
+    'REQUEST_TIME' => 1543026479
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 02:33:12 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\ViewAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(117): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 02:33:12 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '60148'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543026792.1109
+    'REQUEST_TIME' => 1543026792
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 02:37:04 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "/quick/test/34". in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test/34', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test/34', Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: 页面未找到。 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#2 {main}
+2018-11-24 02:37:03 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test/34'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'PUT'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test/34'
+    'REMOTE_PORT' => '61362'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'CONTENT_LENGTH' => '299'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'CONTENT_TYPE' => 'application/json;charset=utf-8'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543027023.494
+    'REQUEST_TIME' => 1543027023
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 06:20:10 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 48 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('48')
+#1 [internal function]: yii\rest\ViewAction->run('48')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '48')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 06:20:09 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '48'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=48'
+    'QUERY_STRING' => 'id=48'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=48'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '53615'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543040409.2127
+    'REQUEST_TIME' => 1543040409
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 06:23:45 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 49 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('49')
+#1 [internal function]: yii\rest\ViewAction->run('49')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '49')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 06:23:45 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '49'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=49'
+    'QUERY_STRING' => 'id=49'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=49'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '54772'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543040625.1809
+    'REQUEST_TIME' => 1543040625
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 06:24:23 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 49 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('49')
+#1 [internal function]: yii\rest\DeleteAction->run('49')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(137): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '49')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 06:24:22 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '49'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity-backend' => 'b3f2c70235fffeadbf757fe58604507ea49fdad8dcada2b958a30e6f8395274ea:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"z6lrwixmdNF4VqtkXw6z-3vMZdSdngm2\",2592000]\";}'
+    'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79' => '1541211820'
+    'ecjia_admin_token' => 'ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff'
+    'admin_login_referer' => 'http://127.0.0.1:30009/index.php?m=admincp'
+    'ecjia_token' => 'a004b8d34ff73a8995e4f012a42d41e755327f07'
+    'Hm_lvt_45572e750ba4de1ede0e776212b5f6cd' => '1541215623'
+    'ECJAP' => [
+        'admin_id' => '1'
+        'admin_pass' => '09f6a41c84daba472683ff1dc26dc96b'
+    ]
+    '_csrf' => 'f82f721a6c1c57a55ac712a2f18bcec6d3dca9eaac85f58c3ea8b4627f98ca13a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ohOJuTZRBdfOhjPgyJrceAmBzP0-IVYm\";}'
+    'PHPSESSID' => 'decb7alldap6v9fk9gdtms6v3o'
+    '_identity' => '89340448dbeafcaae52432a01890929d5da4768010893c9d33966b529b5f37eaa:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/quick/test?id=49'
+    'QUERY_STRING' => 'id=49'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=49'
+    'REDIRECT_URL' => '/YiiSpace/api/web/quick/test'
+    'REMOTE_PORT' => '54957'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_COOKIE' => '_identity-backend=b3f2c70235fffeadbf757fe58604507ea49fdad8dcada2b958a30e6f8395274ea%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22z6lrwixmdNF4VqtkXw6z-3vMZdSdngm2%22%2C2592000%5D%22%3B%7D; Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79=1541211820; ecjia_admin_token=ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff; admin_login_referer=http%3A%2F%2F127.0.0.1%3A30009%2Findex.php%3Fm%3Dadmincp; ecjia_token=a004b8d34ff73a8995e4f012a42d41e755327f07; Hm_lvt_45572e750ba4de1ede0e776212b5f6cd=1541215623; ECJAP[admin_id]=1; ECJAP[admin_pass]=09f6a41c84daba472683ff1dc26dc96b; _csrf=f82f721a6c1c57a55ac712a2f18bcec6d3dca9eaac85f58c3ea8b4627f98ca13a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ohOJuTZRBdfOhjPgyJrceAmBzP0-IVYm%22%3B%7D; PHPSESSID=decb7alldap6v9fk9gdtms6v3o; _identity=89340448dbeafcaae52432a01890929d5da4768010893c9d33966b529b5f37eaa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'close'
+    'CONTENT_LENGTH' => '612'
+    'HTTP_ORIGIN' => 'moz-extension://790b8176-c4d2-4fdc-b406-700772f4d493'
+    'CONTENT_TYPE' => 'application/json'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543040662.5357
+    'REQUEST_TIME' => 1543040662
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-24 07:23:53 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: undefined in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\DeleteAction.php(30): yii\rest\Action->findModel('undefined')
+#1 [internal function]: yii\rest\DeleteAction->run('undefined')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('delete', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/delete', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(137): api\base\Application->runAction('quick/delete', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', 'undefined')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-24 07:23:52 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => 'undefined'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=undefined'
+    'QUERY_STRING' => 'id=undefined'
+    'REQUEST_METHOD' => 'DELETE'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=undefined'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '59501'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'HTTP_USER_AGENT' => 'axios/0.16.2'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCESS_CONTROL_ALLOW_ORIGIN' => '*'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543044232.5868
+    'REQUEST_TIME' => 1543044232
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-25 03:22:42 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 65 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('65')
+#1 [internal function]: yii\rest\ViewAction->run('65')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '65')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-25 03:22:42 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '65'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=65'
+    'QUERY_STRING' => 'id=65'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=65'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '53338'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543116161.9048
+    'REQUEST_TIME' => 1543116161
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-25 03:24:15 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 66 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('66')
+#1 [internal function]: yii\rest\ViewAction->run('66')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '66')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-25 03:24:15 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '66'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2912'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=66'
+    'QUERY_STRING' => 'id=66'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=66'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '53838'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543116255.1675
+    'REQUEST_TIME' => 1543116255
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-25 05:20:21 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 67 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('67')
+#1 [internal function]: yii\rest\ViewAction->run('67')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '67')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-25 05:20:20 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '67'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=67'
+    'QUERY_STRING' => 'id=67'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=67'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '59114'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543123220.1207
+    'REQUEST_TIME' => 1543123220
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-11-25 05:20:37 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Object not found: 68 in E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\Action.php:104
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\rest\ViewAction.php(29): yii\rest\Action->findModel('68')
+#1 [internal function]: yii\rest\ViewAction->run('68')
+#2 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('quick/view', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\controllers\QuickController.php(118): api\base\Application->runAction('quick/view', Array)
+#7 [internal function]: api\controllers\QuickController->actionTest('user', '68')
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#11 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(146): yii\base\Module->runAction('/quick/test', Array)
+#12 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('/quick/test', Array)
+#13 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+2018-11-25 05:20:37 [127.0.0.1][-][-][info][application] $_GET = [
+    'id' => '68'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '888'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web//quick/test?id=68'
+    'QUERY_STRING' => 'id=68'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'id=68'
+    'REDIRECT_URL' => '/YiiSpace/api/web//quick/test'
+    'REMOTE_PORT' => '59225'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_USER_AGENT' => 'node-superagent/3.8.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543123237.3451
+    'REQUEST_TIME' => 1543123237
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]

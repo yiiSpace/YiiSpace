@@ -8,6 +8,7 @@
 namespace year\upload\local;
 
 
+use year\upload\local\urladapter\EvaThumber;
 use year\upload\UploadStorageInterface;
 use yii\base\Component;
 use yii\base\Exception;
@@ -24,9 +25,26 @@ class UploadStorage extends Component implements UploadStorageInterface
 {
 
     /**
+     * @var \year\upload\local\UrlAdapter
+     */
+    public $urlAdapter = '\year\upload\local\urladapter\EvaThumber';
+
+    /**
+     * @return EvaThumber
+     */
+    public  function getUrlAdapter()
+    {
+        // TODO 做个静态缓存
+        return \Yii::createObject([
+            'class'=>$this->urlAdapter,
+            'uploadStorage'=>$this ,
+        ]);
+    }
+
+    /**
      * @var string
      *
-     * Yii::get
+     * Yii::GET
      *
      */
     public $basePath;
@@ -138,7 +156,8 @@ class UploadStorage extends Component implements UploadStorageInterface
     public function getPublicUrl($fileId = '')
     {
 
-        return $this->getBaseUrl() . '/' . ltrim($fileId, '/');
+       return $this->getUrlAdapter()->getPublicUrl($fileId) ;
+        //  return $this->getBaseUrl() . '/' . ltrim($fileId, '/');
     }
 
     /**
@@ -164,6 +183,8 @@ class UploadStorage extends Component implements UploadStorageInterface
     }
 
     /**
+     * FIXME 或许不必检测basePath 是可写的？
+     *
      * @param string $basePath
      * @param string $dir
      * @throws \Exception
@@ -171,10 +192,24 @@ class UploadStorage extends Component implements UploadStorageInterface
     protected function ensureDirPath($basePath = '', $dir = '')
     {
         $newDir = $basePath . DIRECTORY_SEPARATOR . $dir;
+        /*
         if (!file_exists($newDir) && is_writable($basePath)) {
-            if (mkdir($newDir, 0755, true) == false) {
+           // if (mkdir($newDir, 0755, true) == false) {
+            if (mkdir($newDir, 0777, true) == false) {
                 throw new \Exception(sprintf('dir < %s > can not be created ! please check your permission !', $newDir));
             }
+        }
+        */
+        if ( is_writable($basePath)) {
+            if(! file_exists($newDir) ){
+                // if (mkdir($newDir, 0755, true) == false) {
+                if (mkdir($newDir, 0777, true) == false) {
+                    throw new \Exception(sprintf('dir < %s > can not be created ! please check your permission !', $newDir));
+                }
+            }
+        }
+        else{
+            throw new \Exception(sprintf('dir < %s > is not writable !', $basePath));
         }
     }
 
@@ -230,7 +265,8 @@ class UploadStorage extends Component implements UploadStorageInterface
      */
     public function getThumbUrl($imageUrI, $height, $width = 0, $extraConfig = [])
     {
-
+          return $this->getUrlAdapter()->getThumbUrl($imageUrI,$height,$width,$extraConfig) ;
+        /*
         $thumbUrlHandlerRoute = 'uploads/thumbs/';
         if ($width == 0) {
             $width = $height;
@@ -242,6 +278,7 @@ class UploadStorage extends Component implements UploadStorageInterface
         }
         //$thumbUrl = $thumbUrlHandlerRoute .'/'.ltrim($sourceImgUrl)."_{$height}x{$width}.{$suffix}";
         return $this->getPublicUrl($imageUrI) . "_{$height}x{$width}.{$suffix}";
+        */
     }
 
 
@@ -255,5 +292,14 @@ class UploadStorage extends Component implements UploadStorageInterface
         if(is_file($filePath)){
             return unlink($filePath) ;
         }
+    }
+
+    /**
+     * @param string $fileId
+     * @return string
+     */
+    public function getFilePath($fileId=''){
+        $filePath = $this->getBasePath() .DIRECTORY_SEPARATOR .str_replace( '/',DIRECTORY_SEPARATOR, $fileId);  ;
+        return $filePath ;
     }
 }

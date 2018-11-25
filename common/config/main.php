@@ -27,8 +27,20 @@ $config = [
         [
             'class' => 'year\gii\migration\Bootstrap',   // migration 代码生成
         ],
+        [
+            'class' => 'year\gii\nodetest\Bootstrap',   // 测试 代码生成
+        ],
     ],
     'components' => [
+        'uploadStorage' => [
+            'class' => 'year\upload\local\UploadStorage', // UploadStorage::className() , //
+            'baseDirName' => 'upload',
+            // 'basePath'=> dirname( \Yii::$app->getBasePath() ).DIRECTORY_SEPARATOR .'storage/EvaThumber' ,
+            'basePath' => dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'storage/EvaThumber',
+//             'baseUrl'=>'http://127.0.0.1:86/storage/EvaThumber',
+             'baseUrl'=>'http://127.0.0.1:5000/YiiSpace/storage/EvaThumber',
+            // 'baseUrl' => rtrim($params['thumber'],'/'),
+        ],
         'i18n' => [
             'translations' => [
                 '*' => [

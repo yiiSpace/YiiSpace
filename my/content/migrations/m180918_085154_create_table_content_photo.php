@@ -30,6 +30,9 @@ class m180918_085154_create_table_content_photo extends Migration
            // 'status' => $this->string()->notNull()->defaultValue('pending'),
             'hash' => $this->string(32)->notNull()->defaultValue('')->comment('图片哈希'),
 
+            // ordering|pos|sort
+            'position' => $this->integer()->unsigned()->defaultValue(0)->comment('顺序'),
+
             'created_at' => $this->integer()->unsigned()->comment('创建时间'),
             'updated_at' => $this->integer()->unsigned()->comment('更新时间'),
 

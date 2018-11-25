@@ -80,7 +80,12 @@
         , "bizley/migration": "dev-master",
         "jimdo/prometheus_client_php": "^0.9.1",
         "loveorigami/yii2-plugins-system": "*",
-        "2amigos/yii2-file-upload-widget": "~1.0"
+        "2amigos/yii2-file-upload-widget": "~1.0",
+        "2amigos/yii2-gallery-widget": "~1.0",
+        "powerkernel/yii2-photoswipe": "*",
+        "romi45/yii2-seo-behavior": "~1.0",
+        "creocoder/yii2-taggable": "~2.0",
+        "vova07/yii2-imperavi-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

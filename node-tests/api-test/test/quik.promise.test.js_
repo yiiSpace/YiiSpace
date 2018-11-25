@@ -1,0 +1,160 @@
+const axios = require('axios')
+const {expect} = require('chai')
+
+const config = require('../config.js')
+require('../utils/array.js')()   // 执行数组的扩展
+
+
+const baseUrl = config.api_base_url
+
+const db = require('./fixtures/User')
+
+// ## api url
+const apiUrl = `${baseUrl}/quick/test`
+
+
+before(() => {
+    return new Promise((resolve, reject) => {
+        return resolve('hi')
+    }).then(() => {
+        console.log('test is begin !')
+    })
+})
+
+describe('crud for user api', () => {
+    let id
+
+    it('posts an object ', () => {
+        return axios
+            .post(apiUrl, db.createData)
+            .then(response => response.data)
+            .then((body) => {
+                const {success, data} = body
+                /*
+                expect(body.length).to.eql(1)
+                expect(body[0]._id.length).to.eql(24)
+                id = body[0]._id
+                */
+                // console.log(body)
+                if (success) {
+                    id = data.id
+                } else {
+                    console.log(data)
+                }
+                expect(success).to.be.true;
+
+            })
+    })
+
+    //
+    // it('retrieves an object', () => {
+    //
+    //     return axios.get(`${apiUrl}?id=${id}`)
+    //         .then(response => response.data)
+    //         .then((body) => {
+    //             // console.log(body)
+    //             // expect(typeof body).to.eql('object')
+    //             // expect(body._id.length).to.eql(24)
+    //             // expect(body._id).to.eql(id)
+    //             // expect(body.name).to.eql('John')
+    //
+    //             const {success, data} = body
+    //             expect(success).to.be.true
+    //             expect(data.id).to.eql(id)
+    //         })
+    // })
+    //
+    //
+    // it('retrieves a list', () => {
+    //     return axios.get(`${apiUrl} `)
+    //         .then(response => response.data)
+    //         .then((body) => {
+    //             /*
+    //              console.log(body)
+    //             expect(body.length).to.be.above(0)
+    //             expect(body.map((item) => {return item._id})).to.contain(id)
+    //             */
+    //
+    //             const {success, data} = body
+    //             expect(success).to.be.true
+    //             expect(data.length).to.be.above(0)
+    //         })
+    // })
+    //
+    // it('updates an object', () => {
+    //     return axios
+    //         .put(`${apiUrl}?id=${id}`, db.updateData)
+    //         .then(response => response.data)
+    //         .then((body) => {
+    //             // console.log(body, e)
+    //             // expect(typeof body).to.eql('object')
+    //             // expect(body).to.eql({ msg: 'success' })
+    //             // console.log('what s up ?')
+    //             // console.log(body)
+    //
+    //             const {success, data} = body
+    //             expect(success).to.be.true
+    //             // 然后可以做字段对比  看修改是否成功
+    //
+    //         })
+    // })
+    //
+    // it('checks an updated object', () => {
+    //     return axios.get(`${apiUrl}?id=${id}`)
+    //         .then(response => response.data)
+    //         .then((body) => {
+    //             // console.log(body)
+    //             // expect(typeof body).to.eql('object')
+    //             // expect(body._id.length).to.eql(24)
+    //             // expect(body._id).to.eql(id)
+    //             // expect(body.name).to.eql('Peter')
+    //             const {success, data} = body
+    //             expect(success).to.be.true
+    //
+    //             const attrs = Object.keys(db.updateData)
+    //             const attrs2 = Object.keys(data)
+    //             // 求属性的交集
+    //             // a.filter(function(v){ return b.indexOf(v) > -1 })
+    //             const commonAttrs = attrs.filter(v => attrs2.indexOf(v) !== -1)
+    //             commonAttrs.forEach(function (val, idx) {
+    //                 // 注意 伪造数据 跟db 数据有时候存在截断问题！导致二者不相等
+    //                 expect(db.updateData[val]).to.eql(data[val])
+    //                 // console.log(val)
+    //                 // console.log(db.updateData[val])
+    //                 // console.log(data[val])
+    //                 // console.log('======================================')
+    //             })
+    //         })
+    // })
+
+    it('removes an object', () => {
+        return axios.delete(`${apiUrl}?id=${id}`, {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        // .then(response=>response.data)
+            .then((body) => {
+                console.log(body)
+                // expect(typeof body).to.eql('object')
+                // expect(body).to.eql({ msg: 'success' })
+                // console.log(body)
+                // const {success, data} = body
+                expect(success).to.be.true
+            })
+    })
+    //
+    // it('checks an removed object', () => {
+    //     return axios.get(`${apiUrl}?id=${id}`)
+    //         .then(response=>response.data)
+    //         .then((body) => {
+    //             // console.log(body)
+    //             // expect(body.map(item=>item._id)).not.to.eql(id)
+    //             console.log(body)
+    //             const {success, data} = body
+    //             expect(success).to.be.false
+    //         })
+    // })
+
+})

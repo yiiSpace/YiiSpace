@@ -11,8 +11,12 @@ $config = [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => [
         'log',
+        'dbMan',
     ],
     'components' => [
+        'dbMan'=>[
+          'class'=>'backend\components\DbMan',
+        ],
         'urlManager' => [
             //'enableStrictParsing' => true,
             'enablePrettyUrl' => true,
@@ -110,6 +114,13 @@ $config = [
         ],
         'content' => [
             'class' => 'my\content\backend\Module',
+        ],
+        'plugins' => [
+            'class' => 'lo\plugins\Module',
+            'pluginsDir'=>[
+                '@lo/plugins/core', // default dir with core plugins
+                // '@common/plugins', // dir with our plugins
+            ]
         ],
     ],
     'params' => $params,

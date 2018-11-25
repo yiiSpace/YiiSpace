@@ -99,16 +99,27 @@
                         </li>
                         <li><a class="ajax-link" href="typography.html"><i class="glyphicon glyphicon-font"></i><span> Typography</span></a>
                         </li>
-                        <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Gallery</span></a>
+                        <li>
+                            <a class="ajax-link" href="<?= \yii\helpers\Url::to(['/content/album']) ?>"><i class="glyphicon glyphicon-picture"></i>
+                                <span> Gallery</span>
+                            </a>
                         </li>
                         <li class="nav-header hidden-md">Sample Section</li>
                         <li><a class="ajax-link" href="table.html"><i
                                     class="glyphicon glyphicon-align-justify"></i><span> Tables</span></a></li>
                         <li class="accordion">
-                            <a href="#"><i class="glyphicon glyphicon-plus"></i><span> Accordion Menu</span></a>
+                            <a href="#"><i class="glyphicon glyphicon-plus"></i><span> 文章管理</span></a>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Child Menu 1</a></li>
-                                <li><a href="#">Child Menu 2</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/content/article-category']) ?>">分类管理</a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/content/article-category/create']) ?>">
+                                        分类创建
+                                    </a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/content/article']) ?>">
+                                        文章管理
+                                    </a></li>
+                                <li><a href="<?= \yii\helpers\Url::to(['/content/article/create']) ?>">
+                                        文章创建
+                                    </a></li>
                             </ul>
                         </li>
                         <li><a class="ajax-link" href="calendar.html"><i class="glyphicon glyphicon-calendar"></i><span> Calendar</span></a>

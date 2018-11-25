@@ -10,6 +10,13 @@ $config = [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'console\controllers',
     'controllerMap' => [
+        // 事件系统
+        'migrate-event' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => [
+                'lo\plugins\migrations'
+            ],
+        ],
         // FIXME 给队列扩展临时用下
         'migrate-queue' => [
             'class' => 'yii\console\controllers\MigrateController',

@@ -47,3 +47,7 @@ CREATE TABLE `bx_photos_main` (
   FULLTEXT KEY `ftCategories` (`Categories`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
 ~~~
+
+## dependent
+
+- https://github.com/agilov/yii2-seo-behavior
