@@ -45,9 +45,20 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     public $srcDir;
 
     /**
+     * 如果有多个的话 不妨多几个
+     * - apiGetPath
+     * - apiPutPath
+     * - apiListPath
+     * - apiDeletePath
+     *
+     * @var string route path for api
+     */
+    public $apiPath;
+
+    /**
      * @var bool
      */
-    public $generateMigration = true;
+    public $generateTest = true;
 
 
     /**
@@ -107,7 +118,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ['srcDir', 'string', 'message' => 'migration 项目的 src目录路径'],
                 [['srcDir',], 'required', 'message' => '你的migration项目src目录 本程序的路径：' . Yii::$app->basePath],
 
-                ['generateMigration', 'boolean'],
+                ['generateTest', 'boolean'],
 
 
             ]
@@ -125,7 +136,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return array_merge(
             parent::attributeLabels(),
             [
-                'srcDir' => 'migration项目的src目录路径',
+                'srcDir' => 'fixtures的src目录路径',
             ]
         );
     }
@@ -143,6 +154,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             ]
         );
     }
+
     /**
      * {@inheritdoc}
      */
@@ -160,7 +172,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return [
             /*'models/model.js.php',*/
             //'model.vue.php',
-            //  'model-search.go.php',
+            'api-crud-test.php',
         ];
     }
 
@@ -181,7 +193,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ? $this->generateClassName($tableName)
                 : $this->modelClass;
             */
-            $className = $this->generateClassName($tableName) ;
+            $className = $this->generateClassName($tableName);
 
             // ========= ========= ========= ========= ========= ========= ========= ========= ========= |
             //   copy from ...
@@ -190,14 +202,14 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
 //            $fakeRecord = $this->genFakeRecord($tableSchema) ;
             $fakeData = [
-              'createData'=>$this->genFakeRecord($tableSchema),
-              'updateData'=>$this->genFakeRecord($tableSchema),
+                'createData' => $this->genFakeRecord($tableSchema),
+                'updateData' => $this->genFakeRecord($tableSchema),
             ];
 //            $migrationContent =  var_export($fakeData, true);
 
             // 要是闲输出不好看 需要用Zend 库中关于json的处理了！
 //            $migrationContent =  Json::encode($fakeData);
-            $fixturesContent =  json_encode($fakeData, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+            $fixturesContent = json_encode($fakeData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
             $fixturesContent = <<<DATA
 'ues strict';
 
@@ -221,7 +233,20 @@ DATA;
                 $fixturesContent
             // $this->render('model.vue.php', $params)
             );
+            // -------------------------------------------------------------------------------  +|
+            //          ##   api测试
+            $crudTestPath = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    dirname($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    ucfirst($className) . '.test.js',
+                ]));
+            $files[] = new CodeFile(
+                $crudTestPath,
 
+             $this->render('api-crud-test.php', [
+                 'fixtureName'=>ucfirst($className),
+             ])
+            );
         }
         return $files;
     }
@@ -234,8 +259,7 @@ DATA;
 
 
         $output = <<<EOD
-<p>The migration crud suite  has been generated successfully.</p>
-<p> 为了能够玩耍起来  你需要配置你的路由文件  src/router.js , you need to add this to your application configuration:</p>
+<p>The test crud suite  has been generated successfully.</p>
 EOD;
 
         $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
@@ -263,9 +287,9 @@ EOD;
      * @return array the generated fake record for table
      * @since 0.0.1
      */
-    public function genFakeRecord($table,$ignorePrimaryKey = true)
+    public function genFakeRecord($table, $ignorePrimaryKey = true)
     {
-        $fakeRow = [] ;
+        $fakeRow = [];
         foreach ($table->columns as $column) {
             /*
             if(true == $ignorePrimaryKey){
@@ -273,18 +297,18 @@ EOD;
                     continue ;
                 }
             }*/
-            if($column->isPrimaryKey){
-                continue ;
+            if ($column->isPrimaryKey) {
+                continue;
             }
             $columnPhpType = $column->phpType;
-            $fakeRow[$column->name] =    GiiantFaker::value(
+            $fakeRow[$column->name] = GiiantFaker::value(
                 $columnPhpType,
                 $column->name
-            )  ;//  call_user_func_array(['year\gii\goodmall\helpers\GiiantFaker',$columnPhpType],[$column->name] );
+            );//  call_user_func_array(['year\gii\goodmall\helpers\GiiantFaker',$columnPhpType],[$column->name] );
             // $fakeRow[$column->name] =  GiiantFaker::{$columnPhpType};
 
         }
-        return $fakeRow ;
+        return $fakeRow;
     }
 
 }

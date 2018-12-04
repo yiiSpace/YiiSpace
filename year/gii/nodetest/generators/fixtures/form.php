@@ -27,16 +27,7 @@ echo \year\gii\migration\widgets\PathSelector::widget([
     'onSelection'=>$onSelection,
 ]);
 ?>
-<?php
-\yii\bootstrap\Alert::begin([
-     'options' => [
-          'class' => 'alert-warning',
-     ],
-]);?>
 
-最好只用来浏览 如果用来生成 可以使用命令行程序
-
-<?php \yii\bootstrap\Alert::end(); ?>
 
 <?php
 
@@ -48,7 +39,7 @@ echo $form->field($generator, 'srcDir');
 echo $form->field($generator, 'tableName');
 echo $form->field($generator, 'tablePrefix');
 
-echo $form->field($generator, 'generateMigration')->checkbox();
+echo $form->field($generator, 'generateTest')->checkbox();
 
 
 //echo $form->field($generator, 'db');
@@ -68,7 +59,30 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
         'class' => 'alert-warning',
     ],
 ]);?>
+<p>
+<h4>  关于测试  参考 </h4>
+    <ul>
+    <li>
+        <a href=" https://www.cnblogs.com/tugenhua0707/p/8419534.html" target="_blank">
+            学习测试框架Mocha
+        </a>
+    </li>
+    <li>
+        <a href="https://nodejs.org/api/assert.html" target="_blank">node api assert</a>
+    </li>
+        <li>
+        <a href="https://eggjs.org/zh-cn/core/unittest.html" target="_blank">
+            eggjs test
+        </a>
+    </li>
+        <li>
+        <a href="https://github.com/power-assert-js/power-assert" target="_blank">
+            power-assert
+        </a>
+    </li>
+</ul>
 
-GII 生成的文件 原则上文件名是固定的 但迁移文件名 里面含有随机因素 这里最好自己生一个 然后拷贝代码过去
+
+</p>
 
 <?php \yii\bootstrap\Alert::end(); ?>

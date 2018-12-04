@@ -18,8 +18,7 @@ return [
             'basePath' => '@app/modules/v1',
             'class' => 'api\modules\v1\Module',
             'modules' => [
-
-
+              // TODO 配置不同的版本实现模块
             ],
         ],
         'apidoc' => [
@@ -45,6 +44,17 @@ return [
         ]
     ],
     'components' => [
+        'apiRunner' => [
+            'class' => 'year\api\base\Runner',
+            'hostModules'=>[
+                /*
+                'user.*'=>'user',
+                // 以store开始的归于store模块
+                'store.*'=>'store',
+                'storeGoods.*'=>'store',
+                */
+            ],
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
@@ -70,6 +80,8 @@ return [
             'rules' => [
                 'api_x/<tableName:\w+>' => 'quick/test',
                 'api_x/<tableName:\w+>/<id:\d*>' => 'quick/test',
+                // NOTE api rpc 调用
+                'v1/<method:\w+[\.\w+]+>' => 'v1/rpc/call',
                 // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 /*
                [

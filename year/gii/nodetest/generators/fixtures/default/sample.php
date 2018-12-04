@@ -9,6 +9,8 @@ use yii\helpers\StringHelper;
 
 /**
  * @var yii\web\View $this
- * @var schmunk42\giiant\generators\model\Generator $generator
+ * @var \year\gii\nodetest\generators\fixtures\Generator $generator
  * @var string $tableName full table name
  */
+?>
+

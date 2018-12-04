@@ -78,7 +78,8 @@ class Application extends \yii\web\Application{
 
             // 如果非rest控制器 那么抛异常示警 不然错误很难找到
             if(! $currentController instanceof Controller){
-               throw new Exception('the controller must be an instance of yii\rest\Controller , but now it is '.$currentController->className());
+               throw new Exception('the controller must be an instance of yii\rest\Controller ,
+                but now it is '.$currentController->className());
             }
         }
         //====================================================================================================//

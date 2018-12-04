@@ -112,6 +112,9 @@ $config = [
         'dev' => [
             'class' => 'my\dev\backend\Module',
         ],
+        'devtools' => [
+            'class' => 'my\devtools\backend\Module',
+        ],
         'content' => [
             'class' => 'my\content\backend\Module',
         ],
