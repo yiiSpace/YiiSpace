@@ -9135,3 +9135,373 @@ $_SERVER = [
     'DB_PASSWORD' => ''
     'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
 ]
+2018-12-05 13:12:44 [127.0.0.1][-][-][error][ArgumentCountError] ArgumentCountError: Too few arguments to function api\services\HelloService::foo(), 0 passed and exactly 1 expected in E:\yiqing-workspace\my-github\YiiSpace\api\services\HelloService.php:34
+Stack trace:
+#0 [internal function]: api\services\HelloService->foo()
+#1 E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php(456): call_user_func_array(Array, Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\api\modules\v1\controllers\RpcController.php(138): year\api\base\Runner->run()
+#3 [internal function]: api\modules\v1\controllers\RpcController->actionCall()
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('call', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('v1/rpc/call', Array)
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('v1/rpc/call', Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#11 {main}
+2018-12-05 13:12:44 [127.0.0.1][-][-][info][application] $_GET = [
+    'method' => 'hello.foo'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79' => '1541211820'
+    'ecjia_admin_token' => 'ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff'
+    'Hm_lvt_45572e750ba4de1ede0e776212b5f6cd' => '1541215623'
+    'ECJAP' => [
+        'admin_id' => '1'
+        'admin_pass' => '09f6a41c84daba472683ff1dc26dc96b'
+    ]
+    'advanced-frontend' => 'p11b0tbohr1id1oafm8h0kvvk2'
+    '_csrf-frontend' => '85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL\";}'
+    'PHPSESSID' => 'tcvevos6p37m534s1l9kako3gk'
+    '_csrf' => '417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg\";}'
+    'OCSESSID' => 'bfe176ce589bfef374be555bea'
+    'Hm_lvt_225a7d5057a699e59ac083f01be897e1' => '1543975349'
+    'Hm_lpvt_225a7d5057a699e59ac083f01be897e1' => '1543986738'
+    '__atuvc' => '1|49'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2868'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/v1/hello.foo'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web/v1/hello.foo'
+    'REMOTE_PORT' => '55562'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_COOKIE' => 'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79=1541211820; ecjia_admin_token=ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff; Hm_lvt_45572e750ba4de1ede0e776212b5f6cd=1541215623; ECJAP[admin_id]=1; ECJAP[admin_pass]=09f6a41c84daba472683ff1dc26dc96b; advanced-frontend=p11b0tbohr1id1oafm8h0kvvk2; _csrf-frontend=85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL%22%3B%7D; PHPSESSID=tcvevos6p37m534s1l9kako3gk; _csrf=417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg%22%3B%7D; OCSESSID=bfe176ce589bfef374be555bea; Hm_lvt_225a7d5057a699e59ac083f01be897e1=1543975349; Hm_lpvt_225a7d5057a699e59ac083f01be897e1=1543986738; __atuvc=1%7C49'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544015564.091
+    'REQUEST_TIME' => 1544015564
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-12-05 13:14:36 [127.0.0.1][-][-][error][ArgumentCountError] ArgumentCountError: Too few arguments to function api\services\HelloService::foo(), 0 passed and exactly 1 expected in E:\yiqing-workspace\my-github\YiiSpace\api\services\HelloService.php:34
+Stack trace:
+#0 [internal function]: api\services\HelloService->foo()
+#1 E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php(458): call_user_func_array(Array, Array)
+#2 E:\yiqing-workspace\my-github\YiiSpace\api\modules\v1\controllers\RpcController.php(138): year\api\base\Runner->run()
+#3 [internal function]: api\modules\v1\controllers\RpcController->actionCall()
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('call', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('v1/rpc/call', Array)
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('v1/rpc/call', Array)
+#9 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#11 {main}
+2018-12-05 13:14:36 [127.0.0.1][-][-][info][application] $_GET = [
+    'method' => 'hello.foo'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79' => '1541211820'
+    'ecjia_admin_token' => 'ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff'
+    'Hm_lvt_45572e750ba4de1ede0e776212b5f6cd' => '1541215623'
+    'ECJAP' => [
+        'admin_id' => '1'
+        'admin_pass' => '09f6a41c84daba472683ff1dc26dc96b'
+    ]
+    'advanced-frontend' => 'p11b0tbohr1id1oafm8h0kvvk2'
+    '_csrf-frontend' => '85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL\";}'
+    'PHPSESSID' => 'tcvevos6p37m534s1l9kako3gk'
+    '_csrf' => '417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg\";}'
+    'OCSESSID' => 'bfe176ce589bfef374be555bea'
+    'Hm_lvt_225a7d5057a699e59ac083f01be897e1' => '1543975349'
+    'Hm_lpvt_225a7d5057a699e59ac083f01be897e1' => '1543986738'
+    '__atuvc' => '1|49'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2868'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/v1/hello.foo'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/YiiSpace/api/web/v1/hello.foo'
+    'REMOTE_PORT' => '56182'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_COOKIE' => 'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79=1541211820; ecjia_admin_token=ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff; Hm_lvt_45572e750ba4de1ede0e776212b5f6cd=1541215623; ECJAP[admin_id]=1; ECJAP[admin_pass]=09f6a41c84daba472683ff1dc26dc96b; advanced-frontend=p11b0tbohr1id1oafm8h0kvvk2; _csrf-frontend=85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL%22%3B%7D; PHPSESSID=tcvevos6p37m534s1l9kako3gk; _csrf=417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg%22%3B%7D; OCSESSID=bfe176ce589bfef374be555bea; Hm_lvt_225a7d5057a699e59ac083f01be897e1=1543975349; Hm_lpvt_225a7d5057a699e59ac083f01be897e1=1543986738; __atuvc=1%7C49'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544015675.7841
+    'REQUEST_TIME' => 1544015675
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-12-05 13:14:48 [127.0.0.1][-][-][error][Error] Error: Call to a member function getName() on null in E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php:299
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php(414): year\api\base\Runner->createApiHandler('hello.to', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\modules\v1\controllers\RpcController.php(138): year\api\base\Runner->run()
+#2 [internal function]: api\modules\v1\controllers\RpcController->actionCall()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('call', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('v1/rpc/call', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('v1/rpc/call', Array)
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#10 {main}
+2018-12-05 13:14:48 [127.0.0.1][-][-][info][application] $_GET = [
+    'method' => 'hello.to'
+    'name' => 'something'
+    'arg1' => 'hahaha'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79' => '1541211820'
+    'ecjia_admin_token' => 'ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff'
+    'Hm_lvt_45572e750ba4de1ede0e776212b5f6cd' => '1541215623'
+    'ECJAP' => [
+        'admin_id' => '1'
+        'admin_pass' => '09f6a41c84daba472683ff1dc26dc96b'
+    ]
+    'advanced-frontend' => 'p11b0tbohr1id1oafm8h0kvvk2'
+    '_csrf-frontend' => '85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL\";}'
+    'PHPSESSID' => 'tcvevos6p37m534s1l9kako3gk'
+    '_csrf' => '417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg\";}'
+    'OCSESSID' => 'bfe176ce589bfef374be555bea'
+    'Hm_lvt_225a7d5057a699e59ac083f01be897e1' => '1543975349'
+    'Hm_lpvt_225a7d5057a699e59ac083f01be897e1' => '1543986738'
+    '__atuvc' => '1|49'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2868'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/v1/hello.to?name=something&arg1=hahaha'
+    'QUERY_STRING' => 'name=something&arg1=hahaha'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'name=something&arg1=hahaha'
+    'REDIRECT_URL' => '/YiiSpace/api/web/v1/hello.to'
+    'REMOTE_PORT' => '56248'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_COOKIE' => 'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79=1541211820; ecjia_admin_token=ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff; Hm_lvt_45572e750ba4de1ede0e776212b5f6cd=1541215623; ECJAP[admin_id]=1; ECJAP[admin_pass]=09f6a41c84daba472683ff1dc26dc96b; advanced-frontend=p11b0tbohr1id1oafm8h0kvvk2; _csrf-frontend=85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL%22%3B%7D; PHPSESSID=tcvevos6p37m534s1l9kako3gk; _csrf=417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg%22%3B%7D; OCSESSID=bfe176ce589bfef374be555bea; Hm_lvt_225a7d5057a699e59ac083f01be897e1=1543975349; Hm_lpvt_225a7d5057a699e59ac083f01be897e1=1543986738; __atuvc=1%7C49'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544015687.7921
+    'REQUEST_TIME' => 1544015687
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]
+2018-12-05 13:27:11 [127.0.0.1][-][-][error][Error] Error: Call to a member function getName() on null in E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php:301
+Stack trace:
+#0 E:\yiqing-workspace\my-github\YiiSpace\year\api\base\Runner.php(421): year\api\base\Runner->createApiHandler('hello.to', Array)
+#1 E:\yiqing-workspace\my-github\YiiSpace\api\modules\v1\controllers\RpcController.php(138): year\api\base\Runner->run()
+#2 [internal function]: api\modules\v1\controllers\RpcController->actionCall()
+#3 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('call', Array)
+#6 E:\yiqing-workspace\my-github\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('v1/rpc/call', Array)
+#7 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('v1/rpc/call', Array)
+#8 E:\yiqing-workspace\my-github\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 E:\yiqing-workspace\my-github\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#10 {main}
+2018-12-05 13:27:11 [127.0.0.1][-][-][info][application] $_GET = [
+    'method' => 'hello.to'
+    'name' => 'something'
+    'arg1' => 'hahaha'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79' => '1541211820'
+    'ecjia_admin_token' => 'ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff'
+    'Hm_lvt_45572e750ba4de1ede0e776212b5f6cd' => '1541215623'
+    'ECJAP' => [
+        'admin_id' => '1'
+        'admin_pass' => '09f6a41c84daba472683ff1dc26dc96b'
+    ]
+    'advanced-frontend' => 'p11b0tbohr1id1oafm8h0kvvk2'
+    '_csrf-frontend' => '85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL\";}'
+    'PHPSESSID' => 'tcvevos6p37m534s1l9kako3gk'
+    '_csrf' => '417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg\";}'
+    'OCSESSID' => 'bfe176ce589bfef374be555bea'
+    'Hm_lvt_225a7d5057a699e59ac083f01be897e1' => '1543975349'
+    'Hm_lpvt_225a7d5057a699e59ac083f01be897e1' => '1543986738'
+    '__atuvc' => '1|49'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;d:\\Program Files\\Git\\cmd;D:\\Program Files\\TortoiseGit\\bin;D:\\Program Files\\nodejs\\;D:\\Visual-AMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64\\;C:\\ProgramData\\ComposerSetup\\bin;D:\\Go\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/Visual-AMP-x64/Bin/PHP/php-7.1.12-nts-x64'
+    '_FCGI_SHUTDOWN_EVENT_' => '2836'
+    'SCRIPT_NAME' => '/YiiSpace/api/web/index.php'
+    'REQUEST_URI' => '/YiiSpace/api/web/v1/hello.to?name=something&arg1=hahaha'
+    'QUERY_STRING' => 'name=something&arg1=hahaha'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => 'name=something&arg1=hahaha'
+    'REDIRECT_URL' => '/YiiSpace/api/web/v1/hello.to'
+    'REMOTE_PORT' => '60340'
+    'SCRIPT_FILENAME' => 'E:/yiqing-workspace/my-github/YiiSpace/api/web/index.php'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'E:/yiqing-workspace/my-github'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '5000'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) OpenSSL/1.0.2j mod_fcgid/2.3.9a'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_COOKIE' => 'Hm_lvt_e7c71ab27c2369ff3e50bcd32a8c4c79=1541211820; ecjia_admin_token=ccfa41f229491c5e7bb4f5d136fef9c0bf19aaff; Hm_lvt_45572e750ba4de1ede0e776212b5f6cd=1541215623; ECJAP[admin_id]=1; ECJAP[admin_pass]=09f6a41c84daba472683ff1dc26dc96b; advanced-frontend=p11b0tbohr1id1oafm8h0kvvk2; _csrf-frontend=85f20fbc53a7e1b501368ce54b2d0f550a57fafe4f34dd1471a7114d14e4c70da%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22vBS8jdycdTq4ybN0f8aNX5rwIq2WF6EL%22%3B%7D; PHPSESSID=tcvevos6p37m534s1l9kako3gk; _csrf=417021f11aedbb58e3170e5fd708e573987cf4839745eb2dd32afa2f1a8d3424a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22q3-2u-lhfBlWm-WQ2wiv9Tbr9eb2Pbdg%22%3B%7D; OCSESSID=bfe176ce589bfef374be555bea; Hm_lvt_225a7d5057a699e59ac083f01be897e1=1543975349; Hm_lpvt_225a7d5057a699e59ac083f01be897e1=1543986738; __atuvc=1%7C49'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:63.0) Gecko/20100101 Firefox/63.0'
+    'HTTP_HOST' => '127.0.0.1:5000'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/YiiSpace/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544016431.3485
+    'REQUEST_TIME' => 1544016431
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => ''
+    'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
+]

@@ -10,7 +10,10 @@ namespace year\api\base;
 use app\helpers\StringHelper;
 use Yii;
 use yii\base\Component;
+use yii\base\Configurable;
+use yii\base\Model;
 use yii\base\Module;
+use yii\base\NotSupportedException;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -250,7 +253,7 @@ class Runner extends Component
      * 根据请求的api方法串 跟api方法参数 创建service及其可被执行的参数
      *
      * @param string $apiMethod
-     * @param array $apiParams
+     * @param array $apiParams TODO 存在数组复制！  改用地址传递?
      * @throws MethodNameException
      * @throws MethodParamException
      * @return array|bool a callable array [callbale,params]
@@ -284,10 +287,41 @@ class Runner extends Component
 
         $pass = array();
         $missing = array();
-        if (self::isAssociative($args)) {
+
+        /**
+         * TODO  这里需要参考 yii\di\Container 如果参数是特殊类型 作为依赖由容器负责实例化！
+         * TODO  如果调用的Service 上面有注解类 那么可以玩的就更多了！
+         */
+        if (empty($args) || self::isAssociative($args)) {
+
             foreach ($reflectionMethod->getParameters() as $param) {
-                // print('the param: '.$param->getName().' <br/>');
                 /* @var $param ReflectionParameter */
+                // print('the param: '.$param->getName().' <br/>');
+
+                // if (is_subclass_of($param->getClass()->getName(), Model::className())) {
+                if (is_a($param->getClass()->getName(), Model::className() , true)) {
+                    // $args['class'] = $param->getClass()->getName() ;
+                    // $pass[] =   Yii::createObject($args ) ;  // unset($args['class']) ; // $args[$param->getName()];
+                    $modelInstance = $param->getClass()->newInstance();
+                    $modelInstance->load($args,'') ; // 不需要 User['name'] = 'yiqing '  这种形式的传递
+                    $pass[] = $modelInstance ;
+                    continue ;
+                }elseif(is_a($param->getClass()->getName(),Configurable::class , true)){
+                    // 允许yii系统的 依赖注入了 ！
+                    throw new NotSupportedException('暂时没有实现哦 ！ 这个也是比较简单的') ;
+                }
+                /*
+                print_r(
+                    [
+                        'param-class-name' => $param->getClass()->getName() ,
+                        'check-type'=>Model::className() ,
+                        'param-name'=>$param->getName()  ,
+                        'is-a'=> is_a($param->getClass()->getName() ,  Model::className() ,true) ? 'yes': 'no' ,
+                    ]
+                );
+                die() ;
+                */
+
                 if (isset($args[$param->getName()])) {
                     $pass[] = $args[$param->getName()];
                 } elseif ($param->isDefaultValueAvailable()) {

@@ -148,13 +148,17 @@ if (YII_ENV_DEV) {
                     // 'easy-ui-yii' => Yii::getAlias('@backend/themes/easyui/_gii-yii-style/templates'),
                 ]
             ],
-
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
                 'templates' => [
 
                     'bs3-dolphin' => '@backend/gii/crud/bs3/backend-dolphin',
                 ],
+            ],
+            'service-crud' => [
+                'class' => 'year\gii\service\Generator',
+                'templates' => [
+                ]
             ],
 
         ],
