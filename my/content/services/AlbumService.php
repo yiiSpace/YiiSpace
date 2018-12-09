@@ -20,28 +20,27 @@ class AlbumService extends Service
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
         ];
     }
 
-    /**
+         /**
      * Lists all Album models.
      * @return mixed
      */
-    public function actionIndex()
+    public function query( AlbumSearch $searchModel , $sort = '-id', $page = 0 ,$pageSize=10)
     {
-        $searchModel = new AlbumSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $dataProvider = $searchModel->search([]);
+
+
+        // 开启 多字段排序功能：  -id , name 表示以id为倒序 name为升序的排序
+        $dataProvider->sort->enableMultiSort = true;
+        $dataProvider->sort->params = ['sort' => $sort];
+        $dataProvider->pagination->setPage($page);
+
+        // $dataProvider->query->andFilterWhere(['like', '{{%user}}.name', $q]);
+
+        return $dataProvider ;
     }
 
     /**
@@ -50,11 +49,10 @@ class AlbumService extends Service
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function get($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+          return $this->findModel($id);
+
     }
 
     /**
@@ -62,17 +60,11 @@ class AlbumService extends Service
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function create(Album $model)
     {
-        $model = new Album();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        $model->save();
+        return $model ;
     }
 
     /**
@@ -82,17 +74,14 @@ class AlbumService extends Service
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function update($id, Album $model )
     {
-        $model = $this->findModel($id);
+        $oldModel = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        $oldModel->load( $model->getAttributes(), '' );
+        $oldModel->save();
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $oldModel ; // TODO 重新加载下该模型 // return $this->findModel($id) ;
     }
 
     /**
@@ -102,11 +91,12 @@ class AlbumService extends Service
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function delete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->delete();
 
-        return $this->redirect(['index']);
+        return $model;
     }
 
     /**

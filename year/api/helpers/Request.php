@@ -9,7 +9,7 @@
 namespace year\api\helpers;
 
 
-use yii\rest\Serializer;
+use year\api\rest\Serializer;
 
 class Request {
 

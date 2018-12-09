@@ -5,3 +5,7 @@
 比如使用  __call __callStatic  等魔术方法来动态代理到真实的 对象方法上
 
 可以调用方法前 可以触发事件  或者钩子
+
+## 服务类 CRUD 设计
+- 参考 [ qiangxue/golang-restful-starter-kit
+](https://github.com/qiangxue/golang-restful-starter-kit/blob/master/services/artist.go)

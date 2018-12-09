@@ -46,4 +46,14 @@ abstract class Service {
     public function afterMethod($methodName ,$result)
     {
     }
+
+    /**
+     * public exported methods for used by outside
+     *
+     * @return array
+     */
+    public function exports()
+    {
+        return  [] ;
+    }
 } 

@@ -21,6 +21,9 @@ return [
               // TODO 配置不同的版本实现模块
             ],
         ],
+        'content' => [
+            'class' => 'my\content\api\Module',
+        ] ,
         'apidoc' => [
             'class' => 'my\apidoc\Module',
         ] ,

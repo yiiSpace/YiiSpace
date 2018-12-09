@@ -141,9 +141,18 @@ class Runner extends Component
                 $this->module = $module;
             }
         }
+        // 方法中蕴含moduleID
+        if(empty($this->module)){
+            $methodParts = explode('.',$method) ;
+            if(count($methodParts) === 3){
+                $this->module = $methodParts[0] ; // count(arr) -1
+            }
+        }
+
         if (is_string($this->module)) {
             $this->module = \Yii::$app->getModule($this->module);
         }
+
         return $this->module;
     }
 
@@ -188,6 +197,7 @@ class Runner extends Component
 
     /**
      * 根据方法名称来创建api宿主对象 和方法名称
+     * @TODO： 允许像controllerMap 那样配置来自其他地方的实现 Module::serviceMap
      *
      * @param $apiMethod
      * @return array
@@ -200,7 +210,8 @@ class Runner extends Component
         $this->module = null;
         // 根据api方法名找其寄居的模块
         $module = $this->getModule($apiMethod);
-        if (null == $module) {
+
+        if (null === $module) {
             $module = \Yii::$app;
         }
         // die($module->controllerNamespace) ;
@@ -223,10 +234,12 @@ class Runner extends Component
 
         // 注意api方法串可能出现的情形 惯例是用"."点号分隔--参考淘宝那种
         $parts = explode('.', $apiMethod);
+
         $methodName = array_pop($parts);
         // 这个可能是当前模块下 或者是其他模块下的服务名
         // $serviceName = implode('/', array_map('ucfirst', $parts));
         $serviceName = ucfirst(array_pop($parts)) . 'Service';
+
         /*
         print_r(array(
            'methodName'=>$methodName,
@@ -238,19 +251,33 @@ class Runner extends Component
         $serviceQualifiedName = $moduleNameSpace . "\\services\\{$serviceName}";
         // 注意service层的类名惯例  XxxService.class.php
         // $serviceObj = A(ucfirst($serviceName), 'Service');
-        $serviceObj = \Yii::createObject($serviceQualifiedName);
+        try{
+            $serviceObj = \Yii::createObject($serviceQualifiedName);
+        }catch (\Exception $ex){
+             // 试另外一个名空间
+            $serviceQualifiedName = substr($moduleNameSpace,0,strrpos($moduleNameSpace,'\\')) . "\\services\\{$serviceName}";
 
+            $serviceObj = \Yii::createObject($serviceQualifiedName);
 
+            // throw $ex ;
+        }
         if ($serviceObj == false) {
             // 服务类名解析出错 证明类初次加载不成功 可以尝试其他策略 或者抛给客户端异常调用
             throw new MethodNameException(sprintf('no such service %s', $serviceName));
         }
+
 
         return [$serviceObj, $methodName];
     }
 
     /**
      * 根据请求的api方法串 跟api方法参数 创建service及其可被执行的参数
+     * ---------------------------------------------------------------------------------------------------- +|
+     *  - TODO： 根据反射方法来做的 这样针对yii 组件这种情形 其方法可能来自behavior 这样获取方法的难度就加大了
+     * Controller 中通过Controller::actions()         方法来扩展 如果做到足够灵活还需要参考下此种方案
+     * - TODO: 把每个服务的方法 或者通过behavior 扩充的 但无法识别方法用途（annotation ?)都变为ReflectionMethod的实例
+     *
+     * ---------------------------------------------------------------------------------------------------- +|
      *
      * @param string $apiMethod
      * @param array $apiParams TODO 存在数组复制！  改用地址传递?
@@ -299,17 +326,20 @@ class Runner extends Component
                 // print('the param: '.$param->getName().' <br/>');
 
                 // if (is_subclass_of($param->getClass()->getName(), Model::className())) {
-                if (is_a($param->getClass()->getName(), Model::className() , true)) {
-                    // $args['class'] = $param->getClass()->getName() ;
-                    // $pass[] =   Yii::createObject($args ) ;  // unset($args['class']) ; // $args[$param->getName()];
-                    $modelInstance = $param->getClass()->newInstance();
-                    $modelInstance->load($args,'') ; // 不需要 User['name'] = 'yiqing '  这种形式的传递
-                    $pass[] = $modelInstance ;
-                    continue ;
-                }elseif(is_a($param->getClass()->getName(),Configurable::class , true)){
-                    // 允许yii系统的 依赖注入了 ！
-                    throw new NotSupportedException('暂时没有实现哦 ！ 这个也是比较简单的') ;
+                if($param->getClass() != null){
+                    if (is_a($param->getClass()->getName(), Model::className() , true)) {
+                        // $args['class'] = $param->getClass()->getName() ;
+                        // $pass[] =   Yii::createObject($args ) ;  // unset($args['class']) ; // $args[$param->getName()];
+                        $modelInstance = $param->getClass()->newInstance();
+                        $modelInstance->load($args,'') ; // 不需要 User['name'] = 'yiqing '  这种形式的传递
+                        $pass[] = $modelInstance ;
+                        continue ;
+                    }elseif(is_a($param->getClass()->getName(),Configurable::class , true)){
+                        // 允许yii系统的 依赖注入了 ！
+                        throw new NotSupportedException('暂时没有实现哦 ！ 这个也是比较简单的') ;
+                    }
                 }
+
                 /*
                 print_r(
                     [
@@ -469,6 +499,10 @@ class Runner extends Component
         ));
         die(__METHOD__);
         */
+        /**
+         *                            ## NOTE 此处可用做很多文章！
+         */
+
         $result = call_user_func_array($handler, $params);
 
         //--------------------------------------------------------------------------------------------------\\

@@ -6,7 +6,7 @@
  * Time: 9:25
  */
 
-namespace year\api\base;
+namespace year\api\service;
 
 /**
  * Class ServiceProxy
@@ -15,6 +15,11 @@ namespace year\api\base;
 class ServiceProxy
 {
 
+
+    public function setTarget($target)
+    {
+        $this->target = $target ;
+    }
     /**
      * @var string
      */

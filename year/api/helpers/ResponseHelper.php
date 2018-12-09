@@ -10,7 +10,7 @@ namespace year\api\helpers;
 
 
 use yii\data\DataProviderInterface;
-use yii\rest\Serializer;
+use year\api\rest\Serializer;
 
 class ResponseHelper {
 

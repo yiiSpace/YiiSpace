@@ -54,29 +54,37 @@ class <?= $serviceClass ?> extends <?= StringHelper::basename($generator->baseSe
         ];
     }
 
+     <?php
+     $queryArgSearchModel = '' ;
+     if (!empty($generator->searchModelClass)){
+         $queryArgSearchModel =  (isset($searchModelAlias) ? $searchModelAlias : $searchModelClass)  ;
+         $queryArgSearchModel .= ' $searchModel ,' ;
+     }
+     ?>
     /**
      * Lists all <?= $modelClass ?> models.
      * @return mixed
      */
-    public function actionIndex()
+    public function query( <?= $queryArgSearchModel ?> $sort = '-id', $page = 0 ,$pageSize=10)
     {
 <?php if (!empty($generator->searchModelClass)): ?>
-        $searchModel = new <?= isset($searchModelAlias) ? $searchModelAlias : $searchModelClass ?>();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $dataProvider = $searchModel->search([]);
+
 <?php else: ?>
         $dataProvider = new ActiveDataProvider([
             'query' => <?= $modelClass ?>::find(),
         ]);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
 <?php endif; ?>
+
+        // 开启 多字段排序功能：  -id , name 表示以id为倒序 name为升序的排序
+        $dataProvider->sort->enableMultiSort = true;
+        $dataProvider->sort->params = ['sort' => $sort];
+        $dataProvider->pagination->setPage($page);
+
+        // $dataProvider->query->andFilterWhere(['like', '{{%user}}.name', $q]);
+
+        return $dataProvider ;
     }
 
     /**
@@ -85,11 +93,10 @@ class <?= $serviceClass ?> extends <?= StringHelper::basename($generator->baseSe
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView(<?= $actionParams ?>)
+    public function get(<?= $actionParams ?>)
     {
-        return $this->render('view', [
-            'model' => $this->findModel(<?= $actionParams ?>),
-        ]);
+          return $this->findModel(<?= $actionParams ?>);
+
     }
 
     /**
@@ -97,17 +104,11 @@ class <?= $serviceClass ?> extends <?= StringHelper::basename($generator->baseSe
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function create(<?= $modelClass ?> $model)
     {
-        $model = new <?= $modelClass ?>();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        $model->save();
+        return $model ;
     }
 
     /**
@@ -117,17 +118,14 @@ class <?= $serviceClass ?> extends <?= StringHelper::basename($generator->baseSe
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate(<?= $actionParams ?>)
+    public function update(<?= $actionParams ?>, <?= $modelClass ?> $model )
     {
-        $model = $this->findModel(<?= $actionParams ?>);
+        $oldModel = $this->findModel(<?= $actionParams ?>);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', <?= $urlParams ?>]);
-        }
+        $oldModel->load( $model->getAttributes(), '' );
+        $oldModel->save();
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        return $oldModel ; // TODO 重新加载下该模型 // return $this->findModel(<?= $actionParams ?>) ;
     }
 
     /**
@@ -137,11 +135,12 @@ class <?= $serviceClass ?> extends <?= StringHelper::basename($generator->baseSe
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete(<?= $actionParams ?>)
+    public function delete(<?= $actionParams ?>)
     {
-        $this->findModel(<?= $actionParams ?>)->delete();
+        $model = $this->findModel(<?= $actionParams ?>);
+        $model->delete();
 
-        return $this->redirect(['index']);
+        return $model;
     }
 
     /**
