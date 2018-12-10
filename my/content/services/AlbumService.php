@@ -8,6 +8,7 @@ use my\content\common\models\AlbumSearch;
 use year\api\base\Service;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ServerErrorHttpException;
 
 /**
  * AlbumService implements the CRUD actions for Album model.
@@ -62,8 +63,10 @@ class AlbumService extends Service
      */
     public function create(Album $model)
     {
+        if ($model->save() === false && !$model->hasErrors()) {
+            throw new ServerErrorHttpException('Failed to update the object for unknown reason.');
+        }
 
-        $model->save();
         return $model ;
     }
 
@@ -79,7 +82,10 @@ class AlbumService extends Service
         $oldModel = $this->findModel($id);
 
         $oldModel->load( $model->getAttributes(), '' );
-        $oldModel->save();
+
+        if ($oldModel->save() === false && !$oldModel->hasErrors()) {
+            throw new ServerErrorHttpException('Failed to update the object for unknown reason.');
+        }
 
         return $oldModel ; // TODO 重新加载下该模型 // return $this->findModel($id) ;
     }
@@ -94,7 +100,9 @@ class AlbumService extends Service
     public function delete($id)
     {
         $model = $this->findModel($id);
-        $model->delete();
+        if(!$model->delete()){
+            throw new ServerErrorHttpException('Failed to delete the object for unknown reason.');
+        }
 
         return $model;
     }

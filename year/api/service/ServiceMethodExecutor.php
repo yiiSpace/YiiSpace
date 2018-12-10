@@ -17,6 +17,8 @@ use yii\base\NotSupportedException;
 use yii\web\BadRequestHttpException;
 
 /**
+ * TODO: 异常类型不应该耦合到web层 使用http层的异常 这样导致下层依赖了上层 依赖方向有问题  应该有自己的异常层次！
+ *
  * Class ServiceMethodExecutor
  * @package year\api\service
  */
@@ -93,10 +95,13 @@ class ServiceMethodExecutor extends Component
 
         foreach ($method->getParameters() as $param) {
             /* @var $param ReflectionParameter */
-            // print('the param: '.$param->getName().' <br/>');
 
+            // print('the param: '.$param->getName().' <br/>');
             // if (is_subclass_of($param->getClass()->getName(), Model::className())) {
             if($param->getClass() != null){
+                // TODO: 此处可用暴露一个回调 遇到特定类执行不同的参数实例化 (Closure function(){ ... } )
+                // 不同的类名 对应不同的回调方法  setParamInitializer($paramClass , Closure callback )
+                // 一个用到的场景就是 模型除了填充外 还要设置一个额外的 scenario
                 if (is_a($param->getClass()->getName(), Model::className() , true)) {
                     // $args['class'] = $param->getClass()->getName() ;
                     // $pass[] =   Yii::createObject($args ) ;  // unset($args['class']) ; // $args[$param->getName()];
