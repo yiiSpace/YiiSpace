@@ -11,6 +11,7 @@ namespace year\api\service;
 use Yii ;
 use yii\base\Component;
 use yii\base\Configurable;
+use yii\base\Exception;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\base\NotSupportedException;
@@ -51,6 +52,16 @@ class ServiceMethodExecutor extends Component
         return $this->serviceObj ;
     }
 
+    /**
+     * @see https://stackoverflow.com/questions/888064/php-5-3-magic-method-invoke
+     *
+     * @param $method
+     * @param array $params
+     * @return mixed
+     * @throws BadRequestHttpException
+     * @throws InvalidConfigException
+     * @throws \ReflectionException
+     */
     public function invoke($method , $params = [])
     {
 
@@ -63,6 +74,12 @@ class ServiceMethodExecutor extends Component
         $methodParams = $this->buildMethodParams($method ,$params) ;
 
         return call_user_func_array([$serviceObj,$method] , $methodParams) ;
+    }
+
+    public function __call($name, $arguments)
+    {
+        //   todo return $this->invoke($name ,)
+        throw new Exception('not implemented !') ;
     }
 
     public function setServiceClass($serviceClass )
@@ -96,9 +113,10 @@ class ServiceMethodExecutor extends Component
         foreach ($method->getParameters() as $param) {
             /* @var $param ReflectionParameter */
 
+
             // print('the param: '.$param->getName().' <br/>');
             // if (is_subclass_of($param->getClass()->getName(), Model::className())) {
-            if($param->getClass() != null){
+            if( !isset($params[$param->getName()]) && $param->getClass() != null){
                 // TODO: 此处可用暴露一个回调 遇到特定类执行不同的参数实例化 (Closure function(){ ... } )
                 // 不同的类名 对应不同的回调方法  setParamInitializer($paramClass , Closure callback )
                 // 一个用到的场景就是 模型除了填充外 还要设置一个额外的 scenario

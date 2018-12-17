@@ -1,7 +1,13 @@
 代码生成
 ===========
 
+### 文档生成 
+https://github.com/vanderlee/PHPSwaggerGen
+
+
 https://github.com/nette/php-generator
+
+https://github.com/api-platform/api-platform
 
 ### 注释提取
 https://github.com/nette/reflection
@@ -23,3 +29,11 @@ node的
 https://github.com/glayzzle/php-parser
 go的
 https://github.com/z7zmey/php-parser
+
+### api doc 合并
+- https://github.com/swagger-api/swagger-editor/issues/233
+- https://github.com/javanile/yamlinc
+- 跟larevel亲和 https://medium.com/@tiagoreisalves/why-not-to-use-swagger-php-ec509590fefb
+
+https://github.com/slampenny/Swaggervel
+

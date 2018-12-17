@@ -19,8 +19,8 @@ $config = [
         ],
         'urlManager' => [
             //'enableStrictParsing' => true,
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            // 'enablePrettyUrl' => true,
+            // 'showScriptName' => false,
         ],
         'view' => [
             'theme' => [

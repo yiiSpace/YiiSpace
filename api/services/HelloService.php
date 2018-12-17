@@ -7,6 +7,7 @@
  */
 
 namespace api\services;
+use phpDocumentor\Reflection\Types\Callable_;
 use yii\base\Model;
 
 /**
@@ -23,8 +24,11 @@ class HelloService
      * @param string $name
      * @return string
      */
-    public function to( $name = 'yiqing')
+    public function to( $name = 'yiqing', Callable $checkAccess=null)
     {
+        if($checkAccess != null){
+            $checkAccess('yes from '.__METHOD__);
+        }
         return 'hello to '.$name ;
     }
 

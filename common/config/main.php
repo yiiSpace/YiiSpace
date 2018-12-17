@@ -57,7 +57,8 @@ $config = [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
             'username' => 'root', // getenv('DB_USERNAME'),
-            'password' => '', // getenv('DB_PASSWORD'),
+//            'password' => '', // getenv('DB_PASSWORD'),
+            'password' =>  getenv('DB_PASSWORD'),
             'charset' => 'utf8',
         ],
         'db2' => [

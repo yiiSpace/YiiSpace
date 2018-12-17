@@ -16,10 +16,6 @@
         }
     ],
 	 "repositories":[
-        {
-            "type":"vcs",
-            "url":"https://github.com/deesoft/yii2-easyui"
-        },
          {
              "type":"vcs",
              "url":"https://github.com/yiqing/yii2-export"
@@ -85,7 +81,8 @@
         "powerkernel/yii2-photoswipe": "*",
         "romi45/yii2-seo-behavior": "~1.0",
         "creocoder/yii2-taggable": "~2.0",
-        "vova07/yii2-imperavi-widget": "*"
+        "vova07/yii2-imperavi-widget": "*",
+        "zircote/swagger-php": "^3.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

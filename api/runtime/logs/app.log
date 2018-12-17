@@ -9505,3 +9505,1680 @@ $_SERVER = [
     'DB_PASSWORD' => ''
     'COOKIE_VALIDATION_KEY' => 'trjUdxreEe4GXe1AtydDjmfUBleAovxG222'
 ]
+2018-12-16 20:54:29 [127.0.0.1][-][-][error][Error] Error: Class 'api\controllers\ServiceMethodExecutor' not found in D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php:28
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(35): api\controllers\HelloController->getServiceMethodExecutor()
+#1 [internal function]: api\controllers\HelloController->actionTo()
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#9 {main}
+2018-12-16 20:54:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'hello/to'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.0.31-nts-Win32-VC14-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '5652'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=hello/to'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=hello/to'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544964869.674
+    'REQUEST_TIME' => 1544964869
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-16 20:55:11 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] ReflectionException: Class api\controllers\HelloService does not exist in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:431
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(431): ReflectionClass->__construct('api\\controllers...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('api\\controllers...')
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\controllers...', Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(345): yii\di\Container->get('api\\controllers...', Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\year\api\service\ServiceMethodExecutor.php(79): yii\BaseYii::createObject('api\\controllers...')
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(30): year\api\service\ServiceMethodExecutor->setServiceClass('api\\controllers...')
+#6 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(36): api\controllers\HelloController->getServiceMethodExecutor()
+#7 [internal function]: api\controllers\HelloController->actionTo()
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#13 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#15 {main}
+
+Next yii\base\InvalidConfigException: Failed to instantiate component or class "api\controllers\HelloService". in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:433
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('api\\controllers...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\controllers...', Array, Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(345): yii\di\Container->get('api\\controllers...', Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\year\api\service\ServiceMethodExecutor.php(79): yii\BaseYii::createObject('api\\controllers...')
+#4 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(30): year\api\service\ServiceMethodExecutor->setServiceClass('api\\controllers...')
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(36): api\controllers\HelloController->getServiceMethodExecutor()
+#6 [internal function]: api\controllers\HelloController->actionTo()
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#14 {main}
+2018-12-16 20:55:11 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'hello/to'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.0.31-nts-Win32-VC14-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '5652'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=hello/to'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=hello/to'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544964911.1052
+    'REQUEST_TIME' => 1544964911
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-16 21:13:42 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Missing argument 1 for api\controllers\HelloController::api\controllers\{closure}(), called in D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php on line 30 and defined in D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php:61
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(61): yii\base\ErrorHandler->handleError(2, 'Missing argumen...', 'D:\\Visual-NMP-x...', 61, Array)
+#1 D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php(30): api\controllers\HelloController->api\controllers\{closure}()
+#2 [internal function]: api\services\HelloService->to('yiqing', Object(Closure))
+#3 D:\Visual-NMP-x64\www\YiiSpace\year\api\service\ServiceMethodExecutor.php(66): call_user_func_array(Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(65): year\api\service\ServiceMethodExecutor->invoke('to', Array)
+#5 [internal function]: api\controllers\HelloController->actionTo()
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#13 {main}
+2018-12-16 21:13:42 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'hello/to'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.0.31-nts-Win32-VC14-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '8233'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=hello/to'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=hello/to'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544966021.9883
+    'REQUEST_TIME' => 1544966021
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-16 21:14:04 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Missing argument 1 for api\controllers\HelloController::api\controllers\{closure}(), called in D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php on line 30 and defined in D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php:61
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(61): yii\base\ErrorHandler->handleError(2, 'Missing argumen...', 'D:\\Visual-NMP-x...', 61, Array)
+#1 D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php(30): api\controllers\HelloController->api\controllers\{closure}()
+#2 [internal function]: api\services\HelloService->to('yiqing', Object(Closure))
+#3 D:\Visual-NMP-x64\www\YiiSpace\year\api\service\ServiceMethodExecutor.php(66): call_user_func_array(Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(65): year\api\service\ServiceMethodExecutor->invoke('to', Array)
+#5 [internal function]: api\controllers\HelloController->actionTo()
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#13 {main}
+2018-12-16 21:14:04 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'hello/to'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.0.31-nts-Win32-VC14-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '8233'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=hello/to'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=hello/to'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544966044.9636
+    'REQUEST_TIME' => 1544966044
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-16 21:14:55 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Missing argument 1 for api\controllers\HelloController::api\controllers\{closure}(), called in D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php on line 30 and defined in D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php:61
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(61): yii\base\ErrorHandler->handleError(2, 'Missing argumen...', 'D:\\Visual-NMP-x...', 61, Array)
+#1 D:\Visual-NMP-x64\www\YiiSpace\api\services\HelloService.php(30): api\controllers\HelloController->api\controllers\{closure}()
+#2 [internal function]: api\services\HelloService->to('yiqing', Object(Closure))
+#3 D:\Visual-NMP-x64\www\YiiSpace\year\api\service\ServiceMethodExecutor.php(66): call_user_func_array(Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\HelloController.php(65): year\api\service\ServiceMethodExecutor->invoke('to', Array)
+#5 [internal function]: api\controllers\HelloController->actionTo()
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('to', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('hello/to', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('hello/to', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#13 {main}
+2018-12-16 21:14:55 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'hello/to'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.0.31-nts-Win32-VC14-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '8233'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=hello/to'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=hello/to'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544966095.3524
+    'REQUEST_TIME' => 1544966095
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:09:40 [127.0.0.1][-][-][error][yii\base\Exception] yii\base\Exception: the controller must be an instance of yii\rest\Controller ,
+                but now it is api\controllers\DocController in D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php:81
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(145): api\base\Application->beforeAction(Object(yii\base\InlineAction))
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#6 {main}
+2018-12-17 15:09:40 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11057'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545030580.1357
+    'REQUEST_TIME' => 1545030580
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:18:35 [127.0.0.1][-][-][error][yii\base\Exception] yii\base\Exception: the controller must be an instance of yii\rest\Controller ,
+                but now it is api\controllers\DocController in D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php:81
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(145): api\base\Application->beforeAction(Object(yii\base\InlineAction))
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#6 {main}
+2018-12-17 15:18:35 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11098'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031115.4048
+    'REQUEST_TIME' => 1545031115
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:18:54 [127.0.0.1][-][-][error][yii\base\Exception] yii\base\Exception: the controller must be an instance of yii\rest\Controller ,
+                but now it is api\controllers\DocController in D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php:81
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(145): api\base\Application->beforeAction(Object(yii\base\InlineAction))
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#6 {main}
+2018-12-17 15:18:54 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11098'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031134.7599
+    'REQUEST_TIME' => 1545031134
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:19:05 [127.0.0.1][-][-][error][InvalidArgumentException] InvalidArgumentException: The "api/controllers" directory does not exist. in D:\Visual-NMP-x64\www\YiiSpace\vendor\symfony\finder\Finder.php:581
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\Util.php(83): Symfony\Component\Finder\Finder->in('api/controllers')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\functions.php(39): OpenApi\Util::finder('api/controllers', NULL)
+#2 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\DocController.php(20): OpenApi\scan('api/controllers')
+#3 [internal function]: api\controllers\DocController->actionIndex()
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#11 {main}
+2018-12-17 15:19:05 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11098'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031145.5625
+    'REQUEST_TIME' => 1545031145
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:19:36 [127.0.0.1][-][-][error][InvalidArgumentException] InvalidArgumentException: The "api/controllers" directory does not exist. in D:\Visual-NMP-x64\www\YiiSpace\vendor\symfony\finder\Finder.php:581
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\Util.php(83): Symfony\Component\Finder\Finder->in('api/controllers')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\functions.php(39): OpenApi\Util::finder('api/controllers', NULL)
+#2 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\DocController.php(20): OpenApi\scan('api/controllers')
+#3 [internal function]: api\controllers\DocController->actionIndex()
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#11 {main}
+2018-12-17 15:19:36 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11098'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031176.2401
+    'REQUEST_TIME' => 1545031176
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:21:31 [127.0.0.1][-][-][error][TypeError] TypeError: Return value of Doctrine\Common\Annotations\AnnotationRegistry::registerLoader() must be an instance of Doctrine\Common\Annotations\void, none returned in D:\Visual-NMP-x64\www\YiiSpace\vendor\doctrine\annotations\lib\Doctrine\Common\Annotations\AnnotationRegistry.php:117
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\Analyser.php(33): Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(Object(Closure))
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\composer\ClassLoader.php(444): include('D:\\Visual-NMP-x...')
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('D:\\Visual-NMP-x...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('OpenApi\\Analyse...')
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\StaticAnalyser.php(73): spl_autoload_call('OpenApi\\Analyse...')
+#5 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\StaticAnalyser.php(45): OpenApi\StaticAnalyser->fromTokens(Array, Object(OpenApi\Context))
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\functions.php(41): OpenApi\StaticAnalyser->fromFile('D:\\Visual-NMP-x...')
+#7 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\DocController.php(20): OpenApi\scan('D:\\Visual-NMP-x...')
+#8 [internal function]: api\controllers\DocController->actionIndex()
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#13 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#14 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#16 {main}
+2018-12-17 15:21:31 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11117'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031291.6833
+    'REQUEST_TIME' => 1545031291
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:22:52 [127.0.0.1][-][-][error][TypeError] TypeError: Return value of Doctrine\Common\Annotations\AnnotationRegistry::registerLoader() must be an instance of Doctrine\Common\Annotations\void, none returned in D:\Visual-NMP-x64\www\YiiSpace\vendor\doctrine\annotations\lib\Doctrine\Common\Annotations\AnnotationRegistry.php:117
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\Analyser.php(33): Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(Object(Closure))
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\composer\ClassLoader.php(444): include('D:\\Visual-NMP-x...')
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('D:\\Visual-NMP-x...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('OpenApi\\Analyse...')
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\StaticAnalyser.php(73): spl_autoload_call('OpenApi\\Analyse...')
+#5 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\StaticAnalyser.php(45): OpenApi\StaticAnalyser->fromTokens(Array, Object(OpenApi\Context))
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\zircote\swagger-php\src\functions.php(41): OpenApi\StaticAnalyser->fromFile('..\\assets\\AppAs...')
+#7 D:\Visual-NMP-x64\www\YiiSpace\api\controllers\DocController.php(21): OpenApi\scan('..')
+#8 [internal function]: api\controllers\DocController->actionIndex()
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('doc', Array)
+#13 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('doc', Array)
+#14 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#16 {main}
+2018-12-17 15:22:52 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'doc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11132'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=doc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=doc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031372.8914
+    'REQUEST_TIME' => 1545031372
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:24:44 [127.0.0.1][-][jdbdkl0kqs92g8qmonqo8480m3][error][yii\base\ErrorException:1] yii\base\ErrorException: Interface 'OAuth2\Storage\UserCredentialsInterface' not found in D:\Visual-NMP-x64\www\YiiSpace\common\models\User.php:24
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2018-12-17 15:24:44 [127.0.0.1][-][jdbdkl0kqs92g8qmonqo8480m3][info][application] $_GET = [
+    'r' => 'apidoc'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => '2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/backend/web/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=2ae16867b612041d6e723f4f59f3ff126fb7c28da205e70f86a7652a55dee17fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22buc3SeKVhgLqoSbhpcmtWZA-0XJC5WVy%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11149'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=apidoc'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=apidoc'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031484.1948
+    'REQUEST_TIME' => 1545031484
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:26:12 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] ReflectionException: Class filsh\yii2\oauth2server\Module does not exist in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:431
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(431): ReflectionClass->__construct('filsh\\yii2\\oaut...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('filsh\\yii2\\oaut...')
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('filsh\\yii2\\oaut...', Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('filsh\\yii2\\oaut...', Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(427): yii\BaseYii::createObject(Array, Array)
+#5 D:\Visual-NMP-x64\www\YiiSpace\my\apidoc\controllers\CategoryController.php(31): yii\base\Module->getModule('oauth2')
+#6 [internal function]: my\apidoc\controllers\CategoryController->actionIndex()
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('apidoc/category...', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('apidoc/category...', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#14 {main}
+
+Next yii\base\InvalidConfigException: Failed to instantiate component or class "filsh\yii2\oauth2server\Module". in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:433
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('filsh\\yii2\\oaut...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('filsh\\yii2\\oaut...', Array, Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('filsh\\yii2\\oaut...', Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(427): yii\BaseYii::createObject(Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\my\apidoc\controllers\CategoryController.php(31): yii\base\Module->getModule('oauth2')
+#5 [internal function]: my\apidoc\controllers\CategoryController->actionIndex()
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('apidoc/category...', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('apidoc/category...', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#13 {main}
+2018-12-17 15:26:12 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'apidoc/category/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => 'eb092da216b6d8edee2e0a786559345afc5ebdb8271a55d02c7ca1e758888d5ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"EHIXSGn_HetUwk-tTTgZCTRKML-WGAXh\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=eb092da216b6d8edee2e0a786559345afc5ebdb8271a55d02c7ca1e758888d5ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22EHIXSGn_HetUwk-tTTgZCTRKML-WGAXh%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1:666/api/web/index.php?r=apidoc'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11158'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=apidoc%2Fcategory%2Findex'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=apidoc%2Fcategory%2Findex'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031572.5903
+    'REQUEST_TIME' => 1545031572
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
+2018-12-17 15:26:38 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] ReflectionException: Class filsh\yii2\oauth2server\Module does not exist in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:431
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(431): ReflectionClass->__construct('filsh\\yii2\\oaut...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('filsh\\yii2\\oaut...')
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('filsh\\yii2\\oaut...', Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('filsh\\yii2\\oaut...', Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(427): yii\BaseYii::createObject(Array, Array)
+#5 D:\Visual-NMP-x64\www\YiiSpace\my\apidoc\controllers\CategoryController.php(31): yii\base\Module->getModule('oauth2')
+#6 [internal function]: my\apidoc\controllers\CategoryController->actionIndex()
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('apidoc/category...', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('apidoc/category...', Array)
+#12 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#14 {main}
+
+Next yii\base\InvalidConfigException: Failed to instantiate component or class "filsh\yii2\oauth2server\Module". in D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php:433
+Stack trace:
+#0 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(365): yii\di\Container->getDependencies('filsh\\yii2\\oaut...')
+#1 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('filsh\\yii2\\oaut...', Array, Array)
+#2 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('filsh\\yii2\\oaut...', Array, Array)
+#3 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(427): yii\BaseYii::createObject(Array, Array)
+#4 D:\Visual-NMP-x64\www\YiiSpace\my\apidoc\controllers\CategoryController.php(31): yii\base\Module->getModule('oauth2')
+#5 [internal function]: my\apidoc\controllers\CategoryController->actionIndex()
+#6 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#7 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#8 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#9 D:\Visual-NMP-x64\www\YiiSpace\api\base\Application.php(147): yii\base\Module->runAction('apidoc/category...', Array)
+#10 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\web\Application.php(103): api\base\Application->runAction('apidoc/category...', Array)
+#11 D:\Visual-NMP-x64\www\YiiSpace\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 D:\Visual-NMP-x64\www\YiiSpace\api\web\index.php(39): yii\base\Application->run()
+#13 {main}
+2018-12-17 15:26:38 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'apidoc/category/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_qddaz' => 'QD.hhya8x.z5wzx7.jna2d5hp'
+    'tencentSig' => '1619719168'
+    'PHPSESSID' => 'jdbdkl0kqs92g8qmonqo8480m3'
+    '_identity' => '35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_csrf' => 'eb092da216b6d8edee2e0a786559345afc5ebdb8271a55d02c7ca1e758888d5ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"EHIXSGn_HetUwk-tTTgZCTRKML-WGAXh\";}'
+]
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'ANDROID_HOME' => 'C:\\Users\\guruYu\\AppData\\Local\\Android\\Sdk'
+    'APPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Roaming'
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey'
+    'CLASSPATH' => '.;'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'ZHOUJIANYU'
+    'ComSpec' => 'C:\\windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_181'
+    'LOCALAPPDATA' => 'C:\\windows\\system32\\config\\systemprofile\\AppData\\Local'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Program Files\\Docker\\Docker\\Resources\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;D:Visual-NMP-x64\\Bin\\MySQL\\bin;D:Visual-NMP-x64\\Bin\\Nginx;D:\\Visual-NMP-x64\\Bin\\Memcached;D:\\Visual-NMP-x64\\Bin\\MongoDB\\bin;D:\\Visual-NMP-x64\\Bin\\Redis\\Redis3.2.100;C:\\Program Files\\Git\\cmd;D:\\Visual-NMP-x64\\Bin\\PHP\\php-7.2.5-nts-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\guruYu\\AppData\\Roaming\\npm\\node_modules\\yarn\\bin;C:\\Program Files\\Java\\jdk1.8.0_181\\bin;C:\\Program Files\\Java\\jre1.8.0_181\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\guruYu\\AppData\\Local\\Yarn\\bin;C:\\windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 142 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '8e09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR' => 'C:\\Program Files\\Red Giant\\RGFX'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\windows'
+    'TEMP' => 'C:\\windows\\TEMP'
+    'TMP' => 'C:\\windows\\TEMP'
+    'USERDOMAIN' => 'WorkGroup'
+    'USERNAME' => 'ZHOUJIANYU$'
+    'USERPROFILE' => 'C:\\windows\\system32\\config\\systemprofile'
+    'windir' => 'C:\\windows'
+    'HTTP_COOKIE' => '_qddaz=QD.hhya8x.z5wzx7.jna2d5hp; tencentSig=1619719168; PHPSESSID=jdbdkl0kqs92g8qmonqo8480m3; _identity=35a03ce26902a9b7bd505030c1b2598979922caf7b1faeb3e0ef4acd587d9b13a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=eb092da216b6d8edee2e0a786559345afc5ebdb8271a55d02c7ca1e758888d5ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22EHIXSGn_HetUwk-tTTgZCTRKML-WGAXh%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_REFERER' => 'http://127.0.0.1:666/api/web/index.php?r=apidoc'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => '127.0.0.1:666'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '666'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '11171'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.14.0'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'DOCUMENT_URI' => '/api/web/index.php'
+    'REQUEST_URI' => '/api/web/index.php?r=apidoc%2Fcategory%2Findex'
+    'SCRIPT_NAME' => '/api/web/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=apidoc%2Fcategory%2Findex'
+    'PATH_TRANSLATED' => 'D:/Visual-NMP-x64/www/YiiSpace'
+    'PATH_INFO' => ''
+    'SCRIPT_FILENAME' => 'D:/Visual-NMP-x64/www/YiiSpace/api/web/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1545031598.5942
+    'REQUEST_TIME' => 1545031598
+    'YII_DEBUG' => 'true'
+    'YII_ENV' => 'dev'
+    'DB_DSN' => 'mysql:host=localhost;dbname=yii_space'
+    'DB_USERNAME' => 'root'
+    'DB_PASSWORD' => '123456'
+    'COOKIE_VALIDATION_KEY' => 'SomeRandomString'
+]
