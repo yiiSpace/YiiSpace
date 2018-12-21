@@ -9,6 +9,9 @@ https://github.com/nette/php-generator
 
 https://github.com/api-platform/api-platform
 
+https://github.com/mpociot/laravel-apidoc-generator
+https://github.com/HCESrl/laravel-swagger-api
+
 ### 注释提取
 https://github.com/nette/reflection
 

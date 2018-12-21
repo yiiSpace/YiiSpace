@@ -17,3 +17,5 @@
 
 这种方法见：[scylla-api-doc](https://github.com/scylladb/scylla/tree/master/api/api-doc)  
  
+ 
+ - https://scotch.io/tutorials/speed-up-your-restful-api-development-in-node-js-with-swagger

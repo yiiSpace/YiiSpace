@@ -28,6 +28,9 @@ frontend-controller ->  app-service  -> model --> dao
 https://fractal.thephpleague.com/transformers/
 League\Fractal\TransformerAbstract
 
+laravel的实现：
+https://github.com/spatie/laravel-fractal
+
 ~~~php
 
 <?php namespace App\Transformer;
