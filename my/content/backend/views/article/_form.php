@@ -58,6 +58,22 @@ use \yii\helpers\Url;
 
             echo $form->field($model, 'content')->widget(Widget::className(), [
                 'settings' => [
+                    'uploadImageFields' => [
+                            'album'=>'#album',
+                            'name' => "test123"],
+                    'callbacks' => [
+                        'upload' => [
+                            'beforeSend' => new \yii\web\JsExpression(' function ( xhr)
+{
+   alert( "My upload started!3333" );
+             return false;
+}'),
+                        ]
+                    ],
+                    'imageData' => [
+                        // https://imperavi.com/redactor/examples/images-and-files/additional-upload-data/
+                        'elements' => '#album'
+                    ],
                     'lang' => 'en',
                     'minHeight' => 200,
                     'plugins' => [
@@ -68,15 +84,18 @@ use \yii\helpers\Url;
                     'uploadStartCallback' => new \yii\web\JsExpression(' function ( e , formData )
 {
    alert( "My upload started!" );
-    e.preventDefault();
-             
+    // e.preventDefault();
+       console.log(formData);    
+       formData["someKey"] = "someValue" ;  
+       console.log(this.uploadImageFields) ;
              return false;
 }'),
                     // for image manager
-                    'imageUpload' => Url::to(['/default/image-upload']),
+                    'imageUpload' => Url::to(['default/image-upload']),
                     'imageDelete' => Url::to(['/default/file-delete']),
                     'imageManagerJson' => Url::to(['/default/images-get']),
                     'imageManagerUrl' => Url::to(['/content/photo/editor-selection']),
+                    'imageAlbumUrl' => Url::to(['/content/album/api-list']),
                     // 'iframeUrl' => 'http://www.baidu.com', //  Url::to(['/default/images-get']),
                     'iframeUrl' => Url::to(['/default/images-get']),
                 ],
@@ -85,6 +104,7 @@ use \yii\helpers\Url;
                     'imagemanager' => \my\content\bundles\MyImageManagerAsset::className(),
 //                    'iframe' => \my\content\bundles\MyImageManagerAsset::className(),
                 ],
+
             ]);
             ?>
 

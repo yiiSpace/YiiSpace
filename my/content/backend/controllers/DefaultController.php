@@ -17,4 +17,9 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionImageUpload()
+    {
+        return $this->asJson( \Yii::$app->request->post() );
+    }
 }
