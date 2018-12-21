@@ -11,6 +11,8 @@ Yii::setAlias('installer', dirname(dirname(__DIR__)) . '/installer'); // add ins
 Yii::setAlias('my', dirname(dirname(__DIR__)) . '/my');
 Yii::setAlias('year', dirname(dirname(__DIR__)) . '/year');
 
+Yii::setAlias('modules',   'D:\Visual-NMP-x64\www\459loveofficial\modules');
+
 
 
 // apache thrift lib

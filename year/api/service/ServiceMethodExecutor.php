@@ -8,7 +8,7 @@
 
 namespace year\api\service;
 
-use Yii ;
+use Yii;
 use yii\base\Component;
 use yii\base\Configurable;
 use yii\base\Exception;
@@ -16,6 +16,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\base\NotSupportedException;
 use yii\web\BadRequestHttpException;
+use yii\web\UploadedFile;
 
 /**
  * TODO: 异常类型不应该耦合到web层 使用http层的异常 这样导致下层依赖了上层 依赖方向有问题  应该有自己的异常层次！
@@ -28,11 +29,11 @@ class ServiceMethodExecutor extends Component
     /**
      * @var string
      */
-    protected $serviceClass  ;
+    protected $serviceClass;
     /**
      * @var null
      */
-    protected $serviceObj =  null ;
+    protected $serviceObj = null;
 
     /**
      * @param $serviceObj
@@ -40,8 +41,8 @@ class ServiceMethodExecutor extends Component
      */
     public function setServiceObject($serviceObj)
     {
-        $this->serviceObj = $serviceObj ;
-        return $this ;
+        $this->serviceObj = $serviceObj;
+        return $this;
     }
 
     /**
@@ -49,7 +50,7 @@ class ServiceMethodExecutor extends Component
      */
     public function getServiceObject()
     {
-        return $this->serviceObj ;
+        return $this->serviceObj;
     }
 
     /**
@@ -62,36 +63,37 @@ class ServiceMethodExecutor extends Component
      * @throws InvalidConfigException
      * @throws \ReflectionException
      */
-    public function invoke($method , $params = [])
+    public function invoke($method, $params = [])
     {
 
-        $serviceObj = $this->getServiceObject() ;
-        if(empty($this->serviceObj)){
+        $serviceObj = $this->getServiceObject();
+        if (empty($this->serviceObj)) {
             throw new InvalidConfigException('you must set the serviceClass or serviceObject properties! ');
         }
 
 
-        $methodParams = $this->buildMethodParams($method ,$params) ;
+        $methodParams = $this->buildMethodParams($method, $params);
 
-        return call_user_func_array([$serviceObj,$method] , $methodParams) ;
+        return call_user_func_array([$serviceObj, $method], $methodParams);
     }
 
     public function __call($name, $arguments)
     {
         //   todo return $this->invoke($name ,)
-        throw new Exception('not implemented !') ;
+        throw new Exception('not implemented !');
     }
 
-    public function setServiceClass($serviceClass )
+    public function setServiceClass($serviceClass)
     {
-        $this->serviceClass = $serviceClass ;
+        $this->serviceClass = $serviceClass;
         // FIXME 类形是简单形式！
-        $this->serviceObj = \Yii::createObject($this->serviceClass) ;
-        return $this ;
+        $this->serviceObj = \Yii::createObject($this->serviceClass);
+        return $this;
     }
+
     public function getServiceClass()
     {
-        return $this->serviceClass ;
+        return $this->serviceClass;
     }
 
     /**
@@ -103,9 +105,9 @@ class ServiceMethodExecutor extends Component
      * @throws BadRequestHttpException
      * @throws \ReflectionException
      */
-    protected function buildMethodParams($method , $params)
+    protected function buildMethodParams($method, $params)
     {
-        $method = new \ReflectionMethod($this->serviceObj,$method);
+        $method = new \ReflectionMethod($this->serviceObj, $method);
 
         $args = [];
         $missing = [];
@@ -116,20 +118,20 @@ class ServiceMethodExecutor extends Component
 
             // print('the param: '.$param->getName().' <br/>');
             // if (is_subclass_of($param->getClass()->getName(), Model::className())) {
-            if( !isset($params[$param->getName()]) && $param->getClass() != null){
+            if (!isset($params[$param->getName()]) && $param->getClass() != null) {
                 // TODO: 此处可用暴露一个回调 遇到特定类执行不同的参数实例化 (Closure function(){ ... } )
                 // 不同的类名 对应不同的回调方法  setParamInitializer($paramClass , Closure callback )
                 // 一个用到的场景就是 模型除了填充外 还要设置一个额外的 scenario
-                if (is_a($param->getClass()->getName(), Model::className() , true)) {
+                if (is_a($param->getClass()->getName(), Model::className(), true)) {
                     // $args['class'] = $param->getClass()->getName() ;
                     // $pass[] =   Yii::createObject($args ) ;  // unset($args['class']) ; // $args[$param->getName()];
                     $modelInstance = $param->getClass()->newInstance();
-                    $modelInstance->load($params,'') ; // 不需要 User['name'] = 'yiqing '  这种形式的传递
-                    $args[] = $modelInstance ;
-                    continue ;
-                }elseif(is_a($param->getClass()->getName(),Configurable::class , true)){
+                    $modelInstance->load($params, ''); // 不需要 User['name'] = 'yiqing '  这种形式的传递
+                    $args[] = $modelInstance;
+                    continue;
+                } elseif (is_a($param->getClass()->getName(), Configurable::class, true)) {
                     // 允许yii系统的 依赖注入了 ！
-                    throw new NotSupportedException('暂时没有实现哦 ！ 这个也是比较简单的') ;
+                    throw new NotSupportedException('暂时没有实现哦 ！ 这个也是比较简单的');
                 }
             }
 
@@ -137,9 +139,9 @@ class ServiceMethodExecutor extends Component
             $name = $param->getName();
             if (array_key_exists($name, $params)) {
                 if ($param->isArray()) {
-                    $args[] =  (array) $params[$name];
+                    $args[] = (array)$params[$name];
                 } elseif (!is_array($params[$name])) {
-                    $args[]  = $params[$name];
+                    $args[] = $params[$name];
                 } else {
                     throw new BadRequestHttpException(Yii::t('yii', 'Invalid data received for parameter "{param}".', [
                         'param' => $name,
@@ -147,7 +149,7 @@ class ServiceMethodExecutor extends Component
                 }
                 unset($params[$name]);
             } elseif ($param->isDefaultValueAvailable()) {
-                $args[]  = $param->getDefaultValue();
+                $args[] = $param->getDefaultValue();
             } else {
                 $missing[] = $name;
             }
@@ -160,6 +162,21 @@ class ServiceMethodExecutor extends Component
         }
 
         return $args;
+    }
+
+    /**
+     * --------------------------------------------------------------             +|
+     *                             静态帮助方法
+     */
+    /**
+     * @param string $servieClass
+     * @return ServiceMethodExecutor
+     */
+    public static function createInstanceWithServiceClass($serviceClass = '')
+    {
+        $result = new static();
+        $result->setServiceClass($serviceClass);
+        return $result;
     }
 
 }

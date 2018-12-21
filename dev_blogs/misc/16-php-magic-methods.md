@@ -1,0 +1,1 @@
+https://www.tutorialdocs.com/article/16-php-magic-methods.html

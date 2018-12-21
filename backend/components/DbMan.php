@@ -49,8 +49,9 @@ implements BootstrapInterface
                 'class' => 'yii\db\Connection',
 //                'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
                 'dsn' => "mysql:host=localhost;dbname={$dbName}", //getenv('DB_DSN'),
-                'username' => 'root', // getenv('DB_USERNAME'),
-                'password' => '', // getenv('DB_PASSWORD'),
+                'username' =>  getenv('DB_USERNAME'),
+//                'password' => '', // getenv('DB_PASSWORD'),
+                'password' =>  getenv('DB_PASSWORD'),
                 'charset' => 'utf8',
             ];
         }

@@ -1,0 +1,45 @@
+{
+    "name": "yiispace/year",
+    "description": "Yii Extension and Application Repository for Yii framework",
+    "keywords": [
+        "yii2",
+        "extension"
+    ],
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "yiqing95",
+            "email": "yiqing_95@qq.com"
+        }
+    ],
+	 "repositories":[
+
+    ],
+	"require": {
+        "php": ">=5.4.0"
+
+    },
+    "require-dev": {
+
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+
+        ]
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower-asset"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": { "year\\": "" }
+    }
+}

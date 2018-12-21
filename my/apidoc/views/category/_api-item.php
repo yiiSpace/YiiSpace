@@ -52,7 +52,9 @@ if (in_array($method->name, ['beforeMethod', 'afterMethod', 'verbs'])) {
                         $httpMethodTag = \my\apidoc\helpers\PhpDoc::getTag($method->tags, 'HttpMethod');
                         ?>
                         HttpMethod:
-                        <span class="label label-info"><?= $httpMethodTag->getContent() ?></span>
+                        <span class="label label-info">
+                            <?php // todo: 允许多http方法  get,post,put implode下! ?>
+                            <?= $httpMethodTag->getContent() ?></span>
                     <?php else : ?>
 
                         HttpMethod:
