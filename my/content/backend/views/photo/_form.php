@@ -45,7 +45,10 @@ use yii\helpers\StringHelper;
             <?php // $form->field($model, 'owner_id')->textInput() ?>
 
             <!-- attribute album_id -->
-            <?= $form->field($model, 'album_id')->textInput() ?>
+            <?php // $form->field($model, 'album_id')->textInput() ?>
+
+            <?= $form->field($model, 'album_id')
+                ->dropDownList( \my\content\common\models\Album::forPhotoDropDownSelection(), []) ?>?>
 
             <!-- attribute desc -->
             <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>

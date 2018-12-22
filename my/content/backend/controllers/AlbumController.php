@@ -3,6 +3,7 @@
 namespace my\content\backend\controllers;
 
 use my\content\common\models\Album;
+use year\api\base\ValidationException;
 
 /**
 * This is the class for controller "AlbumController".
@@ -20,6 +21,7 @@ class AlbumController extends \my\content\backend\controllers\base\AlbumControll
                 'name'=>$name,
             ];
         }
+
         return $this->asJson(
             $results
         );

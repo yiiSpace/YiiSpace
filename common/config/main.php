@@ -38,7 +38,8 @@ $config = [
             // 'basePath'=> dirname( \Yii::$app->getBasePath() ).DIRECTORY_SEPARATOR .'storage/EvaThumber' ,
             'basePath' => dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'storage/EvaThumber',
 //             'baseUrl'=>'http://127.0.0.1:86/storage/EvaThumber',
-             'baseUrl'=>'http://127.0.0.1:5000/YiiSpace/storage/EvaThumber',
+             //'baseUrl'=>'http://127.0.0.1:5000/YiiSpace/storage/EvaThumber',
+             'baseUrl'=>'http://127.0.0.1:666/storage/EvaThumber',
             // 'baseUrl' => rtrim($params['thumber'],'/'),
         ],
         'i18n' => [

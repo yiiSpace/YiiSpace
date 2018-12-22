@@ -59,15 +59,32 @@ use \yii\helpers\Url;
             echo $form->field($model, 'content')->widget(Widget::className(), [
                 'settings' => [
                     'uploadImageFields' => [
-                            'album'=>'#album',
-                            'name' => "test123"],
+                        'album' => '#album',
+                        'name' => "test123"
+                    ],
+                    'imageUploadErrorCallback'=> new \yii\web\JsExpression('
+                                  function(response)
+            {
+                alert(response.message);
+                // console.log(response);
+            }
+                                '),
                     'callbacks' => [
+                        'image' => [
+                                'uploadError'=>new \yii\web\JsExpression('
+                                  function(response)
+            {
+                alert("咋了！");
+            }
+                                ')
+                        ],
                         'upload' => [
                             'beforeSend' => new \yii\web\JsExpression(' function ( xhr)
 {
    alert( "My upload started!3333" );
              return false;
 }'),
+
                         ]
                     ],
                     'imageData' => [

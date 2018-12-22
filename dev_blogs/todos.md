@@ -37,4 +37,8 @@
  
  - https://github.com/cinghie/yii2-traits
  - 动态表单： https://github.com/wbraganca/yii2-dynamicform
+ - https://github.com/gromver/yii2-platform
+ 
+ ### sns
+ - https://github.com/chiliec/yii2-vote
  
