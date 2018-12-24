@@ -21,10 +21,10 @@ use yii\web\UploadedFile;
 /**
  * TODO: 异常类型不应该耦合到web层 使用http层的异常 这样导致下层依赖了上层 依赖方向有问题  应该有自己的异常层次！
  *
- * Class ServiceMethodExecutor
+ * Class ServiceExecutor
  * @package year\api\service
  */
-class ServiceMethodExecutor extends Component
+class ServiceExecutor extends Component
 {
     /**
      * @var string
@@ -169,13 +169,18 @@ class ServiceMethodExecutor extends Component
      *                             静态帮助方法
      */
     /**
-     * @param string $servieClass
-     * @return ServiceMethodExecutor
+     * @param string|object $servieClass
+     * @return ServiceExecutor
      */
-    public static function createInstanceWithServiceClass($serviceClass = '')
+    public static function createInstance( $serviceClassOrObject )
     {
         $result = new static();
-        $result->setServiceClass($serviceClass);
+        if(is_string($serviceClassOrObject)){
+            $result->setServiceClass($serviceClassOrObject);
+        }else{
+            $result->setServiceObject($serviceClassOrObject) ;
+        }
+
         return $result;
     }
 

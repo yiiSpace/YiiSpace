@@ -69,24 +69,6 @@ use \yii\helpers\Url;
                 // console.log(response);
             }
                                 '),
-                    'callbacks' => [
-                        'image' => [
-                                'uploadError'=>new \yii\web\JsExpression('
-                                  function(response)
-            {
-                alert("咋了！");
-            }
-                                ')
-                        ],
-                        'upload' => [
-                            'beforeSend' => new \yii\web\JsExpression(' function ( xhr)
-{
-   alert( "My upload started!3333" );
-             return false;
-}'),
-
-                        ]
-                    ],
                     'imageData' => [
                         // https://imperavi.com/redactor/examples/images-and-files/additional-upload-data/
                         'elements' => '#album'
@@ -100,12 +82,8 @@ use \yii\helpers\Url;
                     ],
                     'uploadStartCallback' => new \yii\web\JsExpression(' function ( e , formData )
 {
-   alert( "My upload started!" );
     // e.preventDefault();
        console.log(formData);    
-       formData["someKey"] = "someValue" ;  
-       console.log(this.uploadImageFields) ;
-             return false;
 }'),
                     // for image manager
                     'imageUpload' => Url::to(['default/image-upload']),
