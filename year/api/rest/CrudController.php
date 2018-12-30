@@ -10,7 +10,7 @@ namespace year\api\rest;
 
 
 use year\api\rest\Controller;
-use year\api\service\ServiceMethodExecutor;
+use year\api\service\ServiceExecutor;
 
 /**
  * Class CrudController
@@ -36,11 +36,11 @@ class CrudController extends Controller
     }
 
     /**
-     * @return ServiceMethodExecutor
+     * @return ServiceExecutor
      */
-    protected function getServiceMethodExecutor()
+    protected function getServiceExecutor()
     {
-        $serviceExecutor = new ServiceMethodExecutor();
+        $serviceExecutor = new ServiceExecutor();
         $serviceExecutor->setServiceClass( $this->serviceClass ) ;
         return $serviceExecutor ;
     }
@@ -51,7 +51,7 @@ class CrudController extends Controller
     public function actionIndex()
     {
 
-        $serviceExecutor = $this->getServiceMethodExecutor();
+        $serviceExecutor = $this->getServiceExecutor();
 
         return $serviceExecutor->invoke('query' , \Yii::$app->request->get()) ; //  $serviceObj->query()
     }
@@ -64,7 +64,7 @@ class CrudController extends Controller
      */
     public function actionView($id)
     {
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('get',['id'=>$id]) ;
     }
 
@@ -77,7 +77,7 @@ class CrudController extends Controller
     public function actionCreate()
     {
         // print_r($_POST) ; die(__METHOD__) ; // NOTE json解析时  不要用$_POST
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('create',\Yii::$app->request->post()) ;
     }
 
@@ -90,7 +90,7 @@ class CrudController extends Controller
     public function actionUpdate($id)
     {
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('update',['id'=>$id]+\Yii::$app->request->post()) ;
     }
 
@@ -103,7 +103,7 @@ class CrudController extends Controller
     public function actionDelete($id)
     {
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('delete', ['id'=>$id]) ;
     }
 }

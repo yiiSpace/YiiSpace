@@ -24,7 +24,7 @@ class ViewAction extends Action
      */
     public function run($id)
     {
-        $model =   $this->getServiceMethodExecutor()
+        $model =   $this->getServiceExecutor()
         ->invoke('get',['id'=>$id]) ;
 
         if ($this->checkAccess) {

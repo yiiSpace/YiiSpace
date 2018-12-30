@@ -12,7 +12,7 @@ namespace my\content\api\controllers;
 use my\content\services\AlbumService;
 use year\api\rest\ActiveController;
 use year\api\rest\Controller;
-use year\api\service\ServiceMethodExecutor;
+use year\api\service\ServiceExecutor;
 
 class AlbumController extends  Controller  // ActiveController
 {
@@ -20,11 +20,11 @@ class AlbumController extends  Controller  // ActiveController
     public $serviceClass = 'my\content\services\AlbumService' ;
 
     /**
-     * @return ServiceMethodExecutor
+     * @return ServiceExecutor
      */
-    protected function getServiceMethodExecutor()
+    protected function getServiceExecutor()
     {
-        $serviceExecutor = new ServiceMethodExecutor();
+        $serviceExecutor = new ServiceExecutor();
         $serviceExecutor->setServiceClass( $this->serviceClass ) ;
         return $serviceExecutor ;
     }
@@ -36,7 +36,7 @@ class AlbumController extends  Controller  // ActiveController
     {
         // $serviceObj = new AlbumService() ;
         
-        $serviceExecutor = new ServiceMethodExecutor();
+        $serviceExecutor = new ServiceExecutor();
         $serviceExecutor->setServiceClass( AlbumService::class ) ;
         
         return $serviceExecutor->invoke('query' , \Yii::$app->request->get()) ; //  $serviceObj->query()
@@ -50,7 +50,7 @@ class AlbumController extends  Controller  // ActiveController
      */
     public function actionView($id)
     {
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('get',['id'=>$id]) ;
     }
 
@@ -63,7 +63,7 @@ class AlbumController extends  Controller  // ActiveController
     public function actionCreate()
     {
         // print_r($_POST) ; die(__METHOD__) ; // NOTE json解析时  不要用$_POST
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('create',\Yii::$app->request->post()) ;
     }
     /**
@@ -75,7 +75,7 @@ class AlbumController extends  Controller  // ActiveController
     public function actionUpdate($id)
     {
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('update',['id'=>$id]+\Yii::$app->request->post()) ;
     }
 
@@ -88,7 +88,7 @@ class AlbumController extends  Controller  // ActiveController
     public function actionDelete($id)
     {
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('delete', ['id'=>$id]) ;
     }
 }

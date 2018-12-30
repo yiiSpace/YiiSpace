@@ -41,7 +41,7 @@ class CreateAction extends Action
             call_user_func($this->checkAccess, $this->id);
         }
 
-        $model = $this->getServiceMethodExecutor()
+        $model = $this->getServiceExecutor()
             ->invoke('create',Yii::$app->getRequest()->getBodyParams()) ;
 
         /* @var $model \yii\db\ActiveRecord */

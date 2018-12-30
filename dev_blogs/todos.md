@@ -42,3 +42,8 @@
  ### sns
  - https://github.com/chiliec/yii2-vote
  
+ ### 读书
+ - https://anvaka.github.io/greview/hands-on-ml/1/
+ - https://www.itcodemonkey.com/article/11348.html
+ - https://github.com/anvaka/greview
+ 

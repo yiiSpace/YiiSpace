@@ -55,7 +55,7 @@ class IndexAction extends Action
             return call_user_func($this->prepareDataProvider, $this);
         }
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
             ->invoke('query' , \Yii::$app->request->get()) ;
     }
 }

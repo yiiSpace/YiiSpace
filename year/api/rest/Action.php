@@ -9,7 +9,7 @@ namespace year\api\rest;
 
 use year\api\service\CrudServiceInterface;
 use year\api\service\ServiceInterface;
-use year\api\service\ServiceMethodExecutor;
+use year\api\service\ServiceExecutor;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecordInterface;
@@ -72,11 +72,11 @@ class Action extends \yii\base\Action
     }
 
     /**
-     * @return ServiceMethodExecutor
+     * @return ServiceExecutor
      */
-    protected function getServiceMethodExecutor()
+    protected function getServiceExecutor()
     {
-        $serviceExecutor = new ServiceMethodExecutor();
+        $serviceExecutor = new ServiceExecutor();
         $serviceExecutor->setServiceClass( $this->serviceClass ) ;
         return $serviceExecutor ;
     }
@@ -107,7 +107,7 @@ class Action extends \yii\base\Action
             $model = $modelClass::findOne($id);
         }
         */
-        $model = $this->getServiceMethodExecutor()
+        $model = $this->getServiceExecutor()
             ->invoke('get',['id'=>$id]) ;
 
         if (isset($model)) {
