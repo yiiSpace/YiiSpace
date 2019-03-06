@@ -12,7 +12,7 @@ namespace api\controllers;
 use yii\rest\Controller;
 use yii\web\BadRequestHttpException;
 use api\services\HelloService;
-use year\api\service\ServiceMethodExecutor;
+use year\api\service\ServiceExecutor;
 
 /**
  * Class HelloController
@@ -25,11 +25,11 @@ class HelloController extends Controller
 
 
     /**
-     * @return ServiceMethodExecutor
+     * @return ServiceExecutor
      */
-    protected function getServiceMethodExecutor()
+    protected function getServiceExecutor()
     {
-        $serviceExecutor = new ServiceMethodExecutor();
+        $serviceExecutor = new ServiceExecutor();
         $serviceExecutor->setServiceClass(HelloService::class);
         return $serviceExecutor;
     }
@@ -68,7 +68,7 @@ class HelloController extends Controller
         $actionId = $this->action->getUniqueId();
 
 
-        return $this->getServiceMethodExecutor()
+        return $this->getServiceExecutor()
 //            ->invoke('to' , \Yii::$app->request->get()) ;
             ->invoke('to', [
                 'checkAccess' => function ($model) use ($checkAccess, $actionId) {

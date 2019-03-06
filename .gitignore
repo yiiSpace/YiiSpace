@@ -29,3 +29,6 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 /node-tests/api-test/node_modules
+/api/runtime
+/api/runtime/logs
+/composer.lock
