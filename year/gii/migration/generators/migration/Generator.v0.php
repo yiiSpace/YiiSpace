@@ -2,7 +2,6 @@
 
 namespace year\gii\migration\generators\migration;
 
-use api\base\Application;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use year\gii\migration\Config;
@@ -20,86 +19,13 @@ use yii\helpers\VarDumper;
 /**
  * This generator will generate one or multiple migration for the specified database table.
  *
- * NOTE 真正的生成文件在Generator::save方法上 或者通过 url 到底是生成还是预览 来决策 总之我们需要到底执行的是哪个动作
- *
  * @author yiqing
  *
  * @since 0.0.1
  *
  */
-class Generator extends \schmunk42\giiant\generators\model\Generator
+class GeneratorV0 extends \schmunk42\giiant\generators\model\Generator
 {
-
-
-    const SESSION_MAPPING_KEY = 'sess_migration_mapping';
-
-
-    /**
-     * @param CodeFile[] $files
-     * @param array $answers
-     * @param string $results
-     * @return bool
-     * @throws \yii\base\InvalidConfigException
-     *
-     * TODO save完成 删除session哦
-     */
-    public function save($files, $answers, &$results)
-    {
-        // session中的映射
-        $session = \Yii::$app->session;
-        $mapping = $session->get(self::SESSION_MAPPING_KEY);
-        // var_dump($mapping) ;
-        // var_dump(get_object_vars($this)) ;
-        // die(__METHOD__) ;
-        //  return parent::save($files, $answers, $results);
-
-        $lines = ['Generating code using template "' . $this->getTemplatePath() . '"...'];
-        $hasError = false;
-        foreach ($files as $file) {
-            $relativePath = $file->getRelativePath();
-            if (isset($answers[$file->id]) && !empty($answers[$file->id]) && $file->operation !== CodeFile::OP_SKIP) {
-                // -----------------------
-                // 修改的地方 字符串替换即可
-                 foreach ($mapping as $fakePath => $realPath){
-                     if (strpos($file->path, $fakePath) !== FALSE)
-                     {
-                        $lines[] = '成功一个了  ！';
-                        // die('hhahhah');
-                         $file->path = str_replace($fakePath,$realPath,$file->path) ;
-                         $file->content = str_replace($fakePath,$realPath,$file->content) ;
-                         $relativePath = $file->path ;
-
-                         self::$generateResult = "file gen ：$relativePath  " .PHP_EOL ;
-                     }
-                     else
-                     {
-                         $lines[] =   'Not found. ya';
-                     }
-                 }
-
-                // ----------------------
-
-                $error = $file->save();
-                if (is_string($error)) {
-                    $hasError = true;
-                    $lines[] = "generating $relativePath\n<span class=\"error\">$error</span>";
-                } else {
-                    $lines[] = $file->operation === CodeFile::OP_CREATE ? " generated $relativePath" : " overwrote $relativePath";
-                }
-            } else {
-                $lines[] = "   skipped $relativePath";
-            }
-        }
-        $lines[] = "done!\n";
-        $results = implode("\n", $lines);
-
-        // 移除session变量
-        unset($session[self::SESSION_MAPPING_KEY]);
-
-        return !$hasError;
-    }
-
-    protected static $generateResult = '';
 
     /**
      * {@inheritdoc}
@@ -122,7 +48,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     /**
      * @var bool
      */
-    public $generateMigration;
+    public $generateMigration = true;
 
 
     /**
@@ -201,7 +127,6 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             parent::attributeLabels(),
             [
                 'srcDir' => 'migration项目的src目录路径',
-                'generateMigration' => '是否生成迁移文件',
             ]
         );
     }
@@ -219,7 +144,6 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             ]
         );
     }
-
     /**
      * {@inheritdoc}
      */
@@ -266,18 +190,18 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             // ========= ========= ========= ========= ========= ========= ========= ========= ========= |
             //   copy from ...
             $name = $tableName;
+            $className = 'm' . gmdate('ymd') . '_create_table_' . $name;
 
-            // $className = 'm' . gmdate('ymd_His') . '_create_table_' . $name;
-            // FIXME gii 生成的文件名基本都是固定的 对于有时间戳 或者随机性文件名  没办法预览
-            $className = 'm' . gmdate('ymd_H') . '_create_table_' . $name;
-            // $file = Yii::getAlias($this->workingPath . DIRECTORY_SEPARATOR . $className . '.php');
-            $realClassName = 'm' . gmdate('ymd_His') . '_create_table_' . $name;
-
-            // 在session中做映射
-            $session = \Yii::$app->session;
-            $session->set(self::SESSION_MAPPING_KEY, [
-                $className => $realClassName,
-            ]);
+            /**
+            if($this->generateMigration ){
+                // $className = 'm' . gmdate('ymd_His') . '_create_table_' . $name;
+                $className = 'm' . gmdate('ymd') . '_create_table_' . $name;
+            }else{
+                // FIXME gii 生成的文件名基本都是固定的 对于有时间戳 或者随机性文件名  没办法预览
+                $className = 'm' . gmdate('ymd_H') . '_create_table_' . $name;
+                // $file = Yii::getAlias($this->workingPath . DIRECTORY_SEPARATOR . $className . '.php');
+            }
+             * */
 
 
             $templateFile = '@bizley/migration/views/create_migration.php';
@@ -302,24 +226,24 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             // 生文件
             $migrationPath = implode(DIRECTORY_SEPARATOR, array_filter([
                 $this->srcDir,
-                //  ucfirst($className) . '.php',
-                ($className) . '.php',
+                ucfirst($className) . '.php',
             ]));
             $files[] = new CodeFile(
                 $migrationPath,
                 $migrationContent
+            // $this->render('model.vue.php', $params)
             );
 
             // 先生成文件然后再删掉
-            Yii::$app->on(Application::EVENT_AFTER_ACTION, function () use ($migrationPath) {
-                if (file_exists($migrationPath)) {
-                    usleep(1000);
-                    unlink($migrationPath);
+            Yii::$app->on(Application::EVENT_AFTER_ACTION,function ()use($migrationPath){
+                if(file_exists($migrationPath)){
+                    usleep(1000) ;
+                    unlink($migrationPath) ;
                 }
 
             });
-            if ($this->generateMigration) {
-                // $this->genMigrationFile($tableName, dirname($migrationPath));
+            if($this->generateMigration){
+                $this->genMigrationFile($tableName,dirname($migrationPath));
             }
 
         }
@@ -338,15 +262,14 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 <p> 为了能够玩耍起来  你需要配置你的路由文件  src/router.js , you need to add this to your application configuration:</p>
 EOD;
 
-        //  $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
+        $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
 
-        $genResult = self::$generateResult;
 
         $code = <<<EOD
 <?php
     // some comment here！
     ......
-        {$genResult}
+   
     ......
    
 EOD;
@@ -359,23 +282,23 @@ EOD;
      * @param string $migrationPath
      * @return bool
      */
-    protected function genMigrationFile($table, $migrationPath = '')
+    protected function genMigrationFile($table,$migrationPath='')
     {
 
         $yiiPath = \Yii::getAlias('@app');
         $yiiPath = dirname($yiiPath) . DIRECTORY_SEPARATOR . 'yii';
 
-        $runtimeDir = \Yii::getAlias('@runtime/migrations');
+        $runtimeDir = \Yii::getAlias('@runtime/migrations') ;
 
-        $migrationPathOption = empty($migrationPath) ? '' : sprintf("--migrationPath=%s", $migrationPath);
+        $migrationPathOption = empty($migrationPath)? '' : sprintf("--migrationPath=%s",$migrationPath);
 
         $process = new Process([
             'yii',
             'migration/create',
 //            'user',
 //            '--migrationPath=@runtime/temp',
-            $table,
-            $migrationPathOption,
+             $table,
+             $migrationPathOption,
         ],
             dirname($yiiPath));
         $process->run();
@@ -387,9 +310,7 @@ EOD;
 
         // TODO 进程输出有用不？
         // echo 'hi:', $process->getOutput();
-        self::$generateResult = $process->getOutput();
-
-        return true;
+        return true ;
     }
 
 
