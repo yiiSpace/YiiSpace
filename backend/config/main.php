@@ -25,13 +25,14 @@ $config = [
         'view' => [
             'theme' => [
                 'class' => 'year\base\Theme',
-                'active' => 'easyui',
-                'basePath' => '@backend/themes/bootstrap',
+                // 'active' => 'adminlte', // 'easyui',
+                'active' => 'adminlte2', // 'easyui',
+                'basePath' => '@backend/themes/adminlte2',
                 // this will be used for assets(js css images) file
-                'baseUrl' => '@web/themes/bootstrap',
+                'baseUrl' => '@web/themes/adminlte2',
                 'pathMap' => [
                     '@app/views' => [
-                        '@app/themes/bootstrap/views',
+                        '@app/themes/adminlte2/views',
                     ]
                 ],
                 /*

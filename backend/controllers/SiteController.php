@@ -55,6 +55,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        // die(__METHOD__) ;
         return $this->render('index');
     }
 
