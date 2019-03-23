@@ -120,4 +120,83 @@ man 是一个特殊的分页（paging）程序用于查看这些命令
 
 ~~~
 
+### 搜索 
+
+- 段搜索
+> man section search_term
+
+-``apropos`` 显示合适的命令
+
+在命令的man page中搜索关键字 粗鲁却管用的方式（简单粗暴）
+
+>      
+    yiqing@yiqing-VirtualBox:~$ apropos partition
+    addpart (8)          - tell the kernel about the existence of a partition
+    all-swaps (7)        - event signalling that all swap partitions have been activated
+    cfdisk (8)           - display or manipulate a disk partition table
+    cgdisk (8)           - Curses-based GUID partition table (GPT) manipulator
+    delpart (8)          - tell the kernel to forget about a partition
+    fdisk (8)            - manipulate disk partition table
+    fixparts (8)         - MBR partition table repair utility
+    gdisk (8)            - Interactive GUID partition table (GPT) manipulator
+    gparted (8)          - GNOME Partition Editor for manipulating disk partitions.
+    mpartition (1)       - partition an MSDOS hard disk
+    partprobe (8)        - inform the OS of partition table changes
+    partx (8)            - tell the kernel about the presence and numbering of on-disk p...
+    resizepart (8)       - tell the kernel about the new size of a partition
+    sfdisk (8)           - display or manipulate a disk partition table
+    sgdisk (8)           - Command-line GUID partition table (GPT) manipulator for Linux...
+    systemd-gpt-auto-generator (8) - Generator for automatically discovering and mountin..
+    
+括号中的就是 手册页 关键字出现的 段号
+
+- whatis 显示匹配特殊关键字的一行手册页描述和名称
+
+> .
+  yiqing@yiqing-VirtualBox:~$ whatis mkdir
+  mkdir (1)            - make directories
+  mkdir (2)            - create a directory
+  
+  
+手册页的用途是想作为引用文档的 而不是作为tutorials的 很多手册页都很难阅读 对新手帮助不是太大
+
+
+## Info
+显示一个程序的信息入口  
+
+此gnu 项目可用于替换man  Info 页可有超链接 更像是一个web页
+info 程序读取 树形结构的info文件到每个节点 一个节点对应一个topic
+
+用法
+
+> : info Commands
+    Command                                 Action
+    ?                               Display command help
+    page up or backspace            Display previous page
+    page down or spacebar           Display next page
+    n                               Next—display the next node
+    p                               Previous—display the previous node
+    U                               Up—display the parent node of the currently displayed
+    node,                               usually a menu
+    enter                           Follow the hyperlink at the cursor location
+    Q                               Quit 
+        
+显示 coreutils 包下的gnu项目
+
+> info coreutils
+
+自省
+
+> info info
+
+### READEME 和其他应用程序文档文件
+
+很多安装在系统上的程序都有文档文件 寄居在
+/usr/share/doc 目录下 有的是html页可以用浏览器浏览
+ 也可以是.gz 文件  这样可以用zless程序阅读（less的gzip功能版）
+ 
+ 
+多个命令可以放在一行中
+
+> command1; command2; command3... 
 
