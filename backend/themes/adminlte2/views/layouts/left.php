@@ -35,6 +35,15 @@
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
+                        "label" => "文章管理",
+                        "icon" => \rmrevin\yii\fontawesome\FA::_APPLE, // "archive",
+                        "url" => "#",
+                        "items" => [
+                            ["label" => "文章分类管理", "url" => ["/content/article-category"]],
+                            ["label" => "文章管理", "url" => ["/content/article"]],
+                        ],
+                    ],
+                    [
                         'label' => 'Some tools',
                         'icon' => 'share',
                         'url' => '#',

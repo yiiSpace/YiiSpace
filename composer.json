@@ -87,7 +87,8 @@
         "casbin/yii-adapter": "^0.1.0",
         "moonlandsoft/yii2-phpexcel": "*",
         "creocoder/yii2-flysystem": "^0.9.3",
-        "mdmsoft/yii2-format-converter": "~1.0"
+        "mdmsoft/yii2-format-converter": "~1.0",
+        "codemix/yii2-excelexport": "^2.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -38,17 +38,17 @@ $config = [
             // 'basePath'=> dirname( \Yii::$app->getBasePath() ).DIRECTORY_SEPARATOR .'storage/EvaThumber' ,
             'basePath' => dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'storage/EvaThumber',
 //             'baseUrl'=>'http://127.0.0.1:86/storage/EvaThumber',
-             //'baseUrl'=>'http://127.0.0.1:5000/YiiSpace/storage/EvaThumber',
-             'baseUrl'=>'http://127.0.0.1:666/storage/EvaThumber',
+            //'baseUrl'=>'http://127.0.0.1:5000/YiiSpace/storage/EvaThumber',
+            'baseUrl' => 'http://127.0.0.1:666/storage/EvaThumber',
             // 'baseUrl' => rtrim($params['thumber'],'/'),
         ],
         'i18n' => [
             'translations' => [
                 '*' => [
-                    'class'          => 'yii\i18n\PhpMessageSource',
-                    'basePath'       => '@app/messages', // if advanced application, set @frontend/messages
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages', // if advanced application, set @frontend/messages
                     'sourceLanguage' => 'en',
-                    'fileMap'        => [
+                    'fileMap' => [
                         //'main' => 'main.php',
                     ],
                 ],
@@ -59,7 +59,7 @@ $config = [
             'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
             'username' => 'root', // getenv('DB_USERNAME'),
 //            'password' => '', // getenv('DB_PASSWORD'),
-            'password' =>  getenv('DB_PASSWORD'),
+            'password' => getenv('DB_PASSWORD'),
             'charset' => 'utf8',
         ],
         'db2' => [
@@ -68,7 +68,12 @@ $config = [
             'username' => 'root', // getenv('DB_USERNAME'),
             'password' => '', // getenv('DB_PASSWORD'),
             'charset' => 'utf8',
-            'tablePrefix'=>'',
+            'tablePrefix' => '',
+        ],
+        // 测试用的db
+        'sqliteDb' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'sqlite:'.dirname(dirname(__DIR__)).'/data/tmpdb.db',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

@@ -41,6 +41,7 @@ class ServiceProxy
         // TODO: Implement __call() method.
        $rc =  new \ReflectionClass($this->target) ;
        // TODO:  使用annotation 提取目标类上的注解 来进行额外的操作
+        // NOTE  注解可以认为是在设计期把两个类做关联 运行期通过这种关联做一些动态决策执行不同的代码流程 关于这个angular早期的文档里面
        // FIXME 目标类 如果是yii对象 方法集可能通过behavior来扩充
        //  if($rc->hasMethod($name)) {} //
         try{

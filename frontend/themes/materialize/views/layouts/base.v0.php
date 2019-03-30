@@ -18,6 +18,61 @@ use macgyer\yii2materializecss\widgets\Alert;
 // $this->beginContent('@frontend/views/layouts/_clear.php')
 $this->beginContent(__DIR__ . '/_clear.php')
 ?>
+
+    <nav class="green" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">YIISpace</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Navbar Link</a></li>
+                <?php
+                $menuItems = [
+                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'About', 'url' => ['/site/about']],
+                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                ];
+                if (Yii::$app->user->getIsGuest()) {
+                    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+                    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                } else {
+                    $menuItems[] = [
+                        'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        'url' => ['/site/logout'],
+                        'linkOptions' => ['data-method' => 'post']
+                    ];
+                }
+                $fnRenderItem = function ($item) {
+                    if (is_string($item)) {
+                        return $item;
+                    }
+
+                    $label = Html::encode($item['label']);
+                    $options = \yii\helpers\ArrayHelper::getValue($item, 'options', []);
+                    $items = \yii\helpers\ArrayHelper::getValue($item, 'items');
+                    $url = \yii\helpers\ArrayHelper::getValue($item, 'url', '#');
+                    $linkOptions = \yii\helpers\ArrayHelper::getValue($item, 'linkOptions', []);
+
+                    return Html::tag('li', Html::a($label, $url, $linkOptions) . $items, $options);
+                };
+
+                $items = [];
+                foreach ($menuItems as $i => $item) {
+                    if (isset($item['visible']) && !$item['visible']) {
+                        continue;
+                    }
+                    $items[] = $fnRenderItem($item);
+                }
+                echo implode("\n", $items);
+                ?>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link2</a></li>
+                <?= implode("\n", $items) ?>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
     <header class="page-header">
         <?php
         NavBar::begin([
@@ -26,9 +81,6 @@ $this->beginContent(__DIR__ . '/_clear.php')
             'fixed' => true,
             'wrapperOptions' => [
                 'class' => 'container'
-            ],
-            'options'=>[
-                 'class'=>'blue',
             ],
         ]);
 

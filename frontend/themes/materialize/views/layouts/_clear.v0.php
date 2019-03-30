@@ -8,12 +8,19 @@ use frontend\widgets\Alert;
 /* @var $content string */
 //\webmaxx\materialize\MaterializeAsset::register($this) ;
 
+/**
+ * NOTE  这个地方由于原始插件指定的资源路径有误 materialize bower源下载下来没有dist目录  所有手动更正 在composer中bower-asset处指定并在此修改
+ */
+\Yii::$container->set(\webmaxx\materialize\MaterializeAsset::className(),
+    ['sourcePath' => '@year/patch/vendor/materialize']);
 
-// \frontend\themes\materialize\assets\AppAsset::register($this);
+\Yii::$container->set(\webmaxx\materialize\MaterializePluginAsset::className(),
+    ['sourcePath' => '@year/patch/vendor/materialize']);
+\webmaxx\materialize\MaterializePluginAsset::register($this);
+
+\frontend\themes\materialize\assets\AppAsset::register($this);
 
 // AppAsset::register($this);
-
-\macgyer\yii2materializecss\assets\MaterializeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

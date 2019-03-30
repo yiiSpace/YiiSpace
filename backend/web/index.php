@@ -3,7 +3,8 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 // Dotenv::load(__DIR__ . '/../..');
-$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
+//$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/../..');
 $dotenv->load();
 
 if (getenv('YII_DEBUG') === 'true') {
