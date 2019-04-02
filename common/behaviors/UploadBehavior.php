@@ -22,6 +22,7 @@ use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
+use yii\helpers\VarDumper;
 use yii\web\UploadedFile;
 
 /**
@@ -141,7 +142,7 @@ class UploadBehavior extends Behavior
     /**
      * @var array
      */
-    private static $_uploadedFiles = [] ;
+    private static $_uploadedFiles = [];
 
 
     /**
@@ -205,7 +206,16 @@ class UploadBehavior extends Behavior
                  *   用这样的操作 就可以检测数组是不是某个类型的 比如 UploadedFile[]  如果数组元素中有一个不是那么整体失败
                  *   ArrayHelper::All($files , function($file){   return $file instanceof UploadedFile ; }   )
                  */
-                if (($files = $model->getAttribute($this->attribute)) && is_array($files)) {
+
+
+                /** @var bool $isUploadedFiles */
+                $isUploadedFiles = function ($files = []) {
+                    return  array_reduce($files, function ($pre, $current) {
+                        return $pre && ($current instanceof UploadedFile);
+                    }, true);
+                };
+
+                if (($files = $model->getAttribute($this->attribute)) && is_array($files) && $isUploadedFiles($files)) {
                     $this->_files = $files;
                 } else {
                     if ($this->instanceByName === true) {
@@ -214,16 +224,12 @@ class UploadBehavior extends Behavior
                         $this->_files = UploadedFile::getInstances($model, $this->attribute);
                     }
                 }
-                $isUploadedFiles = array_reduce($this->_files, function ($pre, $current) {
-                    return $pre && ($current instanceof UploadedFile);
-                }, true);
 
-
-                if ($isUploadedFiles) {
+                if ($isUploadedFiles($this->_files)) {
                     // $this->_file->name = $this->getFileName($this->_file); // 名称净化 对于数组形式需要遍历来设置的！
                     // $model->setAttribute($this->attribute, $this->_files);
                     // NOTE 允许非db字段的保存
-                    $model->{$this->attribute} = $this->_files ;
+                    $model->{$this->attribute} = $this->_files;
 
                 }
             } // 单文件处理
@@ -262,23 +268,23 @@ class UploadBehavior extends Behavior
 
                 // TODO 这是AR存储前的操作  对于多文件上传一个可能是 遍历上传所有文件 获取文件路径数组
                 // 可以存储成一个 json串 这里通过事件留钩子
-                 $uploadedPaths = [] ;
-                 foreach ($this->_files as $uploadedFile){
-                     $uploadedPaths[] = $this->uploadFile($uploadedFile) ;
-                 }
+                $uploadedPaths = [];
+                foreach ($this->_files as $uploadedFile) {
+                    $uploadedPaths[] = $this->uploadFile($uploadedFile);
+                }
 
-                 $this->beforeARSave($uploadedPaths) ;
+                $this->beforeARSave($uploadedPaths);
 
-                 $self = $this ;
-                 if($model->getIsNewRecord()){
-                     $model->on(ActiveRecord::EVENT_AFTER_INSERT,function ()use ($self , $uploadedPaths) {
-                           $self->afterARSave($uploadedPaths) ;
-                     })  ;
-                 }else{
-                     $model->on(ActiveRecord::EVENT_AFTER_UPDATE , function()use ($self, $uploadedPaths){
-                           $self->afterARSave($uploadedPaths) ;
-                     });
-                 }
+                $self = $this;
+                if ($model->getIsNewRecord()) {
+                    $model->on(ActiveRecord::EVENT_AFTER_INSERT, function () use ($self, $uploadedPaths) {
+                        $self->afterARSave($uploadedPaths);
+                    });
+                } else {
+                    $model->on(ActiveRecord::EVENT_AFTER_UPDATE, function () use ($self, $uploadedPaths) {
+                        $self->afterARSave($uploadedPaths);
+                    });
+                }
 
             }
 
@@ -309,7 +315,7 @@ class UploadBehavior extends Behavior
      */
     public function getUploadedFileByPath($uploadedPath = '')
     {
-        return self::$_uploadedFiles[$uploadedPath] ;
+        return self::$_uploadedFiles[$uploadedPath];
     }
 
     /**
@@ -332,7 +338,7 @@ class UploadBehavior extends Behavior
         fclose($stream);
 
         // 存储到静态变量 可以供后期获取原始上传文件
-        self::$_uploadedFiles[$relativeFilePath] = $uploadedFile ;
+        self::$_uploadedFiles[$relativeFilePath] = $uploadedFile;
 
         return $relativeFilePath;
     }
@@ -585,12 +591,12 @@ class UploadBehavior extends Behavior
     protected function beforeARSave($files)
     {
         $event = new MultipleUploadEvent();
-        $event->model  = $this->owner ;
-        $event->attribute = $this->attribute ;
-        $event->isBeforeSave = true ;
-        $event->uploadedPaths = $files ;
-       // 哇佳佳 行为不可用触发自己的事件呢！
-        $this->owner->trigger(self::EVENT_AFTER_UPLOAD ,$event ) ;
+        $event->model = $this->owner;
+        $event->attribute = $this->attribute;
+        $event->isBeforeSave = true;
+        $event->uploadedPaths = $files;
+        // 哇佳佳 行为不可用触发自己的事件呢！
+        $this->owner->trigger(self::EVENT_AFTER_UPLOAD, $event);
     }
 
     /**
@@ -600,12 +606,12 @@ class UploadBehavior extends Behavior
     protected function afterARSave($files)
     {
         $event = new MultipleUploadEvent();
-        $event->model  = $this->owner ;
-        $event->attribute = $this->attribute ;
-        $event->isBeforeSave = false ;
-        $event->uploadedPaths = $files ;
-       // 哇佳佳 行为不可用触发自己的事件呢！
-        $this->owner->trigger(self::EVENT_AFTER_UPLOAD ,$event ) ;
+        $event->model = $this->owner;
+        $event->attribute = $this->attribute;
+        $event->isBeforeSave = false;
+        $event->uploadedPaths = $files;
+        // 哇佳佳 行为不可用触发自己的事件呢！
+        $this->owner->trigger(self::EVENT_AFTER_UPLOAD, $event);
     }
 
 
@@ -620,7 +626,7 @@ class UploadBehavior extends Behavior
 class MultipleUploadEvent extends Event
 {
 
-    /** @var BaseActiveRecord|UploadBehavior */
+    /** @var  ActiveRecord|BaseActiveRecord|UploadBehavior */
     public $model;
 
     /**
@@ -631,7 +637,7 @@ class MultipleUploadEvent extends Event
     /**
      * @var bool whether happened before ActiveRecord save ,else happened afterSave
      */
-    public $isBeforeSave = true ;
+    public $isBeforeSave = true;
 
     /**
      * @var array
