@@ -130,6 +130,12 @@ $config = [
             'mutex' => \yii\mutex\MysqlMutex::class, // Mutex used to sync queries
         ],
 
+        'fs'=>[
+            'class' => 'creocoder\flysystem\LocalFilesystem',
+            // 'path' => '@webroot/files',
+            'path' => '@storage/web/uploads',
+        ]
+
     ],
 ];
 

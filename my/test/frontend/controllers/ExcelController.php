@@ -9,14 +9,18 @@
 namespace my\test\frontend\controllers;
 
 use codemix\excelexport\ExcelFile;
+use common\behaviors\MultipleUploadEvent;
+use common\behaviors\UploadBehavior;
 use creocoder\flysystem\LocalFilesystem;
 use frontend\components\ExcelGrid;
+use rmrevin\yii\fontawesome\FA;
 use Yii;
 use my\test\common\models\FileModel;
 use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\db\Connection;
 use yii\db\Migration;
+use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\UploadedFile;
@@ -143,7 +147,7 @@ class ExcelController extends Controller
 
         if (Yii::$app->request->isPost) {
 
-            $results = [] ;
+            $results = [];
 
             $model->file = UploadedFile::getInstance($model, 'file');
 
@@ -179,12 +183,22 @@ class ExcelController extends Controller
                   'original-excel-data'=>print_r($data, true),
                 ];
                 */
-                $results['original-excel-data'] = VarDumper::dumpAsString($data,10,true) ;  // print_r($data, true) ;
+                $results['original-excel-data'] = VarDumper::dumpAsString($data, 10, true);  // print_r($data, true) ;
 
                 if (is_array($data) && !empty($data)) {
 
                     $attributesLabels = (new MyAttachment())->attributeLabels();
                     $labelAttributes = array_flip($attributesLabels);
+
+                    // 下面这个代码块用来获取某个列 可以处理关联表的情况
+                    {
+                        $creatorNames = ArrayHelper::getColumn($data, '创建人', false);
+                        // 去重
+                        $creatorNames = array_unique($creatorNames);
+
+                        $results[] = 'creator_name:  ' . VarDumper::dumpAsString($creatorNames);
+                    }
+
 
                     foreach ($data as $idx => $row) {
 
@@ -192,19 +206,20 @@ class ExcelController extends Controller
                         foreach ($row as $col => $val) {
                             // $attr = $labelAttributes[$col] ;
                             if (isset($labelAttributes[$col])) {
-                                $attr = $labelAttributes[$col] ;
-                                $attributes[$attr] = $val ;
-                            }else{
+                                $attr = $labelAttributes[$col];
+                                // 注意如果是关联表情况 那么还需要处理关联映射问题  比如 category_name => category_id
+                                $attributes[$attr] = $val;
+                            } else {
                                 // 有额外列或者非法列存在
                             }
 
                         }
 
-                        $arModel = new MyAttachment( );
+                        $arModel = new MyAttachment();
                         // $arModel->attributes = $attributes ;
-                        if ($arModel->load($attributes,'')){
-                            if($arModel->save()){
-                                $results[] = "import succeed: id is {$arModel->primaryKey}" ;
+                        if ($arModel->load($attributes, '')) {
+                            if ($arModel->save()) {
+                                $results[] = "import succeed: id is {$arModel->primaryKey}";
                             }
                         }
 
@@ -279,6 +294,8 @@ class ExcelController extends Controller
                     . genRandomString(15)
                     . '.' . $uploadedFile->getExtension();
 
+                // TODO 有个循环检测逻辑 不断判断文件名是否存在 如果存在不断生新的随机名 直到不存在
+
                 $stream = fopen($uploadedFile->tempName, 'r+');
                 $fs->write($relateveFilePath, $stream);
                 fclose($stream);
@@ -286,7 +303,7 @@ class ExcelController extends Controller
                 $mimetype = $fs->getMimetype($relateveFilePath);
 
 
-                return $this->renderContent(implode('</br>',$results)) ;
+                return $this->renderContent(implode('</br>', $results));
                 // die(__METHOD__);
             }
 
@@ -298,38 +315,101 @@ class ExcelController extends Controller
 
     }
 
+    public function actionUploads()
+    {
+        $model = new MyAttachment2();
+
+        // 一定要设置场景！
+        $model->setScenario('insert') ;
+
+        if (\Yii::$app->request->isPost
+            && $model->load($_POST) ) {
+
+            // validate 前触发赋值
+            if ($model->validate()) {
+                //   VarDumper::dump($model->files );
+                //die('validate passed!') ;
+                 // print_r($model->files) ;
+                // die("success");
+                // save前触发上传 此时有个机会来监听处理上传的文件路径们
+
+                $counter = 0 ;
+                // 实际这个函数会被重复调用两次
+                $model->on(UploadBehavior::EVENT_AFTER_UPLOAD , function (MultipleUploadEvent $event){
+                     if($event->isBeforeSave){
+                         $event->model->path = json_encode($event->uploadedPaths) ;
+
+                         $uploadedPathMapping = [] ;
+                         foreach($event->uploadedPaths as $uploadedPath){
+                             $uploadedPathMapping[$uploadedPath] = $event->model->getUploadedFileByPath($uploadedPath)->name ;
+                         }
+
+
+
+                         \Yii::$app->getSession()->setFlash('warning', '保存之前 多文件存储：'.VarDumper::dumpAsString([
+                                'model->path' => $event->model->path ,
+                                 'uploadedPathMapping'=>$uploadedPathMapping ,
+                             ]));
+                     }else{
+                         // 存储后的处理 比如存储到扩展附件表去
+                         \Yii::$app->getSession()->setFlash('info',
+                             '保存之后的模型id:'.$event->model->primaryKey);
+                     }
+                });
+
+                // save 时触发上传了
+                $model->save(false) ;
+
+                // \Yii::$app->getSession()->setFlash('error',   'noty1');
+               // \Yii::$app->getSession()->setFlash('info',    'noty2');
+                 \Yii::$app->getSession()->setFlash('success', '上传成功啦！');
+                // \Yii::$app->getSession()->setFlash('warning', 'noty4');
+            }
+            /*
+            else{
+                print_r($model->getErrors() );
+                die(__METHOD__) ;
+            }
+            */
+        }
+
+        return $this->render('uploads', [
+            'model' => $model
+        ]);
+    }
+
 }
 
-    /**
-     * @return false|string
-     */
-    function genDirName()
-    {
-        $dirTemplate = '{Y}/{m}/{d}';
-        $dirTemplate = str_replace(['{', '}'], '', $dirTemplate);
-        // $dirTemplate = str_replace('/',DIRECTORY_SEPARATOR , $dirTemplate);
-        $newDir = date($dirTemplate);
-        return $newDir;
-    }
+/**
+ * @return false|string
+ */
+function genDirName()
+{
+    $dirTemplate = '{Y}/{m}/{d}';
+    $dirTemplate = str_replace(['{', '}'], '', $dirTemplate);
+    // $dirTemplate = str_replace('/',DIRECTORY_SEPARATOR , $dirTemplate);
+    $newDir = date($dirTemplate);
+    return $newDir;
+}
 
-    /**
-     * @param int $length
-     * @return string
-     */
-    function genRandomString($length = 10)
-    {
-        $key = '';
-        $keys = array_merge(range(0, 9), range('a', 'z'));
-        for ($i = 0; $i < $length; $i++) {
-            $key .= $keys[array_rand($keys)];
-        }
-        return $key;
+/**
+ * @param int $length
+ * @return string
+ */
+function genRandomString($length = 10)
+{
+    $key = '';
+    $keys = array_merge(range(0, 9), range('a', 'z'));
+    for ($i = 0; $i < $length; $i++) {
+        $key .= $keys[array_rand($keys)];
     }
+    return $key;
+}
 
-    /**
-     * Class AttachmentMigration
-     * @package my\test\frontend\controllers
-     */
+/**
+ * Class AttachmentMigration
+ * @package my\test\frontend\controllers
+ */
 class AttachmentMigration extends Migration
 {
 
@@ -433,6 +513,46 @@ class MyAttachment extends ActiveRecord
             'updated_by' => 'Updated By',
         ];
         */
+    }
+
+}
+
+class MyAttachment2 extends MyAttachment
+{
+
+    /** @var UploadedFile[] */
+    public $files ;
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+
+        return ArrayHelper::merge(
+            parent::rules(),
+            [
+                ['files', 'file',
+                    //'extensions' => 'doc, docx, pdf',
+                    'maxFiles' => 4,'skipOnEmpty' => false,
+                    'on' => ['insert', 'update']],
+            ]
+        );
+    }
+
+    /**
+     * @inheritdoc
+     */
+    function behaviors()
+    {
+        return [
+            [
+                'class' => UploadBehavior::class,
+                'attribute' => 'files',
+                'multiple'=> true ,
+                'scenarios' => ['insert', 'update'],
+
+            ],
+        ];
     }
 
 }
