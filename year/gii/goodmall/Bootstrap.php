@@ -2,6 +2,7 @@
 
 namespace year\gii\goodmall;
 
+use year\gii\goodmall\generators\model\Generator;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 
@@ -30,6 +31,10 @@ class Bootstrap implements BootstrapInterface
         if ($app->hasModule('gii')) {
             if (!isset($app->getModule('gii')->generators['giiant-goodmall-pod'])) {
                 $app->getModule('gii')->generators['gii-goodmall-pod'] = 'year\gii\goodmall\generators\pod\Generator';
+            }
+            if (!isset($app->getModule('gii')->generators['giiant-goodmall-model'])) {
+                $app->getModule('gii')->generators['gii-goodmall-model'] =
+                  Generator::className();
             }
 
              /*

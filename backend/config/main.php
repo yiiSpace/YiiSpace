@@ -12,6 +12,9 @@ $config = [
     'bootstrap' => [
         'log',
         'dbMan',
+        [
+            'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
+        ],
     ],
     'components' => [
         'dbMan'=>[

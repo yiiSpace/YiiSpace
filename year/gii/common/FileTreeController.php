@@ -9,6 +9,7 @@
 namespace year\gii\common;
 
 use year\gii\common\utils\fs;
+use year\gii\common\widgets\JFileTree;
 use yii\web\Controller;
 
 class FileTreeController extends Controller
@@ -105,6 +106,20 @@ class FileTreeController extends Controller
         }
 
        return $roots ;
+    }
+
+    public function actionHome()
+    {
+
+        $this->layout = '@year/gii/common/views/layouts/main' ;
+
+        return $this->render('@year/gii/common/views/file-tree/home') ;
+        /*
+        $widgetContent = JFileTree::widget() ;
+         return $this->renderContent($widgetContent) ;
+        return $widgetContent ;
+        */
+        // $this->render('@year/gii/common/widgets/views/file-tree');
     }
 
     public function actionIndex()

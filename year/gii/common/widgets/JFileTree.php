@@ -9,7 +9,15 @@
 namespace year\gii\common\widgets;
 
 
-class JFileTree
+use yii\base\Widget;
+
+class JFileTree extends Widget
 {
+    public function run()
+    {
+       return $this->render('file-tree',[
+
+       ]);
+    }
 
 }

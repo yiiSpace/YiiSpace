@@ -74,8 +74,9 @@ class ExcelGrid extends \yii\grid\GridView
         $row = $this->generateBody();
         $writer = $this->_objPHPExcelWriter;
         $this->setHttpHeaders();
+
         $writer->save('php://output');
-        Yii::$app->end();
+      //   Yii::$app->end();
         //$writer->save('test.xlsx');
         parent::run();
     }

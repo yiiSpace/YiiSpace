@@ -9,14 +9,20 @@ $config = [
         '@npm' => '@vendor/npm-asset',
     ],
     'bootstrap' => [
+        // 'dbMan',
         'queue', // The component registers own console commands
         'year\gii\dva\Bootstrap',// gii的react前端代码生成
         /*
         [
+            'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
+        ],
+        */
+        [
+
             'class'=>'year\gii\goodmall\Bootstrap',   // gii的goodmall 代码生成
             'giiBaseUrl'=>'http://localhost:1323'  //  此处配置是应用参数注入 可以在其他地方访问：  Yii::$app->params['goodmall.giiBaseUrl']
         ],
-        */
+        /*
         [
             'class' => 'year\gii\yunying\Bootstrap',   // gii的goodmall 代码生成
             'giiBaseUrl' => 'http://localhost:1323'  //  此处配置是应用参数注入 可以在其他地方访问：  Yii::$app->params['goodmall.giiBaseUrl']
@@ -24,6 +30,7 @@ $config = [
         [
             'class' => 'year\gii\yunying4java\Bootstrap',   // gii的goodmall 代码生成
         ],
+        */
         [
             'class' => 'year\gii\migration\Bootstrap',   // migration 代码生成
         ],
@@ -32,6 +39,11 @@ $config = [
         ],
     ],
     'components' => [
+        /*
+        'dbMan'=>[
+            'class'=>'backend\components\DbMan',
+        ],
+        */
         'uploadStorage' => [
             'class' => 'year\upload\local\UploadStorage', // UploadStorage::className() , //
             'baseDirName' => 'upload',
@@ -134,7 +146,8 @@ $config = [
             'class' => 'creocoder\flysystem\LocalFilesystem',
             // 'path' => '@webroot/files',
             'path' => '@storage/web/uploads',
-        ]
+        ],
+        'casbin' => require(__DIR__.'/casbin/casbin.php'),
 
     ],
 ];
