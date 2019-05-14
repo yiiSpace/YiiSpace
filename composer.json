@@ -19,10 +19,6 @@
          {
              "type":"vcs",
              "url":"https://github.com/yiqing/yii2-export"
-         },
-         {
-             "type": "composer",
-             "url": "https://asset-packagist.org"
          }
 
     ],
@@ -71,7 +67,7 @@
         "hightman/xunsearch": "*@beta",
         "borales/yii2-elasticsearch-behavior": "*",
         "yiisoft/yii2-queue": "*",
-        "nelexa/zip": "^3.0"
+        "nelexa/zip": "^3.1"
 
         , "bizley/migration": "dev-master",
         "jimdo/prometheus_client_php": "^0.9.1",

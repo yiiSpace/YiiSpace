@@ -17,6 +17,7 @@ use rmrevin\yii\fontawesome\FA;
 use Yii;
 use my\test\common\models\FileModel;
 use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
 use yii\db\ActiveRecord;
 use yii\db\Connection;
 use yii\db\Migration;
@@ -78,13 +79,14 @@ class ExcelController extends Controller
             // 'class' => 'codemix\excelexport\ExcelFile',
             'class' => ExcelFile::className(), // 'codemix\excelexport\ExcelFile',
 
-            // TODO 这个坑mime不识别 不要用excel5格式
+            // TODO 这个坑mime不识别 不要用excel5格式  好像还不是这个问题可能是libreoffice wps打开编辑后保存的问题 office兼容性！
             //  'writerClass' => '\PHPExcel_Writer_Excel5', // Override default of `\PHPExcel_Writer_Excel2007`
 
             'sheets' => [
 
                 'MyAttachment' => [
                     'class' => 'codemix\excelexport\ActiveExcelSheet',
+
                     'query' => MyAttachment::find(),  // User::find()->where(['active' => true]),
 
                     // If not specified, all attributes from `User::attributes()` are used
@@ -114,14 +116,45 @@ class ExcelController extends Controller
 
     public function actionExport3()
     {
+
         $query = MyAttachment::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+        ]);
+        // die(__METHOD__) ;
+        $content =  ExcelGrid::widget([
+            'dataProvider' => $dataProvider,
+            'properties' => []
+        ]);
+
+        $this->renderContent($content) ;
+    }
+
+    public function actionExport4()
+    {
+        /*
+        $query = MyAttachment::find();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' =>[ new MyAttachment2() ], // 空对象！
         ]);
         ExcelGrid::widget([
             'dataProvider' => $dataProvider,
             'properties' => []
         ]);
+        */
+        /*
+        $emptyModel = new MyAttachment2() ;
+        $content = \moonland\phpexcel\Excel::widget([
+            'models' => MyAttachment2::findAll([]) ,  // [ $emptyModel ],
+            'mode' => 'export', //default value as 'export'
+             'columns' => $emptyModel->attributes(), // ['column1','column2','column3'], //without header working, because the header will be get label from attribute label.
+              'headers' => $emptyModel->attributeLabels() ,  //['column1' => 'Header Column 1','column2' => 'Header Column 2', 'column3' => 'Header Column 3'],
+        ]);
+
+        // Yii::$app->end() ;
+        return $this->renderContent($content) ;
+        */
+        die(__METHOD__) ;
     }
 
     /**
@@ -190,6 +223,7 @@ class ExcelController extends Controller
                     $attributesLabels = (new MyAttachment())->attributeLabels();
                     $labelAttributes = array_flip($attributesLabels);
 
+                    // TODO 钩子！ 抛事件！
                     // 下面这个代码块用来获取某个列 可以处理关联表的情况
                     {
                         $creatorNames = ArrayHelper::getColumn($data, '创建人', false);
@@ -200,6 +234,9 @@ class ExcelController extends Controller
                     }
 
 
+                    /**
+                     * 循环处理每行数据 如果想做成通用处理流程 此处需要留钩子 可以参考GridView beforeRow afterRow 方法
+                     */
                     foreach ($data as $idx => $row) {
 
                         $attributes = [];
@@ -217,6 +254,8 @@ class ExcelController extends Controller
 
                         $arModel = new MyAttachment();
                         // $arModel->attributes = $attributes ;
+                        // BEFORE_MODEL_LOAD_ATTRIBUTES
+                        // TODO 把model 抛出去  使得外部可以监听模型方法  attributes也可以抛出去
                         if ($arModel->load($attributes, '')) {
                             if ($arModel->save()) {
                                 $results[] = "import succeed: id is {$arModel->primaryKey}";
