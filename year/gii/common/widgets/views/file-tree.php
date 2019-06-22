@@ -126,7 +126,8 @@
                        // callback(data) ;
 
                         var TOPIC_FILE_CHOOSE = 'file.choose';
-                        parent.msgBus.pub(TOPIC_FILE_CHOOSE,data);
+                        parent.msgBus.pub(TOPIC_FILE_CHOOSE,data)
+                        ;
                     });
                 }
                 else {

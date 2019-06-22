@@ -36,4 +36,15 @@ class PhpController extends Controller
         $this->stdout($m2 - $m1) ;
     }
 
+    public function actionFlip()
+    {
+        $a = [
+          '1' => 'val1',
+          '2' => 'val2',
+        ];
+        print_r($a) ;
+        $a['shadow1'] = 'val1' ;
+        print_r(array_flip($a)) ;
+    }
+
 }

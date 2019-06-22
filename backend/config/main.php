@@ -129,6 +129,9 @@ $config = [
                 // '@common/plugins', // dir with our plugins
             ]
         ],
+        'dci' => [
+            'class' => 'my\dci\backend\Module',
+        ],
     ],
     'params' => $params,
 ];
