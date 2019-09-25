@@ -12,6 +12,10 @@ namespace my\dci\backend\contexts;
 use my\dci\backend\roles\TransferSource;
 use my\dci\models\Account;
 
+/**
+ * Class TransferMoney
+ * @package my\dci\backend\contexts
+ */
 class TransferMoney
 {
     /** @var Account|TransferSource  */

@@ -17,11 +17,11 @@ $config = [
             'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
         ],
         */
-//        [
-//
-//            'class'=>'year\gii\goodmall\Bootstrap',   // gii的goodmall 代码生成
-//            'giiBaseUrl'=>'http://localhost:1323'  //  此处配置是应用参数注入 可以在其他地方访问：  Yii::$app->params['goodmall.giiBaseUrl']
-//        ],
+        [
+
+            'class'=>'year\gii\goodmall\Bootstrap',   // gii的goodmall 代码生成
+            'giiBaseUrl'=>'http://localhost:1323'  //  此处配置是应用参数注入 可以在其他地方访问：  Yii::$app->params['goodmall.giiBaseUrl']
+        ],
         /*
         [
             'class' => 'year\gii\yunying\Bootstrap',   // gii的goodmall 代码生成
