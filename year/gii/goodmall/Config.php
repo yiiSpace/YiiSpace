@@ -46,6 +46,7 @@ class Config
 
     /**
      * @return bool|string
+     * @todo try-catch 捕获异常
      */
     public static function getProjectHome()
     {

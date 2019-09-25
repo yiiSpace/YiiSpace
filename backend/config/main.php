@@ -15,6 +15,9 @@ $config = [
         [
             'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
         ],
+        [
+            'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
+        ],
     ],
     'components' => [
         'dbMan'=>[

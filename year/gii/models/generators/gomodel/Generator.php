@@ -1,6 +1,6 @@
 <?php
 
-namespace year\gii\models\generators\models;
+namespace year\gii\models\generators\gomodel;
 
 use year\gii\common\helpers\GiiantFaker;
 use year\gii\migration\Config;
@@ -50,7 +50,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public function getName()
     {
-        return 'gii-form Generator';
+        return 'gii-model Generator';
     }
 
     /**
@@ -58,7 +58,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public function getDescription()
     {
-        return '此生成器针对特定的数据库表 生成 表单';
+        return '此生成器针对特定的数据库表 生成 模型';
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace year\gii\models;
 
-use year\gii\models\generators\form\Generator;
+use year\gii\models\generators\gomodel\Generator;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 
@@ -30,7 +30,7 @@ class Bootstrap implements BootstrapInterface
 
         if ($app->hasModule('gii')) {
 
-            $gk = 'gii-form' ;
+            $gk = 'gii-models' ;
             if (!isset($app->getModule('gii')->generators[$gk])) {
                 $app->getModule('gii')->generators[$gk] =
                    Generator::className();
