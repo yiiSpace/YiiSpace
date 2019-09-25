@@ -37,8 +37,24 @@ echo \yii\helpers\Html::errorSummary($generator) ;
 
 echo $form->field($generator, 'srcDir');
 
+/*
+$data = [2 => 'widget', 3 => 'dropDownList', 4 => 'yii2'];
+echo $form->field($generator, 'tablePrefix')->widget(\kartik\select2\Select2::classname(), [
+    'data' => $data,
+     'options' => ['placeholder' => '请选择 ...'],
+]);
+*/
 
-echo $form->field($generator, 'tableName');
+
+
+$tableNames = $generator->getAllTableNames();
+if(!empty($tableNames)) {
+    echo $form->field($generator,'tableName')
+        ->dropDownList(array_combine($tableNames,$tableNames)) ;
+}else{
+    echo $form->field($generator, 'tableName');
+}
+// echo 'count: '.count($tableNames) ;
 echo $form->field($generator, 'tablePrefix');
 
 /// echo $form->field($generator, 'generateLabelsFromComments')->checkbox();

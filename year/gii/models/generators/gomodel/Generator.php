@@ -37,12 +37,19 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             $this->srcDir = Yii::getAlias('@app/runtime')
                 . DIRECTORY_SEPARATOR . 'forms';
         }
+//        if($this->getDbConnection() != null){
+//            $this->dbTableNames = $this->getDbConnection()->getSchema()->getTableNames('',true) ;;
+//        }
     }
 
     /**
      * @var string
      */
     public $srcDir;
+
+    public function getAllTableNames(){
+      return  $this->getDbConnection()->getSchema()->getTableNames('',true) ;;
+    }
 
 
     /**
@@ -153,7 +160,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return [
             /*'models/model.js.php',*/
             //'model.vue.php',
-            'form.php',
+            'model.go.php',
         ];
     }
 
@@ -183,16 +190,40 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
             // -------------------------------------------------------------------------------  +|
             //          ##   api测试
-            $formPath = implode(DIRECTORY_SEPARATOR,
+            $modelPath = implode(DIRECTORY_SEPARATOR,
                 array_filter([
                     ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
-                    ucfirst($className) . '.html',
+                    ucfirst($className) . '.go',
                 ]));
+
+            // PHP调用本地exe文件 只能用在开发环境哦 生产可不能开gii
+            $giiConsolePath = implode(
+                DIRECTORY_SEPARATOR,
+                [
+                    __DIR__ ,
+                    'bin',
+                    'gii-console.exe'
+                ]
+            ) ;
+            // 添加额外参数
+            $dbName = '' ;
+             $dns = $db->dsn;
+            if(preg_match('/dbname=([A-Za-z_]+\w*)/i',$dns,$match) !== false){
+                $dbName = '-d '. $match[1];
+            }else{
+                $dbName = 'no' ;
+             }
+
+            $giiConsolePath .= (" -t {$tableName} $dbName ") ;
+
+
             $files[] = new CodeFile(
-                $formPath,
-                $this->render('form.php', [
+                $modelPath,
+                $this->render('model.go.php', [
                    'properties'=>$this->generateProperties($tableSchema),
-                   'labels'=> $this->generateLabels($tableSchema)
+                   'labels'=> $this->generateLabels($tableSchema),
+                    'className'=>$className,
+                    'giiConsolePath'=> $giiConsolePath ,
                 ])
             );
         }
