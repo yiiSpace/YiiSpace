@@ -17,15 +17,9 @@ use schmunk42\giiant\helpers\SaveForm;
 //$this->registerJs(SaveForm::jsFillForm(), yii\web\View::POS_END);
 
 
-$onSelection = <<<JS
-            function(data) {
-               $("input[name*='srcDir']").val(data) ;
-               alert('路径选择成功啦:'+data) ;
-            }
-JS;
 
 echo \year\gii\common\widgets\PathSelector::widget([
-    'onSelection'=>$onSelection,
+    // 'onSelection'=>$onSelection,
 ]);
 
 ?>
@@ -54,6 +48,7 @@ if(!empty($tableNames)) {
 }else{
     echo $form->field($generator, 'tableName');
 }
+echo $form->field($generator,'genTableName')->checkbox();
 // echo 'count: '.count($tableNames) ;
 echo $form->field($generator, 'tablePrefix');
 
@@ -69,6 +64,27 @@ $dbList = ['db'=>'db','db2'=>'db2'] + array_combine($dbIds,$dbMan->getDatabases(
 echo $form->field($generator, 'db')->dropDownList($dbList,[]);
 
 ?>
+
+    <div class="card bg-light mb-12"  style="margin-bottom: 15px;" >
+        <div class="card-header"><h5 class="card-title">Dao 生成相关</h5></div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <?php
+            echo \yii\helpers\Html::a('选择DAO路径 ', '#', [
+                'id' => 'triggerDaoPath',
+                'class' => 'btn btn-success dialog-choose-path',
+                'data'=>[
+                    'from'=>'daoPath'
+                ],
+            ]);
+
+            ?>
+        </div>
+    </div>
+
+
+
+
 <?php \year\widgets\pubsub\JTinyPubSubAsset::register($this); ?>
 <?php \year\layui\LayerAsset::register($this) ?>
 <?php \year\widgets\JsBlock::begin() ?>
@@ -109,6 +125,8 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
             };
 
         }();
+
+        // FIXME 以上代码建议也封装到widget去 不要到处出现  回调机制就用
 
         var TOPIC_FILE_CHOOSE = 'file.choose';
 

@@ -9,6 +9,8 @@
 
 
 <div id="modal_container" >
+    <div>FROM: <span id="fileTreeFrom"></span> </div>
+
     <div id="file_browser" role="main">
     <?php
 
@@ -125,7 +127,7 @@
                        // var callback =  <?= empty($context->onSelection) ? 'function(){}' : $context->onSelection   ?> ;
                        // callback(data) ;
 
-                        var TOPIC_FILE_CHOOSE = 'file.choose';
+                        var TOPIC_FILE_CHOOSE = '<?= $pubTopic ?>' ; // 'file.choose';
                         parent.msgBus.pub(TOPIC_FILE_CHOOSE,data)
                         ;
                     });

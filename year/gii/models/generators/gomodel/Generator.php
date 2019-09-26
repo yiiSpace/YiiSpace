@@ -35,7 +35,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         // 设置默认值 此处可以通过读取Yii的配置参数获取 比如 : Yii::$app->params['migration_src_dir'];
         if (empty($this->srcDir)) {
             $this->srcDir = Yii::getAlias('@app/runtime')
-                . DIRECTORY_SEPARATOR . 'forms';
+                . DIRECTORY_SEPARATOR . 'models';
         }
 //        if($this->getDbConnection() != null){
 //            $this->dbTableNames = $this->getDbConnection()->getSchema()->getTableNames('',true) ;;
@@ -68,6 +68,9 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return '此生成器针对特定的数据库表 生成 模型';
     }
 
+    public $genTableName = true ;
+
+
     /**
      * {@inheritdoc}
      */
@@ -90,6 +93,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 [['tableName'], 'match', 'pattern' => '/^([\w ]+\.)?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
                 [['db'], 'validateDb'],
                 [['tableName'], 'validateTableName'],
+
+
             ]);
         /*
         $requiredRule = function ($rule) {
@@ -109,6 +114,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ['srcDir', 'string', 'message' => 'migration 项目的 src目录路径'],
                 [['srcDir',], 'required', 'message' => '你的migration项目src目录 本程序的路径：' . Yii::$app->basePath],
 
+                [[  'genTableName'], 'boolean'],
             ]
         );
         return $rules;
@@ -124,7 +130,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return array_merge(
             parent::attributeLabels(),
             [
-                'srcDir' => '表单的src目录路径',
+                'srcDir' => '模型的src目录路径',
+                'genTableName' => '是否生成表名称',
             ]
         );
     }
@@ -217,14 +224,23 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             $giiConsolePath .= (" -t {$tableName} $dbName ") ;
 
 
+            $params = [
+                'tableName' => $tableName,
+                'tableSchema' => $tableSchema,
+                'labels' => $this->generateLabels($tableSchema),
+                'hints' => $this->generateHints($tableSchema),
+                'rules' => $this->generateRules($tableSchema),
+                'enum' => $this->getEnum($tableSchema->columns),
+
+                'properties'=>$this->generateProperties($tableSchema),
+                'labels'=> $this->generateLabels($tableSchema),
+                'className'=>$className,
+                'giiConsolePath'=> $giiConsolePath ,
+            ];
+
             $files[] = new CodeFile(
                 $modelPath,
-                $this->render('model.go.php', [
-                   'properties'=>$this->generateProperties($tableSchema),
-                   'labels'=> $this->generateLabels($tableSchema),
-                    'className'=>$className,
-                    'giiConsolePath'=> $giiConsolePath ,
-                ])
+                $this->render('model.go.php',$params)
             );
         }
         return $files;

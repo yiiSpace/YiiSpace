@@ -46,6 +46,13 @@ type <?=  $className ?> struct {
 // repo <?= $className ?>Repo `json:"-" form:",omitempty"` //
 }
 
+<?php if($generator->genTableName):  ?>
+// TableName sets the insert table name for this struct type
+func (model *<?= $className ?>) TableName() string {
+    return "<?= $tableName ?>"
+}
+<?php endif; ?>
+
 <?php
 // system($giiConsolePath, $info);
 // echo $info;
