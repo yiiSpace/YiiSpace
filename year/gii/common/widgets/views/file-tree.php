@@ -43,7 +43,7 @@
 </div>
 </div>
 
-<?php  \year\widgets\pubsub\JTinyPubSubAsset::register($this) ?>
+<?php  // \year\widgets\pubsub\JTinyPubSubAsset::register($this) ?>
 <?php \year\widgets\JsTreeAsset::register($this) ?>
 <?php  \year\widgets\JsBlock::begin() ?>
 <script>
@@ -128,7 +128,9 @@
                        // callback(data) ;
 
                         var TOPIC_FILE_CHOOSE = '<?= $pubTopic ?>' ; // 'file.choose';
-                        parent.msgBus.pub(TOPIC_FILE_CHOOSE,data)
+                        var from = $("#fileTreeFrom").text() || $("#fileTreeFrom").html() ;
+
+                        parent.msgBus.pub(TOPIC_FILE_CHOOSE,{data: data , from : from})
                         ;
                     });
                 }

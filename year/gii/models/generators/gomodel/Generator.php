@@ -7,6 +7,7 @@ use year\gii\migration\Config;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\db\Schema;
+use yii\db\TableSchema;
 use yii\gii\CodeFile;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
@@ -47,6 +48,16 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public $srcDir;
 
+    /**
+     * @var string
+     */
+    public $daoDir = '' ;
+
+
+    /**
+     * @return string[]
+     * @throws NotSupportedException
+     */
     public function getAllTableNames(){
       return  $this->getDbConnection()->getSchema()->getTableNames('',true) ;;
     }
@@ -68,7 +79,15 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
         return '此生成器针对特定的数据库表 生成 模型';
     }
 
+    /**
+     * @var bool
+     */
     public $genTableName = true ;
+
+    /**
+     * @var bool
+     */
+    public $handleNullColumn = true ;
 
 
     /**
@@ -111,10 +130,12 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
                 [['tablePrefix'], 'safe'],
 
-                ['srcDir', 'string', 'message' => 'migration 项目的 src目录路径'],
+                ['srcDir', 'string', 'message' => ' src目录路径'],
+                ['daoDir', 'string', 'message' => 'dao目录路径'],
                 [['srcDir',], 'required', 'message' => '你的migration项目src目录 本程序的路径：' . Yii::$app->basePath],
 
                 [[  'genTableName'], 'boolean'],
+                [[  'handleNullColumn'], 'boolean'],
             ]
         );
         return $rules;
@@ -131,7 +152,9 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             parent::attributeLabels(),
             [
                 'srcDir' => '模型的src目录路径',
+                'daoDir' => '模型的DAO目录路径',
                 'genTableName' => '是否生成表名称',
+                'handleNullColumn' => '处理可空字段',
             ]
         );
     }
@@ -146,6 +169,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             parent::hints(),
             [
                 'srcDir' => '默认路径是 项目根目录 ../xxx/src' . $srcDir,
+                'daoDir' => 'DAO 生成路径 ' ,
             ]
         );
     }
@@ -168,6 +192,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             /*'models/model.js.php',*/
             //'model.vue.php',
             'model.go.php',
+            'dao-mysql.go.php',
         ];
     }
 
@@ -231,6 +256,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 'hints' => $this->generateHints($tableSchema),
                 'rules' => $this->generateRules($tableSchema),
                 'enum' => $this->getEnum($tableSchema->columns),
+                'primaryKey'=>$tableSchema->primaryKey ,
 
                 'properties'=>$this->generateProperties($tableSchema),
                 'labels'=> $this->generateLabels($tableSchema),
@@ -242,8 +268,76 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 $modelPath,
                 $this->render('model.go.php',$params)
             );
+
+            // --------------------------------------------------------------------
+            //                  ## DAO 生成
+            $daoDir = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    ($this->daoDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    lcfirst($tableName) . '_dao.go',
+                ]));
+            $files[] = new CodeFile(
+                $daoDir,
+                $this->render('dao-mysql.go.php',$params)
+            );
+            // ---------------------------------------------------------------------
+            //                  ## Routes
+
+            $routesDir = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    ($this->daoDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    lcfirst($tableName) . '_routes.go',
+                ]));
+            $files[] = new CodeFile(
+                $routesDir,
+                $this->render('mux-routes.go.php',$params)
+            );
+
+            // ---------------------------------------------------------------------
+            //                  ## controller
+
+            $handlerDir = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    ($this->daoDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    lcfirst($tableName) . '_handlers.go',
+                ]));
+            $files[] = new CodeFile(
+                $handlerDir,
+                $this->render('handler.go.php',$params)
+            );
+
         }
         return $files;
+    }
+
+    /**
+     * @param TableSchema $tableSchema
+     * @param $columnName
+     * @return \yii\db\ColumnSchema
+     */
+    public function getColumnSchema(TableSchema $tableSchema,   $columnName)
+    {
+       return $tableSchema->getColumn($columnName) ;
+    }
+
+    /**
+     * @TODO 提取出来干扰主逻辑
+     * @param string $tableName
+     * @return string
+     */
+    public function getGiiConsolePath($tableName)
+    {
+        $db = $this->getDbConnection();
+        $dbName = '' ;
+        $dns = $db->dsn;
+        if(preg_match('/dbname=([A-Za-z_]+\w*)/i',$dns,$match) !== false){
+            $dbName = '-d '. $match[1];
+        }else{
+            $dbName = 'no' ;
+        }
+
+        $giiConsolePath .= (" -t {$tableName} $dbName ") ;
+        return $giiConsolePath ;
     }
 
     /**
@@ -251,6 +345,10 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public function successMessage()
     {
+
+        $routes = $this->render('mux-routes.go.php',[
+
+        ]);
 
 
         $output = <<<EOD
@@ -264,12 +362,50 @@ EOD;
 <?php
     // some comment here！
     ......
-   
+         {$routes}
     ......
    
 EOD;
 
         return $output . '<pre>' . highlight_string($code, true) . '</pre>';
+    }
+
+    /**
+     * @param string $giiConsolePath
+     * @return array|mixed
+     */
+   public function columnsMetaData($giiConsolePath = '')
+    {
+        // system($giiConsolePath, $info);
+        // echo $info;
+        //echo $giiConsolePath ;
+        //exec($giiConsolePath, $output, $return_val);
+        //print_r($output);
+        //print_r($return_val) ;
+        //
+        //$out = system($giiConsolePath,$return_status) ;
+        //if($return_status == 0){
+        //  // $jsonData =  \yii\helpers\Json::decode( $out ) ;
+        //  // print_r($jsonData) ;
+        //    echo 'jjjj' ;
+        //
+        //    echo  gettype(json_decode($out)) ;
+        //}else{
+        //    echo 'failed' ;
+        //}
+
+       ob_start();
+        passthru($giiConsolePath, $exitCode);
+        $cmdOut = ob_get_contents();
+        ob_end_clean(); //Use this instead of ob_flush()
+        if ($exitCode == 0) {
+            // echo  gettype($cmdOut) ;
+            $j = json_decode($cmdOut, true);
+            // todo try catch 包裹下 返回的也可能不是合法json
+            return ($j);
+        } else {
+            return [];
+        }
     }
 
 

@@ -11,16 +11,48 @@ use yii\helpers\StringHelper;
  * @var yii\web\View $this
  * @var \year\gii\models\generators\gomodel\Generator $generator
  * @var string $tableName full table name
+ * @var \yii\db\TableSchema $tableSchema
+ * @var array $primaryKey
  */
 
 //   $generator->tableName
-$goColumnsMeta = columnsMetaData($giiConsolePath) ;
-?>
+$goColumnsMeta = $generator->columnsMetaData($giiConsolePath) ;
 
+/** @var  $getColumnSchemaFn */
+$getColumnSchemaFn = function ($colName)use(   $tableSchema ) {
+  return  $tableSchema->getColumn($colName) ;
+};
+
+// @see github.com/smallnest/gen
+/**
+ *  sql-null 和guregu-null 稍有不同哦  注意取64位是因为这个是通吃兜底类型 比如Int64 范围要比： int32 int 更广
+ *
+    gureguNullInt    = "null.Int"
+    sqlNullInt       = "sql.NullInt64"
+    golangInt        = "int"
+    golangInt64      = "int64"
+    gureguNullFloat  = "null.Float"
+    sqlNullFloat     = "sql.NullFloat64"
+ *
+ * @see https://blog.csdn.net/westhod/article/details/81456898
+ * 假如字段类型为date、timestamp等，该对应哪种呢？通常第三方的类库会转为string类型，那么就对应sql.NullString好了。
+ */
+
+
+?>
 package models
 
 import (
-    "github.com/go-ozzo/ozzo-validation"
+    // "github.com/go-ozzo/ozzo-validation"
+    "time"
+
+    "gopkg.in/guregu/null.v3"
+    "database/sql"
+)
+var (
+    _ = time.Second
+    _ = sql.LevelDefault
+    _ = null.Bool{}
 )
 
 type <?=  $className ?> struct {
@@ -32,6 +64,9 @@ type <?=  $className ?> struct {
        $goColType =  ($goColumnsMeta[$property]['GoType']) ;
     }else{
         $goColType = $data['type'] ; // FIXME 用php先替代
+    }
+    if($generator->handleNullColumn && $getColumnSchemaFn($property)->allowNull){
+        $goColType = 'null.'.ucfirst($goColType) ;
     }
 
     $prop = Inflector::id2camel($property, '_');
@@ -53,43 +88,3 @@ func (model *<?= $className ?>) TableName() string {
 }
 <?php endif; ?>
 
-<?php
-// system($giiConsolePath, $info);
-// echo $info;
-//echo $giiConsolePath ;
-//exec($giiConsolePath, $output, $return_val);
-//print_r($output);
-//print_r($return_val) ;
-//
-//$out = system($giiConsolePath,$return_status) ;
-//if($return_status == 0){
-//  // $jsonData =  \yii\helpers\Json::decode( $out ) ;
-//  // print_r($jsonData) ;
-//    echo 'jjjj' ;
-//
-//    echo  gettype(json_decode($out)) ;
-//}else{
-//    echo 'failed' ;
-//}
-
-/**
- * @param string $giiConsolePath
- * @return array|mixed
- */
-function columnsMetaData($giiConsolePath = '')
-{
-    ob_start();
-    passthru($giiConsolePath, $exitCode);
-    $cmdOut = ob_get_contents();
-    ob_end_clean(); //Use this instead of ob_flush()
-    if ($exitCode == 0) {
-        // echo  gettype($cmdOut) ;
-        $j = json_decode($cmdOut, true);
-        return ($j);
-    } else {
-        return [];
-    }
-}
-
-
-?>

@@ -49,6 +49,9 @@ if(!empty($tableNames)) {
     echo $form->field($generator, 'tableName');
 }
 echo $form->field($generator,'genTableName')->checkbox();
+echo $form->field($generator,'handleNullColumn')->checkbox();
+
+
 // echo 'count: '.count($tableNames) ;
 echo $form->field($generator, 'tablePrefix');
 
@@ -77,7 +80,7 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
                     'from'=>'daoPath'
                 ],
             ]);
-
+            echo $form->field($generator, 'daoDir');
             ?>
         </div>
     </div>
@@ -134,8 +137,18 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
         msgBus.sub(TOPIC_FILE_CHOOSE, function (event, data) {
             // console.log(arguments);
             // console.log(data);
-            $("input[name*='srcDir']").val(data) ;
-            layer.alert('选择成功！'+data);
+            // $("input[name*='srcDir']").val(data) ;
+            // layer.alert('选择成功！'+data);
+            alert("看控制台数据是啥");
+            console.log(data)
+            var from = data.from ;
+            if(from == 'default'){
+                $("input[name*='srcDir']").val(data.data) ;
+                layer.alert('选择成功！'+data.data);
+            }else if(from == 'daoPath'){
+                $("input[name*='daoDir']").val(data.data) ;
+                layer.alert('dao目录选择成功！'+data.data);
+            }
         });
 
         /**
