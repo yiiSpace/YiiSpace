@@ -44,6 +44,10 @@ $dbFields2goFieldsWithoutPks = array_filter($dbFields2goFields,function ($k)use(
 
 $getSql = "SELECT ".implode(', ',array_keys($dbFields2goFields))
     ." FROM ".$tableName ;
+
+// 搜索语句WHERE前的片段跟getSql一致
+$querySql = $getSql ;
+
 // FIXME $primaryKey  针对无主键情况 可能是空数组
 if(count($primaryKey) == 0) {
     $getSql .= " WHERE id = ?" ;
@@ -69,6 +73,15 @@ $scanGoFields = array_map(function($item){
 }, $correspondingGoFields);
 $scanGoFields = implode(' ,', $scanGoFields) ;
 
+$scanGoFieldsFn = function ($prefix = '&model.')use($correspondingGoFields){
+    $scanGoFields = array_map(function($item)use($prefix){
+        return $prefix.$item ;
+    }, $correspondingGoFields);
+    $scanGoFields = implode(' ,', $scanGoFields) ;
+    return $scanGoFields ;
+};
+
+
 $deleteSql = "DELETE FROM {$tableName} WHERE ";
 if(count($primaryKey) == 0) {
     $deleteSql .= " WHERE id = ?" ;
@@ -90,7 +103,9 @@ if(count($primaryKey) == 0) {
             return  $item.'=? ' ;
         },$primaryKey));
 }
+$updateExecArgs = $insertExecArgs ; // 更新和插入执行参数一致的
 
+$countSql = "SELECT COUNT(*) FROM {$tableName} " ;
 
 ?>
 package <?= $packageName ?>
@@ -163,18 +178,18 @@ func (dao *<?= $daoClassName ?>) Update(id int, model *models.<?= $className ?>)
 <?php if(count($primaryKey) !=1 ): ?>
     //  panic(fmt.Sprintf(""...)) or panic(errors.Errorf("primary key count is : %d ",1))
     panic("table primary key numbers is : <?= count($primaryKey) ?>")
-    res, err := stmt.Exec(id) // 无主键或者多主键情况 需要特殊处理 不然会删除有问题
+    res, err := stmt.Exec(<?= $updateExecArgs ?>,id) // 无主键或者多主键情况 需要特殊处理 不然会删除有问题
 
 <?php else: ?>
-    res, err := stmt.Exec(id)
+    res, err := stmt.Exec(<?= $updateExecArgs ?>,id)
 <?php endif; ?>
 
     if err != nil {
-        return err // http.Error(w, err.Error(), http.StatusInternalServerError)
+        return err
     }
     rowCnt, err := res.RowsAffected()
     if err != nil {
-        return err // log.Fatal(err)
+        return err
     }
     log.Printf("ID = %d, affected = %d\n", id, rowCnt)
     return nil
@@ -215,13 +230,32 @@ func (dao *<?= $daoClassName ?>) Delete( id int ) error {
 func (dao *<?= $daoClassName ?>) Count(rs app.RequestScope) (int, error) {
 	var count int
 	// err := rs.Tx().Select("COUNT(*)").From("<?= $tableName ?>").Row(&count)
+    // TODO 后续可以传递一个搜索模型 继续添加 WHERE 子句部分
+    err := dao.DB.QueryRow("<?= $countSql ?>").
+    Scan(&count)
+    if err != nil {
+          return 0, err
+    }
 	return count, nil
 }
 
 // Query retrieves the <?= $tableName ?> records with the specified offset and limit from the database.
 func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]models.<?= $className ?>, error) {
-	models := []models.<?= $className ?>{}
+	rs := []models.<?= $className ?>{}
 	// err := rs.Tx().Select().OrderBy("id").Offset(int64(offset)).Limit(int64(limit)).All(&models)
+    querySql := fmt.Sprintf("<?= $querySql ?> LIMIT %d OFFSET %d",limit,offset)
+    rows, err := dao.DB.Query(querySql)
+    if err != nil {
+         return rs , err
+    }
+    var m models.User
+    for rows.Next() {
+    err = rows.Scan(<?= $scanGoFieldsFn('&m.') ?>)
+    if err != nil {
+        return nil, err
+    }
+        rs = append(rs, m)
+    }
 
-	return models, nil
+    return rs, nil
 }

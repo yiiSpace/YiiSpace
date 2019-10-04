@@ -306,6 +306,18 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 $this->render('handler.go.php',$params)
             );
 
+            //.......................................................
+            //          ## SearchModel
+            $modelSearchPath = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    ucfirst($className) . '_search.go',
+                ]));
+
+            $files[] = new CodeFile(
+                $modelSearchPath,
+                $this->render('model_search.go.php',$params)
+            );
         }
         return $files;
     }
@@ -371,6 +383,8 @@ EOD;
     }
 
     /**
+     * 执行win下的命令行程序根php配置文件有关 或者可能跟apache权限有关 请自行查找相关细节
+     *
      * @param string $giiConsolePath
      * @return array|mixed
      */
