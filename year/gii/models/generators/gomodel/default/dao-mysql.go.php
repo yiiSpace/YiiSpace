@@ -248,14 +248,19 @@ func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]m
     if err != nil {
          return rs , err
     }
+    defer rows.Close()
     var m models.User
     for rows.Next() {
-    err = rows.Scan(<?= $scanGoFieldsFn('&m.') ?>)
-    if err != nil {
-        return nil, err
-    }
-        rs = append(rs, m)
+        err = rows.Scan(<?= $scanGoFieldsFn('&m.') ?>)
+        if err != nil {
+            return nil, err
+        }
+            rs = append(rs, m)
     }
 
+    err = rows.Err()
+    if err != nil {
+      return nil , err
+    }
     return rs, nil
 }
