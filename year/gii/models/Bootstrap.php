@@ -32,8 +32,13 @@ class Bootstrap implements BootstrapInterface
 
             $gk = 'gii-models' ;
             if (!isset($app->getModule('gii')->generators[$gk])) {
-                $app->getModule('gii')->generators[$gk] =
-                   Generator::className();
+                $app->getModule('gii')->generators[$gk] = [
+                  'class'=>   Generator::className(),
+                  'templates'=>[
+                        'sql-builder'=>__DIR__.'/generators/gomodel/sql-builder'
+                   ]  ,
+                ];
+
             }
 
         }

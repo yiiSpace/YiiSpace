@@ -51,15 +51,16 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     /**
      * @var string
      */
-    public $daoDir = '' ;
+    public $daoDir = '';
 
 
     /**
      * @return string[]
      * @throws NotSupportedException
      */
-    public function getAllTableNames(){
-      return  $this->getDbConnection()->getSchema()->getTableNames('',true) ;;
+    public function getAllTableNames()
+    {
+        return $this->getDbConnection()->getSchema()->getTableNames('', true);;
     }
 
 
@@ -82,12 +83,12 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     /**
      * @var bool
      */
-    public $genTableName = true ;
+    public $genTableName = true;
 
     /**
      * @var bool
      */
-    public $handleNullColumn = true ;
+    public $handleNullColumn = true;
 
 
     /**
@@ -134,8 +135,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ['daoDir', 'string', 'message' => 'dao目录路径'],
                 [['srcDir',], 'required', 'message' => '你的migration项目src目录 本程序的路径：' . Yii::$app->basePath],
 
-                [[  'genTableName'], 'boolean'],
-                [[  'handleNullColumn'], 'boolean'],
+                [['genTableName'], 'boolean'],
+                [['handleNullColumn'], 'boolean'],
             ]
         );
         return $rules;
@@ -169,7 +170,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             parent::hints(),
             [
                 'srcDir' => '默认路径是 项目根目录 ../xxx/src' . $srcDir,
-                'daoDir' => 'DAO 生成路径 ' ,
+                'daoDir' => 'DAO 生成路径 ',
             ]
         );
     }
@@ -232,21 +233,21 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             $giiConsolePath = implode(
                 DIRECTORY_SEPARATOR,
                 [
-                    __DIR__ ,
+                    __DIR__,
                     'bin',
                     'gii-console.exe'
                 ]
-            ) ;
+            );
             // 添加额外参数
-            $dbName = '' ;
-             $dns = $db->dsn;
-            if(preg_match('/dbname=([A-Za-z_]+\w*)/i',$dns,$match) !== false){
-                $dbName = '-d '. $match[1];
-            }else{
-                $dbName = 'no' ;
-             }
+            $dbName = '';
+            $dns = $db->dsn;
+            if (preg_match('/dbname=([A-Za-z_]+\w*)/i', $dns, $match) !== false) {
+                $dbName = '-d ' . $match[1];
+            } else {
+                $dbName = 'no';
+            }
 
-            $giiConsolePath .= (" -t {$tableName} $dbName ") ;
+            $giiConsolePath .= (" -t {$tableName} $dbName ");
 
 
             $params = [
@@ -256,17 +257,18 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 'hints' => $this->generateHints($tableSchema),
                 'rules' => $this->generateRules($tableSchema),
                 'enum' => $this->getEnum($tableSchema->columns),
-                'primaryKey'=>$tableSchema->primaryKey ,
+                'primaryKey' => $tableSchema->primaryKey,
 
-                'properties'=>$this->generateProperties($tableSchema),
-                'labels'=> $this->generateLabels($tableSchema),
-                'className'=>$className,
-                'giiConsolePath'=> $giiConsolePath ,
+                'properties' => $this->generateProperties($tableSchema),
+                'labels' => $this->generateLabels($tableSchema),
+                'className' => $className,
+                'giiConsolePath' => $giiConsolePath,
+                'searchConditions'=>$this->generateSearchConditions($tableSchema),
             ];
 
             $files[] = new CodeFile(
                 $modelPath,
-                $this->render('model.go.php',$params)
+                $this->render('model.go.php', $params)
             );
 
             // --------------------------------------------------------------------
@@ -278,7 +280,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ]));
             $files[] = new CodeFile(
                 $daoDir,
-                $this->render('dao-mysql.go.php',$params)
+                $this->render('dao-mysql.go.php', $params)
             );
             // ---------------------------------------------------------------------
             //                  ## Routes
@@ -290,7 +292,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ]));
             $files[] = new CodeFile(
                 $routesDir,
-                $this->render('mux-routes.go.php',$params)
+                $this->render('mux-routes.go.php', $params)
             );
 
             // ---------------------------------------------------------------------
@@ -303,7 +305,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 ]));
             $files[] = new CodeFile(
                 $handlerDir,
-                $this->render('handler.go.php',$params)
+                $this->render('handler.go.php', $params)
             );
 
             //.......................................................
@@ -316,10 +318,206 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
             $files[] = new CodeFile(
                 $modelSearchPath,
-                $this->render('model_search.go.php',$params)
+                $this->render('model_search.go.php', $params)
             );
+
+            // --------------------------------------------------
+            //          ## Views
+            $viewShowPath = implode(DIRECTORY_SEPARATOR,
+                array_filter([
+                    ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
+                    'show.page.tmpl',
+                ]));
+
+            $files[] = new CodeFile(
+                $viewShowPath,
+                $this->render('view-show.go.php', $params)
+            );
+
         }
         return $files;
+    }
+
+    /**
+     * Generates validation rules for the specified table.
+     *
+     * @see https://github.com/go-ozzo/ozzo-validation
+     * 根据强哥的这个验证库来做的
+     *
+     * @param \yii\db\TableSchema $table the table schema
+     * @param bool $forSearchModel 是否用于搜索模型
+     * @return array the generated validation rules
+     */
+    public function generateRules2($table, $forSearchModel = false)
+    {
+        /**
+         * @var  $columnTypes
+         * return validation.ValidateStruct(&a,
+         *     // Street cannot be empty, and the length must between 5 and 50
+         *     validation.Field(&a.Street, validation.Required, validation.Length(5, 50)),
+         */
+        $columnTypes = [];  // &a.Street, validation.Required, validation.Length(5, 50)
+        $lengths = [];
+        foreach ($table->columns as $column) {
+            if ($column->autoIncrement) {
+                continue;
+            }
+            if (!$forSearchModel && !$column->allowNull && $column->defaultValue === null) {
+                // $types['required'][] = $column->name;
+                $columnTypes[$column->name][] = "validation.Required";
+            }
+            // NOTE 类型验证因为go语言是强类型所以在跟上就断绝了类型错误问题 此处就可以略过了！
+            switch ($column->type) {
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                    //  $types['integer'][] = $column->name;
+                    break;
+                case Schema::TYPE_BOOLEAN:
+                    //  $types['boolean'][] = $column->name;
+                    break;
+                case Schema::TYPE_FLOAT:
+                case 'double': // Schema::TYPE_DOUBLE, which is available since Yii 2.0.3
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                    // $types['number'][] = $column->name;
+                    break;
+                case Schema::TYPE_DATE:
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+                    // $types['safe'][] = $column->name;
+                    break;
+                default: // strings
+                    if ($column->size > 0) {
+                        $lengths[$column->size][] = $column->name;
+                    } else {
+                        // $types['string'][] = $column->name;
+                    }
+            }
+        }
+        $rules = [];
+        $driverName = $this->getDbDriverName();
+        /*
+        foreach ($types as $type => $columns) {
+            if ($driverName === 'pgsql' && $type === 'integer') {
+                $rules[] = "[['" . implode("', '", $columns) . "'], 'default', 'value' => null]";
+            }
+            $rules[] = "[['" . implode("', '", $columns) . "'], '$type']";
+        }
+        */
+
+        foreach ($lengths as $length => $columns) {
+            //  $rules[] = "[['" . implode("', '", $columns) . "'], 'string', 'max' => $length]";
+            foreach ($columns as $col) {
+
+                $columnTypes[$col][] = "validation.Length(0, {$length})"; //validation.Length(5, 100), // length between 5 and 100
+            }
+        }
+
+        foreach ($columnTypes as $column => $types) {
+            $goFieldName = Inflector::id2camel($column, '_');
+            // sample :// Street cannot be empty, and the length must between 5 and 50
+            // validation.Field(&a.Street, validation.Required, validation.Length(5, 50)),
+            $rules[] = sprintf("validation.Field(%s,%s)",
+                '&m.' . $goFieldName,  // 模型字段名
+                implode(', ', $types)
+            );
+        }
+
+        $db = $this->getDbConnection();
+
+        // Unique indexes rules
+        // TODO 暂时不考虑 这种逻辑目前go-ozzo/ozzo-validation 没有支持 需要用验证函数来实现 依赖模型对应的Repository来做查询
+        try {
+            $uniqueIndexes = array_merge($db->getSchema()->findUniqueIndexes($table), [$table->primaryKey]);
+            $uniqueIndexes = array_unique($uniqueIndexes, SORT_REGULAR);
+            foreach ($uniqueIndexes as $uniqueColumns) {
+                // Avoid validating auto incremental columns
+                if (!$this->isColumnAutoIncremental($table, $uniqueColumns)) {
+                    $attributesCount = count($uniqueColumns);
+
+                    if ($attributesCount === 1) {
+                        //  $rules[] = "[['" . $uniqueColumns[0] . "'], 'unique']";
+                    } elseif ($attributesCount > 1) {
+                        $columnsList = implode("', '", $uniqueColumns);
+                        // $rules[] = "[['$columnsList'], 'unique', 'targetAttribute' => ['$columnsList']]";
+                    }
+                }
+            }
+        } catch (NotSupportedException $e) {
+            // doesn't support unique indexes information...do nothing
+        }
+        // Exist rules for foreign keys
+
+
+        return $rules;
+    }
+
+    /**
+     * Generates search conditions
+     *
+     * // @see LikeConditionBuilder  参考这个类实现  里面有简单过滤输入的内容
+     *
+     * @return array
+     */
+    public function generateSearchConditions(TableSchema $table)
+    {
+        $columns = [];
+
+        foreach ($table->columns as $column) {
+            $columns[$column->name] = $column->type;
+        }
+
+        $likeConditions = [];
+        $hashConditions = [];
+        foreach ($columns as $column => $type) {
+            $goField = $this->genGoStructField($column);
+            switch ($type) {
+                case Schema::TYPE_TINYINT:
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                case Schema::TYPE_BOOLEAN:
+                case Schema::TYPE_FLOAT:
+                case Schema::TYPE_DOUBLE:
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                case Schema::TYPE_DATE:
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+
+                    $hashConditions[] = "\"{$column}\": sm.$goField";
+                    break;
+                default:
+//                    $likeKeyword = $this->getClassDbDriverName() === 'pgsql' ? 'ilike' : 'like';
+//                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";
+                    $likeConditions[] = "sq.Like{\"{$column}\": sm.$goField }";
+                    break;
+            }
+        }
+
+        $conditions = [];
+        if (!empty($hashConditions)) {
+//            $conditions[] = "\$query->andFilterWhere([\n"
+//                . str_repeat(' ', 12) . implode("\n" . str_repeat(' ', 12), $hashConditions)
+//                . "\n" . str_repeat(' ', 8) . "]);\n";
+
+            $conditions[] = "sq.Eq{" . implode(',', $hashConditions) . "}\n";
+        }
+        if (!empty($likeConditions)) {
+            // $conditions[] = "\$query" . implode("\n" . str_repeat(' ', 12), $likeConditions) . ";\n";
+            $conditions[] = implode("\n", $likeConditions) . "\n";
+        }
+
+        return $conditions;
+    }
+
+    public function genGoStructField($dbField)
+    {
+        $prop = Inflector::id2camel($dbField, '_');
+        return $prop;
     }
 
     /**
@@ -327,9 +525,9 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      * @param $columnName
      * @return \yii\db\ColumnSchema
      */
-    public function getColumnSchema(TableSchema $tableSchema,   $columnName)
+    public function getColumnSchema(TableSchema $tableSchema, $columnName)
     {
-       return $tableSchema->getColumn($columnName) ;
+        return $tableSchema->getColumn($columnName);
     }
 
     /**
@@ -340,16 +538,16 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     public function getGiiConsolePath($tableName)
     {
         $db = $this->getDbConnection();
-        $dbName = '' ;
+        $dbName = '';
         $dns = $db->dsn;
-        if(preg_match('/dbname=([A-Za-z_]+\w*)/i',$dns,$match) !== false){
-            $dbName = '-d '. $match[1];
-        }else{
-            $dbName = 'no' ;
+        if (preg_match('/dbname=([A-Za-z_]+\w*)/i', $dns, $match) !== false) {
+            $dbName = '-d ' . $match[1];
+        } else {
+            $dbName = 'no';
         }
 
-        $giiConsolePath .= (" -t {$tableName} $dbName ") ;
-        return $giiConsolePath ;
+        $giiConsolePath .= (" -t {$tableName} $dbName ");
+        return $giiConsolePath;
     }
 
     /**
@@ -358,7 +556,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     public function successMessage()
     {
 
-        $routes = $this->render('mux-routes.go.php',[
+        $routes = $this->render('mux-routes.go.php', [
 
         ]);
 
@@ -388,7 +586,7 @@ EOD;
      * @param string $giiConsolePath
      * @return array|mixed
      */
-   public function columnsMetaData($giiConsolePath = '')
+    public function columnsMetaData($giiConsolePath = '')
     {
         // system($giiConsolePath, $info);
         // echo $info;
@@ -408,7 +606,7 @@ EOD;
         //    echo 'failed' ;
         //}
 
-       ob_start();
+        ob_start();
         passthru($giiConsolePath, $exitCode);
         $cmdOut = ob_get_contents();
         ob_end_clean(); //Use this instead of ob_flush()
