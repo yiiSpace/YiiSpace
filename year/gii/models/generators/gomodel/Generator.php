@@ -459,59 +459,66 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      *
      * // @see LikeConditionBuilder  参考这个类实现  里面有简单过滤输入的内容
      *
-     * @return array
+     * @param TableSchema $table
+     * @return \Closure
      */
     public function generateSearchConditions(TableSchema $table)
     {
-        $columns = [];
 
-        foreach ($table->columns as $column) {
-            $columns[$column->name] = $column->type;
-        }
+        $fn = function()use($table){
+            $columns = [];
 
-        $likeConditions = [];
-        $hashConditions = [];
-        foreach ($columns as $column => $type) {
-            $goField = $this->genGoStructField($column);
-            switch ($type) {
-                case Schema::TYPE_TINYINT:
-                case Schema::TYPE_SMALLINT:
-                case Schema::TYPE_INTEGER:
-                case Schema::TYPE_BIGINT:
-                case Schema::TYPE_BOOLEAN:
-                case Schema::TYPE_FLOAT:
-                case Schema::TYPE_DOUBLE:
-                case Schema::TYPE_DECIMAL:
-                case Schema::TYPE_MONEY:
-                case Schema::TYPE_DATE:
-                case Schema::TYPE_TIME:
-                case Schema::TYPE_DATETIME:
-                case Schema::TYPE_TIMESTAMP:
+            foreach ($table->columns as $column) {
+                $columns[$column->name] = $column->type;
+            }
 
-                    $hashConditions[] = "\"{$column}\": sm.$goField";
-                    break;
-                default:
+            $likeConditions = [];
+            $hashConditions = [];
+            foreach ($columns as $column => $type) {
+                $goField = $this->genGoStructField($column);
+                switch ($type) {
+                    case Schema::TYPE_TINYINT:
+                    case Schema::TYPE_SMALLINT:
+                    case Schema::TYPE_INTEGER:
+                    case Schema::TYPE_BIGINT:
+                    case Schema::TYPE_BOOLEAN:
+                    case Schema::TYPE_FLOAT:
+                    case Schema::TYPE_DOUBLE:
+                    case Schema::TYPE_DECIMAL:
+                    case Schema::TYPE_MONEY:
+                    case Schema::TYPE_DATE:
+                    case Schema::TYPE_TIME:
+                    case Schema::TYPE_DATETIME:
+                    case Schema::TYPE_TIMESTAMP:
+
+                        $hashConditions[] = "\"{$column}\": sm.$goField";
+                        break;
+                    default:
 //                    $likeKeyword = $this->getClassDbDriverName() === 'pgsql' ? 'ilike' : 'like';
 //                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";
-                    $likeConditions[] = "sq.Like{\"{$column}\": sm.$goField }";
-                    break;
+                        $likeConditions[] = "sq.Like{\"{$column}\": sm.$goField },";
+                        break;
+                }
             }
-        }
 
-        $conditions = [];
-        if (!empty($hashConditions)) {
+            $conditions = [];
+            if (!empty($hashConditions)) {
 //            $conditions[] = "\$query->andFilterWhere([\n"
 //                . str_repeat(' ', 12) . implode("\n" . str_repeat(' ', 12), $hashConditions)
 //                . "\n" . str_repeat(' ', 8) . "]);\n";
 
-            $conditions[] = "sq.Eq{" . implode(',', $hashConditions) . "}\n";
-        }
-        if (!empty($likeConditions)) {
-            // $conditions[] = "\$query" . implode("\n" . str_repeat(' ', 12), $likeConditions) . ";\n";
-            $conditions[] = implode("\n", $likeConditions) . "\n";
-        }
+                $conditions[] = "sq.Eq{" . implode(',', $hashConditions) . "},\n";
+            }
+            if (!empty($likeConditions)) {
+                // $conditions[] = "\$query" . implode("\n" . str_repeat(' ', 12), $likeConditions) . ";\n";
+                $conditions[] = implode("\n", $likeConditions) . "\n";
+            }
 
-        return $conditions;
+            return $conditions;
+        };
+
+        return $fn ;
+
     }
 
     public function genGoStructField($dbField)

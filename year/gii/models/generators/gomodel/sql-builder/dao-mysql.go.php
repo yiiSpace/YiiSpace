@@ -332,7 +332,7 @@ func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]m
 func (dao *<?= $daoClassName ?>) buildSearchCond(sm models.<?= $className ?>) (sql string, args []interface{}) {
 
     cond := sq.And{
-       <?= implode("\n",$searchConditions) ?>
+       <?= implode("\n",$searchConditions()) ?>
     }
     // 构造条件子句
     sql, args, _ = cond.ToSql()
