@@ -313,7 +313,7 @@ func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]m
     defer rows.Close()
 
     for rows.Next() {
-        var m models.User
+        var m models.<?= $className ?>
         err = rows.Scan(<?= $scanGoFieldsFn('&m.') ?>)
         if err != nil {
             return nil, err
@@ -332,7 +332,9 @@ func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]m
 func (dao *<?= $daoClassName ?>) buildSearchCond(sm models.<?= $className ?>) (sql string, args []interface{}) {
 
     cond := sq.And{
-       <?= implode("\n",$searchConditions()) ?>
+       <?= implode("\n",$searchConditions(function ($cond){
+           return " squirrelutil.FilterCond(". rtrim($cond,',') .'),';
+       })) ?>
     }
     // 构造条件子句
     sql, args, _ = cond.ToSql()

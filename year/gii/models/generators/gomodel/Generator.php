@@ -465,7 +465,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     public function generateSearchConditions(TableSchema $table)
     {
 
-        $fn = function()use($table){
+        $fn = function($wrapFn = null)use($table){
             $columns = [];
 
             foreach ($table->columns as $column) {
@@ -496,7 +496,12 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                     default:
 //                    $likeKeyword = $this->getClassDbDriverName() === 'pgsql' ? 'ilike' : 'like';
 //                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";
-                        $likeConditions[] = "sq.Like{\"{$column}\": sm.$goField },";
+                        $likeCond =  "sq.Like{\"{$column}\": sm.$goField },";
+                        if($wrapFn != null and $wrapFn instanceof  \Closure){
+                            $likeCond = $wrapFn($likeCond) ;
+                        }
+
+                        $likeConditions[] = $likeCond ;
                         break;
                 }
             }
@@ -507,7 +512,12 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 //                . str_repeat(' ', 12) . implode("\n" . str_repeat(' ', 12), $hashConditions)
 //                . "\n" . str_repeat(' ', 8) . "]);\n";
 
-                $conditions[] = "sq.Eq{" . implode(',', $hashConditions) . "},\n";
+                $hashCond =  "sq.Eq{" . implode(',', $hashConditions) . "},";
+                if($wrapFn != null and $wrapFn instanceof  \Closure){
+                    $hashCond = $wrapFn($hashCond) ;
+                }
+                $hashCond .= "\n" ;
+                $conditions[] = $hashCond ;
             }
             if (!empty($likeConditions)) {
                 // $conditions[] = "\$query" . implode("\n" . str_repeat(' ', 12), $likeConditions) . ";\n";
