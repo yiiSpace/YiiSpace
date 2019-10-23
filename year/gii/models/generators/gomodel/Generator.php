@@ -90,6 +90,11 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public $handleNullColumn = true;
 
+    /**
+     * @var bool
+     */
+    public $enableServiceLayer = false;
+
 
     /**
      * {@inheritdoc}
@@ -137,6 +142,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
                 [['genTableName'], 'boolean'],
                 [['handleNullColumn'], 'boolean'],
+                [['enableServiceLayer'], 'boolean'],
             ]
         );
         return $rules;
@@ -156,6 +162,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 'daoDir' => '模型的DAO目录路径',
                 'genTableName' => '是否生成表名称',
                 'handleNullColumn' => '处理可空字段',
+                'enableServiceLayer' => '开启服务层',
             ]
         );
     }
@@ -171,6 +178,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             [
                 'srcDir' => '默认路径是 项目根目录 ../xxx/src' . $srcDir,
                 'daoDir' => 'DAO 生成路径 ',
+                'enableServiceLayer' => '开启服务层 在原始dao层上添加一个服务层 ',
             ]
         );
     }

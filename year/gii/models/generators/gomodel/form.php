@@ -50,6 +50,7 @@ if(!empty($tableNames)) {
 }
 echo $form->field($generator,'genTableName')->checkbox();
 echo $form->field($generator,'handleNullColumn')->checkbox();
+echo $form->field($generator,'enableServiceLayer')->checkbox();
 
 
 // echo 'count: '.count($tableNames) ;

@@ -107,6 +107,8 @@ $updateExecArgs = $insertExecArgs ; // 更新和插入执行参数一致的
 
 $countSql = "SELECT COUNT(*) FROM {$tableName} " ;
 
+// PK:   print_r($primaryKey, true)
+
 ?>
 package <?= $packageName ?>
 
@@ -119,7 +121,7 @@ import (
     "database/sql"
 )
 
-// PK: <?= print_r($primaryKey, true) ?>
+
 
 // <?= $daoClassName ?> persists <?= $tableName ?> data in database
 type <?= $daoClassName ?> struct{
@@ -142,13 +144,13 @@ func (dao *<?= $daoClassName ?>) Get(id int) (*models.<?= $className ?>, error) 
     },array_keys($dbFields2goFields)) ?>
     b := sq.Select(<?= join(', ',$columns4select) ?>).From("<?= $tableName ?>")
     b = b.Where(sq.Eq{"<?= $primaryKey[0] ?>": id}) // 复合主键情况自己处理 这里只处理大部分情形
-    sql, args, err := b.ToSql()
+    sqlStr, args, err := b.ToSql()
     if err != nil {
         return nil , err
     }
 
     //
-    err := dao.DB.QueryRow(sql, args...).Scan(<?= $scanGoFields ?>)
+    err = dao.DB.QueryRow(sqlStr, args...).Scan(<?= $scanGoFields ?>)
     if err != nil {
         return nil , err
     }
@@ -162,7 +164,7 @@ func (dao *<?= $daoClassName ?>) Create(model *models.<?= $className ?>) error {
     <?php $columns2 = array_map(function ($item){
         return '"'.$item.'"';
     },array_keys($dbFields2goFieldsWithoutPks)) ?>
-    sql, args, err := sq.
+    sqlStr, args, err := sq.
     Insert("<?= $tableName ?>").Columns(<?= join(', ',$columns2) ?>).
     Values(<?= $insertExecArgs ?>). //.Values("larry", sq.Expr("? + 5", 12)).
     ToSql()
@@ -171,7 +173,7 @@ func (dao *<?= $daoClassName ?>) Create(model *models.<?= $className ?>) error {
     }
 
 
-    stmt, err := dao.DB.Prepare(sql)
+    stmt, err := dao.DB.Prepare(sqlStr)
     if err != nil {
          return err //log.Fatal(err)
     }
@@ -206,12 +208,12 @@ func (dao *<?= $daoClassName ?>) Update(id int, model *models.<?= $className ?>)
     SetMap(sq.Eq{<?= join(', ', $setMap) ?>}).
     Where(sq.Eq{"<?= $primaryKey[0] ?>": id})
 
-    sql, args, err := b.ToSql()
+    sqlStr, args, err := b.ToSql()
     if err != nil {
          return err
     }
 
-    stmt, err := dao.DB.Prepare(sql)
+    stmt, err := dao.DB.Prepare(sqlStr)
     if err != nil {
         return err
     }
@@ -239,12 +241,12 @@ func (dao *<?= $daoClassName ?>) Delete( id int ) error {
     _ = model
 
     b := sq.Delete("<?= $tableName ?>").Where("id = ?", id)
-    sql, args, err := b.ToSql()
+    sqlStr, args, err := b.ToSql()
     if err != nil {
         return err
     }
 
-    stmt, err := dao.DB.Prepare(sql)
+    stmt, err := dao.DB.Prepare(sqlStr)
     if err != nil {
          return err
     }
@@ -269,51 +271,58 @@ func (dao *<?= $daoClassName ?>) Delete( id int ) error {
 }
 
 // Count returns the number of the <?= $tableName ?> records in the database.
-func (dao *<?= $daoClassName ?>) Count() (int, error) {
-	var count int
+func (dao *<?= $daoClassName ?>) Count(sm *models.<?= $className ?>) (int, error) {
+	var cnt int
 
+    cond, args := dao.buildSearchCond(sm)
     // TODO 后续可以传递一个搜索模型 继续添加 WHERE 子句部分
-    sql, _, err := sq.Select("COUNT(*)").From("<?= $tableName ?>").Where(nil).ToSql()
+    sqlStr, _, err := sq.Select("COUNT(*)").From("<?= $tableName ?>").
+            Where(cond).
+            ToSql()
     if err != nil {
          return 0, err
     }
-    err = dao.DB.QueryRow(sql).
-    Scan(&count)
+    err = dao.DB.QueryRow(sqlStr, args...).
+    Scan(&cnt)
     if err != nil {
           return 0, err
     }
-	return count, nil
+	return cnt, nil
 }
 
 // Query retrieves the <?= $tableName ?> records with the specified offset and limit from the database.
-func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]models.<?= $className ?>, error) {
-	rs := []models.<?= $className ?>{}
-	// err := rs.Tx().Select().OrderBy("id").Offset(int64(offset)).Limit(int64(limit)).All(&models)
-    querySql := fmt.Sprintf("<?= $querySql ?> LIMIT %d OFFSET %d",limit,offset)
+func (dao *<?= $daoClassName ?>) Query(sm *models.<?= $className ?>, offset, limit int,  sort ...string) ([]models.<?= $className ?>, error) {
+    // 有人用string来表示查询串  这个有点跟url中的query串类似 ：?page=0&per-page=10&name=someName&age=10&title=...&sort=key1,key2 desc,key3
 
+    rs := []models.<?= $className ?>{}
+	// err := rs.Tx().Select().OrderBy("id").Offset(int64(offset)).Limit(int64(limit)).All(&models)
+
+    cond, args := dao.buildSearchCond(sm)
 
     b := sq.Select(<?= join(', ',$columns4select) ?>).
     From("<?= $tableName ?>").
+    Where(cond, args...).
     //   Where(map[string]interface{}{"h": 6}).
     //   Where(Or{Expr("j = ?", 10), And{Eq{"k": 11}, Expr("true")}}).
     //   OrderByClause("? DESC", 1).
     //   OrderBy("o ASC", "p DESC").
-    Limit(limit).
-    Offset(offset)
+    OrderBy(sort...).         // FIXME 做正则校验 防止注入哦！
+    Limit(uint64(limit)).
+    Offset(uint64(offset))
     // Suffix("FETCH FIRST ? ROWS ONLY", 14)
 
-    sql, args, err := b.ToSql()
+    sqlStr, args, err := b.ToSql()
     if err != nil {
          return rs , err
     }
-    rows, err = dao.DB.Query(sql)
+    rows, err := dao.DB.Query(sqlStr, args...)
     if err != nil {
          return rs , err
     }
     defer rows.Close()
 
     for rows.Next() {
-        var m models.<?= $className ?>
+        var m models.<?= $className ,"\n"?>
         err = rows.Scan(<?= $scanGoFieldsFn('&m.') ?>)
         if err != nil {
             return nil, err
@@ -329,7 +338,7 @@ func (dao *<?= $daoClassName ?>) Query(/*qm queryModel*/ offset, limit int) ([]m
 }
 
 
-func (dao *<?= $daoClassName ?>) buildSearchCond(sm models.<?= $className ?>) (sql string, args []interface{}) {
+func (dao *<?= $daoClassName ?>) buildSearchCond(sm *models.<?= $className ?>) (sql string, args []interface{}) {
 
     cond := sq.And{
        <?= implode("\n",$searchConditions(function ($cond){
@@ -337,8 +346,8 @@ func (dao *<?= $daoClassName ?>) buildSearchCond(sm models.<?= $className ?>) (s
        })) ?>
     }
     // 构造条件子句
-    sql, args, _ = cond.ToSql()
+    sqlStr, args, _  := cond.ToSql()
 
-    return sql, args
+    return sqlStr, args
 
 }

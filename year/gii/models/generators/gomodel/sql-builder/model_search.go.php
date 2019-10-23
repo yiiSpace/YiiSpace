@@ -35,7 +35,7 @@ import (
 
 
 type <?=  $searchModelName ?> struct {
-<?= $className ?>
+<?= $className ,"\n" ?>
 <?php foreach ($properties as $property => $data): ?>
     <?php
     $prop = Inflector::id2camel($property, '_');

@@ -16,8 +16,9 @@ $packageName = 'handlers';
 $imports = [] ;
 
 $modelClassName = $modelName = $className ;
-$daoServiceName = lcfirst($className).'Service' ;
-$controllerName = $className.'Controller' ;
+$daoName = lcfirst($className).'DAO' ;
+$serviceName = lcfirst($className).'Service' ;
+$controllerName = lcfirst($className.'Controller') ;
 
 // url path pattern:
 $urlBase =  Inflector::camel2id($modelName);
@@ -26,6 +27,9 @@ $queryUrlPattern = $urlBase   ;
 $createUrlPattern = $urlBase   ;
 $updateUrlPattern = $urlBase .'/{id}'  ;
 $deleteUrlPattern = $urlBase .'/{id}'  ;
+
+$daoOrServiceName = $generator->enableServiceLayer? $serviceName : $daoName ;
+$daoOrServiceVar = $generator->enableServiceLayer? 'service' : 'dao' ;
 ?>
 package handlers
 
@@ -37,29 +41,42 @@ import (
 )
 
 type (
-	// <?= $daoServiceName ?> specifies the interface for the <?= $tableName ?> service needed by <?= lcfirst($controllerName) ?>.
-	// 在多层架构中 可以同时适配dao层和service层
-	<?= lcfirst($daoServiceName) ?> interface {
-		Get(id int) (*models.<?= $className ?>, error)
-		Query(offset, limit int) ([]models.<?= $className ?>, error)
-		Count() (int, error)
-		Create(model *models.<?= $className ?>) (*models.<?= $className ?>, error)
-		Update(id int, model *models.<?= $className ?>) (*models.<?= $className ?>, error)
-		Delete(id int) (*models.<?= $className ?>, error)
-	}
+	// <?= $daoName ?> specifies the interface for the <?= $tableName ?> service needed by <?= lcfirst($controllerName) ?>.
 
-	// <?= $controllerName ?> defines the handlers for the CRUD APIs.
-<?= $controllerName ?>  struct {
-		service <?= lcfirst($daoServiceName)  ?>
-}
+<?php if($generator->enableServiceLayer ): ?>
+    <?= lcfirst($serviceName) ?> interface {
+        // NOT IMPLEMENTED  YET
+    }
+
+    // <?= $controllerName ?> defines the handlers for the CRUD APIs.
+    <?= $controllerName ?>  struct {
+        service <?= lcfirst($serviceName)  ?>
+    }
+<?php else: ?>
+    <?= lcfirst($daoName) ?> interface {
+    Get(id int) (*models.<?= $className ?>, error)
+    Query(sm *models.<?= $className ?>, offset, limit int,  sort ...string) ([]models.<?= $className ?>, error)
+    Count(sm *models.<?= $className ?>) (int, error)
+
+    Create(model *models.<?= $className ?>)  error
+    Update(id int, model *models.<?= $className ?>)  error
+    Delete(id int) error
+    }
+
+    // <?= $controllerName ?> defines the handlers for the CRUD APIs.
+    <?= $controllerName ?>  struct {
+        dao <?= lcfirst($daoName)  ,"\n"?>
+    }
+<?php endif; ?>
+
 )
 
 // Serve<?= Inflector::pluralize($className )?> sets up the routing of <?= $tableName ?> endpoints and the corresponding handlers.
-func Serve<?= ucfirst($controllerName) ?>(r *mux.Router /* , service artistService */) {
-	h := &<?= lcfirst($controllerName) ?>{ /* service*/ }
+func Serve<?= ucfirst($controllerName) ?>(r *mux.Router   , <?= $daoOrServiceVar?> <?= $daoOrServiceName ?>  ) {
+	h := &<?= lcfirst($controllerName) ?>{  <?= $daoOrServiceVar ?>  }
 	// r := mux.NewRouter()
 	// Serve<?= Inflector::pluralize($className )?>  Register the handler functions
-	r.HandleFunc("/<?= $getUrlPattern?>}", h.get()).Methods("GET")        // Get model by id
+	r.HandleFunc("/<?= $getUrlPattern?>", h.get()).Methods("GET")        // Get model by id
 	r.HandleFunc("/<?= $queryUrlPattern?>", h.query()).Methods("GET")                  // list models
 	r.HandleFunc("/<?= $createUrlPattern?>", h.create()).Methods("POST")                // create model
 	r.HandleFunc("/<?= $updateUrlPattern?>", h.update()).Methods("PUT", "POST")    // update model
@@ -69,19 +86,40 @@ func Serve<?= ucfirst($controllerName) ?>(r *mux.Router /* , service artistServi
 func (c *<?= lcfirst($controllerName) ?>) get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		id := mux.Vars(r)["id"]
-		_, err := w.Write([]byte("get <?=  $tableName ?>!" + id))
-		if err != nil {
-			log.Println("get Error:", err)
-		}
-	}
+        idInt, err := strconv.Atoi(id)
+
+        if err != nil {
+          http.Error(w, errors.Wrap(err, "Atoi Error").Error(), http.StatusBadRequest)
+        }
+
+        m, err := c.<?= $daoOrServiceVar ?>.Get(idInt)
+
+        if err != nil {
+            webutil.NotFound(w)
+            return
+        }
+        log.Printf("%#v", m)
+        webutil.ServeJson(w,m)
+
+        }
 }
 
 func (c *<?= lcfirst($controllerName) ?>) query() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		_, err := w.Write([]byte("list <?=  $tableName ?>!"))
-		if err != nil {
-			log.Println("list Error:", err)
-		}
+        sm := models.<?= $className ?>{}
+        decoder := schema.NewDecoder()
+        if err := decoder.Decode(&sm, r.URL.Query()); err != nil {
+             fmt.Println(err)
+             return
+        }
+        log.Printf("%#v \n", sm)
+
+        rs, err := c.<?= $daoOrServiceVar ?>.Query(sm,0, 100)
+        if err != nil {
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+        }
+        webutil.ServeJson(w, rs)
 	}
 }
 
