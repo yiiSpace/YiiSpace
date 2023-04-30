@@ -16,6 +16,9 @@ $config = [
             'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
         ],
         [
+            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
+        ],
+        [
             'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
         ],
     ],
@@ -58,7 +61,8 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    // 'levels' => ['error', 'warning', ],
+                    'levels' => ['error', 'warning','trace','info'],
                 ],
             ],
         ],
@@ -66,7 +70,8 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'request' => [
-            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
+            // 'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
+                'cookieValidationKey'=>'yiqing-myvalidation-key',
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
@@ -139,7 +144,9 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+// if (YII_ENV_DEV) {
+if (YII_ENV) {
+   
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
     /*
@@ -170,6 +177,7 @@ if (YII_ENV_DEV) {
                 'templates' => [
                 ]
             ],
+
 
         ],
     ];

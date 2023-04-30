@@ -159,6 +159,7 @@ JS;
         }else{
             // linux platform
             $roots[] = '/' ;
+            
         }
 
         return $roots ;

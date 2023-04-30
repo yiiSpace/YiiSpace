@@ -1,4 +1,3 @@
-{
     "name": "creocoder/yii2-app-ninja",
     "description": "The ninja application template for the Yii framework",
     "keywords": [
@@ -16,21 +15,22 @@
         }
     ],
 	 "repositories":[
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        } 
+         {
+             "type":"vcs",
+             "url":"https://github.com/yiqing/yii2-export"
+         }
+
     ],
 	"require": {
-        "php": ">=8.0",
+        "php": ">=5.4.0",
         "yiisoft/yii2": "dev-master",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "vlucas/phpdotenv": "dev-master",
 
-        "bower-asset/gumby": "*",
+        "bower-asset/gumby": "~2.6.3",
         
-        "bower-asset/polymer": "*",
+        "bower-asset/polymer": "~1.2.0",
 
         "gregwar/captcha":"~1.0.12",
 
@@ -52,7 +52,7 @@
 
         "dektrium/yii2-user": "0.9.*@dev",
 
-       
+        "myweishanli/yii2-ssdb": "dev-master",
 
         "yii2mod/yii2-rbac": "*",
         "dektrium/yii2-rbac": "dev-master",
@@ -66,7 +66,7 @@
         "hightman/xunsearch": "*@beta",
         "borales/yii2-elasticsearch-behavior": "*",
         "yiisoft/yii2-queue": "*",
-        "nelexa/zip": "*"
+        "nelexa/zip": "^3.1"
 
         , "bizley/migration": "dev-master",
         "jimdo/prometheus_client_php": "^0.9.1",
@@ -88,12 +88,11 @@
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-gii": "dev-master",
 
         "tebazil/yii2-console-runner": "*",
 
-        "schmunk42/yii2-giiant":"@dev",
-        
+        "schmunk42/yii2-giiant":"dev-master",
 
         "c006/yii2-migration-utility": "dev-master",
 
@@ -110,8 +109,7 @@
         "codeception/verify": "*",
         "fzaninotto/faker":"*"
 
-        ,"yiisoft/yii2-elasticsearch": "~2.0.0" 
-        ,    "symfony/browser-kit": ">=2.7 <=4.2.4"
+        ,"yiisoft/yii2-elasticsearch": "~2.0.0"
     },
     "scripts": {
         "post-create-project-cmd": [
@@ -123,12 +121,11 @@
     "extra": {
     },
     "config": {
-        "secure-http": false  ,
-        "allow-plugins": {
-            "yiisoft/yii2-composer" : true
-        },
         "fxp-asset": {
-            "enabled": false
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower-asset"
+            }
         },
         "process-timeout": 1800,
         "preferred-install": "dist"

@@ -30,7 +30,7 @@ $config = [
     ],
     'components' => [
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             // 'enableStrictParsing' => true,
             'showScriptName' => false,
             /*
@@ -93,7 +93,9 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'request' => [
+            // @TODO getenv 全部替换掉
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
+//            'cookieValidationKey' => 'yiqing-myvalidation-key-front',
         ],
         'session' => [
             'name' => '_frontendSessionId', // unique for frontend

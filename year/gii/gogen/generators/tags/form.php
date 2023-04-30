@@ -33,10 +33,16 @@ echo \year\gii\common\widgets\PathSelector::widget([
 
 
 <?php
+$generatorId = Yii::$app->request->get('id');
 
 echo \yii\helpers\Html::errorSummary($generator) ;
 
+
 echo $form->field($generator, 'srcDir');
+
+echo $form->field($generator,'struct')->dropDownList([],['data'=>[
+        'key'=>'struct'
+]]);
 
 
 echo $form->field($generator, 'tableName');
@@ -102,7 +108,33 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
              // console.log(arguments);
             console.log(data);
             $("input[name*='srcDir']").val(data.data) ;
-            layer.alert('选择成功！'+data.data);
+            layer.alert('选择成功！'+data.data)
+            
+            var url = '<?= \yii\helpers\Url::to(['default/action/','id'=>$generatorId,'name'=>'hi'
+            ,'path'=>'_path',
+                ]) ?>';
+                url = url.replace('_path',encodeURIComponent(data.data)) ;
+            var data = {
+              // "path": encodeURIComponent( data.data )
+              // "path":  data.data
+            };
+
+
+            $.ajax({
+                url: url,
+                data: data,
+                success: function(data,status,xhr){
+                    console.log(data);
+                    // var $struts =  $("select[name$=strut]");
+                    // $struts.empty();
+                    // if(data.structs){
+                    //     alert('hiii');
+                    // }
+
+
+                },
+                dataType: "json"
+            });
         });
 
         /**

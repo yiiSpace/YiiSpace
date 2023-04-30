@@ -103,6 +103,7 @@ class FileTreeController extends Controller
         }else{
             // linux platform
             $roots[] = '/' ;
+            // $roots[] =  Yii::app()->baseDir ;
         }
 
        return $roots ;

@@ -48,10 +48,19 @@ $context = $this->context ;
         function getDiskRoot() {
             return  $(".disk-root").find("option:selected").text();
         }
+        function encodeURI4php(val){
+          var v =  encodeURI(val);
+          return encodeURIComponent(v);
+        }
         function  getRealPathUrl(id) {
             var url = '<?= \yii\helpers\Url::to(['//file-tree/fs','operation'=>'get_path','diskRoot'=>'_diskRoot_','id'=>'_id_']) ?>';
-            url = url.replace('_diskRoot_',getDiskRoot());
-            url = url.replace('_id_',id);
+           
+            var diskRoot = encodeURI4php(getDiskRoot()); 
+           
+            url = url.replace('_diskRoot_', diskRoot);
+
+
+            url = url.replace('_id_',encodeURI4php(id));
             return url ;
         }
 
@@ -114,7 +123,9 @@ $context = $this->context ;
             .on('changed.jstree', function (e, data) {
                 if(data && data.selected && data.selected.length) {
                     var fileId = (data.selected[0]) ;
-                    // console.log(data) ;
+                     
+                    // console.log(fileId) ;
+
                     var url =  (getRealPathUrl(fileId));
                     $.get(url , function (data) {
                         /*
@@ -154,7 +165,8 @@ $context = $this->context ;
             $roots = $dir ;
         }else{
             // linux platform
-            $roots[] = '/' ;
+            // $roots[] = '/' ;
+            $roots[] = Yii::$app->basePath ;
         }
 
         return $roots ;

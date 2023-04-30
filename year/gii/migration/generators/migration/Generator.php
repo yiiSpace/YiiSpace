@@ -242,6 +242,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     }
 
     /**
+     * TODO: 由于组件升级导致出现bug啦 ！
+     * 
      * {@inheritdoc}
      */
     public function generate()
@@ -283,6 +285,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             $templateFile = '@bizley/migration/views/create_migration.php';
             $templateFileUpdate = '@bizley/migration/views/update_migration.php';
 
+            // 新版的bizley_Generator 比较复杂
+            // FIXME: update to the new version .
             $generator = new \bizley\migration\Generator([
                 'db' => $this->getDbConnection(), // $this->db,
                 'view' => Yii::$app->getView(),  // $this->view,

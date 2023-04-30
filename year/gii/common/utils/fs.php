@@ -49,12 +49,16 @@ class fs
         if(!$this->base) { throw new Exception('Base directory does not exist'); }
     }
     public function lst($id, $with_root = false) {
+        // print_r($id);
+        // die(__FILE__) ; 
         $dir = $this->path($id);
         $lst = @scandir($dir);
         if(!$lst) { throw new Exception('Could not list path: ' . $dir); }
         $res = array();
         foreach($lst as $item) {
             if($item == '.' || $item == '..' || $item === null) { continue; }
+            if($this->startsWith($item,'.')) { continue; }
+
             $tmp = preg_match('([^ a-zа-я-_0-9.]+)ui', $item);
             if($tmp === false || $tmp === 1) { continue; }
             if(is_dir($dir . DIRECTORY_SEPARATOR . $item)) {
@@ -191,5 +195,38 @@ class fs
             copy($dir, $new);
         }
         return array('id' => $this->id($new));
+    }
+
+    protected function startsWith($haystack, $needle)
+    {
+        $length = strlen($needle); 
+        return (substr($haystack, 0, $length) === $needle);
+     }
+
+     function endsWith($haystack, $needle)
+     {
+        $length = strlen($needle); 
+        if ($length == 0) { 
+            return true;
+         }
+          return (substr($haystack, -$length) === $needle); }
+}
+
+// @see https://www.php.net/manual/zh/function.str-starts-with.php
+// source: Laravel Framework
+// https://github.com/laravel/framework/blob/8.x/src/Illuminate/Support/Str.php
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with($haystack, $needle) {
+        return $needle !== '' && substr($haystack, -strlen($needle)) === (string)$needle;
+    }
+}
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
     }
 }

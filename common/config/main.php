@@ -39,6 +39,7 @@ $config = [
         ],
     ],
     'components' => [
+       
         /*
         'dbMan'=>[
             'class'=>'backend\components\DbMan',
@@ -69,16 +70,17 @@ $config = [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
-            'username' => 'root', // getenv('DB_USERNAME'),
-//            'password' => '', // getenv('DB_PASSWORD'),
-            'password' => getenv('DB_PASSWORD'),
+            // 'username' => 'root', // getenv('DB_USERNAME'),
+           'password' => 'yiqing', // getenv('DB_PASSWORD'),
+            // 'password' => getenv('DB_PASSWORD'),
+            'password' =>'yiqing',
             'charset' => 'utf8',
         ],
         'db2' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=cxtx_mall', //getenv('DB_DSN'),
-            'username' => 'root', // getenv('DB_USERNAME'),
-            'password' => '', // getenv('DB_PASSWORD'),
+            'username' => 'yiqing', // getenv('DB_USERNAME'),
+            'password' => 'yiqing', // getenv('DB_PASSWORD'),
             'charset' => 'utf8',
             'tablePrefix' => '',
         ],

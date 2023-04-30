@@ -75,3 +75,8 @@ vendor/                  contains dependent 3rd-party packages
 Support this project and [others by creocoder](https://gratipay.com/creocoder/) via [gratipay](https://gratipay.com/creocoder/).
 
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/creocoder/)
+
+
+## 神器
+
+rust 工具 rg  搜索速度极快！
