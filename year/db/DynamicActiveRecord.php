@@ -14,6 +14,8 @@ use yii\db\ActiveRecord;
 use yii\db\Schema;
 
 /**
+ * FIXME 最新版的yii2 已经有动态AR类了 请确认下
+ * 
  * @todo 如果不具有rules规则添加的方法 那么该类属于只读的
  *
  * 本类是全局可访问的 如果在一次请求流程中 多次用到对不同的表 那么每次都应该传递表名进来（ 后期支持添加rules规则 ）

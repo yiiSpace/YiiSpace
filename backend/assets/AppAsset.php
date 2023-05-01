@@ -10,6 +10,9 @@ namespace backend\assets;
 use yii\web\AssetBundle;
 
 /**
+ * 有很多其他ui可以选择哦
+ * tailwindcss + daisyui 就可以考虑  https://www.youtube.com/watch?v=n_S5IOLdsSk&ab_channel=NasarBasha
+ * 
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */

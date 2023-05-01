@@ -11,7 +11,7 @@ $config = [
     'bootstrap' => [
         // 'dbMan',
         'queue', // The component registers own console commands
-        'year\gii\dva\Bootstrap',// gii的react前端代码生成
+//        'year\gii\dva\Bootstrap',// gii的react前端代码生成
         /*
         [
             'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
@@ -34,9 +34,9 @@ $config = [
         [
             'class' => 'year\gii\migration\Bootstrap',   // migration 代码生成
         ],
-        [
-            'class' => 'year\gii\nodetest\Bootstrap',   // 测试 代码生成
-        ],
+//        [
+//            'class' => 'year\gii\nodetest\Bootstrap',   // 测试 代码生成
+//        ],
     ],
     'components' => [
        

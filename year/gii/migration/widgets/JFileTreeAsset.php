@@ -42,7 +42,7 @@ class JFileTreeAsset extends AssetBundle{
      * @var array
      */
     public $depends = [
-        //  'yii\web\JqueryAsset',
+//          'yii\web\JqueryAsset',
     ];
 
 

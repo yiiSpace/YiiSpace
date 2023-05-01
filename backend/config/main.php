@@ -15,12 +15,12 @@ $config = [
         [
             'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
         ],
-        [
-            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
-        ],
-        [
-            'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
-        ],
+//        [
+//            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
+//        ],
+//        [
+//            'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
+//        ],
     ],
     'components' => [
         'dbMan'=>[
@@ -144,8 +144,8 @@ $config = [
     'params' => $params,
 ];
 
-// if (YII_ENV_DEV) {
-if (YII_ENV) {
+if (YII_ENV_DEV) {
+// if (YII_ENV) {
    
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';

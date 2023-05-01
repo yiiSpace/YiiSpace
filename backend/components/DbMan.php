@@ -23,6 +23,7 @@ class DbMan extends Component
 implements BootstrapInterface
 {
 
+    const DB_ID_PREFIX = 'db_' ;
     /**
      * Bootstrap method to be called during application bootstrap stage.
      * @param Application $app the application currently running
@@ -45,10 +46,11 @@ implements BootstrapInterface
          */
         foreach ($dbNames as $dbName){
             // TODO 需要root 权限才能获取所有数据库查询权！
-            $dbConfigList['db_'.$dbName] = [
+            $dbConfigList[static::DB_ID_PREFIX.$dbName] = [
                 'class' => 'yii\db\Connection',
 //                'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
-                'dsn' => "mysql:host=localhost;dbname={$dbName}", //getenv('DB_DSN'),
+//                'dsn' => "mysql:host=localhost;dbname={$dbName}", //getenv('DB_DSN'),
+                'dsn' => "mysql:host=127.0.0.1;dbname={$dbName}", //getenv('DB_DSN'),
                 'username' =>  getenv('DB_USERNAME'),
 //                'password' => '', // getenv('DB_PASSWORD'),
                 'password' =>  getenv('DB_PASSWORD'),
@@ -60,6 +62,12 @@ implements BootstrapInterface
     }
 
 
+    /**
+     * todo: add cache！
+     *
+     * @return array|\yii\db\DataReader
+     * @throws \yii\db\Exception
+     */
     public function getDatabases()
     {
         $db = \Yii::$app->getDb() ;

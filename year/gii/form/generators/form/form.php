@@ -26,7 +26,7 @@ $onSelection = <<<JS
 JS;
 
 echo \year\gii\common\widgets\PathSelector::widget([
-    'onSelection'=>$onSelection,
+    'onSelection' => $onSelection,
 ]);
 
 ?>
@@ -34,30 +34,90 @@ echo \year\gii\common\widgets\PathSelector::widget([
 
 <?php
 
-echo \yii\helpers\Html::errorSummary($generator) ;
+echo \yii\helpers\Html::errorSummary($generator);
 
 echo $form->field($generator, 'srcDir');
 
 
-echo $form->field($generator, 'tableName');
-echo $form->field($generator, 'tablePrefix');
 
 /// echo $form->field($generator, 'generateLabelsFromComments')->checkbox();
 
 //echo $form->field($generator, 'db');
 /** @var \backend\components\DbMan $dbMan */
-$dbMan = Yii::$app->get('dbMan') ;
-$dbIds = array_map(function($item){
-    return 'db_'.$item ; // FIXME 这里有个约定！  db_xxx
-} , $dbMan->getDatabases()) ;
-$dbList = ['db'=>'db','db2'=>'db2'] + array_combine($dbIds,$dbMan->getDatabases());
-echo $form->field($generator, 'db')->dropDownList($dbList,[]);
+$dbMan = Yii::$app->get('dbMan');
+$dbIds = array_map(function ($item) {
+    return \backend\components\DbMan::DB_ID_PREFIX . $item; //
+}, $dbMan->getDatabases());
+
+$dbList = ['db' => 'db', 'db2' => 'db2'] + array_combine($dbIds, $dbMan->getDatabases());
+
+echo $form->field($generator, 'db')->dropDownList($dbList, [
+    //'class'=>'db-list'
+    'data' => [
+//        'table-prefix' => $generator->getTablePrefix(),
+        'action' => \yii\helpers\Url::to([
+            'default/action',
+            'id' => Yii::$app->request->get('id'), // get the generator id from request
+            'name' => 'TableNames'])
+    ]
+]);
+
+
+echo $form->field($generator, 'tableName');
+echo $form->field($generator, 'tablePrefix');
 
 ?>
 <?php \year\widgets\pubsub\JTinyPubSubAsset::register($this); ?>
 <?php \year\layui\LayerAsset::register($this) ?>
 <?php \year\widgets\JsBlock::begin() ?>
     <script>
+
+        jQuery(function ($) {
+            var ajaxRequest;
+
+            var $modal = $('#preview-modal');
+
+            // you should see the gii.js file for some insight
+            // NOTE: 需要参考gii.js  DefaultController
+            $('select[name="Generator[db]"]').on('change', function () {
+                // alert('db-changed');
+
+                var $this = $(this);
+
+
+                var $tableName = $('#generator-tablename');
+                var tableNameListId = $tableName.attr('list');
+                // alert($tableNameListId);
+                var $tableNameList = $('#'+tableNameListId);
+
+                var db = $this.val();
+
+
+                // request to `default/action`(`year\gii\form\generators\form\Generator::actionTableNames()`)
+                ajaxRequest = $.ajax({
+                    type: 'POST',
+                    cache: false,
+                    url: $this.data('action'),
+                    data: $this.closest('form').serializeArray(),
+                    success: function (response) {
+                        // $tableName.val(response).blur();
+                        $tableNameList.empty() ;
+
+                        $.each(response,function (index,value){
+                            $tableNameList.append("<option>"+value+"<option>");
+                        });
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $modal.find('.modal-body').html('<div class="error">' + XMLHttpRequest.responseText + '</div>');
+                        console.error( XMLHttpRequest.responseText ) ;
+                    }
+                });
+                // alert("done!");
+
+            });
+        });
+
         /**
          *
          *                   PUB-SUB
@@ -74,17 +134,17 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
 
         window.msgBus = window.MsgBus = function () {
             function pub(topic, payload) {
-                $.publish(topic,payload);
+                $.publish(topic, payload);
                 //PubSub.publish(topic, payload);
             }
 
             function sub(topic, handler) {
-                 $.subscribe(topic, handler ) ;
+                $.subscribe(topic, handler);
                 //PubSub.subscribe(topic, handler);
             }
 
             function unsub(topic, handler) {
-                $.unsubscribe(topic,handler)
+                $.unsubscribe(topic, handler)
             }
 
             return {
@@ -99,10 +159,10 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
 
 
         msgBus.sub(TOPIC_FILE_CHOOSE, function (event, data) {
-             // console.log(arguments);
+            // console.log(arguments);
             console.log(data);
-            $("input[name*='srcDir']").val(data.data) ;
-            layer.alert('选择成功！'+data.data);
+            $("input[name*='srcDir']").val(data.data);
+            layer.alert('选择成功(from layer-dailog)！' + data.data);
         });
 
         /**
