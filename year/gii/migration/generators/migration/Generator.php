@@ -6,9 +6,12 @@ use api\base\Application;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use year\gii\migration\Config;
+use year\migration\GeneratorTrait;
 use Yii;
 use yii\base\NotSupportedException;
+use yii\db\Connection;
 use yii\db\Schema;
+use yii\di\Instance;
 use yii\gii\CodeFile;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
@@ -16,6 +19,7 @@ use yii\helpers\Json;
 use yii\helpers\StringHelper;
 use schmunk42\giiant\helpers\SaveForm;
 use yii\helpers\VarDumper;
+use yii\web\View;
 
 /**
  * This generator will generate one or multiple migration for the specified database table.
@@ -27,12 +31,17 @@ use yii\helpers\VarDumper;
  * @since 0.0.1
  *
  */
-class Generator extends \schmunk42\giiant\generators\model\Generator
+//class Generator extends \schmunk42\giiant\generators\model\Generator
+class Generator  extends \yii\gii\generators\model\Generator
 {
 
 
     const SESSION_MAPPING_KEY = 'sess_migration_mapping';
 
+    /**
+     * @var null string for the table prefix, which is ignored in generated class name
+     */
+    public $tablePrefix = null;
 
     /**
      * @param CodeFile[] $files
@@ -138,7 +147,7 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
      */
     public function getDescription()
     {
-        return '此生成器针对特定的数据库表 生成 迁移 代码';
+        return '此生成器针对特定的数据库表 生成 迁移 代码 (注意 未知原因导致css错乱 生成的代码需要在控制台的response部分查看 而且有时间限制😯)';
     }
 
     /**
@@ -282,23 +291,31 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             ]);
 
 
+            // 这两个新类没有用到
             $templateFile = '@bizley/migration/views/create_migration.php';
             $templateFileUpdate = '@bizley/migration/views/update_migration.php';
 
             // 新版的bizley_Generator 比较复杂
             // FIXME: update to the new version .
-            $generator = new \bizley\migration\Generator([
-                'db' => $this->getDbConnection(), // $this->db,
-                'view' => Yii::$app->getView(),  // $this->view,
-                'useTablePrefix' => 0, // $this->useTablePrefix,
-                'templateFile' => $templateFile,
-                'tableName' => $name,
-                'className' => $className,
-                'namespace' => null,// $this->migrationNamespace,
-                'generalSchema' => true, // $this->generalSchema,
-            ]);
-
-            $migrationContent = $generator->generateMigration();
+//            $generator = new \bizley\migration\Generator([
+//                'db' => $this->getDbConnection(), // $this->db,
+//                'view' => Yii::$app->getView(),  // $this->view,
+//                'useTablePrefix' => 0, // $this->useTablePrefix,
+//                'templateFile' => $templateFile,
+//                'tableName' => $name,
+//                'className' => $className,
+//                'namespace' => null,// $this->migrationNamespace,
+//                'generalSchema' => true, // $this->generalSchema,
+//            ]);
+//
+//            $migrationContent = $generator->generateMigration();
+            $generatorWrapper = new GeneratorWrapper($this->getDbConnection());
+//            $generatorWrapper->
+            $generator = $generatorWrapper->getGenerator();
+            $migrationContent = $generator->generateForTable(
+                $name,
+                $className,[],false,'',null
+            );
             //  echo '<pre>' . (Html::encode($migrationContent)) . '</pre>';
             // die(__METHOD__);
             //    $params['timestamp'] = $this->generateTimestamp($tableSchema);
@@ -395,6 +412,30 @@ EOD;
 
         return true;
     }
+
+
+}
+
+class GeneratorWrapper
+{
+    use GeneratorTrait;
+
+    /**
+     * @var null|yii\web\View
+     */
+    public $view = null ;
+
+    public function __construct(
+        yii\db\Connection $db,
+        yii\web\View $view = null
+    ) {
+        $this->db = Instance::ensure($this->db, Connection::class);
+        if ($view === null) {
+            $this->view = Yii::$app->getView();
+        }
+
+    }
+
 
 
 }

@@ -27,6 +27,13 @@ $config = [
         'user_x' => [
             'class' => 'my\user\frontend\Module',
         ],
+        'cms'=> [
+            'class' => 'my\cms\frontend\Module',
+        ],
+        'php'=> [
+            'class' => 'my\php\frontend\Module',
+        ],
+
     ],
     'components' => [
         'urlManager' => [

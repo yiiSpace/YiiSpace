@@ -16,27 +16,22 @@ use schmunk42\giiant\helpers\SaveForm;
 //$this->registerJs(SaveForm::getSavedFormsJs($generator->getName()), yii\web\View::POS_END);
 //$this->registerJs(SaveForm::jsFillForm(), yii\web\View::POS_END);
 
+
 $onSelection = <<<JS
             function(data) {
                $("input[name*='srcDir']").val(data) ;
                alert('路径选择成功啦:'+data) ;
+               console.log(data);
             }
 JS;
 
-echo \year\gii\migration\widgets\PathSelector::widget([
+echo \year\gii\common\widgets\PathSelector::widget([
     'onSelection'=>$onSelection,
 ]);
+
 ?>
-<?php
-\yii\bootstrap\Alert::begin([
-     'options' => [
-          'class' => 'alert-warning',
-     ],
-]);?>
 
-最好只用来浏览 如果用来生成 可以使用命令行程序
 
-<?php \yii\bootstrap\Alert::end(); ?>
 
 <?php
 
@@ -62,13 +57,76 @@ echo $form->field($generator, 'db')->dropDownList($dbList,[]);
 
 ?>
 
+
+<?php \year\widgets\pubsub\JTinyPubSubAsset::register($this); ?>
+<?php \year\layui\LayerAsset::register($this) ?>
+<?php \year\widgets\JsBlock::begin() ?>
+    <script>
+        /**
+         *
+         *                   PUB-SUB
+         * --------------------------------------------------------------------  +|
+         *   var MY_TOPIC = 'hello';
+         PubSub.subscribe(MY_TOPIC, function (msg, data) {
+                console.log(msg);
+                console.log(data);
+            });
+
+         PubSub.publish(MY_TOPIC, 'world');
+         *
+         */
+
+        window.msgBus = window.MsgBus = function () {
+            function pub(topic, payload) {
+                $.publish(topic,payload);
+                //PubSub.publish(topic, payload);
+            }
+
+            function sub(topic, handler) {
+                 $.subscribe(topic, handler ) ;
+                //PubSub.subscribe(topic, handler);
+            }
+
+            function unsub(topic, handler) {
+                $.unsubscribe(topic,handler)
+            }
+
+            return {
+                pub: pub,
+                sub: sub,
+                unsub: unsub
+            };
+
+        }();
+
+        var TOPIC_FILE_CHOOSE = 'file.choose';
+
+
+        msgBus.sub(TOPIC_FILE_CHOOSE, function (event, data) {
+             // console.log(arguments);
+            console.log(data);
+            $("input[name*='srcDir']").val(data.data) ;
+            layer.alert('选择成功！'+data.data);
+        });
+
+        /**
+         * --------------------------------------------------------------------  +|
+         */
+
+    </script>
+<?php \year\widgets\JsBlock::end() ?>
 <?php
-\yii\bootstrap\Alert::begin([
-    'options' => [
-        'class' => 'alert-warning',
-    ],
-]);?>
 
-GII 生成的文件 原则上文件名是固定的 但迁移文件名 里面含有随机因素 这里最好自己生一个 然后拷贝代码过去
+//
+//$onSelection = <<<JS
+//            function(data) {
+//               $("input[name*='srcDir']").val(data) ;
+//               alert('路径选择成功啦:'+data) ;
+//            }
+//JS;
+//// TODO 这个组件会导致布局变形的！ 还有预览对话框显示不正常
+//\year\gii\common\widgets\PathSelector::widget([
+//    'onSelection'=>$onSelection,
+//]);
 
-<?php \yii\bootstrap\Alert::end(); ?>
+?>

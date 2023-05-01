@@ -14,6 +14,7 @@ use yii\helpers\Json;
 use yii\helpers\StringHelper;
 use schmunk42\giiant\helpers\SaveForm;
 use yii\helpers\VarDumper;
+use yii\web\Response;
 
 /**
  * This generator will generate one or multiple migration for the specified database table.
@@ -22,9 +23,44 @@ use yii\helpers\VarDumper;
  *
  * @since 0.0.1
  *
+ *  todo: should extends yii gii Generator!
  */
 class Generator extends \schmunk42\giiant\generators\model\Generator
 {
+
+    /**
+     * Action to get tablenames.
+     *
+     * @return string|array
+     * @since 0.0.2
+     */
+    public function actionTableNames()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+//        ob_start();
+//       var_dump($this->getDbConnection());
+//        $content = ob_get_clean();
+
+        $db = $this->getDbConnection();
+
+
+        $tableNames = [];
+        $schema = '';
+
+
+        //            return [
+        //                $this->db ,
+        //                $content,
+        //                $db->getSchema()->getTableNames('',true),
+        ////                $this->getTableNames(),
+        //            ];
+
+
+        return $db->getSchema()->getTableNames($schema, true);
+
+
+    }
 
     /**
      * {@inheritdoc}
@@ -45,12 +81,13 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
     public $srcDir;
 
 
+
     /**
      * {@inheritdoc}
      */
     public function getName()
     {
-        return 'gii-form Generator';
+        return 'gii-html-form Generator';
     }
 
     /**
@@ -154,14 +191,19 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             /*'models/model.js.php',*/
             //'model.vue.php',
             'form.php',
+            'table.php',
+            '_search.php',
         ];
     }
 
+    public $generateLabelsFromComments = true ;
     /**
      * {@inheritdoc}
      */
     public function generate()
     {
+        // 见鬼了! 上面分明设置的是true 为啥得到的是false 只能用这种方法搞
+        $this->generateLabelsFromComments = (1==1) ;
 
         $files = [];
         $db = $this->getDbConnection();
@@ -186,13 +228,28 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             $formPath = implode(DIRECTORY_SEPARATOR,
                 array_filter([
                     ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
-                    ucfirst($className) . '.html',
+                    ucfirst($className)  //. '.html',
                 ]));
             $files[] = new CodeFile(
-                $formPath,
+                $formPath.'_form.html',
                 $this->render('form.php', [
-                   'properties'=>$this->generateProperties($tableSchema),
-                   'labels'=> $this->generateLabels($tableSchema)
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema)
+                ])
+            );
+
+            $files[] = new CodeFile(
+                $formPath.'_table.html',
+                $this->render('table.php', [
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema)
+                ])
+            );
+            $files[] = new CodeFile(
+                $formPath.'_search.html',
+                $this->render('_search.php', [
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema)
                 ])
             );
         }

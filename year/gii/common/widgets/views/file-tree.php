@@ -28,6 +28,7 @@
             $roots = $dir ;
         }else{
             // linux platform
+            $roots[] = Yii::$app->getBasePath() ;
             $roots[] = '/' ;
         }
 

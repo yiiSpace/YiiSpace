@@ -30,7 +30,7 @@ class Bootstrap implements BootstrapInterface
 
         if ($app->hasModule('gii')) {
 
-            $gk = 'gii-form' ;
+            $gk = 'yiispace-form-table' ;
             if (!isset($app->getModule('gii')->generators[$gk])) {
                 $app->getModule('gii')->generators[$gk] =
                    Generator::className();

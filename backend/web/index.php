@@ -6,7 +6,8 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 // Dotenv::load(__DIR__ . '/../..');
 //$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../..');
 $dotenv->load();
 
 // todo: env 中的东西打印出来 不确定是不是加载了？
