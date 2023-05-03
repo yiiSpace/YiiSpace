@@ -26,27 +26,19 @@ use yii\helpers\StringHelper;
 
 
 <h1><?= $generator->tableName ?></h1>
-
-
-
-
 <form class="row gx-3 gy-2 align-items-center">
-
     <?php
     $i = 0 ;
     foreach ($properties as $property => $data): ?>
-
         <?php if($i<4): ?>
             <div class="col-sm-3">
         <?php else: ?>
             <div class="col-auto">
         <?php endif ?>
-
             <label class="visually-hidden" for="<?= $generator->generateClassName($property) ?>">
                 <?= $labels[$property] ?>:
             </label>
             <input type="text" class="form-control" name="<?= $property ?>" id="<?= $generator->generateClassName($property) ?>" placeholder="<?= $property ?>">
-
         </div>
 
     <?php $i++ ; endforeach; ?>
@@ -58,7 +50,6 @@ use yii\helpers\StringHelper;
             <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Username">
         </div>
     </div>
-
     <div class="col-auto">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
@@ -71,6 +62,5 @@ use yii\helpers\StringHelper;
     <div class="col-auto">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-
 </form>
 
