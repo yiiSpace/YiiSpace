@@ -111,6 +111,22 @@ class DynamicActiveRecord extends ActiveRecord
     }
 
     /**
+     * // 动态表单的 名称如果按照默认实现是用反射取短名称的
+     *
+     * @return string
+     */
+    public function formName()
+    {
+//        $reflector = new ReflectionClass($this);
+//        if (PHP_VERSION_ID >= 70000 && $reflector->isAnonymous()) {
+//            throw new InvalidConfigException('The "formName()" method should be explicitly defined for anonymous models');
+//        }
+//        return $reflector->getShortName();
+        return static::$tableName ;
+    }
+
+
+    /**
      * -------------------------------------------------------------------------------------------  +|
      *                  copy from gii
      */

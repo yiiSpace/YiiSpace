@@ -2,6 +2,10 @@
 
 namespace year\gii\form\generators\form;
 
+use backend\components\DbMan;
+use backend\controllers\DynamicController;
+use common\components\ConsoleAppHelper;
+use year\db\DynamicActiveRecord;
 use year\gii\common\helpers\GiiantFaker;
 use year\gii\migration\Config;
 use Yii;
@@ -97,7 +101,6 @@ class Generator extends \yii\gii\generators\model\Generator
      * @var string
      */
     public $srcDir;
-
 
 
     /**
@@ -214,14 +217,15 @@ class Generator extends \yii\gii\generators\model\Generator
         ];
     }
 
-    public $generateLabelsFromComments = true ;
+    public $generateLabelsFromComments = true;
+
     /**
      * {@inheritdoc}
      */
     public function generate()
     {
         // 见鬼了! 上面分明设置的是true 为啥得到的是false 只能用这种方法搞
-        $this->generateLabelsFromComments = (1==1) ;
+        $this->generateLabelsFromComments = (1 == 1);
 
         $files = [];
         $db = $this->getDbConnection();
@@ -242,14 +246,13 @@ class Generator extends \yii\gii\generators\model\Generator
 
 
             // -------------------------------------------------------------------------------  +|
-            //          ##   api测试
             $formPath = implode(DIRECTORY_SEPARATOR,
                 array_filter([
                     ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
                     ucfirst($className)  //. '.html',
                 ]));
             $files[] = new CodeFile(
-                $formPath.'_form.html',
+                $formPath . '_form.html',
                 $this->render('form.php', [
                     'properties' => $this->generateProperties($tableSchema),
                     'labels' => $this->generateLabels($tableSchema)
@@ -257,19 +260,73 @@ class Generator extends \yii\gii\generators\model\Generator
             );
 
             $files[] = new CodeFile(
-                $formPath.'_table.html',
+                $formPath . '_table.html',
                 $this->render('table.php', [
                     'properties' => $this->generateProperties($tableSchema),
                     'labels' => $this->generateLabels($tableSchema)
                 ])
             );
             $files[] = new CodeFile(
-                $formPath.'_search.html',
+                $formPath . '_search.html',
                 $this->render('_search.php', [
                     'properties' => $this->generateProperties($tableSchema),
                     'labels' => $this->generateLabels($tableSchema)
                 ])
             );
+
+            // 动态渲染crud 应该有个变量开关
+            /* ===========================================================================
+             begin crud
+            */
+            $oldApp = Yii::$app;
+            $callback = function (\yii\console\Application $consoleApp) use ($oldApp) {
+
+                // use current connection to DB
+                \Yii::$app->set('db', $oldApp->db);
+                $db = \Yii::$app->getDb();
+                $cmd = $db->createCommand('SHOW DATABASES');
+                $dbs = $cmd->queryColumn();
+                \Yii::debug(implode(',', $dbs), 'year-gii-form');
+
+                $dbMan = $oldApp->get('dbMan');
+                $dbMan->bootstrap($consoleApp);
+//                $componentDefinitions = $consoleApp->getComponents(true);
+//
+//            \Yii::error( print_r($componentDefinitions,true),'console');
+//
+            };
+
+//        php yii gii/model --tableName=page_resource --modelClass=PageResource --ns="backend\models" --queryClass=PageResource --queryNs="backend\models\query"
+
+            $dbId = $this->db ; // DbMan::getDbId('tpshop');
+            $table =  $tableName; // 'tp_users';
+
+            DynamicActiveRecord::setDbID($dbId);
+            DynamicActiveRecord::setTableName($tableName);
+
+            // 这里是crud 生成动作
+            $result = ConsoleAppHelper::runAction('gii/crud', [
+                'controllerClass' => DynamicController::class,
+                'modelClass' => DynamicActiveRecord::class,
+                'viewPath' => "@backend/runtime/dynamic/views/{$dbId}/{$table}",
+
+            ], $callback);
+
+            DynamicController::$dbID = $dbId ;
+            DynamicController::$tableName = $table ;
+//          return \Yii::$app->runAction('dynamic/index',[]);
+//            return \Yii::$app->runAction('dynamic/create',[]);
+            // 只要表单的html代码
+            $files[] = new CodeFile(
+                Yii::getAlias('@backend/runtime/_tmp_gii_form_gen/'.$dbId.'/'.$this->tableName.'.html'),
+
+                \Yii::$app->runAction('dynamic/create',[])
+            );
+
+            /*
+            end crud
+            ======================================================================*/
+
         }
         return $files;
     }
@@ -278,7 +335,7 @@ class Generator extends \yii\gii\generators\model\Generator
 
     /**
      * @NOTE copy from giiant ；because some version problem i have to do this way.
-     * 
+     *
      * Generates a class name from the specified table name.
      *
      * @param string $tableName the table name (which may contain schema prefix)
@@ -316,7 +373,7 @@ class Generator extends \yii\gii\generators\model\Generator
             if (($pos = strrpos($pattern, '.')) !== false) {
                 $pattern = substr($pattern, $pos + 1);
             }
-            $patterns[] = '/^'.str_replace('*', '(\w+)', $pattern).'$/';
+            $patterns[] = '/^' . str_replace('*', '(\w+)', $pattern) . '$/';
         }
 
         $className = $tableName;
@@ -349,7 +406,7 @@ class Generator extends \yii\gii\generators\model\Generator
 <p>The test crud suite  has been generated successfully.</p>
 EOD;
 
-        $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
+//        $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
 
 
         $code = <<<EOD
