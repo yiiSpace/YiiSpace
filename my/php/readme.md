@@ -30,3 +30,5 @@ arsort($word_counts);
 $keywords = array_slice(array_keys($word_counts), 0, $top_n);
 
 ~~~
+
+- [php-代码生成](https://github.com/nette/php-generator)

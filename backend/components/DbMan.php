@@ -22,6 +22,14 @@ use yii\base\Component;
 class DbMan extends Component
 implements BootstrapInterface
 {
+    /**
+     * @param  string $database
+     * @return string
+     */
+    public static function getDbId($database)
+    {
+        return static::DB_ID_PREFIX.$database ;
+    }
 
     const DB_ID_PREFIX = 'db_' ;
     /**
@@ -46,6 +54,7 @@ implements BootstrapInterface
          */
         foreach ($dbNames as $dbName){
             // TODO 需要root 权限才能获取所有数据库查询权！
+
             $dbConfigList[static::DB_ID_PREFIX.$dbName] = [
                 'class' => 'yii\db\Connection',
 //                'dsn' => 'mysql:host=localhost;dbname=yii_space', //getenv('DB_DSN'),
@@ -57,7 +66,7 @@ implements BootstrapInterface
                 'charset' => 'utf8',
             ];
         }
-//        注册数据库组件
+//        注册数据库组件 注意并没有实际实例化 后期用到的时候 需要确认下 Module::get 方法内部会做实例化的
         $app->setComponents($dbConfigList);
     }
 

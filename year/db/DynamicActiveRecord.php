@@ -9,8 +9,11 @@
 namespace year\db;
 
 
+use backend\components\DbMan;
+use yii\base\InvalidParamException;
 use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
+use yii\db\Connection;
 use yii\db\Schema;
 
 /**
@@ -59,6 +62,43 @@ class DynamicActiveRecord extends ActiveRecord
         return $ar;
     }
 
+    protected static $db ;
+
+    public static function setDbID($dbId)
+    {
+        if(\Yii::$app->has($dbId)){
+
+           static::$db = $dbId ;
+        }else{
+//            throw new InvalidParamException()
+            throw new \InvalidArgumentException(''.$dbId.' is not exist! make sure you bootstrap the '.DbMan::class);
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDbID()
+    {
+        return static::$db ;
+    }
+    /**
+     * Returns the database connection used by this AR class.
+     * By default, the "db" application component is used as the database connection.
+     * You may override this method if you want to use a different database connection.
+     * @return Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
+        $dbId = static::$db ;
+        if(empty($dbId)){
+            // TODO 这里为了动态设置不同的db 可以留个设置db的地方 然后拿到这个db_id  后从这里返回 db注入必须先于此类的使用
+            return \Yii::$app->getDb();
+        }else{
+            return \Yii::$app->get($dbId) ;
+        }
+
+    }
     /**
      * @inheritdoc
      */

@@ -2,8 +2,12 @@
 
 namespace my\php\frontend\controllers;
 
+use my\php\common\annotations\AnnotationsDemo;
+use my\php\common\features\PhpTokenDemo;
 use my\php\common\features\TraitsDemo;
+use my\php\common\reflections\BetterReflectionDemo;
 use year\migration\GeneratorTrait;
+use yii\base\NotSupportedException;
 use yii\web\Controller;
 
 // 临时用下哈
@@ -51,5 +55,32 @@ class DefaultController extends Controller
         $this->db = Instance::ensure($this->db, Connection::class);
         $generator = $this->getGenerator();
         dump($generator) ; exit(0) ;
+    }
+
+    public function actionAnnotation()
+    {
+        ob_start() ;
+        AnnotationsDemo::run();
+        return ob_get_clean() ;
+    }
+
+    public function actionPhpToken()
+    {
+        PhpTokenDemo::run();
+        PhpTokenDemo::getClasses();
+        exit(0);
+    }
+
+    public function actionReflection()
+    {
+        dump( BetterReflectionDemo::run(__FILE__) );
+        BetterReflectionDemo::classInfo(__CLASS__);
+        exit(0);
+    }
+
+    public function actionAnnotation2()
+    {
+        // @see https://github.com/nette/reflection
+        throw new NotSupportedException();
     }
 }

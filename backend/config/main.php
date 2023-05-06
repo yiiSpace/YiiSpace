@@ -1,5 +1,6 @@
 <?php
 
+// 注意 裸require 会导致变量名污染 可以使用即时函数  (function(){})() 限制变量名外溢
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/params.php')

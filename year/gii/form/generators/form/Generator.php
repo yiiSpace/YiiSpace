@@ -25,8 +25,10 @@ use yii\web\Response;
  *
  *  todo: should extends yii gii Generator!
  */
-class Generator extends \schmunk42\giiant\generators\model\Generator
+//class Generator extends \schmunk42\giiant\generators\model\Generator
+class Generator extends \yii\gii\generators\model\Generator
 {
+
 
     /**
      * Action to get tablenames.
@@ -62,6 +64,22 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
 
     }
 
+
+    public $singularEntities = false;
+
+    /**
+     * @var null string for the table prefix, which is ignored in generated class name
+     */
+    public $tablePrefix = null;
+
+    // protected function getDbConnection()
+    // {
+    //     if (Yii::$container->has($this->db)) {
+    //         return Yii::$container->get($this->db);
+    //     } else {
+    //         return Yii::$app->get($this->db);
+    //     }
+    // }
     /**
      * {@inheritdoc}
      */
@@ -118,8 +136,8 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
                 [['db', 'tableName',], 'required'],
                 [['db',], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
                 [['tableName'], 'match', 'pattern' => '/^([\w ]+\.)?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
-                [['db'], 'validateDb'],
-                [['tableName'], 'validateTableName'],
+//                [['db'], 'validateDb'],
+//                [['tableName'], 'validateTableName'],
             ]);
         /*
         $requiredRule = function ($rule) {
@@ -254,6 +272,70 @@ class Generator extends \schmunk42\giiant\generators\model\Generator
             );
         }
         return $files;
+    }
+
+    protected $classNames2;
+
+    /**
+     * @NOTE copy from giiant ；because some version problem i have to do this way.
+     * 
+     * Generates a class name from the specified table name.
+     *
+     * @param string $tableName the table name (which may contain schema prefix)
+     *
+     * @return string the generated class name
+     */
+    public function generateClassName($tableName, $useSchemaName = null)
+    {
+
+        //Yii::trace("Generating class name for '{$tableName}'...", __METHOD__);
+        if (isset($this->classNames2[$tableName])) {
+            //Yii::trace("Using '{$this->classNames2[$tableName]}' for '{$tableName}' from classNames2.", __METHOD__);
+            return $this->classNames2[$tableName];
+        }
+
+        if (isset($this->tableNameMap[$tableName])) {
+            Yii::trace("Converted '{$tableName}' from tableNameMap.", __METHOD__);
+
+            return $this->classNames2[$tableName] = $this->tableNameMap[$tableName];
+        }
+
+        if (($pos = strrpos($tableName, '.')) !== false) {
+            $tableName = substr($tableName, $pos + 1);
+        }
+
+        $db = $this->getDbConnection();
+        $patterns = [];
+        $patterns[] = "/^{$this->tablePrefix}(.*?)$/";
+        $patterns[] = "/^(.*?){$this->tablePrefix}$/";
+        $patterns[] = "/^{$db->tablePrefix}(.*?)$/";
+        $patterns[] = "/^(.*?){$db->tablePrefix}$/";
+
+        if (strpos((string)$this->tableName, '*') !== false) {
+            $pattern = $this->tableName;
+            if (($pos = strrpos($pattern, '.')) !== false) {
+                $pattern = substr($pattern, $pos + 1);
+            }
+            $patterns[] = '/^'.str_replace('*', '(\w+)', $pattern).'$/';
+        }
+
+        $className = $tableName;
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $tableName, $matches)) {
+                $className = $matches[1];
+                Yii::trace("Mapping '{$tableName}' to '{$className}' from pattern '{$pattern}'.", __METHOD__);
+                break;
+            }
+        }
+
+        $returnName = Inflector::id2camel($className, '_');
+        if ($this->singularEntities) {
+            $returnName = Inflector::singularize($returnName);
+        }
+
+        Yii::trace("Converted '{$tableName}' to '{$returnName}'.", __METHOD__);
+
+        return $this->classNames2[$tableName] = $returnName;
     }
 
     /**

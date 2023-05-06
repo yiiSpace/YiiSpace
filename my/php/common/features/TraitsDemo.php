@@ -1,5 +1,7 @@
 <?php
+// @see  http://php.net/language.oop5.traits
 // @see https://www.yii666.com/blog/105411.html
+// @see https://www.tabangni.com/phpstudy/6207.html
 namespace my\php\common\features {
 
     use function _2\run;
@@ -149,6 +151,8 @@ namespace _collision {
 }
 
 namespace _modify_priviliage {
+    // use 是一种依赖方向 被依赖者除的方法如果是public 那么 权限可以as为 protected｜private
+    // 这符合直觉 ：底层是全开放的 上层可以遮盖底层接口 或者窄化它 。如果底层是protected 的那么上层是否可以public它呢 ，宽化
     trait HelloWorld
     {
         public function sayHello()
@@ -229,12 +233,14 @@ namespace _abstract_method {
             echo $a;
         }
 
+        // 充当抽象类的角色
         abstract public function test2(); //可定义抽象方法
     }
 
     class B
     {
         use A;
+
         public function test2()
         {
 
@@ -250,25 +256,211 @@ namespace _abstract_method {
     }
 }
 
-namespace _attributes{
-    trait A {
+namespace _attributes {
+    trait A
+    {
 
         private $var = 'p_a';
         protected $var2 = 'f_a';
         public $test1;
-      }
-       
-      class B {
-        use A;
-        public $test2;
-      }
+    }
 
-      function run()
-      {
-          $b = new B();
+    class B
+    {
+        use A;
+
+        public $test2;
+    }
+
+    function run()
+    {
+        $b = new B();
 //          $b->$var2 = 'hi';
-          $b->test1 = 'set value to trait a';
+        $b->test1 = 'set value to trait a';
 //          var_dump($b);
-          dump($b);
-      }
+        dump($b);
+    }
+}
+
+namespace _priority {
+    // precedence
+
+    class Base
+    {
+        public function foo()
+        {
+            echo 'foo from base';
+        }
+    }
+
+    trait HasFoo
+    {
+        public function foo()
+        {
+            // 这就要求使用者的父类需要拥有foo方法
+            parent::foo();
+            echo ' after parent::foo', PHP_EOL;
+        }
+    }
+
+    class Bar extends Base
+    {
+        use HasFoo;
+    }
+
+    function run()
+    {
+        $bar = new Bar();
+        // 这个方法是调用trait的方法的
+        $bar->foo();
+    }
+}
+
+namespace _static_attribute_method {
+    trait Counter
+    {
+        public function inc()
+        {
+            static $c = 0;
+            $c = $c + 1;
+            echo "$c \n";
+        }
+    }
+
+    class C1
+    {
+        use Counter;
+    }
+
+    class C2
+    {
+        use Counter;
+    }
+
+    function run()
+    {
+        $c1 = new C1();
+        $c2 = new C2();
+
+        $c1->inc();
+        $c2->inc();
+
+        Helper::someFunc();
+    }
+
+    trait BaseHelper
+    {
+        public static function someFunc()
+        {
+            return __METHOD__;
+        }
+    }
+
+    class Helper
+    {
+        use BaseHelper;
+    }
+}
+
+namespace _statics {
+    trait Counter
+    {
+        public static $c = 0;
+
+        public static function inc()
+        {
+            self::$c = self::$c + 1;
+            echo self::$c . "\n";
+        }
+    }
+
+    class C1
+    {
+        use Counter;
+    }
+
+    class C2
+    {
+        use Counter;
+    }
+
+    function run()
+    {
+        C1::inc();
+        C2::inc();
+    }
+}
+
+namespace _trait_name {
+    trait TestTrait
+    {
+        public function testMethod()
+        {
+            echo "Class: " . __CLASS__ . PHP_EOL;
+            echo "Trait: " . __TRAIT__ . PHP_EOL;
+        }
+    }
+
+    class BaseClass
+    {
+        use TestTrait;
+    }
+
+    class TestClass extends BaseClass
+    {
+    }
+
+    function run()
+    {
+        $t = new TestClass();
+        $t->testMethod();
+//Class: BaseClass
+//Trait: TestTrait
+    }
+}
+
+namespace _singleton{
+    trait singleton {
+        /**
+         * private construct, generally defined by using class
+         */
+        //private function __construct() {}
+        public static function getInstance() {
+            static $_instance = NULL;
+            $class = __CLASS__;
+            return $_instance ?: $_instance = new $class;
+        }
+        public function __clone() {
+            trigger_error('Cloning '.__CLASS__.' is not allowed.',E_USER_ERROR);
+        }
+        public function __wakeup() {
+            trigger_error('Unserializing '.__CLASS__.' is not allowed.',E_USER_ERROR);
+        }
+    }
+
+    class Foo{
+        use singleton;
+
+        /**
+         * @var string
+         */
+        protected $name ;
+        private function __construct() {
+            $this->name = 'foo';
+        }
+    }
+}
+
+namespace _call_trait_method{
+
+
+    trait Foo {
+        function bar() {
+            return 'baz';
+        }
+    }
+
+   function run(){
+        Foo::bar();
+    }
 }

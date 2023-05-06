@@ -10,6 +10,8 @@ $config = [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'console\controllers',
     'controllerMap' => [
+//        'batch' => require(__DIR__ . '/giiant.php'),
+
         // 事件系统
         'migrate-event' => [
             'class' => 'yii\console\controllers\MigrateController',
@@ -32,13 +34,17 @@ $config = [
             'class' => 'bizley\migration\controllers\MigrationController',
         ],
         // use another command id which allow us have different config for the same Command
-        'migrate2' => [
-            'class' => 'yii\console\controllers\MigrateController',
-            // for custom migration template
-            'templateFile' => '@app/views/layouts/migration.php'
-        ]
+//        'migrate2' => [
+//            'class' => 'yii\console\controllers\MigrateController',
+//            // for custom migration template
+//            'templateFile' => '@app/views/layouts/migration.php'
+//        ]
     ],
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'gii',
+//        'dbMan', // NOTE  这个类容易导致问题 程序启动不来！ 难道web模式 跟console模式 同样的配置会产生不同的ip
+    ],
     'on beforeRequest' => function ($event) {
         // 纠正中文显示问题
         // echo php_uname();
@@ -59,6 +65,20 @@ $config = [
 
     },
     'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=yii_space', //getenv('DB_DSN'),
+//            'dsn' => 'mysql:host=127.0.0.1;dbname=yii_space', //getenv('DB_DSN'),
+            // 'username' => 'root', // getenv('DB_USERNAME'),
+            'password' => 'yiqing', // getenv('DB_PASSWORD'),
+            // 'password' => getenv('DB_PASSWORD'),
+            'password' =>'yiqing',
+            'charset' => 'utf8',
+        ],
+        'dbMan'=>[
+//            'class'=>'backend\components\DbMan',
+            'class'=>backend\components\DbMan::class,
+        ],
         'log' => [
             'targets' => [
                 [
@@ -74,6 +94,14 @@ $config = [
     ],
 
     'modules' => [
+
+//        'crud' => [
+//            'class' => modules\crud\Module::class,
+//        ],
+        'gii' => [
+            'class' => 'yii\gii\Module',
+        ],
+
         'dev' => [
             'class' => 'my\dev\console\Module',
         ],
@@ -91,7 +119,7 @@ $config = [
 
     ],
 
-    'params' => $params,
+    //'params' => $params,
 ];
 
 if (YII_ENV_DEV) {

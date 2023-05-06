@@ -34,7 +34,9 @@ frontend
 vendor/                  contains dependent 3rd-party packages
 ```
 
- 
+## 需要仔细研究的项目
+* yii2-gii
+* yii2-debug
 
 ## 神器
 
@@ -43,3 +45,7 @@ rust 工具 rg  搜索速度极快！
 ## 参考
 
 -  [jquery-手册](https://www.runoob.com/manual/jquery/)
+
+## 奇怪的bug
+
+- "schmunk42/yii2-giiant":"@dev",  这个库会导致奇怪的问题 估计是版本引起的

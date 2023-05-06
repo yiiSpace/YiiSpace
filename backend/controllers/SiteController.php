@@ -1,6 +1,9 @@
 <?php
 namespace backend\controllers;
 
+use backend\components\DbMan;
+use common\components\ConsoleAppHelper;
+use year\db\DynamicActiveRecord;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -22,7 +25,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','console','strange'],
                         'allow' => true,
                     ],
                     [
@@ -71,6 +74,9 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
+            // Todo : 这里先用的假用户哦
+            $model->username = 'admin';
+
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -82,5 +88,117 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    /**
+     * @return array
+     */
+    function returnConfig()
+    {
+
+            return \yii\helpers\ArrayHelper::merge(
+                require( \Yii::getAlias('@common/config/main.php')),
+                require( \Yii::getAlias('@console/config/main.php'))
+            );
+
+    }
+    public function actionStrange()
+    {
+        dump(get_defined_vars());
+//        $config1 = $this->returnConfig() ;
+//        //
+////        dump($params);
+//        echo '====';
+//        dump(get_defined_vars());
+        // 这样也不行！！！ 不调用都不行
+        $config2 = (function (){
+            return \yii\helpers\ArrayHelper::merge(
+                require( \Yii::getAlias('@common/config/main.php')),
+                require( \Yii::getAlias('@console/config/main.php'))
+            );
+        })();
+        echo ' immediate function call ';
+        dump(get_defined_vars());
+
+        $config = \yii\helpers\ArrayHelper::merge(
+            require( \Yii::getAlias('@common/config/main.php')),
+            require( \Yii::getAlias('@console/config/main.php'))
+        );
+        echo 'after bare require some files: ' ;
+        dump(get_defined_vars());
+        // 这个params 是来自被require文件中的东西 在IDE中就报错
+        dump($params);
+
+        echo '====' ;
+        dump(Yii::$app->params) ;
+        exit(0) ;
+    }
+    public function actionConsole($params= 'something')
+    {
+
+
+        $oldApp = Yii::$app ;
+        $callback = function(\yii\console\Application $consoleApp)use($oldApp){
+            // \Yii::trace( "ahahahhahahahhhahah", 'console' );
+            // \Yii::debug('sjdfksdjflsjdkfklsdfjl','console');
+            // \Yii::error( 'sjdfksdjflsjdkfklsdfjl','console');
+            // \Yii::debug('sjdfksdjflsjdkfklsdfjl','console');
+            // use current connection to DB
+             \Yii::$app->set( 'db', $oldApp->db );
+             $db = \Yii::$app->getDb() ;
+             $db->getDriverName() ; // TODO 根据不同的driver 实现不同的查询哦
+             $cmd = $db->createCommand('SHOW DATABASES') ;
+
+             $dbs =  $cmd->queryColumn() ;
+             \Yii::error( implode(',',$dbs),'console');
+
+
+            /**
+             * var DbMan $dbMan
+             *  */
+          $dbMan = $oldApp->get('dbMan') ;
+            $dbMan->bootstrap($consoleApp);
+//
+           $componentDefinitions = $consoleApp->getComponents(true);
+//
+//            \Yii::error( print_r($componentDefinitions,true),'console');
+//
+
+        };
+
+//        php yii gii/model --tableName=page_resource --modelClass=PageResource --ns="backend\models" --queryClass=PageResource --queryNs="backend\models\query"
+
+
+//       $result = ConsoleAppHelper::runAction('hello/to',[],$callback);
+       $result = ConsoleAppHelper::runAction('gii/model',[
+           'tableName'=>'user',
+           'modelClass'=>'User2',
+           'ns'=>'runtime\models',
+           'queryClass'=>'UserQuery2',
+           'queryNs'=>"backend\models\query",
+//           'interactive' => false,
+
+       ],$callback);
+
+       $dbId = DbMan::getDbId('tpshop') ;
+       $table = 'tp_users' ;
+
+       DynamicActiveRecord::setDbID($dbId);
+       DynamicActiveRecord::setTableName('tp_users');
+
+       $result = ConsoleAppHelper::runAction('gii/crud',[
+           'controllerClass'=>DynamicController::class,
+           'modelClass'=>DynamicActiveRecord::class,
+           'viewPath'=>"@backend/runtime/dynamic/views/{$dbId}/{$table}",
+
+       ],$callback);
+
+    //    $this->renderContent($result) ;
+//        return $this->renderContent(dump($result));
+
+        DynamicController::$dbID = $dbId ;
+        DynamicController::$tableName = $table ;
+//        return \Yii::$app->runAction('dynamic/index',[]);
+        return \Yii::$app->runAction('dynamic/create',[]);
     }
 }

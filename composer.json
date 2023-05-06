@@ -23,8 +23,15 @@
     ],
 	"require": {
         "php": ">=8.0",
+        "doctrine/annotations": "*",
+        "symfony/finder": "*",
+        "hanneskod/classtools": "*",
+        "roave/better-reflection": "*",
+
         "yiisoft/yii2": "dev-master",
         "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-bootstrap5": "*",
+
         "yiisoft/yii2-swiftmailer": "*",
         "vlucas/phpdotenv": "dev-master",
 
@@ -83,17 +90,19 @@
         "moonlandsoft/yii2-phpexcel": "*",
         "creocoder/yii2-flysystem": "^0.9.3",
         "mdmsoft/yii2-format-converter": "~1.0",
-        "codemix/yii2-excelexport": "^2.7"
+        "codemix/yii2-excelexport": "^2.7",
+        "meilisearch/meilisearch-php": "^1.1",
+        "guzzlehttp/guzzle": "^6.5",
+        "http-interop/http-factory-guzzle": "^1.0"
 
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
 
         "tebazil/yii2-console-runner": "*",
 
-        "schmunk42/yii2-giiant":"@dev",
-        
+
 
         "c006/yii2-migration-utility": "dev-master",
 
@@ -126,7 +135,8 @@
     "config": {
         "secure-http": false  ,
         "allow-plugins": {
-            "yiisoft/yii2-composer" : true
+            "yiisoft/yii2-composer": true,
+            "php-http/discovery": true
         },
         "fxp-asset": {
             "enabled": false
