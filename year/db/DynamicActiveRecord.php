@@ -307,4 +307,56 @@ class DynamicActiveRecord extends ActiveRecord
      * --------------------------------------------------------------------------------------------   +|
      */
 
+    /**
+     * @see https://gist.github.com/blacksmoke26/0b6addf05212997aded7878c2939d02d
+     *
+     * <code>
+     * $model = Model::getRandom(null, [
+    * 'asArray'=>true
+       ]);
+     * \yii\helpers\VarDumper::dump($mode, 10, true);
+     *
+     * </code>
+     *
+     * Get random model(s) from table
+     * @see \yii\db\ActiveQuey
+     * @param array|string|null (optional) $columns Columns to be fetched (default: all columns)
+     * @param array $options Additional options pass to function<br>
+     * <code>
+     *  (array) condition Where Condition
+     *  (int) limit Number of models (default: 1)
+     *  (bool) asArray Return model attributes as [key=>value] array
+     *  (callable) callback Apply a callback on ActiveQuery
+     *    function ( \yii\db\ActiveQuery $query ){
+     *      // some logic here ...
+     *    }
+     * </code>
+     * @return array|null|\yii\db\ActiveRecord|\yii\db\ActiveRecord[]
+     */
+    public static function getRandom( $columns = null, array $options = [] ) {
+        $condition = $options['condition'] ?? [];
+        $asArray = $options['asArray'] ?? false;
+        $callback = $options['callback'] ?? null;
+        $limit = $options['limit'] ?? 1;
+
+        $query = static::find()
+            ->select($columns)
+            ->where($condition)
+            ->orderBy(new \yii\db\Expression('rand()'))
+            ->limit((int)$limit);
+
+        if ( $asArray ) {
+            $query->asArray(true);
+        }
+
+        if ( is_callable($callback) ) {
+            call_user_func_array($callback, [&$query]);
+        }
+
+        return $limit === 1
+            ? $query->one()
+            : $query->all();
+    }
+
+
 }

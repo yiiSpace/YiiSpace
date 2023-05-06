@@ -11,6 +11,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+/**
+ * fixme 在多主键情况下 action的参数明显不够用 以后有空需要让其兼容复合主键情况
+ */
 class DynamicController extends Controller
 {
     /**
@@ -171,7 +174,9 @@ class DynamicController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = DynamicActiveRecord::findOne(['id' => $id])) !== null) {
+//        $pkName = DynamicActiveRecord::primaryKey() ;
+//        if (($model = DynamicActiveRecord::findOne(['id' => $id])) !== null) {
+        if (($model = DynamicActiveRecord::findOne( $id )) !== null) {
             return $model;
         }
 

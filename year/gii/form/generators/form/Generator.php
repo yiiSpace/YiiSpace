@@ -298,8 +298,8 @@ class Generator extends \yii\gii\generators\model\Generator
 
 //        php yii gii/model --tableName=page_resource --modelClass=PageResource --ns="backend\models" --queryClass=PageResource --queryNs="backend\models\query"
 
-            $dbId = $this->db ; // DbMan::getDbId('tpshop');
-            $table =  $tableName; // 'tp_users';
+            $dbId = $this->db; // DbMan::getDbId('tpshop');
+            $table = $tableName; // 'tp_users';
 
             DynamicActiveRecord::setDbID($dbId);
             DynamicActiveRecord::setTableName($tableName);
@@ -312,16 +312,52 @@ class Generator extends \yii\gii\generators\model\Generator
 
             ], $callback);
 
-            DynamicController::$dbID = $dbId ;
-            DynamicController::$tableName = $table ;
+            DynamicController::$dbID = $dbId;
+            DynamicController::$tableName = $table;
 //          return \Yii::$app->runAction('dynamic/index',[]);
 //            return \Yii::$app->runAction('dynamic/create',[]);
-            // 只要表单的html代码
+            $crudBasePath = Yii::getAlias('@backend/runtime/_tmp_gii_form_gen/' . $dbId . '/' . $this->tableName . '_');
             $files[] = new CodeFile(
-                Yii::getAlias('@backend/runtime/_tmp_gii_form_gen/'.$dbId.'/'.$this->tableName.'.html'),
-
-                \Yii::$app->runAction('dynamic/create',[])
+                $crudBasePath . 'create.html',
+                \Yii::$app->runAction('dynamic/create', [])
             );
+            $files[] = new CodeFile(
+                $crudBasePath . 'index.html',
+                \Yii::$app->runAction('dynamic/index', [])
+            );
+// $files[] = new CodeFile(
+//                $crudBasePath.'update.html',
+//                \Yii::$app->runAction('dynamic/update',[])
+//            );
+            // 查看视图是需要有记录才行的
+            $randomDataModel = DynamicActiveRecord::getRandom();
+
+            if (!empty($randomDataModel)) {
+                $pks = $randomDataModel->getPrimaryKey();
+                $actionParams = [] ;
+                if(is_array($pks)){
+                    $actionParams = $pks ;
+                }elseif (is_int($pks)){
+                    $actionParams['id']= $pks ;
+                }else{
+                    continue ;
+                }
+//                if(count($pks) === 1){
+//                    $actionParams['id']= $pks ;
+//                }else if(count($pks) >1){
+//                    $actionParams = $pks ;
+//                }else{
+//                    // TODO 无主键么！
+//                    continue ;
+//                }
+//                dump($actionParams) ; exit(0);
+                $files[] = new CodeFile(
+                    $crudBasePath . 'view.html',
+                    \Yii::$app->runAction('dynamic/view', $actionParams)
+                );
+
+            }
+//            dump($randomDataModel->getPrimaryKey()) ; exit(0);
 
             /*
             end crud
