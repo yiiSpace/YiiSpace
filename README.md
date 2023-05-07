@@ -42,9 +42,12 @@ vendor/                  contains dependent 3rd-party packages
 
 rust 工具 rg  搜索速度极快！
 
+
 ## 参考
 
 -  [jquery-手册](https://www.runoob.com/manual/jquery/)
+- [yii useful modules and extensions](https://github.com/dmstr)
+- [yiigist yii优秀库](https://yiigist.com/packages#!#%3Ftag=extension)
 
 ## 奇怪的bug
 

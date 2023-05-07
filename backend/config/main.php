@@ -86,6 +86,9 @@ $config = [
     ],
 
     'modules' => [
+        'recipe' => [
+            'class' => 'my\recipe\backend\Module',
+        ],
         'treemanager' => [
             'class' => '\kartik\tree\Module',
             // other module settings, refer detailed documentation

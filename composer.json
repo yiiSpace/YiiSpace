@@ -93,7 +93,10 @@
         "codemix/yii2-excelexport": "^2.7",
         "meilisearch/meilisearch-php": "^1.1",
         "guzzlehttp/guzzle": "^6.5",
-        "http-interop/http-factory-guzzle": "^1.0"
+        "http-interop/http-factory-guzzle": "^1.0",
+        "symfony/http-client": "^6.2",
+        "nyholm/psr7": "^1.0",
+        "bedezign/yii2-audit": "^1.0"
 
     },
     "require-dev": {
