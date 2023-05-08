@@ -28,9 +28,18 @@ $config = [
                 'yii\queue\db\migrations',
             ],
         ],
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => [
+//                'app\migrations',
+                'bedezign\yii2\audit\migrations',
+            ],
+            //'migrationPath' => null, // allows to disable not namespaced migration completely
+        ],
+
         // NOTE 从表生迁移文件
         // generate Migration class for your database tables
-        'migration' => [
+        'migration-reverse' => [
             'class' => 'bizley\migration\controllers\MigrationController',
         ],
         // use another command id which allow us have different config for the same Command
@@ -69,8 +78,8 @@ $config = [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=127.0.0.1;dbname=yii_space', //getenv('DB_DSN'),
 //            'dsn' => 'mysql:host=127.0.0.1;dbname=yii_space', //getenv('DB_DSN'),
+            'username' => 'yiqing', // getenv('DB_PASSWORD'),
             // 'username' => 'root', // getenv('DB_USERNAME'),
-            'password' => 'yiqing', // getenv('DB_PASSWORD'),
             // 'password' => getenv('DB_PASSWORD'),
             'password' =>'yiqing',
             'charset' => 'utf8',

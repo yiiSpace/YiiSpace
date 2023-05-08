@@ -25,9 +25,14 @@ require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/bootstrap.php');
 require(__DIR__ . '/../config/bootstrap.php');
 
+$commanMainLocol = __DIR__ . '/../../common/config/main-local.php';
+$mainLocal = __DIR__ . '/../config/main-local.php' ;
+
 $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../../common/config/main.php'),
-    require(__DIR__ . '/../config/main.php')
+    is_file($commanMainLocol)? require( $commanMainLocol) : [] ,
+    require(__DIR__ . '/../config/main.php'),
+    is_file($mainLocal)? require($mainLocal): []
 );
 
 (new yii\web\Application($config))->run();

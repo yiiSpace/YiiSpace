@@ -4,6 +4,9 @@ namespace my\recipe\backend\controllers;
 
 use Meilisearch\Client;
 
+/**
+ * - 环境变量是可选的，默认是 developer 模式，可以不设置 master key ，只有在指定为 product 模式才必须设置的
+ */
 class MeilisearchController extends \yii\web\Controller
 {
     public function actionIndex()

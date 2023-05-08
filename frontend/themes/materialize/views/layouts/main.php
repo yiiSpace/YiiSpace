@@ -7,7 +7,7 @@ use yii\widgets\Breadcrumbs;
 
 $this->beginContent(__DIR__.'/base.php')
 ?>
-    <div class="container" style="margin-top: 50px">
+    <div class="container" style="margin-top: 50px; min-height: 350px">
 
 
         <?php echo $content ?>

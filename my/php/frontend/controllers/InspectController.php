@@ -28,4 +28,9 @@ class InspectController extends Controller
         dump($vas);
         die(0);
     }
+
+    public function actionReflection()
+    {
+
+    }
 }

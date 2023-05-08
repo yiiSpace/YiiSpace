@@ -4,6 +4,25 @@ namespace my\php\common\symfony_components;
 
 use Symfony\Component\Finder\Finder;
 
+/**
+ * @see https://github.com/filegator/filegator
+ * 这个项目对Symfony/Finder 依赖很重 可以看看其主要的使用方法
+ *
+ * php-file-manager
+ * - FileVista
+ * - CKFinder
+ * - FileRun
+ * - PHPFileNavigator
+ * - phpXplorer
+ * - NavPHP
+ * - Filenice
+ * - eXtplorer
+ * - AjaXplorer
+ * - Easy File Uploader
+ * - Server File Explorer
+ * - EasyFile
+ * - Engine File Manager
+ */
 class FinderDomo
 {
     static public function run()

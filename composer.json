@@ -22,7 +22,7 @@
         } 
     ],
 	"require": {
-        "php": ">=8.0",
+        "php": "^5.6.0|^7.0.0|^8.0.0",
         "doctrine/annotations": "*",
         "symfony/finder": "*",
         "hanneskod/classtools": "*",
@@ -31,6 +31,8 @@
         "yiisoft/yii2": "dev-master",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-bootstrap5": "*",
+
+        "macgyer/yii2-materializecss": "^4.0",
 
         "yiisoft/yii2-swiftmailer": "*",
         "vlucas/phpdotenv": "dev-master",
@@ -96,7 +98,8 @@
         "http-interop/http-factory-guzzle": "^1.0",
         "symfony/http-client": "^6.2",
         "nyholm/psr7": "^1.0",
-        "bedezign/yii2-audit": "^1.0"
+        "bedezign/yii2-audit": "^1.0",
+        "toolkit/stdlib": "^2.0"
 
     },
     "require-dev": {
@@ -119,8 +122,7 @@
         "yiisoft/yii2-faker": "*",
         "codeception/codeception": "*",
         "codeception/specify": "*",
-        "codeception/verify": "*",
-        "fzaninotto/faker":"*"
+        "codeception/verify": "*"
 
         ,"yiisoft/yii2-elasticsearch": "~2.0.0" 
         ,    "symfony/browser-kit": ">=2.7 <=4.2.4",

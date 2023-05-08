@@ -48,6 +48,68 @@ rust 工具 rg  搜索速度极快！
 -  [jquery-手册](https://www.runoob.com/manual/jquery/)
 - [yii useful modules and extensions](https://github.com/dmstr)
 - [yiigist yii优秀库](https://yiigist.com/packages#!#%3Ftag=extension)
+- [Universal web application built upon Docker, PHP & Yii 2.0 Framework](https://github.com/dmstr/phd5-app)
+    此库有docker相关的配置     
+
+## 一些注意点
+- The CSS files are installed via Yii's recommended usage of the fxp/composer-asset-plugin v1.1.1 or later.
+    通过yii安装css文件
+~~~shell
+  composer global require "fxp/composer-asset-plugin:~1.2.0"  
+  ~~~
+
+这个据说是不推荐的方式
+~~~json5
+{
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  },
+}
+
+~~~
+新方法用这个：
+~~~json5
+
+{"config":{
+    "fxp-asset": {
+        "installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        },
+    }
+}
+}
+~~~
+
+- bower｜bower-assert不存在问题
+~~~
+"config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+        "enabled": true
+    }
+},
+~~~
+此方法未验证 ，配置完后需要删掉vendor composer重新安装下依赖
+
+另一个方案 也未验证：
+~~~
+
+"config": {
+        "fxp-asset": {
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
+    },
+~~~
+有点乱的感觉 😄，
+[Composer Yii2 Bower: The file or directory to be published does not exis](https://stackoverflow.com/questions/53116822/composer-yii2-bower-the-file-or-directory-to-be-published-does-not-exist-c-my)
+
 
 ## 奇怪的bug
 

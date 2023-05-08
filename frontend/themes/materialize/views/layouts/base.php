@@ -21,7 +21,7 @@ $this->beginContent(__DIR__ . '/_clear.php')
     <header class="page-header">
         <?php
         NavBar::begin([
-            'brandLabel' => 'My Company',
+            'brandLabel' => 'YiiSpace',
             'brandUrl' => Yii::$app->homeUrl,
             'fixed' => true,
             'wrapperOptions' => [

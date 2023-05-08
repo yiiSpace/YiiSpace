@@ -26,6 +26,15 @@
         </form>
         <!-- /.search form -->
 
+        <?php 
+          $modules = \backend\utils\MenuUtils::getModules();
+          $moduleIds = array_keys($modules) ;
+          $moduleMenus = [] ;
+          foreach($moduleIds as $moduleId){
+            $moduleMenus[] = ["label" => "{$moduleId}", "url" => ["/{$moduleId}"]];
+          }
+
+        ?>
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget' => 'tree'],
@@ -42,6 +51,15 @@
                             ["label" => "文章分类管理", "url" => ["/content/article-category"]],
                             ["label" => "文章管理", "url" => ["/content/article"]],
                         ],
+                    ],
+                    [
+                        "label" => "模块",
+                        "icon" => \rmrevin\yii\fontawesome\FA::_APPLE, // "archive",
+                        "url" => "#",
+                        "items" =>  
+                             $moduleMenus
+                            // ["label" => "审计2", "url" => ["/audit"]],
+                        ,
                     ],
                     [
                         'label' => 'Some tools',
