@@ -98,7 +98,9 @@ $this->beginContent(__DIR__ . '/_clear.php')
         </div>
         <div class="footer-copyright">
             <div class="container">
-                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                Made by
+<!--                <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>-->
+                  <a class="brown-text text-lighten-3" target="_blank" href="https://materializeweb.com/">Materialize</a>
 
                 &copy; YiiSpace <?= date('Y') ?>
 

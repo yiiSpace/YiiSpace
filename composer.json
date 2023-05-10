@@ -22,7 +22,7 @@
         } 
     ],
 	"require": {
-        "php": "^5.6.0|^7.0.0|^8.0.0",
+        "php": "^7.0.0|^8.0.0",
         "doctrine/annotations": "*",
         "symfony/finder": "*",
         "hanneskod/classtools": "*",
@@ -30,6 +30,7 @@
 
         "yiisoft/yii2": "dev-master",
         "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-bootstrap4": "^2.0",
         "yiisoft/yii2-bootstrap5": "*",
 
         "macgyer/yii2-materializecss": "^4.0",
@@ -87,7 +88,7 @@
         "creocoder/yii2-taggable": "~2.0",
         "vova07/yii2-imperavi-widget": "*",
         "zircote/swagger-php": "^3.0",
-        "dmstr/yii2-adminlte-asset": "^2.1",
+        "dmstr/yii2-adminlte-asset": "^2.7",
         "casbin/yii-adapter": "^0.1.0",
         "moonlandsoft/yii2-phpexcel": "*",
         "creocoder/yii2-flysystem": "^0.9.3",

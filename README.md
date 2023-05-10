@@ -110,6 +110,9 @@ rust 工具 rg  搜索速度极快！
 有点乱的感觉 😄，
 [Composer Yii2 Bower: The file or directory to be published does not exis](https://stackoverflow.com/questions/53116822/composer-yii2-bower-the-file-or-directory-to-be-published-does-not-exist-c-my)
 
+- 检查依赖 
+>  composer why -r nikic/php-parser
+
 
 ## 奇怪的bug
 
