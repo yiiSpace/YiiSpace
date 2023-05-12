@@ -107,6 +107,7 @@ class DynamicActiveRecord extends ActiveRecord
         $db = static::getDb();
         $rules = $this->generateRules($db->getTableSchema(static::tableName()));
         $rulesCode = empty($rules) ? '[]' : ("[\n            " . implode(",\n            ", $rules) . ",\n       ] ");
+        // FIXME ：if there exists some better way without using the  `eval` ,you know eval is evil ^_^!
         return eval('return ' . $rulesCode . ';');
     }
 

@@ -39,11 +39,13 @@ class DefaultController extends Controller
 
         TraitsDemo::run();
 
-        return ob_get_clean();
+        $content = ob_get_clean();
 
 
 
-        // return $this->render('index');
+         return $this->render('index' ,[
+             'content' => $content,
+         ]);
     }
 
     use GeneratorTrait;
