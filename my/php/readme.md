@@ -40,6 +40,10 @@ $keywords = array_slice(array_keys($word_counts), 0, $top_n);
     新库功能更多点
     TODO: 可以为每个数据库中的表 在webui上生成一个facker的代码片段 数据库中的表可以方便的列出 然后把每个字段对应到facker的方法上即可！
 
+- float、double 类型 一般各语言都会丢失精度， 可用大数计算方案，php里就是bcmath 每个语言基本都有对应的方案跟库可用
+  电商db 价格字段类型有待考虑 decimal比较占用空间，但至少不会丢失精度，但计算时候得用bc decimal本质上是varchar
+  也可以考虑直接存成整数 到分 精度更高可以bigint
+
 ### nette团队作品
 它们家有一堆php库 
 - [反射类库 对反射扩展库有额外的功能扩充](https://github.com/nette/reflection)
@@ -51,3 +55,5 @@ $keywords = array_slice(array_keys($word_counts), 0, $top_n);
 - [工具类库集合](https://github.com/nette/utils)
   无论如何 你当工人 👷‍♀️👷腰带上得拴点工具🔧吧！😄
 - 其他[...](https://github.com/nette) 自己看吧
+
+

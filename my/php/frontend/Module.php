@@ -7,6 +7,7 @@ namespace my\php\frontend;
  */
 class Module extends \yii\base\Module
 {
+    public $layout = 'php' ;
     /**
      * {@inheritdoc}
      */
