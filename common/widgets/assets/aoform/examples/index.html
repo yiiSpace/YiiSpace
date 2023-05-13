@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AOForm Generator</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link rel="stylesheet" type="text/css" href="/aoform/src/aoform.css">
+</head>
+<body>
+	<script src="/aoform/src/aoform.js"></script>
+	<script type="text/javascript">
+		var form = [
+			  {
+			    "type": "input",
+			    "name": "name",
+			    "label": "Name",
+			    "values": ""
+			  },
+			  {
+			    "type": "select",
+			    "name": "color",
+			    "label": "Favorite Color",
+			    "values": [
+			    	{"label":"Blue","value":"blue"},
+			    	{"label":"Yellow","value":"yellow"},
+			    	{"label":"Orange","value":"orange"}
+			    ]
+			  },
+			  {
+			    "type": "radio",
+			    "name": "color",
+			    "label": "Method for contact you",
+			    "values": [
+			    	{"label":"Email","value":"email"},
+					{"label":"Phone","value":"phone"},
+					{"label":"Videocall","value":"videocall"}
+			    ]
+			  },
+			  {
+			    "type": "checkbox",
+			    "name": "pet",
+			    "label": "Pets have",
+			    "values": [
+			    	{"label":"Dog","value":"dog"},
+			    	{"label":"Cat","value":"cat"},
+			    	{"label":"Turtle","value":"turtle"}
+			    ]
+			  },
+			  {
+			    "type": "textarea",
+			    "name": "history",
+			    "label": "History of you",
+			    "values": "Default text in textarea"
+			  },
+			  {
+			    "type": "searchselect",
+			    "name": "language",
+			    "label": "Select languages you speak",
+			    "values": [
+			    	{"label":"Spanish","value":"spanish"},
+			    	{"label":"English","value":"english"},
+			    	{"label":"Russian","value":"russian"}
+			    ]
+			  },
+			];
+
+		var myForm = new AOForm(form, document.querySelector('body'));
+	</script>
+</body>
+</html>

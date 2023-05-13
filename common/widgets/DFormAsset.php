@@ -4,25 +4,20 @@ namespace common\widgets;
 
 use yii\web\AssetBundle;
 
-/**
- * 相似
- * - https://github.com/dastagirkhan/populatejs
- * - https://github.com/simomosi/dynamic-forms
- */
-class EasyJsonFormAsset extends   AssetBundle
+class DFormAsset extends   AssetBundle
 {
 
     /**
      * @var string
      */
-    public $sourcePath = '@common/widgets/assets/easyjsonform';
+    public $sourcePath = __DIR__.'/assets/dform/dist';
 
     /**
      * @var array
      */
     public $js = [
         // 'jquery.fancytree-all.min.js'
-        'easyjsonform.js'
+        'jquery.dform-1.1.0.min.js'
     ];
 
     /**
@@ -31,4 +26,10 @@ class EasyJsonFormAsset extends   AssetBundle
     public $css = [
 //        'jquery.bxslider.css',
     ];
+
+    public $depends = [
+        'yii\web\JqueryAsset',
+//        'yii\bootstrap\BootstrapAsset',
+    ];
+
 }

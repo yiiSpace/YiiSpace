@@ -48,4 +48,9 @@ class DbController extends Controller
             'dataProvider'=>$dataProvider,
         ]) ;
     }
+
+    public function actionFacker()
+    {
+        return $this->render('form4facker');
+    }
 }

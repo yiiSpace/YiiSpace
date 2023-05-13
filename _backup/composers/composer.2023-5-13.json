@@ -117,6 +117,7 @@
 
         "makroxyz/yii2-wizard": "dev-master",
 
+        "tebazil/yii2-db-seeder": "*",
         "vova07/yii2-console-runner-extension": "*",
 
         "yiisoft/yii2-faker": "*",
