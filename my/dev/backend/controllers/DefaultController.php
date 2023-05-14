@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+    public function actionFillForm()
+    {
+        return $this->render('fill-form');
+    }
 }

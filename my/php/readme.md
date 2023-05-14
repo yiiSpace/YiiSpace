@@ -56,4 +56,14 @@ $keywords = array_slice(array_keys($word_counts), 0, $top_n);
   无论如何 你当工人 👷‍♀️👷腰带上得拴点工具🔧吧！😄
 - 其他[...](https://github.com/nette) 自己看吧
 
+## 杂项
 
+create_function 8以上就被移除了 
+有个库 rector/rector 用来替换该方法为匿名方法 一比一替换： https://stackoverflow.com/questions/48161526/php-7-2-function-create-function-is-deprecated
+
+https://github.com/elkaadka/Enuma 这个库跟nette创建类代码那个有点像
+
+https://github.com/nikic/PHP-Parser 语法解析
+
+## php值得注意的特性
+- https://www.php.net/manual/en/function.class-alias.php

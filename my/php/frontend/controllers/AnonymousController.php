@@ -3,6 +3,7 @@
 namespace my\php\frontend\controllers;
 
 
+use my\php\common\features\AnonymousDemo;
 use yii\web\Controller;
 
 /**
@@ -15,7 +16,12 @@ class AnonymousController extends Controller
     public $layout = 'php' ;
     public function actionIndex()
     {
-       return $this->renderContent('hi'.__METHOD__) ;
+        ob_start() ;
+
+        AnonymousDemo::run();
+
+        $content = ob_get_clean() ;
+       return $this->renderContent($content) ;
     }
 
 }
