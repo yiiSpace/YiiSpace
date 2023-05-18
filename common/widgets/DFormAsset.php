@@ -4,6 +4,9 @@ namespace common\widgets;
 
 use yii\web\AssetBundle;
 
+/**
+ * 这个库看起来不错 扩展性也有 可以使用 或者二次改造
+ */
 class DFormAsset extends   AssetBundle
 {
 

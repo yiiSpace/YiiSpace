@@ -19,9 +19,9 @@ use yii\helpers\StringHelper;
 
 <form method="POST">
     <label>Email:</label><br />
-    <input type="text" name="email"><br />
+    <input type="text" name="__email"><br />
     <label>Message:</label><br />
-    <textarea name="message"></textarea><br />
+    <textarea name="__message"></textarea><br />
 
     <?php foreach ($properties as $property => $data): ?>
         <label><?= $labels[$property] ?>:</label><br />
