@@ -100,7 +100,8 @@
         "symfony/http-client": "^6.2",
         "nyholm/psr7": "^1.0",
         "bedezign/yii2-audit": "^1.0",
-        "toolkit/stdlib": "^2.0"
+        "toolkit/stdlib": "^2.0",
+        "2amigos/yii2-usuario": "~1.0"
 
     },
     "require-dev": {
