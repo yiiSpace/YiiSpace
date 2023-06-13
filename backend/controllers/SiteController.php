@@ -209,8 +209,12 @@ class SiteController extends Controller
      * @param [type] $sfc
      * @return void
      */
-    public function actionVue($sfc=null)
+    public function actionVue($sfc=null,$router=null)
     {
+        if(!empty($router)){
+            return $this->render('vue-router');
+        }
+
         if(!empty($sfc)){
             return $this->render('vue-sfc');
         }

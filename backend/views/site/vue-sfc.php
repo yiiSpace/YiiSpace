@@ -1,4 +1,9 @@
 <?php
+/**
+ * @see https://medium.com/@marcel.leusch/use-vue-3-single-file-components-without-compilation-ac2ccb5f15c2
+ * @see https://stackoverflow.com/questions/75560017/vue-warn-unhandled-error-during-execution-of-async-component-loader-at-async
+ * 
+ */
 
 use backend\components\VueComponentsAsset;
 use common\widgets\VueAsset;
@@ -18,6 +23,23 @@ $asset = VueComponentsAsset::register($this);
 echo $asset->baseUrl ;
 ?>
 
+<pre>
+<code class='javascript'>
+  // 可以修改为 参考：https://stackoverflow.com/questions/75560017/vue-warn-unhandled-error-during-execution-of-async-component-loader-at-async
+async getFile(url) {
+        const res = await fetch(url);
+
+        if ( !res.ok ) {
+            throw Object.assign(new Error(res.statusText + ' ' + url), { res });
+        }
+
+        return {
+            getContentData: (asBinary) => asBinary ? res.arrayBuffer() : res.text(),
+        }
+    },
+</code>
+
+</pre>
 
 <?=  __FILE__ ?>
 

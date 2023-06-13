@@ -26,6 +26,7 @@ $config = [
     'components' => [
         'assetManager'=>[
             'forceCopy'=>YII_DEBUG,
+            // 'appendTimestamp' => true,
         ],
         'dbMan'=>[
           'class'=>'backend\components\DbMan',

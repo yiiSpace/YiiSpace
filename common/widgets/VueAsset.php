@@ -13,6 +13,7 @@ use yii\web\AssetBundle;
  * 关于如何使用AssetBundle 以及如何替换官方配置 参考
  * https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/guide/2.0/en/assets-setup
  * 
+ * https://www.yiiframework.com/doc/guide/2.0/en/structure-assets
  */
 class VueAsset extends AssetBundle
 {
