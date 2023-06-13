@@ -39,7 +39,7 @@ async getFile(url) {
 
 
 <div id="app" class="vue-app">
-    <h1>Hello App!</h1>
+    <h1>Hello Vue App!</h1>
 
     <div id="filterModalContainer">
          <my-element />
