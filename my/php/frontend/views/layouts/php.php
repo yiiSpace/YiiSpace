@@ -27,3 +27,5 @@ $rc = \Roave\BetterReflection\Reflection\ReflectionClass::createFromInstance(Yii
 <?= $content ?>
 
 <?php $this->endContent(); ?>
+
+

@@ -2,6 +2,8 @@
 
 namespace my\php\v8;
 
+use FFI;
+
 /**
  * @see http://pecl.php.net/package/ffi
  *
@@ -50,8 +52,35 @@ The FFI class consists of 20 methods that fall into four broad categories, outli
 size and alignment.
 • Infrastructural: Infrastructural methods are used to carry out logistical operations
 such as copying, populating, and releasing memory.
+
+
+Interestingly, all FFI class methods can be called in a static manner.
  */
 class FFIDemo
 {
+    /**
+     * creational demo
+     *
+     * @return void
+     */
+    public static function Creating()
+    {
+        $type = \FFI::arrayType(FFI::type("char"), [3, 3]);
+        $arr = \FFI::new ($type);
 
+        $arr = FFI::new (FFI::type("char[3][3]"));
+
+        var_dump($arr);
+        $pos = 0;
+        $val = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $y_max = count($arr);
+
+        for ($y = 0; $y < $y_max; $y++) {
+            $x_max = count($arr[$y]);
+            for ($x = 0; $x < $x_max; $x++) {
+                $arr[$y][$x]->cdata = $val[$pos++];
+            }
+        }
+        var_dump($arr);
+    }
 }

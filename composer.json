@@ -41,6 +41,11 @@
         "bower-asset/gumby": "*",
         
         "bower-asset/polymer": "*",
+        
+        "npm-asset/vue": "*",
+        "npm-asset/vue3-sfc-loader": "*",
+
+
 
         "gregwar/captcha":"~1.0.12",
 

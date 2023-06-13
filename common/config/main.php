@@ -79,7 +79,7 @@ $config = [
         ],
         'db2' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=cxtx_mall', //getenv('DB_DSN'),
+            'dsn' => 'mysql:host=127.0.0.1;dbname=cxtx_mall', //getenv('DB_DSN'),
             'username' => 'yiqing', // getenv('DB_USERNAME'),
             'password' => 'yiqing', // getenv('DB_PASSWORD'),
             'charset' => 'utf8',

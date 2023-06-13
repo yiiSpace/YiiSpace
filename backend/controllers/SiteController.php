@@ -25,7 +25,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error','console','strange'],
+                        'actions' => ['login', 'error','console','strange','vue'],
                         'allow' => true,
                     ],
                     [
@@ -200,5 +200,11 @@ class SiteController extends Controller
         DynamicController::$tableName = $table ;
 //        return \Yii::$app->runAction('dynamic/index',[]);
         return \Yii::$app->runAction('dynamic/create',[]);
+    }
+
+
+    public function actionVue()
+    {
+        return $this->render('vue');
     }
 }
