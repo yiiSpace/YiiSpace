@@ -203,8 +203,17 @@ class SiteController extends Controller
     }
 
 
-    public function actionVue()
+    /**
+     * Undocumented function
+     *
+     * @param [type] $sfc
+     * @return void
+     */
+    public function actionVue($sfc=null)
     {
+        if(!empty($sfc)){
+            return $this->render('vue-sfc');
+        }
         return $this->render('vue');
     }
 }

@@ -24,6 +24,9 @@ $config = [
 //        ],
     ],
     'components' => [
+        'assetManager'=>[
+            'forceCopy'=>YII_DEBUG,
+        ],
         'dbMan'=>[
           'class'=>'backend\components\DbMan',
         ],
