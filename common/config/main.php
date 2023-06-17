@@ -76,6 +76,7 @@ $config = [
             // 'password' => getenv('DB_PASSWORD'),
             'password' =>'yiqing',
             'charset' => 'utf8',
+            'tablePrefix'=>'' ,
         ],
         'db2' => [
             'class' => 'yii\db\Connection',

@@ -40,8 +40,9 @@ vendor/                  contains dependent 3rd-party packages
 
 ## 神器
 
-rust 工具 rg  搜索速度极快！
+- rust 工具 rg  搜索速度极快！
 
+- 简单绘图 (excalidraw)[https://excalidraw.com/]
 
 ## 参考
 
@@ -117,3 +118,11 @@ rust 工具 rg  搜索速度极快！
 ## 奇怪的bug
 
 - "schmunk42/yii2-giiant":"@dev",  这个库会导致奇怪的问题 估计是版本引起的
+
+## 安装npm js库
+以composer方式 来做npm的事情
+
+https://www.yiiframework.com/doc/guide/2.0/en/structure-assets
+
+先去这里[asset-packagist](https://asset-packagist.org/)搜索 
+按照php库的方式引入到composer.json  注意js库一般是npm|bower -asset 开头

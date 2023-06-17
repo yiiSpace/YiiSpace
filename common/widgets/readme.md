@@ -108,3 +108,28 @@ ReactDOM.render(
     document.getElementById('react-app')
 );
 ~~~
+
+https://forum.yiiframework.com/t/how-to-include-npm-asset-packages-inside-yii2-project/132377/3
+
+~~~php
+namespace app\assets;
+use yii\web\AssetBundle;
+
+
+class SocketIOAsset extends AssetBundle
+{
+    public $sourcePath = "@npm/socket.io-client/dist";
+    public $css = [];
+    public $js = [
+        'socket.io.js'
+    ];
+}
+
+// and then called in main assets file
+public $depends = [
+‘yii\web\YiiAsset’,
+‘yii\bootstrap\BootstrapAsset’,
+SocketIOAsset::class
+];
+
+~~~
