@@ -12,7 +12,7 @@ namespace backend\components;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
-
+// die(__FILE__);
 /**
  * should refer the Chive yii-project
  *

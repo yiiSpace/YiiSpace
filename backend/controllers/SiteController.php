@@ -206,11 +206,30 @@ class SiteController extends Controller
     /**
      * Undocumented function
      *
+     * NOTE: 有些css js使用cdn的话 尽量选择国内大厂 比如
+     * https://www.bootcdn.cn/vuex/
+     * 国外的网站可能不能访问到哦😯！
+     * 
      * @param [type] $sfc
      * @return void
+     * 
+     * 可用路由：
+     * - r=site/vue&to=vue-pinia
+     * - r=site/vue&sfc=true
+     * - r=site/vue&sfc=router
+     * - r=site/vue&sfc=form
+     * - r=site/vue&sfc=vue-components
+     * - r=site/vue&sfc=vue-vuex
      */
-    public function actionVue($sfc=null,$router=null)
+    public function actionVue($sfc=null,$router=null, $form=null,$to='')
     {
+        if(!empty($to)){
+            return $this->render($to);
+        }
+        
+        if(!empty($form)){
+            return $this->render('vue-form');
+        }
         if(!empty($router)){
             return $this->render('vue-router');
         }

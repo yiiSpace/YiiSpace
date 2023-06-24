@@ -50,7 +50,10 @@ vendor/                  contains dependent 3rd-party packages
 - [yii useful modules and extensions](https://github.com/dmstr)
 - [yiigist yii优秀库](https://yiigist.com/packages#!#%3Ftag=extension)
 - [Universal web application built upon Docker, PHP & Yii 2.0 Framework](https://github.com/dmstr/phd5-app)
-    此库有docker相关的配置     
+    此库有docker相关的配置    
+
+- [ECMAScript 6 入门](https://es6.ruanyifeng.com/#README) [镜像](https://wangdoc.com/es6/)
+- [grpc - quickstart - php:]( https://grpc.io/docs/quickstart/php/)
 
 ## 一些注意点
 - The CSS files are installed via Yii's recommended usage of the fxp/composer-asset-plugin v1.1.1 or later.

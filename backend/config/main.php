@@ -1,20 +1,57 @@
 <?php
 
 // 注意 裸require 会导致变量名污染 可以使用即时函数  (function(){})() 限制变量名外溢
+
+use backend\components\DbMan;
+use my\devtools\backend\controllers\QuickController;
+use yii\filters\Cors;
+
 $params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/params.php')
+    require (__DIR__ . '/../../common/config/params.php'),
+    require (__DIR__ . '/params.php')
 );
 
 $config = [
     'id' => 'app-backend',
     'basePath' => __DIR__ . '/..',
     'controllerNamespace' => 'backend\controllers',
+    'controllerMap' => [
+        // FIXME: 仅开发环境可用哦😯
+        // 访问路由： index.php?r=quick/test&table_name=msg
+        'quick' => [
+            'class' => QuickController::class,
+            'db' => DbMan::getDbId('test'),
+        ],
+    ],
+    /*
+    'as cors' => [
+        'class' => Cors::class,
+        'cors' => [
+
+            // restrict access to
+            // 新版浏览器好像不允许 origins='*'
+            // 'Origin' => ['http://www.myserver.com', 'https://www.myserver.com'],
+            'Origin' => ['*'],
+            // Allow only POST and PUT methods
+            'Access-Control-Request-Method' => ['*'],
+            // 'Access-Control-Request-Method' => ['POST', 'PUT'],
+            // Allow only headers 'X-Wsse'
+            'Access-Control-Request-Headers' => ['X-Wsse','Content-Type', 'Authorization'],
+            // 'Access-Control-Request-Headers' => ['X-Wsse'],
+            // Allow credentials (cookies, authorization headers, etc.) to be exposed to the browser
+            'Access-Control-Allow-Credentials' => true,
+            // Allow OPTIONS caching
+            // 'Access-Control-Max-Age' => 3600,
+            // Allow the X-Pagination-Current-Page header to be exposed to the browser.
+            // 'Access-Control-Expose-Headers' => ['X-Pagination-Current-Page'],
+
+        ],
+    ],*/
     'bootstrap' => [
         'log',
         'dbMan',
         [
-            'class'=>'year\gii\form\Bootstrap',   // gii的 form 代码生成
+            'class' => 'year\gii\form\Bootstrap', // gii的 form 代码生成
         ],
 //        [
 //            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
@@ -24,17 +61,23 @@ $config = [
 //        ],
     ],
     'components' => [
-        'assetManager'=>[
-            'forceCopy'=>YII_DEBUG,
+        'assetManager' => [
+            'forceCopy' => YII_DEBUG,
             // 'appendTimestamp' => true,
         ],
-        'dbMan'=>[
-          'class'=>'backend\components\DbMan',
+        'dbMan' => [
+            'class' => backend\components\DbMan::class,
         ],
+        // 注意如果隐藏了index.php url会好看些 不然就这样：
+        // http://yiispace.com:7086/index.php/x_api
         'urlManager' => [
             //'enableStrictParsing' => true,
-            // 'enablePrettyUrl' => true,
-            // 'showScriptName' => false,
+            // 'enablePrettyUrl' => false,
+            // 'showScriptName' => true,
+            'rules' => [
+                'x_api/<tableName:\w+>' => 'quick/test',
+                'x_api/<tableName:\w+>/<id:\d*>' => 'quick/test',
+            ],
         ],
         'view' => [
             'theme' => [
@@ -47,14 +90,14 @@ $config = [
                 'pathMap' => [
                     '@app/views' => [
                         '@app/themes/adminlte2/views',
-                    ]
+                    ],
                 ],
                 /*
-                'pathMap' => [
-                    '@app/views' => '@app/themes/basic',
-                    '@app/modules' => '@app/themes/basic/modules', // <-- !!!
-                ],
-                */
+            'pathMap' => [
+            '@app/views' => '@app/themes/basic',
+            '@app/modules' => '@app/themes/basic/modules', // <-- !!!
+            ],
+             */
             ],
         ],
         'user' => [
@@ -67,7 +110,7 @@ $config = [
                 [
                     'class' => 'yii\log\FileTarget',
                     // 'levels' => ['error', 'warning', ],
-                    'levels' => ['error', 'warning','trace','info'],
+                    'levels' => ['error', 'warning', 'trace', 'info'],
                 ],
             ],
         ],
@@ -76,7 +119,7 @@ $config = [
         ],
         'request' => [
             // 'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
-                'cookieValidationKey'=>'yiqing-myvalidation-key',
+            'cookieValidationKey' => 'yiqing-myvalidation-key',
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
@@ -101,8 +144,8 @@ $config = [
             'class' => '\kartik\tree\Module',
             // other module settings, refer detailed documentation
         ],
-        'gridview' =>  [
-            'class' => '\kartik\grid\Module'
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
         ],
         'news' => [
             'class' => 'my\news\backend\Module',
@@ -114,22 +157,22 @@ $config = [
             'class' => 'my\migration\backend\Module',
         ],
         /*
-    'rbac0' => [
+        'rbac0' => [
         'class' => 'yii2mod\rbac\Module',
         //Some controller property maybe need to change.
         'controllerMap' => [
-            'assignment' => [
-                'class' => 'yii2mod\rbac\controllers\AssignmentController',
-               // 'userClassName' => 'backend\models\User',
-                'userClassName' => 'my\admin\common\models\Admin',
-            ]
+        'assignment' => [
+        'class' => 'yii2mod\rbac\controllers\AssignmentController',
+        // 'userClassName' => 'backend\models\User',
+        'userClassName' => 'my\admin\common\models\Admin',
         ]
-    ],
+        ]
+        ],
 
-    'rbac' => [
+        'rbac' => [
         'class' => 'dektrium\rbac\Module',
-    ],
-    */
+        ],
+         */
         'admin' => [
             'class' => 'my\admin\backend\Module',
         ],
@@ -144,10 +187,10 @@ $config = [
         ],
         'plugins' => [
             'class' => 'lo\plugins\Module',
-            'pluginsDir'=>[
+            'pluginsDir' => [
                 '@lo/plugins/core', // default dir with core plugins
                 // '@common/plugins', // dir with our plugins
-            ]
+            ],
         ],
         'dci' => [
             'class' => 'my\dci\backend\Module',
@@ -188,7 +231,7 @@ $config = [
             ],
             'panelsMerge' => [
                 // ... merge data (see below)
-            ]
+            ],
         ],
     ],
     'params' => $params,
@@ -196,13 +239,13 @@ $config = [
 
 if (YII_ENV_DEV) {
 // if (YII_ENV) {
-   
+
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
     /*
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = 'yii\gii\Module';
-    */
+     */
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
@@ -213,7 +256,7 @@ if (YII_ENV_DEV) {
                 'templates' => [
                     'easy-ui' => '@backend/gii/crud/easyui/templates/default',
                     // 'easy-ui-yii' => Yii::getAlias('@backend/themes/easyui/_gii-yii-style/templates'),
-                ]
+                ],
             ],
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
@@ -225,9 +268,8 @@ if (YII_ENV_DEV) {
             'service-crud' => [
                 'class' => 'year\gii\service\Generator',
                 'templates' => [
-                ]
+                ],
             ],
-
 
         ],
     ];

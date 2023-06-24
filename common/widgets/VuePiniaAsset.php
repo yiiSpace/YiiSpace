@@ -19,7 +19,10 @@ class VuePiniaAsset extends AssetBundle
     public $sourcePath = null;
     public $js = [
         // '',
-        'https://unpkg.com/pinia',
+        // 'https://unpkg.com/pinia',
+
+        'https://cdn.jsdelivr.net/npm/vue-demi@0.14.5/lib/index.iife.min.js',
+        'https://cdn.bootcdn.net/ajax/libs/pinia/2.0.13/pinia.iife.min.js',
     ];
     public $depends = [
         VueAsset::class,
