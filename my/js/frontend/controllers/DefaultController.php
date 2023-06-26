@@ -22,4 +22,8 @@ class DefaultController extends Controller
     {
         return $this->render('wang-editor') ;
     }
+    public function actionPrismDemo()
+    {
+        return $this->render('prism-demo') ;
+    }
 }
