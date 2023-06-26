@@ -33,6 +33,9 @@ $config = [
         'php'=> [
             'class' => 'my\php\frontend\Module',
         ],
+        'js'=> [
+            'class' => 'my\js\frontend\Module',
+        ],
 
     ],
     'components' => [
