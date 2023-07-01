@@ -1,8 +1,9 @@
 <?php
 use common\widgets\ViewInfo;
+use macgyer\yii2materializecss\widgets\Modal;
 
-/** @var \yii\web\View $this */
-/** @var string $content */
+/**   @var \yii\web\View $this  /
+/**    @var string $content  */
 
 // 注册js｜css 所需的asset
 
@@ -13,10 +14,32 @@ $asset =\common\widgets\PrismAsset::register($this);
 
 // array_push($asset->js,$pluginJs) ; 
 
-?>
+
+
+  Modal::begin([
+       'closeButton' => [
+            'label' => 'Close modal',
+            'tag' => 'span'
+        ],
+       'toggleButton' => [
+            'label' => 'Open modal'
+        ],
+        'modalType' => Modal::TYPE_LEAN,
+   ]);
+  
+   echo 'Say hello...';
+  
+   Modal::end();
+   
+   ?>
+
+
 
  <?php $this->beginBlock('my-es-code'); ?>
  <script>
+
+    M.toast({text: 'I am a toastdfffffffffffffff!', classes: 'rounded'});
+
     console.log(some_value_not_defined) // ⚠️注意跟 undefined的区别 定义了 但未初始化就是undefined
     console.log(value); // 可以后向访问！ 看👀控制台输出！
 {
@@ -43,6 +66,8 @@ let defined_let_var ; // 只不过没有初始化
     <?=  \year\widgets\JsBlock::stripScriptTag($this->blocks['my-es-code'])  ?>
     </code></pre>
     </div>
+
+    <button type="button" class="btn" onclick="M.toast({text: 'I am a toast', completeCallback: function(){alert('Your toast was dismissed')}})">Toast!</button>
 </div>
 
 

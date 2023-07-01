@@ -63,7 +63,6 @@
         "kartik-v/yii2-grid": "@dev",
         "pda/pheanstalk": "^3.0",
 
-        "macgyer/yii2-materializecss": "~3.0.0",
 
         "dektrium/yii2-user": "0.9.*@dev",
 
