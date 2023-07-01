@@ -213,6 +213,9 @@ class SiteController extends Controller
      * @param [type] $sfc
      * @return void
      * 
+     * 参考
+     * - https://www.twilio.com/blog/build-single-page-application-in-php-yii-2-0-vue-js
+     * 
      * 可用路由：
      * - r=site/vue&to=vue-pinia
      * - r=site/vue&sfc=true

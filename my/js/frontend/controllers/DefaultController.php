@@ -26,4 +26,8 @@ class DefaultController extends Controller
     {
         return $this->render('prism-demo') ;
     }
+    public function actionJsCopy()
+    {
+        return $this->render('js-copy') ;
+    }
 }

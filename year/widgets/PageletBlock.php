@@ -17,6 +17,11 @@ use yii\base\Widget;
  * @package app\widgets
  */
 class PageletBlock extends Widget{
+    
+    /**
+     * 允许内容注入
+     */
+    public $content = '' ;
 
     /**
      * 要被替换的div id
@@ -41,7 +46,7 @@ class PageletBlock extends Widget{
      */
     public function run()
     {
-        $block = ob_get_clean();
+        $block = ob_get_clean() . $this->content;
 
         $id = $this->getId();
         $content = [];

@@ -77,4 +77,23 @@ class JsBlock extends Block{
 
         $this->view->registerJs($block, $this->pos,$this->key) ;
     }
+
+    /**
+     * strip
+     */
+    public static function stripScriptTag($block)
+    {
+        $block = trim($block) ;
+        /*
+        $jsBlockPattern  = '|^<script[^>]*>(.+?)</script>$|is';
+        if(preg_match($jsBlockPattern,$block)){
+            $block =  preg_replace ( $jsBlockPattern , '${1}'  , $block );
+        }
+        */
+        $jsBlockPattern  = '|^<script[^>]*>(?P<block_content>.+?)</script>$|is';
+        if(preg_match($jsBlockPattern,$block,$matches)){
+            $block =  $matches['block_content'];
+        }
+        return $block ;
+    }
 } 

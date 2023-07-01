@@ -5,10 +5,10 @@ namespace backend\components;
 use yii\web\AssetBundle;
 
 /**
- * This declares the asset files required by Gii.
+ * This declares the asset files required by Vue views.
  *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * @author qing <yiqing_95@qq.com>
+ * @since 0.1
  */
 class VueComponentsAsset extends AssetBundle
 {

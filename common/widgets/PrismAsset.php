@@ -43,6 +43,7 @@ class PrismAsset extends AssetBundle
     {
         parent::init();
         
+        $this->usePlugin('autoloader');
     
     }
     protected function handleAssetFiles()
@@ -92,5 +93,43 @@ class PrismAsset extends AssetBundle
         $this->handleAssetFiles();
 
         parent::publish($am) ;
+    }
+
+    // ===================== plugins
+
+    /**
+     * 
+     */
+    static protected $pluginMap = [
+        'autoloader'=> '/plugins/autoloader/prism-autoloader.min.js'
+    ];
+
+  
+    
+    /**
+     * @param string $pluginName
+     * @param string $jsFile=''
+     * 
+     * @return [type]
+     */
+    public function usePlugin($pluginName, $jsFile='')
+    {
+        $cdnUrl = ''; // $this->getCDNUrl();
+        if(!empty($jsFile)){
+            $pluginJs = $cdnUrl.$jsFile;
+
+            array_push($this->js,$pluginJs) ; 
+
+            return ;
+        }
+        // if(isset(static::$pluginMap[$pluginName])){
+        if(array_key_exists($pluginName,static::$pluginMap)){
+           
+            $pluginJs = $cdnUrl.static::$pluginMap[$pluginName];
+
+            array_push($this->js,$pluginJs) ; 
+        }else{
+            throw new \InvalidArgumentException("{$pluginName} is invalid!");
+        }
     }
 }

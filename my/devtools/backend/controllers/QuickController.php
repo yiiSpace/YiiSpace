@@ -54,6 +54,9 @@ DynamicActiveRecord::setTableName('admin_menu') ;
  *
  * 也可也参考这个：https://www.saoniuhuo.com/question/detail-2642557.html
  * https://stackoverflow.com/questions/41647444/yii2-cors-filters-error-that-no-access-control-allow-origin-header-is-present/42435695#42435695
+ * 
+ * 'simple request' 简单请求的概念需要了解
+ * 参考：https://learnku.com/laravel/t/6321/the-problem-of-sending-post-requests-to-options-when-axios-cross-domain-is-solved
  */
 class QuickController extends ActiveController
 {
@@ -126,6 +129,7 @@ class QuickController extends ActiveController
                     // 'Access-Control-Allow-Credentials' => false,
 
                     // 允许客户端的请求方法 跨域中Options 预请求是必须的  ；也有人这个设置用* 这里都列出来为了学习用
+                    // NOTE: 在客户端非简单请求时 会先发送options请求的 有可能404哦😯 所以路由规则可能需要放行：‘OPTIONS <module>/<controller>/action’=>'<module>/<controller>/action'
                     'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
 
                     'Access-Control-Request-Headers' => ['*'],

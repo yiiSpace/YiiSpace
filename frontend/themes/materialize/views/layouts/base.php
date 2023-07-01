@@ -36,6 +36,7 @@ $this->beginContent(__DIR__ . '/_clear.php')
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'JS', 'url' => ['/js']],
             ['label' => 'PHP', 'url' => ['/php']],
         ];
         if (Yii::$app->user->isGuest) {
