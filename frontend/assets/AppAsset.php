@@ -10,6 +10,8 @@ namespace frontend\assets;
 use yii\web\AssetBundle;
 
 /**
+ * fixme 这个类放这里有问题
+ * 
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */

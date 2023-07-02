@@ -21,6 +21,44 @@ class Es6Controller extends Controller
 
         return $this->render('index');
     }
+    public function actionScope()
+    {
+        return $this->render('scope');
+    }
+    public function actionDestruction()
+    {
+        return $this->render('destruction');
+    }
+    public function actionDestruction2()
+    {
+        return $this->render('destruction2');
+        
+    }
+    public function actionFunc()
+    {
+        return $this->render('func');
+        
+    }
+    public function actionFunc2()
+    {
+        return $this->render('func2');
+        
+    }
+    public function actionFuncThis()
+    {
+        return $this->render('func-this');
+        
+    }
+    public function actionArrowFunc()
+    {
+        return $this->render('arrow-func');
+        
+    }
+    public function actionStr()
+    {
+        return $this->render('str');
+        
+    }
 
     
 }

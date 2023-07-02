@@ -90,7 +90,7 @@ class JsBlock extends Block{
             $block =  preg_replace ( $jsBlockPattern , '${1}'  , $block );
         }
         */
-        $jsBlockPattern  = '|^<script[^>]*>(?P<block_content>.+?)</script>$|is';
+        $jsBlockPattern  = '|^<script[^>]*?>(?P<block_content>.+?)</script>$|is';
         if(preg_match($jsBlockPattern,$block,$matches)){
             $block =  $matches['block_content'];
         }
