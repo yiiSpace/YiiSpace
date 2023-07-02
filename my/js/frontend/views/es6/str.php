@@ -57,7 +57,7 @@ $asset = \common\widgets\PrismAsset::register($this);
     // 重复字符串
     {
         
-        console.log('<repeat', '=='.repeat(10),' begin ') ;
+        console.log('[ repeat', '=='.repeat(10),' begin ') ;
 
         console.log('x'.repeat(10)) ;
         console.log('xyz'.repeat(10)) ;
@@ -67,7 +67,7 @@ $asset = \common\widgets\PrismAsset::register($this);
         console.log('x'.padStart(5,'0')) ;
         console.log('x'.padEnd(5,'N')) ;
 
-        console.log( '=='.repeat(10),' end />') ;
+        console.log( '=='.repeat(10),' end /]') ;
     }
 
     // template string

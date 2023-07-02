@@ -28,10 +28,15 @@ $asset = \common\widgets\PrismAsset::register($this);
      */
 
     // 浅拷贝 参考阮一峰文档： https://es6.ruanyifeng.com/#docs/object-methods#Object-assign
+    let obj = {
+        name: 'qing'
+    };
+   
     const clone = Object.create(
         Object.getPrototypeOf(obj),
         Object.getOwnPropertyDescriptors(obj)
     );
+    console.log(obj, clone) ;
 
     // 待拷贝的对象
     let originObj = {

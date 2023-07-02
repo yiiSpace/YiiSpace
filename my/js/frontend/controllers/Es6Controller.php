@@ -59,6 +59,16 @@ class Es6Controller extends Controller
         return $this->render('str');
         
     }
+    public function actionRegex()
+    {
+        return $this->render('regex');
+        
+    }
+    public function actionMath()
+    {
+        return $this->render('math');
+        
+    }
 
     
 }
