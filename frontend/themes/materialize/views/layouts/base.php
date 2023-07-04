@@ -106,6 +106,7 @@ $this->beginContent(__DIR__ . '/_clear.php')
                 Made by
 <!--                <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>-->
                   <a class="brown-text text-lighten-3" target="_blank" href="https://github.com/MacGyer/yii2-materializecss/tree/master">yii2-materiallizecss</a>
+                  <a class="brown-text text-lighten-3" target="_blank" href="https://jossef.github.io/material-design-icons-iconfont/">GoogleMaterialIcons</a>
                   <a class="brown-text text-lighten-3" target="_blank" href="https://materializeweb.com/">Materialize</a>
 
                 &copy; YiiSpace <?= date('Y') ?>
