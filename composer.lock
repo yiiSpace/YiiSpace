@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed74db5667a3442fb08805ab9dc943f2",
+    "content-hash": "3de8808215ccebf7538174137617ae66",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -863,7 +863,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
+                "url": "git@github.com:RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -4743,6 +4743,18 @@
             "type": "npm-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/material-icons",
+            "version": "1.13.8",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/material-icons/-/material-icons-1.13.8.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "Apache-2.0"
             ]
         },
         {
@@ -11150,12 +11162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/Reflection.git",
-                "reference": "463e230153156efdbb615aa3d006902a6d88d8bc"
+                "reference": "ac77a6d23883446025c245a7c2a7e20d8ecf34bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/463e230153156efdbb615aa3d006902a6d88d8bc",
-                "reference": "463e230153156efdbb615aa3d006902a6d88d8bc",
+                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/ac77a6d23883446025c245a7c2a7e20d8ecf34bb",
+                "reference": "ac77a6d23883446025c245a7c2a7e20d8ecf34bb",
                 "shasum": ""
             },
             "require": {
@@ -11206,7 +11218,7 @@
                 "issues": "https://github.com/phpDocumentor/Reflection/issues",
                 "source": "https://github.com/phpDocumentor/Reflection/tree/5.x"
             },
-            "time": "2023-06-30T08:31:23+00:00"
+            "time": "2023-07-03T08:55:56+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -11378,16 +11390,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.22.0",
+            "version": "1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "ec58baf7b3c7f1c81b3b00617c953249fb8cf30c"
+                "reference": "65c39594fbd8c67abfc68bb323f86447bab79cc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/ec58baf7b3c7f1c81b3b00617c953249fb8cf30c",
-                "reference": "ec58baf7b3c7f1c81b3b00617c953249fb8cf30c",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/65c39594fbd8c67abfc68bb323f86447bab79cc0",
+                "reference": "65c39594fbd8c67abfc68bb323f86447bab79cc0",
                 "shasum": ""
             },
             "require": {
@@ -11419,9 +11431,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.22.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.22.1"
             },
-            "time": "2023-06-01T12:35:21+00:00"
+            "time": "2023-06-29T20:46:06+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

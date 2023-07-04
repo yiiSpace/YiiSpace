@@ -69,6 +69,36 @@ class Es6Controller extends Controller
         return $this->render('math');
         
     }
+    public function actionArray()
+    {
+        return $this->render('array');
+        
+    }
+    public function actionObject()
+    {
+        return $this->render('object');
+        
+    }
+    public function actionSymbol()
+    {
+        return $this->render('symbol');
+    }
+    public function actionSet()
+    {
+        return $this->render('set');
+    }
+    public function actionMap()
+    {
+        return $this->render('map');
+    }
+    public function actionIterator()
+    {
+        return $this->render('iterator');
+    }
+    public function actionPromise()
+    {
+        return $this->render('promise');
+    }
 
     
 }

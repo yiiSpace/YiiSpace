@@ -8,12 +8,15 @@ use macgyer\yii2materializecss\widgets\navigation\NavBar;
 use macgyer\yii2materializecss\widgets\navigation\Breadcrumbs;
 use macgyer\yii2materializecss\widgets\Alert;
 
+use frontend\assets\MaterializeFontAsset ;
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 
 
 \yii\web\YiiAsset::register($this) ;
+MaterializeFontAsset::register($this) ;
 
 // $this->beginContent('@frontend/views/layouts/_clear.php')
 $this->beginContent(__DIR__ . '/_clear.php')
