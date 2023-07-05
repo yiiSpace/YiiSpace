@@ -38,24 +38,26 @@ $asset = \common\widgets\PrismAsset::register($this);
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s3">
-          <a href="#test1" class="active" >Test 1</a>
+          <a href="#test1" class="active">Test 1</a>
         </li>
         <li class="tab col s3">
-          <a  href="#test2">Test 2</a>
+          <a href="#test2">Test 2</a>
         </li>
       </ul>
     </div>
-    
+
     <div id="test1" class="col s12">
       <div>
-        <pre><code class="language-js">
+        <pre>
+          <code class="language-js">
     <?= \year\widgets\JsBlock::stripScriptTag($this->blocks['my-es-code'])  ?>
-    </code></pre>
+    </code>
+  </pre>
       </div>
     </div>
 
     <div id="test2" class="col s12">Test 2</div>
-    
+
   </div>
 
 

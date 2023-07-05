@@ -69,8 +69,8 @@ foreach ($controllerClasses as $controllerClass) {
 </ul>
 
 
-<div class="row">
-    <div class="col s3 z-depth-2 | col-md-3 col-sm-4">
+<div class="row" style="gap: 8px;">
+    <div class="col s2 z-depth-2 | col-md-3 col-sm-4">
 
 
         <ul class="collection with-header">
@@ -136,7 +136,7 @@ foreach ($controllerClasses as $controllerClass) {
             ?>
         </div>
     </div>
-    <div class=" col s9 | col-md-9 col-sm-8">
+    <div class=" col s10 | col-md-9 col-sm-8">
         <?= $content ?>
     </div>
 </div>

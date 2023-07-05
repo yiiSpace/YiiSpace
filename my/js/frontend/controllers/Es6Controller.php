@@ -99,6 +99,18 @@ class Es6Controller extends Controller
     {
         return $this->render('promise');
     }
+    public function actionProxy()
+    {
+        return $this->render('proxy');
+    }
+    public function actionAsync()
+    {
+        return $this->render('async');
+    }
+    public function actionClass()
+    {
+        return $this->render('class');
+    }
 
     
 }
