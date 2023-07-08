@@ -24,6 +24,13 @@ VueXAsset::register($this);
   <h4> from vuex</h4>
   {{store.state.message}}
 
+  <hr>
+  <h4> store data from user module </h4>
+  {{store.state.user.info}}
+
+  <p>
+    可以在控制台 用vue-tools开发工具查看 store的内容！
+</p>
 </div>
 
 </div>
@@ -45,10 +52,15 @@ VueXAsset::register($this);
   },
 
  //修改state函数
+ // 使用 ： store.commit('mutationName',<params...>)
   mutations: {
+    updateMessage(state,msg){
+      state.message = msg 
+    }
   },
 
  //提交的mutation可以包含任意异步操作
+ // 使用： store.dispatch('actionName',<{some-params-here}>)
   actions: {
   },
 
@@ -57,7 +69,18 @@ VueXAsset::register($this);
   },
 
  //将store分割成模块（module）,应用较大时使用
+ // ⚠️ 这里其实跟YII Modules 结构类似都是组合设计模式的体现 内部结构跟外部结构一样
   modules: {
+    user:{
+      state(){
+        return {
+          info: {
+            name: 'qing',
+            age: 18
+          }
+        }
+      }
+    }
   }
 })
 
@@ -90,6 +113,7 @@ VueXAsset::register($this);
 
   app.use(myStore)
 
+  console.log(myStore)
   // console.log(app)
 
   const vm = app.mount('#app')
