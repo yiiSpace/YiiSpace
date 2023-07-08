@@ -22,3 +22,4 @@ linux | osx | wsl
   command+ .
 
 - ctrl+o 当前行下新插入一个空行 有点vi的意思
+- shift+o 是可以在当前行下开一行的 且光标自动跳至下行行首
