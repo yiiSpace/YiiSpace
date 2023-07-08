@@ -40,6 +40,10 @@ VueXAsset::register($this);
   const { createApp } = Vue
 
   console.log(Vuex)
+  // store 也有本地存储插件 vue-persisitedstate 
+  /**
+   * 使用持久化插件需要配 key（防止跟其他localstorage冲突）|path(表明那个module需要持久化)
+   */
   const {  createStore , useStore } = Vuex
 
   const myStore = createStore({
