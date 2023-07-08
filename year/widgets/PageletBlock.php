@@ -12,6 +12,11 @@ use yii\base\Widget;
 
 /**
  * 此区域中的内容会用来填充/替换指定的目标id区域
+ * 此类最早思想来自 bigpipe 概念
+ * 
+ * 
+ * vue3 中有个Teleport组件 感觉跟此很相似 
+ * 
  *
  * Class PageletBlock
  * @package app\widgets

@@ -111,6 +111,10 @@ class Es6Controller extends Controller
     {
         return $this->render('class');
     }
+    public function actionModule()
+    {
+        return $this->render('module');
+    }
 
     
 }
