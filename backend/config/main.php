@@ -4,6 +4,7 @@
 
 use backend\components\DbMan;
 use my\devtools\backend\controllers\QuickController;
+use year\gii\element_plus\generators\form\Generator;
 use yii\filters\Cors;
 
 $params = array_merge(
@@ -267,6 +268,11 @@ if (YII_ENV_DEV) {
             ],
             'service-crud' => [
                 'class' => 'year\gii\service\Generator',
+                'templates' => [
+                ],
+            ],
+            'element-plus' => [
+                'class' => Generator::class,
                 'templates' => [
                 ],
             ],
