@@ -18,6 +18,8 @@ use yii\helpers\StringHelper;
 // 也可以用ActiveRecord 取到默认值：https://www.yiiframework.com/doc/guide/2.0/en/db-active-record#default-attribute-values
 
 // TODO： 对TS 的支持
+// todo: php 类型转换为typescript类型： spatie/typescript-transformer ｜https://typeschema.org/｜https://hybridly.dev/guide/typescript.html
+// 万一用php库搞不定 还可以使用进程间通信 或者webdriver等手段通过无头浏览器让特定网站来完成转换
 
 $genProp = function ($propName, $propType) {
   $propName = '$' . $propName;
@@ -68,7 +70,7 @@ class $className
 {\r\n " . implode("\r\n",$propsCode)."\r\n}";
 
 // echo $classCode ;
-\year\gii\common\utils\TsParser::run($classCode);
+// \year\gii\common\utils\TsParser::run($classCode);
 ?>
 
 <script setup>
@@ -78,22 +80,20 @@ class $className
   } from 'vue'
   // import type { FormInstance, FormRules } from 'element-plus'
   /*
-  todo: php 类型转换为typescript类型： spatie/typescript-transformer ｜https://typeschema.org/｜https://hybridly.dev/guide/typescript.html
-  // 万一用php库搞不定 还可以使用进程间通信 或者webdriver等手段通过无头浏览器让特定网站来完成转换
+  
   interface RuleForm {
     name: string
-    region: string
    ...
   }
+  <?php \year\gii\common\utils\TsParser::run($classCode); ?>
   */
-
-  // <?php // print_r($defaults,  true) ;  json_encode($defaults); 
-      ?>
-  // <?php
+    
+    <?php 
+     // print_r($defaults,  true) ;  json_encode($defaults); 
       \yii\helpers\Json::$prettyPrint = true;
       // echo \yii\helpers\Json::encode($defaults) 
+      // var datac = JSON.parse(data);
       ?>
-  // var datac = JSON.parse(data);
 
   const formSize = ref('default')
   // const ruleFormRef = ref<FormInstance>()
@@ -134,5 +134,5 @@ class $className
 </script>
 
 <?php
-\year\gii\common\utils\TsParser::run();
+// \year\gii\common\utils\TsParser::run();
 ?>
