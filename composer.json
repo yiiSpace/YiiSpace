@@ -107,7 +107,9 @@
         "toolkit/stdlib": "^2.0",
         "2amigos/yii2-usuario": "~1.0",
         "raulfraile/distill": "@stable",
-        "mobiledetect/mobiledetectlib": "^2.8"
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "nikic/php-parser": "*"
+        
 
     },
     "require-dev": {

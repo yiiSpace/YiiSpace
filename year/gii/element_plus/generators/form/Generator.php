@@ -269,7 +269,8 @@ class Generator extends \yii\gii\generators\model\Generator
                     'labels' => $this->generateLabels($tableSchema),
                     'tableName' => $tableName, //NOTE : 这个比较重要的属性哦 会在视图上用到
                     'defaults' => $defaults,
-                    
+                    'rules'=>$this->generateRules($tableSchema),
+                    'className'=>$className,
                 ])
             );
 
