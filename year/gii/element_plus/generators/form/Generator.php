@@ -28,6 +28,7 @@ use yii\web\Response;
  * @since 0.0.1
  *
  *  todo: 应该同时具有crud 和 model生成需要的一些方法 可以从crud-generator中拷贝一些代码过来
+ * @see yii\gii\generators\crud\Generator
  */
 //class Generator extends \schmunk42\giiant\generators\model\Generator
 class Generator extends \yii\gii\generators\model\Generator
@@ -44,9 +45,9 @@ class Generator extends \yii\gii\generators\model\Generator
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-//        ob_start();
-//       var_dump($this->getDbConnection());
-//        $content = ob_get_clean();
+        //        ob_start();
+        //       var_dump($this->getDbConnection());
+        //        $content = ob_get_clean();
 
         $db = $this->getDbConnection();
 
@@ -64,8 +65,6 @@ class Generator extends \yii\gii\generators\model\Generator
 
 
         return $db->getSchema()->getTableNames($schema, true);
-
-
     }
 
 
@@ -139,9 +138,10 @@ class Generator extends \yii\gii\generators\model\Generator
                 [['db', 'tableName',], 'required'],
                 [['db',], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
                 [['tableName'], 'match', 'pattern' => '/^([\w ]+\.)?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
-//                [['db'], 'validateDb'],
-//                [['tableName'], 'validateTableName'],
-            ]);
+                //                [['db'], 'validateDb'],
+                //                [['tableName'], 'validateTableName'],
+            ]
+        );
         /*
         $requiredRule = function ($rule) {
             return $rule[1] != 'required';
@@ -163,7 +163,6 @@ class Generator extends \yii\gii\generators\model\Generator
             ]
         );
         return $rules;
-
     }
 
 
@@ -212,7 +211,7 @@ class Generator extends \yii\gii\generators\model\Generator
             /*'models/model.js.php',*/
             //'model.vue.php',
             'form.php',
-            
+
         ];
     }
 
@@ -231,6 +230,7 @@ class Generator extends \yii\gii\generators\model\Generator
 
         foreach ($this->getTableNames() as $tableName) {
 
+
             $tableSchema = $db->getTableSchema($tableName);
             /*
             $className = php_sapi_name() === 'cli'
@@ -245,16 +245,31 @@ class Generator extends \yii\gii\generators\model\Generator
 
 
             // -------------------------------------------------------------------------------  +|
-            $formPath = implode(DIRECTORY_SEPARATOR,
+            $formPath = implode(
+                DIRECTORY_SEPARATOR,
                 array_filter([
                     ($this->srcDir), // FIXME  临时的 可以更改下 比如从UI选择
                     ucfirst($className)  //. '.html',
-                ]));
+                ])
+            );
+
+            /** =========      =============================== */
+            DynamicActiveRecord::setDbID($this->db);
+            DynamicActiveRecord::setTableName($tableName);
+            $model = new DynamicActiveRecord();
+            $model->loadDefaultValues();
+            // $defaults = $model->asArray(); 
+            $defaults = $model->getAttributes();
+            /** =========      =============================== */
+
             $files[] = new CodeFile(
                 $formPath . '_form.html',
                 $this->render('form.php', [
                     'properties' => $this->generateProperties($tableSchema),
-                    'labels' => $this->generateLabels($tableSchema)
+                    'labels' => $this->generateLabels($tableSchema),
+                    'tableName' => $tableName, //NOTE : 这个比较重要的属性哦 会在视图上用到
+                    'defaults' => $defaults,
+                    
                 ])
             );
 
@@ -274,12 +289,237 @@ class Generator extends \yii\gii\generators\model\Generator
                 ])
             );
             */
-
-           
-            
-
         }
         return $files;
+    }
+
+    /**
+     * Returns table schema for current model class or false if it is not an active record
+     * @return \yii\db\TableSchema|false
+     */
+    public function getTableSchema($tableName)
+    {
+        $db = $this->getDbConnection();
+
+        $tableSchema = $db->getTableSchema($tableName);
+        /*
+        $class = $this->modelClass;
+        if (is_subclass_of($class, '\yii\db\BaseActiveRecord')) {
+            return $class::getTableSchema();
+        }
+        */
+
+        return $tableSchema;
+    }
+
+
+    /**
+     * Generates code for element-plus form item input
+     * @param string $attribute
+     * @return string
+     */
+    // public function generateActiveField($tableName,$attribute)
+    public function generateFormItemField($tableName, $attribute, $formModelName = 'ruleForm')
+    {
+        $tableSchema = $this->getTableSchema($tableName);
+        if ($tableSchema === false || !isset($tableSchema->columns[$attribute])) {
+            if (preg_match('/^(password|pass|passwd|passcode)$/i', $attribute)) {
+                // return "\$form->field(\$model, '$attribute')->passwordInput()";
+                return "<el-input v-model=\"{$formModelName}.{$attribute}\" type=\"password\" autocomplete=\"off\" />";
+            }
+
+            // return "\$form->field(\$model, '$attribute')";
+            return "<el-input v-model=\"{$formModelName}.{$attribute}\"  />";
+        }
+        $column = $tableSchema->columns[$attribute];
+        if ($column->phpType === 'boolean') {
+            // return "\$form->field(\$model, '$attribute')->checkbox()";
+            return "<el-switch v-model=\"{$formModelName}.{$attribute}\"  />";
+        }
+
+        if ($column->type === 'text') {
+            // return "\$form->field(\$model, '$attribute')->textarea(['rows' => 6])";
+            return "<el-input v-model=\"{$formModelName}.{$attribute}\   type=\"textarea\" />";
+        }
+
+        if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {
+            // $input = 'passwordInput';
+            return "<el-input v-model=\"{$formModelName}.{$attribute}\" type=\"password\" autocomplete=\"off\" />";
+        } else {
+            // $input = 'textInput';
+            return "<el-input v-model=\"{$formModelName}.{$attribute}\"  />";
+        }
+
+        if (is_array($column->enumValues) && count($column->enumValues) > 0) {
+            $dropDownOptions = [];
+            foreach ($column->enumValues as $enumValue) {
+                $dropDownOptions[$enumValue] = Inflector::humanize($enumValue);
+            }
+            // return "\$form->field(\$model, '$attribute')->dropDownList("
+            //     . preg_replace("/\n\s*/", ' ', VarDumper::export($dropDownOptions)).", ['prompt' => ''])";
+
+            $elOptions = [];
+            foreach ($dropDownOptions as $optionValue => $optionTitle) {
+                $elOptions[] = "<el-option label=\"{$optionTitle}\" value=\"{$optionValue}\" />";
+            }
+            $elOptionsHtml = implode('', $elOptions);
+            return "<el-select v-model=\"{$formModelName}.{$attribute}\"  placeholder=\"please select your {$attribute}\">
+                     {$elOptionsHtml}
+                     </el-select>";
+        }
+
+        // if ($column->phpType !== 'string' || $column->size === null) {
+        //     return "\$form->field(\$model, '$attribute')->$input()";
+        // }
+
+        // return "\$form->field(\$model, '$attribute')->$input(['maxlength' => true])";
+        // TODO: 支持更多的类型 比如 日期｜时间 数字类型 主要依据就是根据字段名称包含的关键字猜测 或者是转化为php类型后可能对应的表单类型
+        // Todo: 交互式生成代码 让用户自己选择字段类型 从gii代码生成页面传递过来
+
+
+        return "<el-input v-model=\"{$formModelName}.{$attribute}\"  />";
+    }
+
+    /**
+     * Generates validation rules for the specified table.
+     * @param \yii\db\TableSchema $table the table schema
+     * @return array the generated validation rules
+     */
+    public function generateRules($table)
+    {
+        $types = [];
+        $lengths = [];
+        $rules = [];
+        foreach ($table->columns as $column) {
+            $rule4column = [];
+            if ($column->autoIncrement) {
+                continue;
+            }
+            if (!$column->allowNull && $column->defaultValue === null) {
+                $types['required'][] = $column->name;
+                // $rules[$column->name][] = 
+
+                $rule4column = [
+                    'required' => true,
+                    'message' => "{$column->name} is requried",
+                    'trigger' => 'blur', // ['blur','change'] ,
+                    // todo: 到底是什么事件触发验证需要根据对应的fromInput 类型决定
+                ];
+            }
+            // @see https://github.com/yiminghe/async-validator#type
+            switch ($column->type) {
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                case Schema::TYPE_TINYINT:
+                    $types['integer'][] = $column->name;
+                    $rule4column['type'] = 'integer';
+                    break;
+                case Schema::TYPE_BOOLEAN:
+                    $types['boolean'][] = $column->name;
+                    $rule4column['type'] = 'boolean';
+                    break;
+                case Schema::TYPE_FLOAT:
+                case Schema::TYPE_DOUBLE:
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                    $types['number'][] = $column->name;
+
+                    $rule4column['type'] = 'number';
+                    break;
+                case Schema::TYPE_DATE:
+                    $rule4column['type'] = 'date';
+                    break;
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+                case Schema::TYPE_JSON:
+                    $types['safe'][] = $column->name;
+                    break;
+                default: // strings
+                    if ($column->size > 0) {
+                        $lengths[$column->size][] = $column->name;
+                    } else {
+                        $types['string'][] = $column->name;
+                    }
+
+                    $rule4column['type'] = 'string';
+            }
+            if(count($rule4column)>1){
+                $rules[$column->name][] = $rule4column;
+            }
+        }
+        foreach ($lengths as $length => $columns) {
+            // $rules[] = "[['" . implode("', '", $columns) . "'], 'string', 'max' => $length]";
+            // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+            foreach($columns as $col){
+                $rules[$col][] = [
+                    'max'=>$length,
+                    'message'=>"max len should be {$length}",
+                    'trigger'=>'blur',// FIXME: 这里触发事件待定
+                ];
+            }
+        }
+
+        return $rules ;
+        /*
+        $rules = [];
+        $driverName = $this->getDbDriverName();
+        foreach ($types as $type => $columns) {
+            if ($driverName === 'pgsql' && $type === 'integer') {
+                $rules[] = "[['" . implode("', '", $columns) . "'], 'default', 'value' => null]";
+            }
+            $rules[] = "[['" . implode("', '", $columns) . "'], '$type']";
+        }
+        foreach ($lengths as $length => $columns) {
+            $rules[] = "[['" . implode("', '", $columns) . "'], 'string', 'max' => $length]";
+        }
+
+        $db = $this->getDbConnection();
+
+        // Unique indexes rules
+        try {
+            $uniqueIndexes = array_merge($db->getSchema()->findUniqueIndexes($table), [$table->primaryKey]);
+            $uniqueIndexes = array_unique($uniqueIndexes, SORT_REGULAR);
+            foreach ($uniqueIndexes as $uniqueColumns) {
+                // Avoid validating auto incremental columns
+                if (!$this->isColumnAutoIncremental($table, $uniqueColumns)) {
+                    $attributesCount = count($uniqueColumns);
+
+                    if ($attributesCount === 1) {
+                        $rules[] = "[['" . $uniqueColumns[0] . "'], 'unique']";
+                    } elseif ($attributesCount > 1) {
+                        $columnsList = implode("', '", $uniqueColumns);
+                        $rules[] = "[['$columnsList'], 'unique', 'targetAttribute' => ['$columnsList']]";
+                    }
+                }
+            }
+        } catch (NotSupportedException $e) {
+            // doesn't support unique indexes information...do nothing
+        }
+
+        // Exist rules for foreign keys
+        foreach ($table->foreignKeys as $refs) {
+            $refTable = $refs[0];
+            $refTableSchema = $db->getTableSchema($refTable);
+            if ($refTableSchema === null) {
+                // Foreign key could point to non-existing table: https://github.com/yiisoft/yii2-gii/issues/34
+                continue;
+            }
+            $refClassName = $this->generateClassName($refTable);
+            $refClassNameResolution = $this->generateClassNameResolution($refClassName);
+            unset($refs[0]);
+            $attributes = implode("', '", array_keys($refs));
+            $targetAttributes = [];
+            foreach ($refs as $key => $value) {
+                $targetAttributes[] = "'$key' => '$value'";
+            }
+            $targetAttributes = implode(', ', $targetAttributes);
+            $rules[] = "[['$attributes'], 'exist', 'skipOnError' => true, 'targetClass' => $refClassNameResolution, 'targetAttribute' => [$targetAttributes]]";
+        }
+
+        return $rules;
+        */
     }
 
     protected $classNames2;
@@ -357,7 +597,7 @@ class Generator extends \yii\gii\generators\model\Generator
 <p>The test crud suite  has been generated successfully.</p>
 EOD;
 
-//        $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
+        //        $routePath = Inflector::camel2id(StringHelper::basename($this->modelClass));
 
 
         $code = <<<EOD
@@ -399,11 +639,10 @@ EOD;
             $fakeRow[$column->name] = GiiantFaker::value(
                 $columnPhpType,
                 $column->name
-            );//  call_user_func_array(['year\gii\goodmall\helpers\GiiantFaker',$columnPhpType],[$column->name] );
+            ); //  call_user_func_array(['year\gii\goodmall\helpers\GiiantFaker',$columnPhpType],[$column->name] );
             // $fakeRow[$column->name] =  GiiantFaker::{$columnPhpType};
 
         }
         return $fakeRow;
     }
-
 }
