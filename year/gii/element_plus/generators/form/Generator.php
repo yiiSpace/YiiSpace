@@ -340,7 +340,7 @@ class Generator extends \yii\gii\generators\model\Generator
 
         if ($column->type === 'text') {
             // return "\$form->field(\$model, '$attribute')->textarea(['rows' => 6])";
-            return "<el-input v-model=\"{$formModelName}.{$attribute}\   type=\"textarea\" />";
+            return "<el-input v-model=\"{$formModelName}.{$attribute}\"   type=\"textarea\" />";
         }
 
         if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {

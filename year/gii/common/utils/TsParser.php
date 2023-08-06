@@ -11,11 +11,21 @@ namespace year\gii\common\utils {
     use PhpParser\ParserFactory;
 
 
+    /**
+     * @see [Export PHP interface to Typescript interface, or vice versa?](https://stackoverflow.com/questions/33176888/export-php-interface-to-typescript-interface-or-vice-versa)
+     * 
+     * 这个类因为依赖版本冲突https://github.com/spatie/typescript-transformer/tree/main 所以放弃了 不过有空了可以研究下代码
+     * 
+     * 另 https://typeschema.org/generator/schema 这个在线转换工具 可以结合无头浏览器之类的库来生代码
+     * 
+     * 
+     * 
+     */
     class TsParser
     {
         public static  function run($phpCode='')
         {
-            $p = new Property_('some_prop', 'string');
+            // $p = new Property_('some_prop', 'string');
             // $parser = new PhpParser\Parser(new PhpParser\Lexer\Emulative);
             $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
 
@@ -72,7 +82,7 @@ namespace year\gii\common\utils {
 
                 // echo "<pre><code>" . $visitor->getOutput() . "</code></pre>";
                 echo  $visitor->getOutput();
-                
+
             } catch (PhpParser\Error $e) {
                 echo 'Parse Error: ', $e->getMessage();
                 // print_r($e) ;

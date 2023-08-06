@@ -50,7 +50,9 @@ $genProp = function ($propName, $propType) {
     <?php endforeach; ?>
 
     <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef)">Create</el-button>
+      <el-button type="primary" @click="submitForm(ruleFormRef)">
+        Create
+      </el-button>
       <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
     </el-form-item>
   </el-form>
@@ -69,13 +71,8 @@ class $className
 // \year\gii\common\utils\TsParser::run($classCode);
 ?>
 <script setup>
-import {reactive,ref} from 'vue'
-// import type { FormInstance, FormRules } from 'element-plus'
-/*
-import {  getCurrentInstance} from 'vue'
-const {ctx} = getCurrentInstance() // 这个里面有不少东西可以很方便的使用的😄
-console.log('[crud-form]:', ctx)
-*/
+  import {reactive,ref} from 'vue'
+  // import type { FormInstance, FormRules } from 'element-plus'
   /*
   interface RuleForm {
     name: string
@@ -106,7 +103,6 @@ console.log('[crud-form]:', ctx)
     await formEl.validate((valid, fields) => {
       if (valid) {
         console.log('submit!')
-        alert('TODO: should call some api to accomplish the creation')
       } else {
         console.log('error submit!', fields)
       }
@@ -117,4 +113,14 @@ console.log('[crud-form]:', ctx)
     if (!formEl) return
     formEl.resetFields()
   }
+  const options = Array.from({
+    length: 10000
+  }).map((_, idx) => ({
+    value: `${idx + 1}`,
+    label: `${idx + 1}`,
+  }))
 </script>
+
+<?php
+// \year\gii\common\utils\TsParser::run();
+?>
