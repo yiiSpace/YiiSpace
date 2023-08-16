@@ -136,8 +136,18 @@ foreach ($controllerClasses as $controllerClass) {
             ?>
         </div>
     </div>
-    <div class=" col s10 | col-md-9 col-sm-8">
+    <div class=" col s10 | col-md-9 col-sm-8 _content">
         <?= $content ?>
     </div>
 </div>
+
+<?php  \year\widgets\CssBlock::begin() ?>
+<style>
+._content{
+  background-color:beige;
+  min-height: 500px;
+}
+</style>
+<?php  \year\widgets\CssBlock::end() ?>
+
 <?php $this->endContent(); ?>

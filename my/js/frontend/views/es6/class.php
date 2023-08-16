@@ -15,53 +15,53 @@ $asset = \common\widgets\PrismAsset::register($this);
 <script>
     // 简单例子🌰  
     {
-       class User{
-        // 构造器
-        constructor(name){
-            this.name = name;
+        class User {
+            // 构造器
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 普通方法
+            run() {
+                console.log('[User::run]: ', this.name);
+            }
         }
 
-        // 普通方法
-        run(){
-            console.log ('[User::run]: ',  this.name) ;
-        }
-       }
-        
-       let u = new User('qing') ;
-       u.run() ;
-       // access the property of User class
-       console.log(u.name) ;
+        let u = new User('qing');
+        u.run();
+        // access the property of User class
+        console.log(u.name);
 
-       // 判断
-       console.log(u instanceof User) ;
-       console.log(typeof User) ;
+        // 判断
+        console.log(u instanceof User);
+        console.log(typeof User);
     }
 
     // ## getter && setter
     {
-        class User{
-            constructor(name='default'){
-                this._name = name ;
+        class User {
+            constructor(name = 'default') {
+                this._name = name;
             }
 
-            get name(){
-                return this._name ;
+            get name() {
+                return this._name;
             }
-            set name(value){
-                console.log('[before setter name] ') ;
-                this._name = value ;
-                console.log('[after setter name] ') ;
+            set name(value) {
+                console.log('[before setter name] ');
+                this._name = value;
+                console.log('[after setter name] ');
             }
         }
 
-        let u = new User('qing') ;
+        let u = new User('qing');
         // console.log(u.name()) ;
-        console.log('[getter is called]: ',u.name) ;
-        console.log('[getter-setter]: ', u) ;
+        console.log('[getter is called]: ', u.name);
+        console.log('[getter-setter]: ', u);
 
-        u.name = 'qiang' ;
+        u.name = 'qiang';
 
-        console.log('[getter-orig-attribute]:', u._name) ;
+        console.log('[getter-orig-attribute]:', u._name);
     }
 </script>
 <?php $this->endBlock(); ?>
@@ -70,38 +70,79 @@ $asset = \common\widgets\PrismAsset::register($this);
 <script>
     // 简单例子🌰  
     {
-      let Usr = class User{
-         constructor(name='unknown'){
-            this.name = name ;
-         }
-      }
+        let Usr = class User {
+            constructor(name = 'unknown') {
+                this.name = name;
+            }
+        }
 
-      let u = new Usr() ;
-      console.log(u) ;
+        let u = new Usr();
+        console.log(u);
 
-    //   u = new User() ; // 不能再用User创造对象了
-      console.log(u) ;
-        
+        //   u = new User() ; // 不能再用User创造对象了
+        console.log(u);
+
     }
     //
     {
-        let User = class{
-            constructor(name='default-name'){
-                this.name = name ;
+        let User = class {
+            constructor(name = 'default-name') {
+                this.name = name;
             }
         }
 
         let u = new User();
-        console.log(u) ;
+        console.log(u);
     }
     // 
     {
-        let u = new class{
-            constructor(name='default-name'){
-                this.name = name ;
+        let u = new class {
+            constructor(name = 'default-name') {
+                this.name = name;
             }
         }('qing');
-        console.log(u) ;
+        console.log(u);
+    }
+    // ## 类型判断
+    {
+        // 有很多判断方法 利用constructor只是之一
+        var num = 123;
+        var str = 'abcdef';
+        var bool = true;
+        var arr = [1, 2, 3, 4];
+        var json = {
+            name: 'wenzi',
+            age: 25
+        };
+        var func = function() {
+            console.log('this is function');
+        }
+        var und = undefined;
+        var nul = null;
+        var date = new Date();
+        var reg = /^[a-zA-Z]{5,20}$/;
+        var error = new Error();
+
+        function Person() {
+
+        }
+        var tom = new Person();
+
+        // undefined和null没有constructor属性
+        console.log(
+            tom.constructor == Person,
+            num.constructor == Number,
+            str.constructor == String,
+            bool.constructor == Boolean,
+            arr.constructor == Array,
+            json.constructor == Object,
+            func.constructor == Function,
+            date.constructor == Date,
+            reg.constructor == RegExp,
+            error.constructor == Error
+        );
+        //所有结果均为true
+
     }
 </script>
 <?php $this->endBlock(); ?>
@@ -110,96 +151,97 @@ $asset = \common\widgets\PrismAsset::register($this);
 <script>
     // 简单例子🌰  
     {
-      let Usr = class User{
-         constructor(name='unknown'){
-            this.name = name ;
-         }
+        let Usr = class User {
+            constructor(name = 'unknown') {
+                this.name = name;
+            }
 
-         run(){
-            console.log('I am a User and my name is :', this.name) ;
+            run() {
+                console.log('I am a User and my name is :', this.name);
 
-            return 'some result from user class' ;
-         }
-      }
-
-      let u = new Usr() ;
-      console.log(u) ;
-
-      class Women extends Usr{
-        title(){
-            return 'Miss. ' + this.name ;
-        }
-      }
-   
-      let w = new Women('qing');
-      console.log(w.title()) ;
-      console.log('[instanceof Women]: ', w instanceof Women) ;
-      console.log('[instanceof Usr]:',w instanceof Usr) ;
-
-      let users = [] ; // ts 情况可以强制约束类型
-
-      users.push(new Usr()) ;
-      users.push(new Women('Han-meimei')) ;
-
-      for(let u of users){
-         console.log(u.name) ;
-      }
-
-      // 调用父类方
-      class Man extends Usr{
-        constructor(name,options={}){ 
-            super(name ); 
-            this.options = options ;
-            console.log('[constructor of Man and other options is ]:', options);
+                return 'some result from user class';
+            }
         }
 
-        // 子类复写父类同名方法 一般做环绕(before/after around) 或者对父类的返回值做增删改 比如网络编程中 对Header头的操作
-        run(){
+        let u = new Usr();
+        console.log(u);
 
-            let result = super.run() ;
-            console.log('[and I am a Man]:', this.options);
-            result = result.replace('user','USER');
-            return result ;
+        class Women extends Usr {
+            title() {
+                return 'Miss. ' + this.name;
+            }
         }
-      }
-      let m = new Man('qing',{'hobby':'game|swim|ride|climbing'});
-      console.log(m) ;
-      let result =  m.run();
-      console.log(result) ;
 
-      // 原型父类判断
-    //   console.log('[Parent class of Man is Usr? ]', Object.getPrototypeOf(m) === Usr) ;
-      console.log('[Parent class of Man is Usr? ]', Object.getPrototypeOf(Man) === Usr) ;
+        let w = new Women('qing');
+        console.log(w.title());
+        console.log('[instanceof Women]: ', w instanceof Women);
+        console.log('[instanceof Usr]:', w instanceof Usr);
+
+        let users = []; // ts 情况可以强制约束类型
+
+        users.push(new Usr());
+        users.push(new Women('Han-meimei'));
+
+        for (let u of users) {
+            console.log(u.name);
+        }
+
+        // 调用父类方
+        class Man extends Usr {
+            constructor(name, options = {}) {
+                super(name);
+                this.options = options;
+                console.log('[constructor of Man and other options is ]:', options);
+            }
+
+            // 子类复写父类同名方法 一般做环绕(before/after around) 或者对父类的返回值做增删改 比如网络编程中 对Header头的操作
+            run() {
+
+                let result = super.run();
+                console.log('[and I am a Man]:', this.options);
+                result = result.replace('user', 'USER');
+                return result;
+            }
+        }
+        let m = new Man('qing', {
+            'hobby': 'game|swim|ride|climbing'
+        });
+        console.log(m);
+        let result = m.run();
+        console.log(result);
+
+        // 原型父类判断
+        //   console.log('[Parent class of Man is Usr? ]', Object.getPrototypeOf(m) === Usr) ;
+        console.log('[Parent class of Man is Usr? ]', Object.getPrototypeOf(Man) === Usr);
     }
     // 静态方法
     {
-        class User{
-            static GENDER = '...' ;
-            static COUNT = 0 ;
+        class User {
+            static GENDER = '...';
+            static COUNT = 0;
 
-            constructor(){
-                User.COUNT += 1 ;
+            constructor() {
+                User.COUNT += 1;
 
             }
 
-           static run(){
-                console.log('user gender is ', User.GENDER) ;
+            static run() {
+                console.log('user gender is ', User.GENDER);
             }
 
-            static info(){
+            static info() {
                 // 如果使用this 具有动态后期绑定的特点 如果使用了类名 那就绑死到类上了 ⚠️
-                console.log('class User : gender is ', this.GENDER,' and count is : ',this.COUNT) ;
+                console.log('class User : gender is ', this.GENDER, ' and count is : ', this.COUNT);
             }
         }
-        class Man extends User{
-            static GENDER = '男' ;
+        class Man extends User {
+            static GENDER = '男';
 
-            foo()
-            {
-               console.log('my gender is ',  this.GENDER );
+            foo() {
+                console.log('my gender is ', this.GENDER);
             }
-            static bar(){
-                console.log('my gender is ',  this.GENDER );
+            static bar() {
+                console.log('my gender is ', this.GENDER);
             }
         }
 
@@ -212,8 +254,8 @@ $asset = \common\widgets\PrismAsset::register($this);
         m.foo();
         Man.bar();
 
-        console.log(User.COUNT) ;
-       // ⚠️下面👇两个方法特点 有继承的意味
+        console.log(User.COUNT);
+        // ⚠️下面👇两个方法特点 有继承的意味
         User.info();
         Man.info();
     }
