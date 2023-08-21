@@ -80,24 +80,20 @@ $asset = \common\widgets\PrismAsset::register($this);
 </div>
 
 <?php \year\widgets\JsBlock::begin() ?>
-<script>
-    function _alert(msg) {
-        const args = Array.prototype.slice.call(arguments, 0);
-        //    console.log(args); // 可以👀到Array的方法
-        //    const args = Array.from(arguments) ; // ES6之后支持 [...arguments] 也可以！
-        msg = args.join(' ');
-        M.toast({
-            text: msg,
-            classes: 'rounded'
-        });
-    }
-</script>
 <?= $this->blocks['my-es-code'] ?>
 <?= $this->blocks['my-es-code2'] ?>
 <?= $this->blocks['my-es-code3'] ?>
 <?php \year\widgets\JsBlock::end() ?>
 
 <?php \year\widgets\JsBlock::begin() ?>
+<script>
+    function _alert(msg) {
+        M.toast({
+            text: msg,
+            classes: 'rounded'
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
 
         // Tabs 初始化

@@ -67,6 +67,8 @@ echo $form->field($generator, 'tableName');
 echo $form->field($generator, 'tablePrefix');
 
 ?>
+
+
 <?php \year\widgets\pubsub\JTinyPubSubAsset::register($this); ?>
 <?php \year\layui\LayerAsset::register($this) ?>
 <?php \year\widgets\JsBlock::begin() ?>

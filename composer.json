@@ -63,10 +63,7 @@
         "kartik-v/yii2-grid": "@dev",
         "pda/pheanstalk": "^3.0",
 
-
         "dektrium/yii2-user": "0.9.*@dev",
-
-       
 
         "yii2mod/yii2-rbac": "*",
         "dektrium/yii2-rbac": "dev-master",
@@ -108,8 +105,8 @@
         "2amigos/yii2-usuario": "~1.0",
         "raulfraile/distill": "@stable",
         "mobiledetect/mobiledetectlib": "^2.8",
-        "nikic/php-parser": "*"
-        
+        "nikic/php-parser": "*",
+        "schmunk42/yii2-giiant":"@dev"
 
     },
     "require-dev": {

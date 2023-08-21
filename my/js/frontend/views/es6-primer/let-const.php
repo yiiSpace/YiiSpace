@@ -147,11 +147,7 @@ $asset = \common\widgets\PrismAsset::register($this);
             </pre>
         </div>
 
-
-
     </div>
-
-
 
 </div>
 

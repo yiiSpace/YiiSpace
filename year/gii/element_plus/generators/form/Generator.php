@@ -40,6 +40,9 @@ class Generator extends \yii\gii\generators\model\Generator
      *
      * @return string|array
      * @since 0.0.2
+     * 
+     * 兼有Controller的功能了！
+     * 
      */
     public function actionTableNames()
     {
@@ -198,7 +201,7 @@ class Generator extends \yii\gii\generators\model\Generator
      */
     public function getTableNames()
     {
-        // die($this->db) ;
+        //  die($this->db) ;
         return parent::getTableNames();
     }
 
@@ -211,6 +214,7 @@ class Generator extends \yii\gii\generators\model\Generator
             /*'models/model.js.php',*/
             //'model.vue.php',
             'form.php',
+            '_search.php',
 
         ];
     }
@@ -228,8 +232,10 @@ class Generator extends \yii\gii\generators\model\Generator
         $files = [];
         $db = $this->getDbConnection();
 
+      
+        // print_r($this->getTableNames()) ;
         foreach ($this->getTableNames() as $tableName) {
-
+            // die(__METHOD__) ;
 
             $tableSchema = $db->getTableSchema($tableName);
             /*
@@ -262,6 +268,7 @@ class Generator extends \yii\gii\generators\model\Generator
             $defaults = $model->getAttributes();
             /** =========      =============================== */
 
+            
             $files[] = new CodeFile(
                 $formPath . '_form.html',
                 $this->render('form.php', [
@@ -271,6 +278,21 @@ class Generator extends \yii\gii\generators\model\Generator
                     'defaults' => $defaults,
                     'rules'=>$this->generateRules($tableSchema),
                     'className'=>$className,
+                   
+                ])
+            );
+
+            $files[] = new CodeFile(
+                $formPath . '_search.html',
+                $this->render('_search.php', [
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema),
+                    'tableName' => $tableName, //NOTE : 这个比较重要的属性哦 会在视图上用到
+                    'defaults' => $defaults,
+                    // 'rules'=>$this->generateRules($tableSchema),
+                    'rules'=>$this->generateSearchRules($tableSchema),
+                    'className'=>$className,
+                    'columnNames'=>$tableSchema->getColumnNames(), // string[]
                 ])
             );
 
@@ -312,7 +334,24 @@ class Generator extends \yii\gii\generators\model\Generator
 
         return $tableSchema;
     }
+   
+    
+    /**
+     * 
+     */
+    public function generateSearchFormItemField($tableName,$attribute,$formModelName = 'ruleForm')
+    {
+        $tableSchema = $this->getTableSchema($tableName);
 
+        $column = $tableSchema->columns[$attribute];
+        if ($column->phpType === 'boolean') {
+            // return "\$form->field(\$model, '$attribute')->checkbox()";
+            return "<el-switch v-model=\"{$formModelName}.{$attribute}\"  />";
+        }
+
+        // return "\$form->field(\$model, '$attribute')";
+        return "<el-input v-model=\"{$formModelName}.{$attribute}\"  />";
+    }
 
     /**
      * Generates code for element-plus form item input
@@ -522,6 +561,58 @@ class Generator extends \yii\gii\generators\model\Generator
         return $rules;
         */
     }
+/**
+     * Generates validation rules for the search model.
+     * 
+     * @param \yii\db\TableSchema $table the table schema
+     * @return array the generated validation rules
+     */
+    public function generateSearchRules($table)
+    {
+        $rules = [];
+        $types = [];
+        foreach ($table->columns as $column) {
+            $rule4column = [];
+
+            switch ($column->type) {
+                case Schema::TYPE_TINYINT:
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                    $types['integer'][] = $column->name;
+                    $rule4column['type'] = 'integer' ; // integer
+                    break;
+                case Schema::TYPE_BOOLEAN:
+                    $types['boolean'][] = $column->name;
+                    $rule4column['type'] = 'boolean';
+                    break;
+                case Schema::TYPE_FLOAT:
+                case Schema::TYPE_DOUBLE:
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                    $types['number'][] = $column->name; 
+                    
+                    $rule4column['type'] = 'number';
+                    break;
+                case Schema::TYPE_DATE:
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+                default:
+                    $types['safe'][] = $column->name;
+
+                    $rule4column['type'] = 'string';
+                    break;
+            }
+
+            if(count($rule4column)>0){
+                $rules[$column->name][] = $rule4column;
+            }
+        }
+
+        return $rules;
+    }
+
 
     protected $classNames2;
 

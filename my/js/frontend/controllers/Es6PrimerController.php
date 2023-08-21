@@ -46,6 +46,33 @@ class Es6PrimerController extends Controller
         return $this->render('string');
     }
   
+    public function actionArray()
+    {
+
+        return $this->render('array');
+    }
+    public function actionObject()
+    {
+
+        return $this->render('object');
+    }
+  
+    public function actionOperator()
+    {
+
+        return $this->render('operator');
+    }
+    public function actionSymbol()
+    {
+
+        return $this->render('symbol');
+    }
+    public function actionSetMap()
+    {
+
+        return $this->render('set-map');
+    }
+  
     
     
 }

@@ -14,9 +14,45 @@ $asset = \common\widgets\PrismAsset::register($this);
 <?php $this->beginBlock('my-es-code'); ?>
 <script>
     // 简单例子🌰  
-   
-    
 
+    /** ## 指数运算符 */
+    {
+        _alert(2 ** 2, 2 ** 3, 2 ** 3 ** 2); // // 相当于 2 ** (3 ** 2)
+
+        // 赋值运算符
+        let a = 1.5;
+        a **= 2;
+        // 等同于 a = a * a;
+
+        let b = 4;
+        b **= 3;
+        // 等同于 b = b * b * b;
+
+    }
+    /** ## 链判断运算符 § ⇧ */
+    {
+        const message = { /** from some api-call */ };
+        // 错误的写法
+        // const firstName = message.body.user.firstName || 'default';
+
+        // 正确的写法
+        const firstName = (message &&
+            message.body &&
+            message.body.user &&
+            message.body.user.firstName) || 'default';
+
+        // firstName属性在对象的第四层，所以需要判断四次，每一层是否有值。
+    } 
+    
+    // optional chaining operator）?.   ES2020引入
+    {
+    const message = { /** from some api-call */ };
+
+        const firstName = message?.body?.user?.firstName || 'default';
+
+        // const myForm = document.getElementById('myform');
+        // const fooValue = myForm.querySelector('input[name=foo]')?.value
+    }
 </script>
 <?php $this->endBlock(); ?>
 
@@ -98,13 +134,13 @@ $asset = \common\widgets\PrismAsset::register($this);
 <?php \year\widgets\JsBlock::end() ?>
 
 <?php \year\widgets\JsBlock::begin() ?>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-        // Tabs 初始化
-        var el = document.querySelectorAll('.tabs');
-        var options = {};
-        var instance = M.Tabs.init(el, options);
-    });
+// Tabs 初始化
+var el = document.querySelectorAll('.tabs');
+var options = {};
+var instance = M.Tabs.init(el, options);
+});
 </script>
 <?php \year\widgets\JsBlock::end() ?>
 

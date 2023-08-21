@@ -40,21 +40,27 @@ print_r([
   <!-- /** generate for table:  <?= $generator->tableName ?> | class: <?= $className ?> */ -->
 
   <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm" :size="formSize" status-icon>
+  <el-row gutter="0">
    <?php 
     $propsCode = [] ;
     $count = 0 ;
     foreach ($properties as $property => $data) : ?>
           <?php if($count<6):?>
+      <el-col :span="8">
         <el-form-item label="<?= $labels[$property] ?>" prop="<?= $property ?>">
         <?= $generator->generateSearchFormItemField($tableName, $property) ?>
         </el-form-item>
-
+      </el-col>
     <?php else: ?>
         <?php if($count == 6): ?>
+            </el-row>
+            <el-row gutter="0" v-show="isShow" >
         <?php endif;?>
-        <el-form-item label="<?= $labels[$property] ?>" prop="<?= $property ?>" v-show="isShow">
+        <el-col :span="8">
+        <el-form-item label="<?= $labels[$property] ?>" prop="<?= $property ?>">
         <?= $generator->generateSearchFormItemField($tableName, $property) ?>
         </el-form-item>
+      </el-col> 
     <?php endif;?>
 
     <?php
@@ -62,6 +68,8 @@ print_r([
         $propsCode[] = $genProp($data['name'],$data['type']);
         ?>
     <?php $count++; endforeach; ?>
+
+    </el-row>
 
     <el-form-item>
         <el-button

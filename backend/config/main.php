@@ -6,10 +6,11 @@ use backend\components\DbMan;
 use my\devtools\backend\controllers\QuickController;
 use year\gii\element_plus\generators\form\Generator;
 use yii\filters\Cors;
+use yii\web\Response;
 
 $params = array_merge(
-    require (__DIR__ . '/../../common/config/params.php'),
-    require (__DIR__ . '/params.php')
+    require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/params.php')
 );
 
 $config = [
@@ -54,12 +55,12 @@ $config = [
         [
             'class' => 'year\gii\form\Bootstrap', // gii的 form 代码生成
         ],
-//        [
-//            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
-//        ],
-//        [
-//            'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
-//        ],
+        //        [
+        //            'class'=>'year\gii\gogen\Bootstrap',   // go 代码相关
+        //        ],
+        //        [
+        //            'class'=>'year\gii\models\Bootstrap',   // gii的 model 代码生成
+        //        ],
     ],
     'components' => [
         'assetManager' => [
@@ -134,10 +135,10 @@ $config = [
     ],
 
     'modules' => [
-//        'audit' =>[
-////           'class' => 'bedezign\yii2\audit\Audit',
-//            'class' => bedezign\yii2\audit\Audit::class,
-//        ] ,
+        //        'audit' =>[
+        ////           'class' => 'bedezign\yii2\audit\Audit',
+        //            'class' => bedezign\yii2\audit\Audit::class,
+        //        ] ,
         'recipe' => [
             'class' => 'my\recipe\backend\Module',
         ],
@@ -200,7 +201,7 @@ $config = [
         'audit' => [
             'class' => 'bedezign\yii2\audit\Audit',
             // the layout that should be applied for views within this module
-//            'layout' => 'main',
+            //            'layout' => 'main',
             // Name of the component to use for database access
             'db' => 'db',
             // List of actions to track. '*' is allowed as the last character to use as wildcard
@@ -218,17 +219,17 @@ $config = [
             // Compress extra data generated or just keep in text? For people who don't like binary data in the DB
             'compressData' => true,
             // The callback to use to convert a user id into an identifier (username, email, ...). Can also be html.
-//            'userIdentifierCallback' => ['app\models\User', 'userIdentifierCallback'],
+            //            'userIdentifierCallback' => ['app\models\User', 'userIdentifierCallback'],
             // If the value is a simple string, it is the identifier of an internal to activate (with default settings)
             // If the entry is a '<key>' => '<string>|<array>' it is a new panel. It can optionally override a core panel or add a new one.
             'panels' => [
                 'audit/request',
                 'audit/error',
                 'audit/trail',
-//                'app/views' => [
-////                    'class' => 'app\panels\ViewsPanel',
-//                    // ...
-//                ],
+                //                'app/views' => [
+                ////                    'class' => 'app\panels\ViewsPanel',
+                //                    // ...
+                //                ],
             ],
             'panelsMerge' => [
                 // ... merge data (see below)
@@ -239,7 +240,20 @@ $config = [
 ];
 
 if (YII_ENV_DEV) {
-// if (YII_ENV) {
+    // if (YII_ENV) {
+    $confog['bootstrap'][] = [
+        //ContentNegotiator 类可以分析request的header然后指派所需的响应格式给客户端，不需要我们人工指定
+        'class'     => 'yii\filters\ContentNegotiator',
+        'formats' => [
+            'application/json' => Response::FORMAT_JSON,
+            'application/xml' => Response::FORMAT_XML,
+            // 'application/html' => Response::FORMAT_HTML,
+            //api 端目前只需要json 和 xml
+            //还可以增加 yii\web\Response 类内置的响应格式，或者自己增加响应格式
+        ],
+    ];
+
+    $config['bootstrap'][] = 'dev';
 
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
@@ -268,18 +282,15 @@ if (YII_ENV_DEV) {
             ],
             'service-crud' => [
                 'class' => 'year\gii\service\Generator',
-                'templates' => [
-                ],
+                'templates' => [],
             ],
             'element-plus' => [
                 'class' => Generator::class,
-                'templates' => [
-                ],
+                'templates' => [],
             ],
 
         ],
     ];
-
 }
 
 return $config;

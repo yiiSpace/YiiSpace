@@ -14,9 +14,30 @@ $asset = \common\widgets\PrismAsset::register($this);
 <?php $this->beginBlock('my-es-code'); ?>
 <script>
     // 简单例子🌰  
-   
-    
+    console.log(Symbol);
 
+    {
+        let s1 = Symbol('foo');
+        let s2 = Symbol('bar');
+
+        s1 // Symbol(foo)
+        s2 // Symbol(bar)
+
+        s1.toString() // "Symbol(foo)"
+        s2.toString() // "Symbol(bar)"
+
+    }
+    // 参数是对象形式
+    {
+        const obj = {
+            toString() {
+                return 'abc';
+            }
+        };
+        const sym = Symbol(obj);
+        sym // Symbol(abc)
+
+    }
 </script>
 <?php $this->endBlock(); ?>
 
@@ -98,13 +119,13 @@ $asset = \common\widgets\PrismAsset::register($this);
 <?php \year\widgets\JsBlock::end() ?>
 
 <?php \year\widgets\JsBlock::begin() ?>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-        // Tabs 初始化
-        var el = document.querySelectorAll('.tabs');
-        var options = {};
-        var instance = M.Tabs.init(el, options);
-    });
+// Tabs 初始化
+var el = document.querySelectorAll('.tabs');
+var options = {};
+var instance = M.Tabs.init(el, options);
+});
 </script>
 <?php \year\widgets\JsBlock::end() ?>
 
