@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: yiqing
@@ -18,35 +19,47 @@ class DbController extends Controller
 
     public function actionIndex()
     {
+
+        //declaring the sort object
+        $sort = new \yii\data\Sort([
+            'attributes' => ['id', 'name',],
+            'enableMultiSort' => true,
+        ]);
+        // ======
         $dbSchema = \Yii::$app->db->getSchema();
 
         $tables = $dbSchema->getTableSchemas();
-        $func = function(TableSchema $table)  {
-//            return $value * 2;
+        $func = function (TableSchema $table) {
+            //            return $value * 2;
             return [
-                'id'=>$table->fullName ,
-                'schemaName'=> $table->schemaName,
-                'name'=> $table->name,
-                'tableSchema'=> $table,
-            ] ;
+                'id' => $table->fullName,
+                'schemaName' => $table->schemaName,
+                'name' => $table->name,
+                'tableSchema' => $table,
+            ];
         };
         // array_map 可以执行zip ：很神奇：https://www.php.net/manual/en/function.array-map.php
-        $allModels = array_map($func,  $tables ) ;
+        $allModels = array_map($func,  $tables);
 
         $dataProvider = new ArrayDataProvider([
-            'allModels'=> $allModels,
-            'key'=>'id',
-//            'sort' => [
-//                'attributes' => ['city', 'year'],
-//            ],
+            'allModels' => $allModels,
+            'key' => 'id',
+            'sort' => $sort,
             'pagination' => [
                 'pageSize' => 10,
             ],
+            /*
+            'sort' => [
+                'attributes' => ['id', 'name'],
+                'enableMultiSort'=>true,
+            ],
+            */
         ]);
-        return $this->render('index',[
-//            'dbSchema'=>$dbSchema,
-            'dataProvider'=>$dataProvider,
-        ]) ;
+        return $this->render('index', [
+            //            'dbSchema'=>$dbSchema,
+            'dataProvider' => $dataProvider,
+            'sort' => $sort,
+        ]);
     }
 
     public function actionFacker()

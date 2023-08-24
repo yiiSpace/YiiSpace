@@ -8,6 +8,7 @@ use yii\base\Behavior;
 
 /**
  * @see https://cloud.tencent.com/developer/article/1496960?from=15425
+ * TODO: 改写适配vue的一些公共惯例格式
  */
 class ResBeforeSendBehavior extends Behavior{
 
@@ -26,6 +27,18 @@ class ResBeforeSendBehavior extends Behavior{
     // 注意 beforeSend 是行为的成员函数，而不是绑定的类的成员函数。
     // 还要注意，这个函数的签名，要满足事件 handler 的要求。
     public function beforeSend($event)
+    {
+        $response = $event->sender;
+        $response->data = [
+            'success' => $response->isSuccessful,
+            'code' => $response->getStatusCode(),
+            'message' => $response->statusText,
+            'data' => $response->data,
+        ];
+        $response->statusCode = 200;
+        return true;
+    }
+    public function beforeSend0($event)
     {
         try {
             $response = $event->sender;

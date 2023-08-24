@@ -20,6 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <p>
+    <?php
+   // display links leading to sort actions
+   echo $sort->link('id') . ' | ' . $sort->link('name') . ' | ' 
+   ?>
+     <br/>
+     //更多请阅读：https://www.yiibai.com/yii2/yii_sorting.html
+   </p>
 
     <?=
       //ListView::widget([
