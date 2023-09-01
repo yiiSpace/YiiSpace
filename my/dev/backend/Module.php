@@ -45,6 +45,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
         // 如果不走rest风格url 也可以： yiispace.com:7086/index.php?r=dev/user/view&id=1
         // action | view | create | update |delete | options
         // FIXME: 感觉没啥作用？ 
+       
         $app->getUrlManager()->addRules([
             // [
             //     'class' => $this->urlRuleClass,
@@ -53,11 +54,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
             //     'normalizer' => false,
             //     'suffix' => false
             // ],
-            [
-                'class' => UrlRule::class,
+            // [
+            //     'class' => UrlRule::class,
                 
-                'controller' => ['user']
-            ],
+            //     'controller' => ['user']
+            // ],
            
             
         ], false);

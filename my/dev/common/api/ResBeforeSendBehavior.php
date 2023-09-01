@@ -35,7 +35,8 @@ class ResBeforeSendBehavior extends Behavior{
             'message' => $response->statusText,
             'data' => $response->data,
         ];
-        $response->statusCode = 200;
+        // $response->statusCode = 200;
+        $response->statusCode = $response->getStatusCode(); // FIXME: 都改写成200 不好吧！
         return true;
     }
     public function beforeSend0($event)

@@ -215,6 +215,8 @@ class Generator extends \yii\gii\generators\model\Generator
             //'model.vue.php',
             'form.php',
             '_search.php',
+            'index.vue.php',
+            'view.vue.php',
 
         ];
     }
@@ -293,6 +295,36 @@ class Generator extends \yii\gii\generators\model\Generator
                     'rules'=>$this->generateSearchRules($tableSchema),
                     'className'=>$className,
                     'columnNames'=>$tableSchema->getColumnNames(), // string[]
+                ])
+            );
+            // 生成主界面
+            $files[] = new CodeFile(
+                $formPath . '_Index.vue',
+                $this->render('index.vue.php', [
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema),
+                    'tableName' => $tableName, //NOTE : 这个比较重要的属性哦 会在视图上用到
+                    // 'defaults' => $defaults,
+                    // 'rules'=>$this->generateRules($tableSchema),
+                    // 'rules'=>$this->generateSearchRules($tableSchema),
+                    'className'=>$className,
+                    'columnNames'=>$tableSchema->getColumnNames(), // string[]
+                    
+                ])
+            );
+            // 生成详情页 
+            $files[] = new CodeFile(
+                $formPath . '_View.vue',
+                $this->render('view.vue.php', [
+                    'properties' => $this->generateProperties($tableSchema),
+                    'labels' => $this->generateLabels($tableSchema),
+                    'tableName' => $tableName, //NOTE : 这个比较重要的属性哦 会在视图上用到
+                    // 'defaults' => $defaults,
+                    // 'rules'=>$this->generateRules($tableSchema),
+                    // 'rules'=>$this->generateSearchRules($tableSchema),
+                    'className'=>$className,
+                    'columnNames'=>$tableSchema->getColumnNames(), // string[]
+                    'tableSchema'=>$tableSchema,
                 ])
             );
 
@@ -613,6 +645,35 @@ class Generator extends \yii\gii\generators\model\Generator
         return $rules;
     }
 
+     /**
+     * Generates column format
+     * @param \yii\db\ColumnSchema $column
+     * @return string
+     */
+    public function generateColumnFormat($column)
+    {
+        if ($column->phpType === 'boolean') {
+            return 'boolean';
+        }
+
+        if ($column->type === 'text') {
+            return 'ntext';
+        }
+
+        if (stripos($column->name, 'time') !== false && $column->phpType === 'integer') {
+            return 'datetime';
+        }
+
+        if (stripos($column->name, 'email') !== false) {
+            return 'email';
+        }
+
+        if (preg_match('/(\b|[_-])url(\b|[_-])/i', $column->name)) {
+            return 'url';
+        }
+
+        return 'text';
+    }
 
     protected $classNames2;
 

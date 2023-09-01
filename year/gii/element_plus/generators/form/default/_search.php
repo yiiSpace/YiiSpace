@@ -143,3 +143,79 @@ console.log('[crud-form]:', ctx)
     formEl.resetFields()
   }
 </script>
+<style >
+.demo-ruleForm .el-input {
+  --el-input-width: 220px;
+}
+.demo-ruleForm_ok {
+    /* display:flex;    */
+    /* or  display：inline—flex;
+(区别跟block和inline-block区别一样)，让一个元素变为flex容器*/
+
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 33.33%); */
+
+
+    grid-template-columns: 1fr 1fr minmax(100px, 1fr);
+    grid-gap: 10px;
+    /*这里下面介绍*/
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    /* // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+
+    justify-items: end;
+    /* align-items: start; */
+}
+/**
+TODO: 要处理 label过长的问题 会撑爆布局
+word-break:break-all
+试试 或者超出部分用...?
+*/
+
+/* 
+
+始终在右下角位置
+grid 和 flex都可以做到！
+
+@see https://blog.csdn.net/ZHENGCHUNJUN/article/details/116756998
+
+父盒子加了display: flex，就相当于起到浮动的效果，盒子会自行排列成一排；
+若想让父盒子里的某一个盒子靠右显示，其他盒子居左， 只需要在父盒子里面，
+加入display: flex，在想要移动的盒子里面，加入margin-left: auto即可；
+同理，如果你想让第一个盒子向左显示，其余盒子都向右显示，只需要给左边的第一个盒子设置 margin-right:auto即可；
+*/
+.btns {
+    /* grid-column-start: 3;
+    grid-column-end: 4; */
+
+    /* grid-column: 2/4; */
+    grid-column: 2/span 2;
+
+    justify-self: end;
+    /* 
+    justify-self: start | end | center | stretch;
+    align-self: start | end | center | stretch;
+    
+    */
+
+    /** ---- for grid-layout end------ */
+
+    /** ---- for flex begin------ */
+    /* align-self: flex-end; */
+    /* margin-right: auto; */
+    margin-left: auto;
+    /* text-align:right; */
+    /* margin-right: 10px; */
+}
+.demo-ruleForm2 {
+    display: flex;
+    /* or  display：inline—flex;
+(区别跟block和inline-block区别一样)，让一个元素变为flex容器*/
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    /* justify-content: stretch; */
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    /* align-items: end; */
+}
+</style>
