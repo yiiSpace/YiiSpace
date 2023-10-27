@@ -8,6 +8,7 @@ use yii\base\Event ;
 
 /**
  * @see https://blog.csdn.net/bl724/article/details/115877037?spm=1001.2014.3001.5502
+ * @see https://github.com/yiisoft/demo/blob/master/blog-api/src/Dto/ApiResponseData.php
  * 
  * response'=>[
  *      'class'=> '....\ApiResponse',

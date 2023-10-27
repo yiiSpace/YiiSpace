@@ -37,7 +37,7 @@ vendor/                  contains dependent 3rd-party packages
 ## 需要仔细研究的项目
 * yii2-gii
 * yii2-debug
-
+* [yii2-usuario](https://github.com/2amigos/yii2-usuario)
 
 
 ## 神器
@@ -60,6 +60,9 @@ vendor/                  contains dependent 3rd-party packages
 - [css 灵感](https://chokcoco.github.io/CSS-Inspiration/#/)
 
 - [Convert PHP types to TypeScript ](https://github.com/spatie/typescript-transformer/tree/main)
+
+- [http://www.hackingwithphp.com/](http://www.hackingwithphp.com/)
+
 ## 一些注意点
 - The CSS files are installed via Yii's recommended usage of the fxp/composer-asset-plugin v1.1.1 or later.
     通过yii安装css文件
@@ -134,3 +137,8 @@ https://www.yiiframework.com/doc/guide/2.0/en/structure-assets
 
 先去这里[asset-packagist](https://asset-packagist.org/)搜索 
 按照php库的方式引入到composer.json  注意js库一般是npm|bower -asset 开头
+
+
+##  db
+
+- [MySQL大表优化方案](https://segmentfault.com/a/1190000006158186)
